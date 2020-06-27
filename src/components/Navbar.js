@@ -1,98 +1,70 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React, { useState } from "react";
+import { Link } from "gatsby";
+import logo from "../img/logo.svg";
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    }
-  }
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
-    )
-  }
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
 
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
+  return (
+    <nav
+      className="container mx-auto flex items-center justify-between flex-wrap mt-4 px-2 absolute z-10 left-1/2 transform -translate-x-1/2"
+      role="navigation"
+      aria-label="main-navigation"
+    >
+      <Link
+        to="/"
+        title="Logo"
+        className="flex items-center flex-shrink-0 mr-6"
       >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+        <img src={logo} alt="Tim Veletta Logo" style={{ width: "88px" }} />
+      </Link>
+      <div className="flex md:hidden items-center">
+        <button
+          className="flex items-center px-3 py-2 border rounded text-primary border-secondary hover:bg-secondary"
+          onClick={toggleMenu}
+        >
+          <svg
+            className="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
-          </div>
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+      <div
+        className={`${
+          !isOpen ? "hidden" : ""
+        } w-full flex justify-end md:block md:w-auto`}
+      >
+        <div className="border-2 rounded mt-2 p-4 text-lg font-light w-64 block md:flex md:w-auto md:border-none">
+          <a
+            href="#responsive-header"
+            className="block lg:inline-block md:mt-0 mr-6"
+          >
+            About Me
+          </a>
+          <a
+            href="#responsive-header"
+            className="block lg:inline-block md:mt-0 mr-6"
+          >
+            Blog
+          </a>
+          <a
+            href="#responsive-header"
+            className="block lg:inline-block md:mt-0"
+          >
+            Projects
+          </a>
         </div>
-      </nav>
-    )
-  }
-}
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

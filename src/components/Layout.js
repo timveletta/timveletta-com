@@ -10,7 +10,12 @@ import { withPrefix } from "gatsby";
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <div
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(212,212,212,0.6) 0%, rgba(255,255,255,1) 100%)",
+      }}
+    >
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -49,8 +54,9 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
       </Helmet>
+      <hr className="h-4 bg-primary" />
       <Navbar />
-      <div>{children}</div>
+      <div className="mt-20 sm:mt-0 p-4 sm:p-0">{children}</div>
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import HeaderImage from "../img/header.svg";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
@@ -16,7 +17,22 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <>
-    <div className="container mx-auto h-screen">Some Content</div>
+    <div className="container mx-auto h-screen grid md:grid-cols-2 sm:grid-cols-1 content-center items-center gap-8 sm:mt-0">
+      <div>
+        <h1 className="font-sans text-6xl font-bold tracking-wide">{title}</h1>
+        <hr className="h-4 w-20 mt-3 mb-3 bg-primary" />
+        <h2 className="font-sans text-4xl font-thin tracking-wide leading-relaxed">
+          {subheading}
+        </h2>
+      </div>
+      <div style={{ justifySelf: "end" }}>
+        <img
+          className="max-h-1/2 lg:max-w-full sm:max-w-sm"
+          src={HeaderImage}
+          alt="Developer"
+        />
+      </div>
+    </div>
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
