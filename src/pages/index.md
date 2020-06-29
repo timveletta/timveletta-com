@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
 title: Tim Veletta
-image: /img/undraw_web_developer_p3e5.svg
+image: /img/chemex.jpg
 heading: Great coffee with a conscience
-subheading: Cloud Native Developer  based in Perth, Australia
+subheading: Cloud Native Developer based in Perth, Australia
 mainpitch:
   title: Why Kaldi
   description: >
