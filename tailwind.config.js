@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         primary: "#01bfa6",
         secondary: "#0f3d56",
+        grey: "#F4F4F4",
       },
       inset: {
         "1/2": "50%",
