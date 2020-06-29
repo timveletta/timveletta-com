@@ -28,7 +28,7 @@ export const BlogRoll = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
-    <div className="grid gap-4 grid-cols-1 md:grid-cols-3 justify-center">
+    <div className="grid gap-8 grid-cols-1 md:grid-cols-3 justify-center">
       {posts &&
         posts.map(({ node: post }) => (
           <BlogPostExcerpt

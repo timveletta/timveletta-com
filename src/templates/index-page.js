@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
+import { HTMLContent } from "../components/Content";
 import BlogRoll from "../components/BlogRoll";
 
 export const IndexPageTemplate = ({ title, image, subheading, aboutMe }) => (
@@ -16,11 +16,11 @@ export const IndexPageTemplate = ({ title, image, subheading, aboutMe }) => (
           {subheading}
         </h2>
       </div>
-      <div className="w-full flex">
+      <div className="w-full flex justify-center md:justify-end">
         <img className="max-h-1/2" src={image.publicURL} alt="Developer" />
       </div>
     </div>
-    <div className="container mx-auto">
+    <section className="container mx-auto my-20">
       <h1 className="font-sans text-3xl font-bold tracking-wide text-center">
         Recent Articles
       </h1>
@@ -34,8 +34,17 @@ export const IndexPageTemplate = ({ title, image, subheading, aboutMe }) => (
           See All Posts
         </a>
       </div>
-    </div>
-    {aboutMe}
+    </section>
+    <section className="container mx-auto my-20">
+      <a name="aboutme" />
+      <h1 className="font-sans text-3xl font-bold tracking-wide text-center">
+        About Me
+      </h1>
+      <hr className="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
+      <div className="grid grid-col-1 md:grid-col-2 grid-gap-8">
+        <HTMLContent content={aboutMe} />
+      </div>
+    </section>
   </>
 );
 
@@ -85,6 +94,7 @@ export const pageQuery = graphql`
           }
         }
         subheading
+        aboutMe
       }
     }
   }

@@ -44,23 +44,23 @@ const Navbar = () => {
       >
         <div className="border border-gray-500 rounded mt-2 p-4 text-lg font-light w-64 bg-white block md:flex md:w-auto md:border-none md:bg-transparent">
           <a
-            href="#responsive-header"
+            href="#aboutme"
             className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
           >
             About Me
           </a>
           <a
-            href="#responsive-header"
+            href="/blog"
             className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
           >
             Blog
           </a>
-          <a
+          {/* <a
             href="#responsive-header"
             className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
           >
             Projects
-          </a>
+          </a> */}
         </div>
       </div>
     </nav>
