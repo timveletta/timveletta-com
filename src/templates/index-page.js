@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
-import HeaderImage from "../img/header.svg";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
@@ -15,73 +14,78 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-}) => (
-  <>
-    <div className="container mx-auto h-screen grid md:grid-cols-2 sm:grid-cols-1 content-center items-center gap-8 sm:mt-0">
-      <div>
-        <h1 className="font-sans text-6xl font-bold tracking-wide">{title}</h1>
-        <hr className="h-4 w-20 mt-3 mb-3 bg-primary" />
-        <h2 className="font-sans text-4xl font-thin tracking-wide leading-relaxed">
-          {subheading}
-        </h2>
+}) => {
+  debugger;
+  return (
+    <>
+      <div className="container mx-auto h-screen grid md:grid-cols-2 sm:grid-cols-1 content-center items-center gap-8 sm:mt-0">
+        <div>
+          <h1 className="font-sans text-6xl font-bold tracking-wide">
+            {title}
+          </h1>
+          <hr className="h-4 w-20 mt-3 mb-3 bg-primary" />
+          <h2 className="font-sans text-4xl font-thin tracking-wide leading-relaxed">
+            {subheading}
+          </h2>
+        </div>
+        <div style={{ justifySelf: "end" }}>
+          <img
+            className="max-h-1/2 lg:max-w-full sm:max-w-sm"
+            src={image.publicURL}
+            alt="Developer"
+          />
+        </div>
       </div>
-      <div style={{ justifySelf: "end" }}>
-        <img
-          className="max-h-1/2 lg:max-w-full sm:max-w-sm"
-          src={HeaderImage}
-          alt="Developer"
-        />
-      </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
+      <section className="section section--gradient">
+        <div className="container">
+          <div className="section">
+            <div className="columns">
+              <div className="column is-10 is-offset-1">
                 <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
+                  <div className="content">
+                    <div className="tile">
+                      <h1 className="title">{mainpitch.title}</h1>
+                    </div>
+                    <div className="tile">
+                      <h3 className="subtitle">{mainpitch.description}</h3>
+                    </div>
                   </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                  <div className="columns">
+                    <div className="column is-12">
+                      <h3 className="has-text-weight-semibold is-size-2">
+                        {heading}
+                      </h3>
+                      <p>{description}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="columns">
+                  <Features gridItems={intro.blurbs} />
+                  <div className="columns">
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/products">
+                        See all products
+                      </Link>
+                    </div>
+                  </div>
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
+                      Latest stories
                     </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
+                    <BlogRoll />
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/blog">
+                        Read more
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </>
-);
+      </section>
+    </>
+  );
+};
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -129,6 +133,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         image {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid

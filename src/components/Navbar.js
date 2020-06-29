@@ -42,22 +42,22 @@ const Navbar = () => {
           !isOpen ? "hidden" : ""
         } w-full flex justify-end md:block md:w-auto`}
       >
-        <div className="border-2 rounded mt-2 p-4 text-lg font-light w-64 block md:flex md:w-auto md:border-none">
+        <div className="border border-gray-500 rounded mt-2 p-4 text-lg font-light w-64 bg-white block md:flex md:w-auto md:border-none md:bg-transparent">
           <a
             href="#responsive-header"
-            className="block lg:inline-block md:mt-0 mr-6"
+            className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
           >
             About Me
           </a>
           <a
             href="#responsive-header"
-            className="block lg:inline-block md:mt-0 mr-6"
+            className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
           >
             Blog
           </a>
           <a
             href="#responsive-header"
-            className="block lg:inline-block md:mt-0"
+            className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
           >
             Projects
           </a>
