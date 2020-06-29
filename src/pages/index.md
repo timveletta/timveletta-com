@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Tim Veletta
-image: /img/home-jumbotron.jpg
+image: /img/undraw_web_developer_p3e5.svg
 heading: Great coffee with a conscience
 subheading: Cloud Native Developer  based in Perth, Australia
 mainpitch:
