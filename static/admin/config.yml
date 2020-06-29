@@ -54,7 +54,7 @@ collections:
               widget: object,
               fields:
                 [
-                  { label: Image, name: image, widget: image },
+                  { label: About Me Image, name: aboutMeImage, widget: image },
                   { label: Body, name: body, widget: markdown },
                 ],
             }
