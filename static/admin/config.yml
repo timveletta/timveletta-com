@@ -48,13 +48,5 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
           - { label: Subheading, name: subheading, widget: string }
-          - {
-              label: About Me,
-              name: aboutMe,
-              widget: object,
-              fields:
-                [
-                  { label: About Me Image, name: aboutMeImage, widget: image },
-                  { label: Body, name: body, widget: markdown },
-                ],
-            }
+          - { labe: About Me Image, name: aboutMeImage, widget: image }
+          - { label: About Me, name: body, widget: markdown }
