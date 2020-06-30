@@ -80,6 +80,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget tincidunt r
 
 > A block quote
 
-Pellentesque lacus lorem, ullamcorper at velit at, condimentum pretium leo. Vestibulum at rhoncus quam. Vestibulum ullamcorper in neque vel venenatis. Vivamus ac nulla commodo, mollis purus nec, semper augue. Sed non blandit justo, a bibendum orci. Quisque nulla nisl, sollicitudin non tincidunt in, porttitor nec sapien. Donec ut libero ut mauris commodo varius at nec sem. Praesent quis ante et dolor commodo accumsan vitae a justo. Nunc in iaculis quam. Quisque posuere dictum ex sit amet egestas.
-
 ![Certification](/img/meeting-space.png "Certification")
