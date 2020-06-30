@@ -1,8 +1,5 @@
 ---
 heading: Great coffee with a conscience
-templateKey: index-page
-title: Tim Veletta
-image: /img/undraw_web_developer_p3e5.svg
 subheading: Cloud Native Developer based in Perth, Australia
 aboutMe: |-
   Something in the about me section.
@@ -12,6 +9,7 @@ aboutMe: |-
 
 
   > **Maybe a testimonial**
+templateKey: index-page
 mainpitch:
   title: Why Kaldi
   description: >
@@ -54,6 +52,9 @@ intro:
     java’s origin and support the farmers that grew it. We take coffee
     production, roasting and brewing seriously and we’re glad to pass that
     knowledge to anyone. This is an edit via identity...
+title: Tim Veletta
+image: /img/undraw_web_developer_p3e5.svg
+aboutMeImage: /img/products-grid3.jpg
 main:
   heading: Great coffee with no compromises
   description: >
@@ -75,3 +76,10 @@ description: Kaldi is the ultimate spot for coffee lovers who want to learn
   production, roasting and brewing seriously and we’re glad to pass that
   knowledge to anyone.
 ---
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget tincidunt risus, non iaculis neque. Nam venenatis ipsum in mauris ultricies, vel interdum tortor eleifend. Mauris pellentesque massa mattis purus gravida, ornare faucibus massa viverra. Vestibulum eleifend lectus congue mattis ultricies. Ut dolor elit, vulputate placerat malesuada sit amet, egestas ac velit. Integer commodo rutrum dui nec tristique. Morbi volutpat viverra **leo nec venenatis**.
+
+> A block quote
+
+Pellentesque lacus lorem, ullamcorper at velit at, condimentum pretium leo. Vestibulum at rhoncus quam. Vestibulum ullamcorper in neque vel venenatis. Vivamus ac nulla commodo, mollis purus nec, semper augue. Sed non blandit justo, a bibendum orci. Quisque nulla nisl, sollicitudin non tincidunt in, porttitor nec sapien. Donec ut libero ut mauris commodo varius at nec sem. Praesent quis ante et dolor commodo accumsan vitae a justo. Nunc in iaculis quam. Quisque posuere dictum ex sit amet egestas.
+
+![Certification](/img/meeting-space.png "Certification")
