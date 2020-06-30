@@ -3,3 +3,7 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.markdown-content img {
+  margin: 1rem auto;
+}

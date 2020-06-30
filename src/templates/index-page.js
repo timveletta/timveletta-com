@@ -5,8 +5,15 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
 import BlogRoll from "../components/BlogRoll";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
-export const IndexPageTemplate = ({ title, image, subheading, aboutMe }) => (
+export const IndexPageTemplate = ({
+  title,
+  image,
+  subheading,
+  aboutMeImage,
+  aboutMe,
+}) => (
   <>
     <div className="container mx-auto h-screen grid md:grid-cols-2 sm:grid-cols-1 content-center items-center gap-8 sm:mt-0">
       <div>
@@ -41,8 +48,9 @@ export const IndexPageTemplate = ({ title, image, subheading, aboutMe }) => (
         About Me
       </h1>
       <hr className="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
-      <div className="grid grid-col-1 md:grid-col-2 grid-gap-8">
-        <HTMLContent content={aboutMe} />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 align-center">
+        <HTMLContent content={aboutMe} className="leading-loose" />
+        <PreviewCompatibleImage imageInfo={aboutMeImage} className="rounded" />
       </div>
     </section>
   </>
@@ -53,6 +61,8 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   subheading: PropTypes.string,
   description: PropTypes.string,
+  aboutMe: PropTypes.string,
+  aboutMeImage: PropTypes.object,
 };
 
 const IndexPage = ({ data }) => {
@@ -64,7 +74,8 @@ const IndexPage = ({ data }) => {
         image={frontmatter.image}
         title={frontmatter.title}
         subheading={frontmatter.subheading}
-        aboutMe={frontmatter.aboutMe}
+        aboutMe={data.markdownRemark.html}
+        aboutMeImage={frontmatter.aboutMeImage}
       />
     </Layout>
   );
@@ -83,6 +94,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      html
       frontmatter {
         title
         image {
@@ -93,8 +105,14 @@ export const pageQuery = graphql`
             }
           }
         }
+        aboutMeImage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         subheading
-        aboutMe
       }
     }
   }

@@ -2,21 +2,31 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 
-const PreviewCompatibleImage = ({ imageInfo }) => {
+const PreviewCompatibleImage = ({ imageInfo, className = "" }) => {
   const { alt = "", childImageSharp, image } = imageInfo;
 
   if (!!image && !!image.childImageSharp) {
     return (
-      <Img className="w-full" fluid={image.childImageSharp.fluid} alt={alt} />
+      <Img
+        className={`w-full ${className}`}
+        fluid={image.childImageSharp.fluid}
+        alt={alt}
+      />
     );
   }
 
   if (!!childImageSharp) {
-    return <Img className="w-full" fluid={childImageSharp.fluid} alt={alt} />;
+    return (
+      <Img
+        className={`w-full ${className}`}
+        fluid={childImageSharp.fluid}
+        alt={alt}
+      />
+    );
   }
 
   if (!!image && typeof image === "string")
-    return <img className="w-full" src={image} alt={alt} />;
+    return <img className={`w-full ${className}`} src={image} alt={alt} />;
 
   return null;
 };
