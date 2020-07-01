@@ -7,3 +7,20 @@
 .markdown-content img {
   margin: 1rem auto;
 }
+
+.markdown-content p {
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: #374151;
+}
+
+.markdown-content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  letter-spacing: -0.025em;
+  color: #161e2e;
+}

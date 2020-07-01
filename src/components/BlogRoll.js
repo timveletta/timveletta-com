@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql, StaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 
 const BlogPostExcerpt = ({ image, title, date, description, slug }) => (
@@ -12,13 +11,19 @@ const BlogPostExcerpt = ({ image, title, date, description, slug }) => (
       }}
     />
     <div className="px-6 py-4">
-      <a href={slug} className="font-bold text-xl hover:text-primary">
+      <a
+        href={slug}
+        className="font-bold text-gray-900 text-xl hover:text-primary"
+      >
         {title}
       </a>
       <p className="text-gray-500 font-bold text-sm my-2">{date}</p>
       <p className="text-gray-700 text-base">{description}</p>
     </div>
-    <a href={slug} className="font-bold text-sm mt-2 px-6 py-4 text-primary">
+    <a
+      href={slug}
+      className="font-bold text-sm mt-2 px-6 py-4 text-primary self-end"
+    >
       Read More
     </a>
   </article>
@@ -51,41 +56,3 @@ BlogRoll.propTypes = {
     }),
   }),
 };
-
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query BlogRollQuery {
-        allMarkdownRemark(
-          limit: 3
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 200)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                description
-                date(formatString: "MMMM DD, YYYY")
-                featuredimage {
-                  childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
-  />
-);

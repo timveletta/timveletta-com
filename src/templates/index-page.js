@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
-import BlogRoll from "../components/BlogRoll";
+import BlogRollBrief from "../components/BlogRollBrief";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 export const IndexPageTemplate = ({
@@ -17,9 +17,11 @@ export const IndexPageTemplate = ({
   <>
     <div className="container mx-auto h-screen grid md:grid-cols-2 sm:grid-cols-1 content-center items-center gap-8 sm:mt-0">
       <div>
-        <h1 className="font-sans text-6xl font-bold tracking-wide">{title}</h1>
+        <h1 className="font-sans text-6xl font-bold tracking-wide text-gray-900 ">
+          {title}
+        </h1>
         <hr className="h-4 w-20 mt-3 mb-3 bg-primary" />
-        <h2 className="font-sans text-4xl font-thin tracking-wide leading-relaxed">
+        <h2 className="font-sans text-4xl font-thin tracking-wide leading-relaxed text-gray-900 ">
           {subheading}
         </h2>
       </div>
@@ -28,11 +30,11 @@ export const IndexPageTemplate = ({
       </div>
     </div>
     <section className="container mx-auto my-20">
-      <h1 className="font-sans text-3xl font-bold tracking-wide text-center">
+      <h1 className="font-sans text-gray-900 text-3xl font-bold tracking-wide text-center">
         Recent Articles
       </h1>
       <hr className="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
-      <BlogRoll />
+      <BlogRollBrief />
       <div className="my-12 flex justify-center">
         <a
           href="/blog"
@@ -44,12 +46,15 @@ export const IndexPageTemplate = ({
     </section>
     <section className="container mx-auto my-20">
       <a name="aboutme" />
-      <h1 className="font-sans text-3xl font-bold tracking-wide text-center">
+      <h1 className="font-sans text-3xl font-bold tracking-wide text-center text-gray-900">
         About Me
       </h1>
       <hr className="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 align-center">
-        <HTMLContent content={aboutMe} className="leading-loose" />
+        <HTMLContent
+          content={aboutMe}
+          className="leading-loose text-gray-900"
+        />
         <PreviewCompatibleImage imageInfo={aboutMeImage} className="rounded" />
       </div>
     </section>

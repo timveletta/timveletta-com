@@ -9,7 +9,17 @@ import vimeo from "../img/social/vimeo.svg";
 
 const Footer = class extends React.Component {
   render() {
-    return <footer className="footer bg-gray-900 text-white"></footer>;
+    return (
+      <footer className="bg-gray-800">
+        <div className="container mx-auto py-10 grid grid-cols-3">
+          <div>
+            <h1 className="text-white text-sans font-bold tracking-wide text-3xl">
+              Got a question? Just want to say hi?
+            </h1>
+          </div>
+        </div>
+      </footer>
+    );
   }
 };
 
