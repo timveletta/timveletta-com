@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby + Netlify CMS Starter",
+    title: "Tim Veletta",
     description:
-      "This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.",
+      "The personal portfolio site for Tim Veletta, cloud native developer.",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -66,13 +66,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    {
-      resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
-      options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ["/all.sass"], // applies purging only on the bulma css file
-      },
-    }, // must be after other CSS plugins
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 };

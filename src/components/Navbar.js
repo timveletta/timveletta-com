@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
+
 import logo from "../img/logo.svg";
+import twitter from "../img/social/twitter.svg";
+import github from "../img/github-icon.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="container mx-auto flex items-center justify-between flex-wrap mt-4 px-2 absolute z-10 left-1/2 transform -translate-x-1/2"
+      className="container mx-auto flex items-center justify-between flex-wrap mt-4 absolute z-10 left-1/2 transform -translate-x-1/2"
       role="navigation"
       aria-label="main-navigation"
     >
@@ -42,9 +45,9 @@ const Navbar = () => {
           !isOpen ? "hidden" : ""
         } w-full flex justify-end md:block md:w-auto`}
       >
-        <div className="border border-gray-500 rounded mt-2 p-4 text-lg font-light w-64 bg-white block md:flex md:w-auto md:border-none md:bg-transparent">
+        <div className="border border-gray-500 rounded mt-2 p-4 md:p-0 text-lg font-light w-64 bg-white block md:flex md:w-auto md:border-none md:bg-transparent">
           <a
-            href="#aboutme"
+            href="/#aboutme"
             className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
           >
             About Me
@@ -61,6 +64,27 @@ const Navbar = () => {
           >
             Projects
           </a> */}
+          <div className="flex mt-4 md:mt-0 p-2 md:p-0 md:py-2">
+            <a
+              href="https://twitter.com/timveletta"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={twitter}
+                alt="Twitter"
+                style={{ width: "24px" }}
+                className="mr-4"
+              />
+            </a>
+            <a
+              href="https://github.com/timveletta"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={github} alt="Github" style={{ width: "24px" }} />
+            </a>
+          </div>
         </div>
       </div>
     </nav>

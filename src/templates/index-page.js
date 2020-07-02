@@ -29,7 +29,7 @@ export const IndexPageTemplate = ({
         <img className="max-h-1/2" src={image.publicURL} alt="Developer" />
       </div>
     </div>
-    <section className="container mx-auto my-20">
+    <section className="container mx-auto my-20 py-10">
       <h1 className="font-sans text-gray-900 text-3xl font-bold tracking-wide text-center">
         Recent Articles
       </h1>
@@ -44,11 +44,16 @@ export const IndexPageTemplate = ({
         </a>
       </div>
     </section>
-    <section className="container mx-auto my-20">
-      <a name="aboutme" />
-      <h1 className="font-sans text-3xl font-bold tracking-wide text-center text-gray-900">
-        About Me
-      </h1>
+    <section className="container mx-auto my-20 pt-10 pb-20">
+      <div className="block text-center">
+        <a
+          id="aboutme"
+          name="aboutme"
+          className="font-sans text-3xl font-bold tracking-wide text-gray-900"
+        >
+          About Me
+        </a>
+      </div>
       <hr className="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 align-center">
         <HTMLContent

@@ -21,6 +21,9 @@ module.exports = {
       inset: {
         "1/2": "50%",
       },
+      gridTemplateColumns: {
+        contact: "1fr 2fr",
+      },
     },
   },
   variants: {},

@@ -41,22 +41,20 @@ export const BlogPostTemplate = ({
           className="text-gray-900 text-base leading-7"
         />
         {tags && tags.length ? (
-          <div style={{ marginTop: `4rem` }}>
-            <h4>Tags</h4>
-            <ul className="taglist">
-              {tags.map((tag) => (
-                <li key={tag + `tag`}>
-                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </li>
-              ))}
-            </ul>
+          <div className="my-10">
+            <span className="text-gray-500 text-base mr-4">Tags</span>
+            {tags.map((tag) => (
+              <span className="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+              </span>
+            ))}
           </div>
         ) : null}
         <a
           href="/blog"
           className="font-bold text-sm mt-4 py-4 text-primary self-end"
         >
-          Back to the blog
+          ⭠ Back to the blog
         </a>
       </div>
     </article>

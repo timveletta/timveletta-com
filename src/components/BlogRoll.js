@@ -24,7 +24,7 @@ const BlogPostExcerpt = ({ image, title, date, description, slug }) => (
       href={slug}
       className="font-bold text-sm mt-2 px-6 py-4 text-primary self-end"
     >
-      Read More
+      Read More ⭢
     </a>
   </article>
 );

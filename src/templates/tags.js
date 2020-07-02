@@ -1,50 +1,34 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Link, graphql } from "gatsby";
+import Layout from "../components/Layout";
+import { BlogRoll } from "../components/BlogRoll";
 
-class TagRoute extends React.Component {
-  render() {
-    const posts = this.props.data.allMarkdownRemark.edges
-    const postLinks = posts.map((post) => (
-      <li key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>
-          <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
-        </Link>
-      </li>
-    ))
-    const tag = this.props.pageContext.tag
-    const title = this.props.data.site.siteMetadata.title
-    const totalCount = this.props.data.allMarkdownRemark.totalCount
-    const tagHeader = `${totalCount} post${
-      totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”`
+const TagRoute = ({ data, pageContext }) => {
+  const tag = pageContext.tag;
+  const title = data.site.siteMetadata.title;
 
-    return (
-      <Layout>
-        <section className="section">
-          <Helmet title={`${tag} | ${title}`} />
-          <div className="container content">
-            <div className="columns">
-              <div
-                className="column is-10 is-offset-1"
-                style={{ marginBottom: '6rem' }}
-              >
-                <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
-                <ul className="taglist">{postLinks}</ul>
-                <p>
-                  <Link to="/tags/">Browse all tags</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Layout>
-    )
-  }
-}
+  return (
+    <Layout>
+      <Helmet title={`${tag} | ${title}`} />
+      <div className="container mx-auto py-20 mt-20">
+        <a
+          href="/blog"
+          className="font-bold text-sm my-4 py-4 text-primary self-end"
+        >
+          ⭠ Back to the blog
+        </a>
+        <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 mt-4">
+          Posts tagged with "{tag}"
+        </h1>
+        <hr className="h-4 w-20 mt-6 mb-6 bg-primary" />
+        <BlogRoll data={data} />
+      </div>
+    </Layout>
+  );
+};
 
-export default TagRoute
+export default TagRoute;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
@@ -61,14 +45,25 @@ export const tagPageQuery = graphql`
       totalCount
       edges {
         node {
+          id
           fields {
             slug
           }
           frontmatter {
             title
+            templateKey
+            description
+            date(formatString: "MMMM DD, YYYY")
+            featuredimage {
+              childImageSharp {
+                fluid(maxWidth: 420, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
     }
   }
-`
+`;

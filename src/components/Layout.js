@@ -19,7 +19,12 @@ const TemplateWrapper = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-
+        <script
+          async
+          defer
+          data-domain="timveletta.com"
+          src="https://plausible.io/js/plausible.js"
+        ></script>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
