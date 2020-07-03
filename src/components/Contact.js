@@ -1,6 +1,12 @@
 import React, { useMemo } from "react";
 import { useForm } from "react-hook-form";
 
+const encodeForm = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 const Contact = () => {
   const { register, handleSubmit, errors, formState } = useForm();
 
@@ -15,10 +21,7 @@ const Contact = () => {
     await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: JSON.stringify({
-        "form-name": "contact",
-        ...data,
-      }),
+      body: encodeForm({ "form-name": "contact", ...data }),
     });
   };
 
@@ -31,7 +34,7 @@ const Contact = () => {
         </p>
       ) : (
         <form
-          className="grid grid-cols-1 md:grid-cols-2 grid-rows-4 gap-4 justify-start"
+          className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-4 gap-4 justify-start"
           onSubmit={handleSubmit(submitFunc)}
         >
           <input
@@ -67,7 +70,10 @@ const Contact = () => {
             name="message"
             className="row-span-3 md:col-start-2 md:row-start-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Your Message"
-            onInput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+            onInput={(e) => {
+              e.target.style.height = "";
+              e.target.style.height = e.target.scrollHeight + "px";
+            }}
           />
           <div className="flex items-baseline">
             <button className="bg-primary text-white font-bold px-4 py-2 mr-4 rounded hover:bg-opacity-75">

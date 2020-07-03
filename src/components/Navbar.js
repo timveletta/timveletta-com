@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 
 import logo from "../img/logo.svg";
 import twitter from "../img/social/twitter.svg";
+import linkedin from "../img/social/linkedin-in.svg";
 import github from "../img/github-icon.svg";
 
 const Navbar = () => {
@@ -48,19 +49,19 @@ const Navbar = () => {
         <div className="border border-gray-500 rounded mt-2 p-4 md:p-0 text-lg font-light w-64 bg-white block md:flex md:w-auto md:border-none md:bg-transparent">
           <a
             href="/#aboutme"
-            className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
+            className="block lg:inline-block md:mt-0 mr-6 p-2 border-b-2 hover:border-primary w-full md:w-auto"
           >
             About Me
           </a>
           <a
             href="/blog"
-            className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
+            className="block lg:inline-block md:mt-0 mr-6 p-2 border-b-2 hover:border-primary w-full md:w-auto"
           >
             Blog
           </a>
           {/* <a
             href="#responsive-header"
-            className="block lg:inline-block md:mt-0 mr-6 p-2 hover:bg-primary hover:bg-opacity-50 w-full md:w-auto"
+            className="block lg:inline-block md:mt-0 mr-6 p-2 border-b-2 hover:border-primary w-full md:w-auto"
           >
             Projects
           </a> */}
@@ -81,8 +82,16 @@ const Navbar = () => {
               href="https://github.com/timveletta"
               target="_blank"
               rel="noreferrer"
+              className="mr-4"
             >
               <img src={github} alt="Github" style={{ width: "24px" }} />
+            </a>
+            <a
+              href="https://linkedin.com/in/tim-veletta"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={linkedin} alt="LinkedIn" style={{ width: "24px" }} />
             </a>
           </div>
         </div>
