@@ -2,9 +2,9 @@
 templateKey: blog-post
 title: I'm in for Global Game Jam 2018
 date: 2018-01-22T04:00:42.709Z
-description: Desc
+description: Description
 featuredimage: /img/blog-index.jpg
-externalLink: link
+externalLink: A
 tags:
   - game dev
   - global game jam
@@ -28,7 +28,7 @@ As for the tools I will be using:
 
 **Timelapse**:
 
-```text
+```shell
 while [ 1 ];do vardate=$(date +%d\-%m\-%Y\_%H.%M.%S); screencapture -t jpg -x ~/Desktop/Timelapse/$vardate.jpg; sleep 10; done
 ```
 
