@@ -2,14 +2,18 @@
 templateKey: blog-post
 title: I'm in for Global Game Jam 2018
 date: 2018-01-22T04:00:42.709Z
-description: Description
-featuredimage: /img/blog-index.jpg
+description: I have decided to commit to doing Global Game Jam this year after
+  not doing much game development recently. Come find out what I'm trying to
+  achieve, what tools I'll be using and what cool diversifiers I want to try and
+  include in the final product.
+featuredimage: /img/ggj.jpg
 externalLink: A
 tags:
   - game dev
   - global game jam
   - game jam
 ---
+
 So following on from the tradition of posting an “I’m In” when you are participating in [Ludum Dare](http://ludumdare.com/), here is mine for [Global Game Jam 2018](https://globalgamejam.org/).
 
 After years of not doing much game development and never actually having somewhat of a reasonably completed game in my portfolio, I have decided to commit to doing Global Game Jam this year.
@@ -36,9 +40,9 @@ I also have one optional goal that I’ve set myself and that is to build a game
 
 Also been looking through the list of [diversifiers](https://globalgamejam.org/news/ggj18-diversifiers), there are a couple that have caught my eye:
 
-* **So Sociable**- Build a game that uses a social network API
-* **Upside down**- One or more game systems programmed by an artist, major art assets produced by programmers/coders
-* **Look back**- Create a game which uses retro controllers of any type. No modern controllers! (which fits in with my personal goal)
-* **Created by Warren Robinett**- Your game contains some kind of hidden secret or Easter egg.
+- **So Sociable**- Build a game that uses a social network API
+- **Upside down**- One or more game systems programmed by an artist, major art assets produced by programmers/coders
+- **Look back**- Create a game which uses retro controllers of any type. No modern controllers! (which fits in with my personal goal)
+- **Created by Warren Robinett**- Your game contains some kind of hidden secret or Easter egg.
 
 This week I have started getting back into working with Unity3D so I don’t go into it without any practice. I am very much looking forward to putting something together over the weekend, meeting some people and having fun.

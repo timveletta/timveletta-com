@@ -11,6 +11,7 @@ tags:
   - game jam
   - teleblast
 ---
+
 Another [Global Game Jam](https://globalgamejam.org/) has come and gone but I am still on a high from having made a complete game in less than 48 hours. Global Game Jam is a worldwide (duh!) event where people get together and try to make a game in 48 hours based on a theme which is given out when the event starts. This years theme was **transmission**.
 
 In this post I will detail what I think went well and not so well for me during the jam. But first, the game itself.
@@ -18,9 +19,6 @@ In this post I will detail what I think went well and not so well for me during 
 [![majorleagueteleblast](https://timveletta.com/static/c2e043f8f22284414e68190191628a38/799d3/majorleagueteleblast.png "majorleagueteleblast")](https://timveletta.com/static/c2e043f8f22284414e68190191628a38/56f17/majorleagueteleblast.png)
 
 > **Major League TeleBlast is a local multiplayer sports game where players use teleporters that explode upon use to destroy other players and become the last one standing**
-
-
-
 
 The idea came about during the group brainstorming session where someone thought of teleportation as a way of “transmitting” an object or person. Since teleportation is relatively easy to create as a game mechanic and I really enjoy creating local multiplayer games, it didn’t seem like too much of a leap to make it something out of the idea.
 
