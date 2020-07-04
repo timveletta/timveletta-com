@@ -2,7 +2,10 @@
 templateKey: blog-post
 title: I'm in for Global Game Jam 2018
 date: 2018-01-22T04:00:42.709Z
-description: Description
+description: I have decided to commit to doing Global Game Jam this year after
+  not doing much game development recently. Come find out what I'm trying to
+  achieve, what tools I'll be using and what cool diversifiers I want to try and
+  include in the final product.
 featuredimage: /img/blog-index.jpg
 externalLink: A
 tags:
