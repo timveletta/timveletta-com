@@ -2,8 +2,9 @@
 templateKey: blog-post
 title: Global Game Jam Retrospective
 date: 2018-01-29T04:00:19.642Z
-description: I managed to make a game in 48 hours! Find out what the game looked
-  like, what I enjoyed, could have done better and where to next.
+description: I managed to make a game in 48 hours! I'm slightly exhausted but
+  also excited to you what the game looked like, what I thought went well, what
+  could have gone better and what I'm going to do next.
 featuredimage: /img/ggjretro.jpg
 externalLink: ""
 tags:
