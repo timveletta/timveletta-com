@@ -9,6 +9,8 @@ module.exports = {
       },
       height: {
         hero: "calc(100vh - 6rem)",
+        "250": "250px",
+        "200": "200px",
       },
       maxWidth: {
         "1/2": "50vw",

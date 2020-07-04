@@ -5,6 +5,7 @@ import PreviewCompatibleImage from "./PreviewCompatibleImage";
 const BlogPostExcerpt = ({ image, title, date, description, slug }) => (
   <article className="overflow-hidden shadow-md bg-grey grid font-sans">
     <PreviewCompatibleImage
+      className="lg:h-200 xl:h-250"
       imageInfo={{
         image: image,
         alt: `featured image thumbnail for post ${title}`,
@@ -33,7 +34,7 @@ export const BlogRoll = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
-    <div className="grid gap-8 grid-cols-1 md:grid-cols-3 justify-center">
+    <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 justify-center">
       {posts &&
         posts.map(({ node: post }) => (
           <BlogPostExcerpt
