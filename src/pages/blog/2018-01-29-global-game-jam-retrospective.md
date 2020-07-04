@@ -20,7 +20,7 @@ In this post I will detail what I think went well and not so well for me during 
 > **Major League TeleBlast is a local multiplayer sports game where players use teleporters that explode upon use to destroy other players and become the last one standing**
 
  <video width="100%" height="auto" controls>
-        <source src="./gameplay.mp4" type="video/mp4">
+        <source src="/img/gameplay.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>
 
