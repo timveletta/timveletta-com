@@ -4,7 +4,7 @@ title: Global Game Jam Retrospective
 date: 2018-01-29T04:00:19.642Z
 description: Description
 featuredimage: /img/ggjretro.jpg
-externalLink: Link
+externalLink: ""
 tags:
   - game dev
   - global game jam
