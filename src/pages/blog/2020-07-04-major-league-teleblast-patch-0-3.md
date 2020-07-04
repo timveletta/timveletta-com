@@ -15,66 +15,26 @@ Lately I have been finding more time to work on Major League TeleBlast to prepar
 
 The first thing you will notice is that a lot of the UI elements have been changed since 0.2. I have done some extensive work around the design of each of the menus and in-game screens but rather than talking about them here are the screenshots.
 
-<center>
-    <figure>
-        <img src="./0.3-main-menu.jpg"/>
-        <figcaption>Main Menu</figcaption>
-    </figure>
-</center>
+![Main Menu](/img/0.3-main-menu.jpg)
 
-<center>
-    <figure>
-        <img src="./0.3-player-select.jpg"/>
-        <figcaption>Player Select</figcaption>
-    </figure>
-</center>
+![Player Select](/img/0.3-player-select.jpg)
 
-<center>
-    <figure>
-        <img src="./0.3-game-select.jpg"/>
-        <figcaption>Game Select</figcaption>
-    </figure>
-</center>
+![Game Select](/img/0.3-game-select.jpg)
 
-<center>
-    <figure>
-        <img src="./0.3-level-select.jpg"/>
-        <figcaption>Level Select</figcaption>
-    </figure>
-</center>
+![Level Select](/img/0.3-level-select.jpg)
 
-<center>
-    <figure>
-        <img src="./0.3-round-end.jpg"/>
-        <figcaption>Round End</figcaption>
-    </figure>
-</center>
+![Round End](/img/0.3-round-end.jpg)
 
-<center>
-    <figure>
-        <img src="./0.3-game-end.jpg"/>
-        <figcaption>Game End</figcaption>
-    </figure>
-</center>
+![Game End](/img/0.3-game-end.jpg)
 
 ## General
 
 - **Added** options screens to allow users to change screen resolution and music/sound effects volume
 - **Added** pause screen for all your in-game timeout needs.
 
-<center>
-    <figure>
-        <img src="./0.3-options.jpg"/>
-        <figcaption>Options</figcaption>
-    </figure>
-</center>
+![Options](/img/0.3-options.jpg)
 
-<center>
-    <figure>
-        <img src="./0.3-pause.jpg"/>
-        <figcaption>Pause</figcaption>
-    </figure>
-</center>
+![Pause](/img/0.3-pause.jpg)
 
 # Gameplay Changes
 
@@ -84,33 +44,15 @@ The first thing you will notice is that a lot of the UI elements have been chang
 - **Added** the dash ability. Have you ever misfired your teleporter and found yourself with no way to escape? Well the dash ability is for you! The dash ability can be used by pressing either left or right trigger (left shift on keyboard) and has a short cooldown to keep you flying like a butterfly.
 - **Added** controller vibration when the player teleports, their shield is popped or they get blown up by another player.
 
-<center>
-    <figure>
-        <img src="./shield.gif"/>
-        <figcaption>Shield Knockback</figcaption>
-    </figure>
-</center>
+![Shield](/img/shield.gif)
 
 ## Levels
 
 - **Modified** each of the 3 levels with the following changes:
   - Fixing some of the collision boxes around the corners to make the collisions more predictable.
   - Removing SVG shadows and using Unity inbuilt shadows instead to give me more control within the editor.
-  - Allow for the color of the walls to be changed.
 
-<center>
-    <img src="./0.3-level1.jpg"/>
-</center>
-
-<center>
-    <img src="./0.3-level2.jpg"/>
-</center>
-
-<center>
-    <img src="./0.3-level3.jpg"/>
-</center>
-
-- **Added** more level backgrounds for additional customisation.
+![](/img-level3.jpg "" backgrounds for additional customisation.
 
 This week continues the push towards beta which means fixing some remaining issues and working on my marketing strategy. I am currently working on creating a page on itch.io for the game and from beta onwards, the game will be purchaseable through that page. You can view the upcoming features that are on [my roadmap here](https://trello.com/b/lBUvr9aF) and I have setup a Discord channel to gather feedback and talk to people so please feel free to [join it here](https://discord.gg/4SHJHvb).
 
