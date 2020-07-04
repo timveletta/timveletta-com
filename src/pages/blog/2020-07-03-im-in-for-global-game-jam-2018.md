@@ -6,7 +6,7 @@ description: I have decided to commit to doing Global Game Jam this year after
   not doing much game development recently. Come find out what I'm trying to
   achieve, what tools I'll be using and what cool diversifiers I want to try and
   include in the final product.
-featuredimage: /img/blog-index.jpg
+featuredimage: /img/ggj.png
 externalLink: A
 tags:
   - game dev
