@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="container mx-auto flex items-center justify-between flex-wrap mt-4 absolute z-10 left-1/2 transform -translate-x-1/2"
+      className="container mx-auto flex items-center justify-between flex-wrap mt-4 absolute z-10 left-1/2 transform -translate-x-1/2 px-4 md:px-0"
       role="navigation"
       aria-label="main-navigation"
     >

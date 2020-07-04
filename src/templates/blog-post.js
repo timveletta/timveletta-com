@@ -21,7 +21,7 @@ export const BlogPostTemplate = ({
   return (
     <article>
       {helmet || ""}
-      <div className="container mx-auto py-20 md:mt-20">
+      <div className="container mx-auto max-w-screen-lg py-20 md:mt-20">
         <dd className="text-base leading-6 font-medium text-gray-500 text-center mb-4">
           {date}
         </dd>

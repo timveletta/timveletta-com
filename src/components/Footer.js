@@ -7,7 +7,7 @@ const Footer = class extends React.Component {
   render() {
     return (
       <footer className="bg-gray-800">
-        <div className="container mx-auto py-10 grid gap-8 grid-cols-1 md:grid-cols-contact items-center">
+        <div className="container mx-auto py-10 grid gap-8 grid-cols-1 md:grid-cols-contact items-center px-4 md:px-0">
           <div>
             <h1 className="text-white text-sans font-bold tracking-wide text-3xl mb-8">
               Got a question? Just want to say hi?
