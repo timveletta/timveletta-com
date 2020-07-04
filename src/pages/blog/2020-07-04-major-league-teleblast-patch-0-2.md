@@ -11,8 +11,6 @@ tags:
   - game dev
   - teleblast
 ---
-Following on from Global Game Jam and in preparation for the After the Jam event, I have made a series of changes and updates to Major League TeleBlast; in this post, I will detail the changes made.
-
 # Gameplay Changes
 
 ## General
