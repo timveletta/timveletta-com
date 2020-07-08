@@ -6,7 +6,7 @@ description: Following on from Global Game Jam and in preparation for the After
   the Jam event, I have made a series of changes and updates to Major League
   TeleBlast; in this post, I will detail the gameplay and graphics changes made
   along with any additional features.
-featuredimage: /img/blog-index.jpg
+featuredimage: /img/teleblast0.2.jpg
 tags:
   - game dev
   - teleblast
