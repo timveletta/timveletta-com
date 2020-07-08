@@ -3,7 +3,7 @@ templateKey: blog-post
 title: Major League TeleBlast Patch 0.3
 date: 2018-06-14T04:00:00.000Z
 description: D
-featuredimage: /img/blog-index.jpg
+featuredimage: /img/teleblast0.3.jpg
 tags:
   - game dev
   - teleblast
