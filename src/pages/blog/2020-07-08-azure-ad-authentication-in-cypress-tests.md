@@ -13,4 +13,4 @@ tags:
   - adal
   - react
 ---
-A
+You can view this blog post at: <https://mechanicalrock.github.io/2020/05/05/azure-ad-authentication-cypress.html>
