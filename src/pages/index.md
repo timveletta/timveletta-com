@@ -54,7 +54,7 @@ intro:
     knowledge to anyone. This is an edit via identity...
 title: Tim Veletta
 image: /img/undraw_web_developer_p3e5.svg
-aboutMeImage: /img/products-grid3.jpg
+aboutMeImage: /img/img_20190130_204523_163.jpg
 main:
   heading: Great coffee with no compromises
   description: >
@@ -78,6 +78,4 @@ description: Kaldi is the ultimate spot for coffee lovers who want to learn
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget tincidunt risus, non iaculis neque. Nam venenatis ipsum in mauris ultricies, vel interdum tortor eleifend. Mauris pellentesque massa mattis purus gravida, ornare faucibus massa viverra. Vestibulum eleifend lectus congue mattis ultricies. Ut dolor elit, vulputate placerat malesuada sit amet, egestas ac velit. Integer commodo rutrum dui nec tristique. Morbi volutpat viverra **leo nec venenatis**.
 
-> A block quote
-
-![Certification](/img/meeting-space.png "Certification")
+![AWS Developer Associate Certified](/img/aws-developer-associate.png "AWS Developer Associate Certified")
