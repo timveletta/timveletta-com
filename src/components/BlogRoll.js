@@ -2,7 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 
-const BlogPostExcerpt = ({ image, title, date, description, slug }) => (
+const BlogPostExcerpt = ({
+  image,
+  title,
+  date,
+  description,
+  slug,
+  externalLink,
+}) => (
   <article className="overflow-hidden shadow-md bg-grey grid font-sans">
     <PreviewCompatibleImage
       className="lg:h-200 xl:h-250"
@@ -13,7 +20,8 @@ const BlogPostExcerpt = ({ image, title, date, description, slug }) => (
     />
     <div className="px-6 py-4">
       <a
-        href={slug}
+        href={externalLink ? externalLink : slug}
+        target={externalLink ? "_blank" : false}
         className="font-bold text-gray-900 text-xl hover:text-primary"
       >
         {title}
@@ -22,7 +30,8 @@ const BlogPostExcerpt = ({ image, title, date, description, slug }) => (
       <p className="text-gray-700 text-base">{description}</p>
     </div>
     <a
-      href={slug}
+      href={externalLink ? externalLink : slug}
+      target={externalLink ? "_blank" : false}
       className="font-bold text-sm mt-2 px-6 py-4 text-primary self-end"
     >
       Read More ⭢
@@ -44,6 +53,7 @@ export const BlogRoll = ({ data }) => {
             date={post.frontmatter.date}
             description={post.frontmatter.description}
             slug={post.fields.slug}
+            externalLink={post.frontmatter.externalLink}
           />
         ))}
     </div>

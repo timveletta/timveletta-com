@@ -21,6 +21,7 @@ export default () => (
                 templateKey
                 description
                 date(formatString: "MMMM DD, YYYY")
+                externalLink
                 featuredimage {
                   childImageSharp {
                     fluid(maxWidth: 420, quality: 100) {
