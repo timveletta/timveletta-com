@@ -3,7 +3,7 @@ templateKey: blog-post
 title: Deploying a static site to AWS using GitHub Actions
 date: 2019-08-31T04:00:00.000Z
 description: Description
-featuredimage: /img/cetteup-54t5rivyaii-unsplash.jpg
+featuredimage: /img/aws-github.jpg
 tags:
   - github
   - github actions
