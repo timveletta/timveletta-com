@@ -82,27 +82,32 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map((edge) => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.frontmatter.description,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                  enclosure: {
-                    url:
-                      site.siteMetadata.siteUrl +
-                      edge.node.frontmatter.featuredimage.publicURL,
-                    size: edge.node.frontmatter.featuredimage.size, //
-                    type:
-                      edge.node.frontmatter.featuredimage.internal.mediaType,
-                  },
-                });
+                return Object.assign(
+                  {},
+                  {
+                    title: edge.node.frontmatter.title,
+                    description: edge.node.frontmatter.description,
+                    date: edge.node.frontmatter.date,
+                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    custom_elements: [{ "content:encoded": edge.node.html }],
+                    enclosure: {
+                      url:
+                        site.siteMetadata.siteUrl +
+                        edge.node.frontmatter.featuredimage.publicURL,
+                      size: edge.node.frontmatter.featuredimage.size, //
+                      type:
+                        edge.node.frontmatter.featuredimage.internal.mediaType,
+                    },
+                  }
+                );
               });
             },
             query: `
               {
                 allMarkdownRemark(
                   sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
                 ) {
                   edges {
                     node {
