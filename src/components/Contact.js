@@ -37,15 +37,24 @@ const Contact = () => {
           className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-4 gap-4 justify-start"
           onSubmit={handleSubmit(submitFunc)}
         >
+          <label className="sr-only" htmlFor="name">
+            Name
+          </label>
           <input
+            aria-label="name"
+            id="name"
             type="text"
             name="name"
             ref={register({ required: "Name is required." })}
             placeholder="Your Name"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
-
+          <label className="sr-only" htmlFor="email">
+            Email Address
+          </label>
           <input
+            aria-label="email"
+            id="email"
             type="text"
             name="email"
             ref={register({
@@ -58,14 +67,24 @@ const Contact = () => {
             placeholder="Your Email Address"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
+          <label className="sr-only" htmlFor="subject">
+            Subject
+          </label>
           <input
+            aria-label="subject"
+            id="subject"
             type="text"
-            name="subject"
+            name="messageSubject"
             ref={register({ required: "Subject is required." })}
             placeholder="Your Subject"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
+          <label className="sr-only" htmlFor="message">
+            Message
+          </label>
           <textarea
+            aria-label="message"
+            id="message"
             ref={register({ required: "Message is required." })}
             name="message"
             className="row-span-3 md:col-start-2 md:row-start-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

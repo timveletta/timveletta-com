@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
@@ -46,13 +46,13 @@ export const IndexPageTemplate = ({
     </section>
     <section className="container mx-auto my-20 pt-10 pb-20">
       <div className="block text-center">
-        <a
+        <h1
           id="aboutme"
           name="aboutme"
           className="font-sans text-3xl font-bold tracking-wide text-gray-900"
         >
           About Me
-        </a>
+        </h1>
       </div>
       <hr className="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 align-center">

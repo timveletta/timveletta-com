@@ -28,6 +28,11 @@ const BlogPostExcerpt = ({
       </a>
       <p className="text-gray-500 font-bold text-sm my-2">{date}</p>
       <p className="text-gray-700 text-base">{description}</p>
+      {externalLink && (
+        <p className="text-gray-600 font-bold text-base mt-1">
+          [External Link]
+        </p>
+      )}
     </div>
     <a
       href={externalLink ? externalLink : slug}

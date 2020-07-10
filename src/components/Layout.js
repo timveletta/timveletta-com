@@ -12,7 +12,7 @@ const TemplateWrapper = ({ children }) => {
     <div
       style={{
         background:
-          "linear-gradient(180deg, rgba(212,212,212,0.6) 0%, rgba(255,255,255,1) 100%)",
+          "linear-gradient(180deg, rgba(224,224,224,0.6) 0%, rgba(255,255,255,1) 100%)",
       }}
     >
       <Helmet>

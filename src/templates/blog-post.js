@@ -44,7 +44,7 @@ export const BlogPostTemplate = ({
           <div className="my-10">
             <span className="text-gray-500 text-base mr-4">Tags</span>
             {tags.map((tag) => (
-              <span className="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+              <span className="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
                 <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
               </span>
             ))}
