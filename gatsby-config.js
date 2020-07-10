@@ -94,7 +94,8 @@ module.exports = {
                     enclosure: {
                       url:
                         site.siteMetadata.siteUrl +
-                        edge.node.frontmatter.featuredimage.publicURL,
+                        edge.node.frontmatter.featuredimage.childImageSharp
+                          .fixed.src,
                       size: edge.node.frontmatter.featuredimage.size, //
                       type:
                         edge.node.frontmatter.featuredimage.internal.mediaType,
@@ -118,7 +119,11 @@ module.exports = {
                         date
                         description
                         featuredimage {
-                          publicURL
+                          childImageSharp {
+                            fixed {
+                              src
+                            }
+                          }
                           size
                           internal {
                             mediaType

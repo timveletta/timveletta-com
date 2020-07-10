@@ -21,7 +21,7 @@ export const BlogPostTemplate = ({
   return (
     <article>
       {helmet || ""}
-      <div className="container mx-auto max-w-screen-lg py-20 md:mt-20">
+      <div className="container mx-auto max-w-screen-lg sm:py-20 md:mt-20">
         <dd className="text-base leading-6 font-medium text-gray-500 text-center mb-4">
           {date}
         </dd>
@@ -79,10 +79,36 @@ const BlogPost = ({ data }) => {
         contentComponent={HTMLContent}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
+            <title>{`${post.frontmatter.title}`} | Tim Veletta</title>
             <meta
               name="description"
               content={`${post.frontmatter.description}`}
+            />
+
+            {/* OpenGraph tags */}
+            <meta property="og:title" content={post.frontmatter.title} />
+            <meta property="og:type" content="article" />
+            {/* <meta property="og:url" content={metaUrl} /> */}
+            <meta
+              property="og:image"
+              content={post.frontmatter.featuredimage}
+            />
+            <meta
+              property="og:description"
+              content={post.frontmatter.description}
+            />
+
+            {/* Twitter Card tags */}
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:creator" content="Tim Veletta" />
+            <meta name="twitter:title" content={post.frontmatter.title} />
+            <meta
+              name="twitter:image"
+              content={post.frontmatter.featuredimage}
+            />
+            <meta
+              name="twitter:description"
+              content={post.frontmatter.description}
             />
           </Helmet>
         }
@@ -105,6 +131,13 @@ export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       id
       html

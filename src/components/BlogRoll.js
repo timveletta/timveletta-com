@@ -21,7 +21,7 @@ const BlogPostExcerpt = ({
     <div className="px-6 py-4">
       <a
         href={externalLink ? externalLink : slug}
-        target={externalLink ? "_blank" : false}
+        target={externalLink ? "_blank" : undefined}
         className="font-bold text-gray-900 text-xl hover:text-primary"
       >
         {title}
@@ -36,7 +36,7 @@ const BlogPostExcerpt = ({
     </div>
     <a
       href={externalLink ? externalLink : slug}
-      target={externalLink ? "_blank" : false}
+      target={externalLink ? "_blank" : undefined}
       className="font-bold text-sm mt-2 px-6 py-4 text-primary self-end"
     >
       Read More ⭢

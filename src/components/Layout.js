@@ -46,17 +46,9 @@ const TemplateWrapper = ({ children }) => {
         <link
           rel="mask-icon"
           href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
-          color="#ff4400"
+          color="#01bfa6"
         />
-        <meta name="theme-color" content="#fff" />
-
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
-        <meta
-          property="og:image"
-          content={`${withPrefix("/")}img/og-image.jpg`}
-        />
+        <meta name="theme-color" content="#01bfa6" />
       </Helmet>
       <hr className="h-4 bg-primary border-t-0" />
       <Navbar />
