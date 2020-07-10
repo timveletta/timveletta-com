@@ -76,7 +76,7 @@ description: Kaldi is the ultimate spot for coffee lovers who want to learn
   production, roasting and brewing seriously and we’re glad to pass that
   knowledge to anyone.
 ---
-I'm a software engineer passionate about building highly scalable and available serverless applications. My primary tool set includes React, AppSync, Lambda, DynamoDB and CDK but where I really excel is pushing the boundaries of my knowledge to learn something new.
+I'm a software engineer passionate about building *highly scalable and available serverless applications*. My primary tool set includes **React**, **AppSync**, **Lambda**, **DynamoDB** and **CDK** but where I really excel is pushing the boundaries of my knowledge to learn something new.
 
 I particularly enjoy being able to see ideas all the way from conceptualisation through to delivery and have been known to work on multiple projects in my own time to experience the full development process. I am enthusiastic about creating simple, enjoyable and easy to use products and strive to find the right balance between aesthetic and function.
 
