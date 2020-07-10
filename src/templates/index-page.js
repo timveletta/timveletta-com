@@ -55,7 +55,7 @@ export const IndexPageTemplate = ({
         </a>
       </div>
       <hr className="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 align-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 align-center">
         <HTMLContent
           content={aboutMe}
           className="leading-loose text-gray-900"
