@@ -3,6 +3,7 @@ module.exports = {
     title: "Tim Veletta",
     description:
       "The personal portfolio site for Tim Veletta, cloud native developer.",
+    siteUrl: "https://www.timveletta.com",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -73,7 +74,6 @@ module.exports = {
                 title
                 description
                 siteUrl
-                site_url: siteUrl
               }
             }
           }
