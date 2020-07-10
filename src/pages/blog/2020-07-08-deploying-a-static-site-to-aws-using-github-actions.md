@@ -2,7 +2,9 @@
 templateKey: blog-post
 title: Deploying a static site to AWS using GitHub Actions
 date: 2019-08-31T04:00:00.000Z
-description: Description
+description: I was fortunate enough to get a beta invite to Github Actions
+  earlier this week so I figured I would try to deploy a static website to AWS.
+  I also look at the Actions building blocks and keeping your secrets secret.
 featuredimage: /img/aws-github.jpg
 tags:
   - github
@@ -11,7 +13,7 @@ tags:
   - gatsby
   - react
 ---
-I was fortunate enough to get a beta invite to Github Actions earlier this week so I figured I would try it out to deploy a static website to AWS as a way of comparing with other tools such as GitLab and AWS CodeBuild.
+I was fortunate enough to get a beta invite to Github Actions earlier this week so I figured I would try to deploy a static website to AWS as a way of comparing with other tools such as GitLab and AWS CodeBuild.
 
 My initial impressions of the platform was that it wasn't as intuitive as I was hoping however I can see some real advantages in how much they push creating reusable build steps to speed up creating CI/CD pipelines.
 
