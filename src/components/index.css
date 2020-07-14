@@ -56,3 +56,7 @@
   list-style-position: inside !important;
   margin-bottom: 1.25rem;
 }
+
+.markdown-content pre {
+  margin-bottom: 2rem;
+}
