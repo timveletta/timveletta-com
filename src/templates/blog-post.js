@@ -91,7 +91,10 @@ const BlogPost = ({ data }) => {
             {/* <meta property="og:url" content={metaUrl} /> */}
             <meta
               property="og:image"
-              content={post.frontmatter.featuredimage}
+              content={
+                data.site.siteMetadata.siteUrl +
+                post.frontmatter.featuredimage.childImageSharp.fixed.src
+              }
             />
             <meta
               property="og:description"
@@ -99,12 +102,15 @@ const BlogPost = ({ data }) => {
             />
 
             {/* Twitter Card tags */}
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:creator" content="Tim Veletta" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:creator" content="@TimVeletta" />
             <meta name="twitter:title" content={post.frontmatter.title} />
             <meta
               name="twitter:image"
-              content={post.frontmatter.featuredimage}
+              content={
+                data.site.siteMetadata.siteUrl +
+                post.frontmatter.featuredimage.childImageSharp.fixed.src
+              }
             />
             <meta
               name="twitter:description"
@@ -148,6 +154,9 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
+            fixed(width: 1200) {
+              src
+            }
             fluid(maxWidth: 1280, quality: 100) {
               ...GatsbyImageSharpFluid
             }
