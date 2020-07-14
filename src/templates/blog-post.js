@@ -71,6 +71,7 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
+  debugger;
 
   return (
     <Layout>
@@ -93,7 +94,7 @@ const BlogPost = ({ data }) => {
               property="og:image"
               content={
                 data.site.siteMetadata.siteUrl +
-                post.frontmatter.featuredimage.childImageSharp.fixed.src
+                post.frontmatter.featuredimage.childImageSharp.fluid.src
               }
             />
             <meta
@@ -109,7 +110,7 @@ const BlogPost = ({ data }) => {
               name="twitter:image"
               content={
                 data.site.siteMetadata.siteUrl +
-                post.frontmatter.featuredimage.childImageSharp.fixed.src
+                post.frontmatter.featuredimage.childImageSharp.fluid.src
               }
             />
             <meta
@@ -154,9 +155,6 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            fixed(width: 1200) {
-              src
-            }
             fluid(maxWidth: 1280, quality: 100) {
               ...GatsbyImageSharpFluid
             }
