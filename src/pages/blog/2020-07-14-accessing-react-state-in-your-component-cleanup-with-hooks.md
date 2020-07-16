@@ -2,6 +2,7 @@
 templateKey: blog-post
 title: Accessing React state in your component cleanup with hooks
 date: 2020-07-13T09:37:48.128Z
+isDraft: false
 description: I came across an interesting problem where I needed to access a
   piece of React state when unmounting a component, a problem that would have
   been trivial with Class components and componentWillUnmount, however with

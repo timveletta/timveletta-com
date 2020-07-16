@@ -9,7 +9,12 @@ export default () => (
         allMarkdownRemark(
           limit: 3
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+          filter: {
+            frontmatter: {
+              templateKey: { eq: "blog-post" }
+              isDraft: { ne: true }
+            }
+          }
         ) {
           edges {
             node {
