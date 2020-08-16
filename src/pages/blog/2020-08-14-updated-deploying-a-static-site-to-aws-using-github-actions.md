@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: "UPDATED: Deploying a static site to AWS using GitHub Actions"
 isDraft: true
-date: 2020-08-14T06:39:17.303Z
+date: 2020-08-14T08:17:55.538Z
 description: A description
 featuredimage: /img/aws-github.jpg
 tags:
