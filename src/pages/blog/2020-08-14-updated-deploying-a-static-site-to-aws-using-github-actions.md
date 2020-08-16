@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: "UPDATED: Deploying a static site to AWS using GitHub Actions"
 isDraft: false
-date: 2020-08-16T12:59:53.210Z
+date: 2020-08-16T13:32:54.235Z
 description: It has been just under a year since I wrote my initial about
   deploying static sites to AWS via Github Actions and a number of things have
   changed since then. In this post I'll explain my process for deploying static
@@ -14,24 +14,26 @@ tags:
   - github
   - github actions
   - static site
+  - continuous integration
+  - continuous delivery
 ---
-It has been just under a year since I wrote [my initial blog post](https://www.timveletta.com/blog/2020-07-08-deploying-a-static-site-to-aws-using-github-actions/) about deploying static sites to AWS via Github Actions and a number of things have changed since then. Github Actions has been generally available for some time and a number of the referenced packages have changed but the main principles remain the same. In this post I'll explain my process for deploying static sites using Github Action in greater detail and whats changed since the initial version of the article. 
+It has been just under a year since I wrote [my initial blog post](https://www.timveletta.com/blog/2020-07-08-deploying-a-static-site-to-aws-using-github-actions/) about deploying static sites to AWS via GitHub Actions and a number of things have changed since then. Github Actions has now been generally available for some time and although number of the referenced actions have changed, the main principles remain the same. In this post I'll explain my process for deploying static sites to AWS using Github Actions in greater detail and whats changed since the initial version of the article. 
 
 If you're just interested in the build template, it is posted in its entirety at the end of the article. 
 
 ## Assumed infrastructure
 
-The template assumes you are using a **private** S3 static site and serving the content using CloudFront. You could just as easily use a **public** S3 static site and omit the `Invalidate Cloudfront CDN` step. 
+The template assumes you are using a **privately hosted** S3 static site and serving the content using CloudFront. You could just as easily use a **public** S3 static site and omit the `Invalidate Cloudfront CDN` step. 
 
 ![Assumed infrastructure layout](/img/blank-wireframe.png "Assumed infrastructure layout")
 
 ## **Breaking down the build template**
 
-One of the things I particularly enjoy is breaking down a build into 3 distinct steps, *test, build* and *deploy.* Doing so allows me to easily pinpoint at a glance where things have gone wrong when the build fails. In my previous build, I had combined the build and deploy steps because at that point it was unclear how to share assets between jobs. However this all changed since discovering the `actions/upload-artifact` and `actions/download-artifact` actions.
+One of the more conventional approaches to continuous integration builds is breaking it down into 3 distinct steps, *test, build* and *deploy.* Doing so allows us to easily pinpoint at a glance where things have gone wrong when the build fails. In my previous build template, I had combined the build and deploy steps because at that point it was unclear how to share assets between jobs. However this changed upon discovering the `actions/upload-artifact` and `actions/download-artifact` actions.
 
 ### The `test` job
 
-The test job is fairly straightforward, it simply checks out the code, installs the dependencies and runs the tests. 
+The test job is fairly straightforward, it simply checks out the code, installs the dependencies and runs the tests. Not much to see here.
 
 ```yaml
  test:
@@ -74,9 +76,9 @@ This is one of the differences from the previous article, I am splitting up the 
 
 ### The `deploy` job
 
-The deploy job is the other big difference from the previous article since it now uses the `aws-actions/configure-aws-credentials` action to authenticate with AWS and then perform operations.  Firstly we set 2 conditions for running the `deploy` job; we only run on the `master` branch and not on other branches, and we only run after successfully running the `test` and `build` jobs. This is simply because we only want to deploy code we are happy to merge into the main branch and only deploy it once the code has passed all the tests and successfully builds.
+The deploy job is the other big difference from the previous article since it now uses the `aws-actions/configure-aws-credentials` action to authenticate with AWS and then perform operations.  Firstly, I set 2 conditions for running the `deploy` job; that we only run on the `master` branch and not on other branches, and we only run after successfully running the `test` and `build` jobs. This is simply because I only want to deploy code I am happy to merge into the main branch which has passed all the tests and successfully builds.
 
-We start by downloading the `frontend-artifact` that we uploaded in the `build` step, then we configure our access to AWS using GitHub secrets (see *Keeping your secrets safe* in the previous article) before uploading the code to S3 and invalidating the CloudFront cache so that it knows about the most recent version of the site.
+I start by downloading the `frontend-artifact` that I uploaded in the `build` step, then I configure my access to AWS using GitHub secrets (see *Keeping your secrets safe* in the previous article) before uploading the code to S3 and invalidating the CloudFront cache so that it knows about the most recent version of the site.
 
 ```yaml
 deploy:
