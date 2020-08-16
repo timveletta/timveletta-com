@@ -1,17 +1,19 @@
 ---
 templateKey: blog-post
 title: Deploying a static site to AWS using GitHub Actions
+isDraft: false
 date: 2019-08-31T04:00:00.000Z
 description: I was fortunate enough to get a beta invite to Github Actions
   earlier this week so I figured I would try to deploy a static website to AWS.
   I also look at the Actions building blocks and keeping your secrets secret.
 featuredimage: /img/aws-github.jpg
 tags:
+  - aws
   - github
   - github actions
   - static site
-  - gatsby
-  - react
+  - continuous integration
+  - continuous delivery
 ---
 I was fortunate enough to get a beta invite to Github Actions earlier this week so I figured I would try to deploy a static website to AWS as a way of comparing with other tools such as GitLab and AWS CodeBuild.
 
@@ -112,3 +114,5 @@ jobs:
 You can view the [syntax for creating workflows here](https://help.github.com/en/articles/workflow-syntax-for-github-actions).
 
 The code I have included is current as of the 31st of August 2019 but could change in future. I'll be sure to [include the updates here](https://gist.github.com/timveletta/6242924449509876f7658dca0052d402).
+
+This article has been updated, you can [view it here](https://www.timveletta.com/blog/2020-08-14-updated-deploying-a-static-site-to-aws-using-github-actions/).
