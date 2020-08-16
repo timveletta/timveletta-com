@@ -26,7 +26,6 @@ One of the things I particularly enjoy is breaking down a build into 3 distinct 
 
 The test job is fairly straightforward, it simply checks out the code, installs the dependencies and runs the tests. 
 
-
 ```yaml
  test:
     runs-on: ubuntu-latest
@@ -41,11 +40,9 @@ The test job is fairly straightforward, it simply checks out the code, installs 
         run: npm test
 ```
 
-
 ### The `build` job
 
-This is one of the differences from the previous article
-
+This is one of the differences from the previous article, I am splitting up the `build` and `deploy` jobs since I now know how to manage build artifacts between steps. In this step, I again check out the code and install dependencies then follow it by building the site. Next, I upload the build artifact to GitHub using the `actions/upload-artifact` action specifying the `build` folder as our source and naming it `frontend-artifact`. This name will be used later on as well as showing in the GitHub interface.
 
 ```yaml
   build:
@@ -66,8 +63,42 @@ This is one of the differences from the previous article
           path: build
 ```
 
+![The frontend artifact showing in the GitHub interface](/img/screen-shot-2020-08-16-at-2.48.05-pm.png "The frontend artifact showing in the GitHub interface")
 
 ### The `deploy` job
+
+The deploy job is the other big difference from the previous article since it now uses the `aws-actions/configure-aws-credentials` action to authenticate with AWS and then perform operations.  
+
+```yaml
+deploy:
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: frontend-artifact
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: <<YOUR REGION HERE>>
+
+      - name: Deploy to S3 Bucket
+        run: aws s3 sync ./ s3://<<YOUR S3 BUCKET NAME HERE>>
+
+      - name: Invalidate Cloudfront CDN
+        run: aws cloudfront create-invalidation --distribution-id=$CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
+        env:
+          CLOUDFRONT_DISTRIBUTION_ID: <<YOUR CLOUDFRONT DISTRIBUTION ID HERE>>
+```
+
+## Putting it all together
+
+talk about when the build runs 
 
 ```yaml
 name: Frontend CI
@@ -119,10 +150,10 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-southeast-2
+          aws-region: <<YOUR REGION HERE>>
 
       - name: Deploy to S3 Bucket
-        run: aws s3 sync ./ s3://mafia-party
+        run: aws s3 sync ./ s3://<<YOUR S3 BUCKET NAME HERE>>
 
       - name: Invalidate Cloudfront CDN
         run: aws cloudfront create-invalidation --distribution-id=$CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
