@@ -26,11 +26,11 @@ The template assumes you are using a **privately hosted** S3 static site and ser
 
 ![Assumed infrastructure layout](/img/blank-wireframe.png "Assumed infrastructure layout")
 
-## **Breaking down the build template**
+## Breaking down the build template
 
 One of the more conventional approaches to continuous integration builds is breaking it down into 3 distinct steps, *test, build* and *deploy.* Doing so allows us to easily pinpoint at a glance where things have gone wrong when the build fails. In my previous build template, I had combined the build and deploy steps because at that point it was unclear how to share assets between jobs. However this changed upon discovering the `actions/upload-artifact` and `actions/download-artifact` actions.
 
-### The `test` job
+## The `test` job
 
 The test job is fairly straightforward, it simply checks out the code, installs the dependencies and runs the tests. Not much to see here.
 
@@ -48,7 +48,7 @@ The test job is fairly straightforward, it simply checks out the code, installs 
         run: npm test
 ```
 
-### The `build` job
+## The `build` job
 
 This is one of the differences from the previous article, I am splitting up the `build` and `deploy` jobs since I now know how to manage build artifacts between steps. In this step, I again check out the code and install dependencies then follow it by building the site. Next, I upload the build artifact to GitHub using the `actions/upload-artifact` action specifying the `build` folder as our source and naming it `frontend-artifact`. This name will be used later on as well as showing in the GitHub interface.
 
@@ -73,7 +73,7 @@ This is one of the differences from the previous article, I am splitting up the 
 
 ![The frontend artifact showing in the GitHub interface](/img/screen-shot-2020-08-16-at-2.48.05-pm.png "The frontend artifact showing in the GitHub interface")
 
-### The `deploy` job
+## The `deploy` job
 
 The deploy job is the other big difference from the previous article since it now uses the `aws-actions/configure-aws-credentials` action to authenticate with AWS and then perform operations.  Firstly, I set 2 conditions for running the `deploy` job; that we only run on the `master` branch and not on other branches, and we only run after successfully running the `test` and `build` jobs. This is simply because I only want to deploy code I am happy to merge into the main branch which has passed all the tests and successfully builds.
 
