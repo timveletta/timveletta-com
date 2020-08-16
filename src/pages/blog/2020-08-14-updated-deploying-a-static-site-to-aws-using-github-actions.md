@@ -1,12 +1,17 @@
 ---
 templateKey: blog-post
 title: "UPDATED: Deploying a static site to AWS using GitHub Actions"
-isDraft: true
-date: 2020-08-14T08:17:55.538Z
-description: A description
-featuredimage: /img/aws-github.jpg
+isDraft: false
+date: 2020-08-16T12:59:53.210Z
+description: It has been just under a year since I wrote my initial about
+  deploying static sites to AWS via Github Actions and a number of things have
+  changed since then. In this post I'll explain my process for deploying static
+  sites using Github Action in greater detail and whats changed since the
+  initial version of the article.
+featuredimage: /img/updated-github.jpg
 tags:
   - aws
+  - github
   - github actions
   - static site
 ---
@@ -17,6 +22,8 @@ If you're just interested in the build template, it is posted in its entirety at
 ## Assumed infrastructure
 
 The template assumes you are using a **private** S3 static site and serving the content using CloudFront. You could just as easily use a **public** S3 static site and omit the `Invalidate Cloudfront CDN` step. 
+
+![Assumed infrastructure layout](/img/blank-wireframe.png "Assumed infrastructure layout")
 
 ## **Breaking down the build template**
 
@@ -67,7 +74,9 @@ This is one of the differences from the previous article, I am splitting up the 
 
 ### The `deploy` job
 
-The deploy job is the other big difference from the previous article since it now uses the `aws-actions/configure-aws-credentials` action to authenticate with AWS and then perform operations.  
+The deploy job is the other big difference from the previous article since it now uses the `aws-actions/configure-aws-credentials` action to authenticate with AWS and then perform operations.  Firstly we set 2 conditions for running the `deploy` job; we only run on the `master` branch and not on other branches, and we only run after successfully running the `test` and `build` jobs. This is simply because we only want to deploy code we are happy to merge into the main branch and only deploy it once the code has passed all the tests and successfully builds.
+
+We start by downloading the `frontend-artifact` that we uploaded in the `build` step, then we configure our access to AWS using GitHub secrets (see *Keeping your secrets safe* in the previous article) before uploading the code to S3 and invalidating the CloudFront cache so that it knows about the most recent version of the site.
 
 ```yaml
 deploy:
@@ -98,7 +107,9 @@ deploy:
 
 ## Putting it all together
 
-talk about when the build runs 
+So thats all the individual build jobs and a bit of a breakdown of each, the full template is below. There are 2 points worth mentioning about the full template; we are running it on each *push* and *pull request* so that we are informed of any issues sooner and the `test` and `build` steps run concurrently despite having to install dependencies each time. The reason for this is simply to get quick feedback and this way I don't have to deal with any form of hand off between each of the stages.
+
+I hope you've found this post useful and now have an idea of how easy it is to deploy you static sites to AWS using GitHub Actions.
 
 ```yaml
 name: Frontend CI
