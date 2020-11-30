@@ -8,9 +8,6 @@ description: >-
 
 
   I think with everything that has gone on this year, we have become accustomed to telling ourselves to just "push through" because everyone is going through it to some extent. The reality is that this kind of thinking just leads to burn out.
-
-
-  I was burnt out and I probably still am to a lesser extent.
 featuredimage: /img/burn-out.jpg
 tags:
   - burn-out
@@ -36,3 +33,5 @@ I think its important for people to recognise burn out in themselves because bei
 As for me, the first day back feels like a complete 180 from how I felt 2 weeks ago, it will be interesting to see how long it lasts or whether I start falling into the same patterns as before. Being able to recognise my own flavour of burn out will be extremely useful when it comes to making changes going forward, for now I'm going to focus on restarting daily meditation, producing more content and focusing on my sleeping patterns. 
 
 I'm hoping the rest falls into place as a result.
+
+I'm under no illusion that a single week off was enough, I am hoping that it was enough to help me make necessary changes now and recognise burn out sooner in the future.
