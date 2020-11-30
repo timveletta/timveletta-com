@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Recognising Burnout
-isDraft: true
+isDraft: false
 date: 2020-11-30T08:58:37.858Z
 description: >-
   I took last week off; something that was well overdue.
