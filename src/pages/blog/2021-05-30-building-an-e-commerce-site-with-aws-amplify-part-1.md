@@ -9,6 +9,7 @@ tags:
   - amplify
   - aws
   - e-commerce
+  - react
 ---
 I've built a number of different web applications over the years usually for enterprises so most of them don't see use outside of the businesses I've built them for. One such application I've never built, despite the prevalence of online shopping, is an e-commerce site and for good reason. With SaaS products like Shopify and Salesforce, it doesn't make a lot of sense to build one from scratch however I've always thought it would be interesting to try.
 
