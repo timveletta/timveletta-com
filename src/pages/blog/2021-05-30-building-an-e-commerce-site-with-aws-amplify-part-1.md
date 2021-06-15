@@ -77,3 +77,17 @@ Amplify hosting urls:
 ```
 
 In the UI connect the branch to automate the deployments
+
+![](/img/screen-shot-2021-06-15-at-9.44.05-am.png)
+
+![](/img/screen-shot-2021-06-15-at-9.44.23-am.png)
+
+![](/img/screen-shot-2021-06-15-at-9.44.42-am.png)
+
+![](/img/screen-shot-2021-06-15-at-9.44.57-am.png)
+
+![](/img/screen-shot-2021-06-15-at-9.50.42-am.png)
+
+![](/img/screen-shot-2021-06-15-at-10.10.43-am.png)
+
+References: https://docs.amplify.aws/start/getting-started/setup/q/integration/react
