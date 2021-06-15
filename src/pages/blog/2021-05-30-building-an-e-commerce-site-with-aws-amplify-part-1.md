@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: Building an E-Commerce site with AWS Amplify - Introduction
 isDraft: true
-date: 2021-05-30T14:29:38.454Z
+date: 2021-06-14T08:36:16.213Z
 description: " "
 featuredimage: /img/home-jumbotron.jpg
 tags:
@@ -25,4 +25,55 @@ I'll be building the front-end with React, using [Tailwind CSS](https://tailwind
 
 ## Setting Up
 
-I've started by scaffolding a new React project using [Create React App](https://create-react-app.dev/docs/getting-started) and [configured Tailwind](https://tailwindcss.com/docs/guides/create-react-app).
+I've started by scaffolding a new React project using [Create React App](https://create-react-app.dev/docs/getting-started) and [configured Tailwind](https://tailwindcss.com/docs/guides/create-react-app). After [installing Amplify](https://docs.amplify.aws/start/getting-started/installation/q/integration/react#option-2-follow-the-instructions), from the root of the project run:
+
+```bash
+amplify init
+```
+
+I went through and accepted the default options and then created an AWS Profile to run App on. The CLI will run you through this process if you aren't familiar with it.
+
+```bash
+Note: It is recommended to run this command from the root of your app directory
+? Enter a name for the project amplifyecommerce
+? Enter a name for the environment dev
+? Choose your default editor: Visual Studio Code
+? Choose the type of app that you're building javascript
+Please tell us about your project
+? What javascript framework are you using react
+? Source Directory Path:  src
+? Distribution Directory Path: build
+? Build Command:  npm run-script build
+? Start Command: npm run-script start
+Using default provider  awscloudformation
+```
+
+```bash
+yarn add aws-amplify @aws-amplify/ui-react
+```
+
+```javascript
+import Amplify from "aws-amplify";
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+```
+
+### Adding Hosting
+
+```bash
+amplify add hosting
+```
+
+```bash
+? Select the plugin module to execute Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)
+? Choose a type Continuous deployment (Git-based deployments)
+? Continuous deployment is configured in the Amplify Console. Please hit enter once you connect your repository
+Amplify hosting urls:
+┌──────────────┬────────────────────────────────────────────┐
+│ FrontEnd Env │ Domain                                     │
+├──────────────┼────────────────────────────────────────────┤
+│ main         │ https://main.d2ukpb0d4oeyxt.amplifyapp.com │
+└──────────────┴────────────────────────────────────────────┘
+```
+
+In the UI connect the branch to automate the deployments
