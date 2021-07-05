@@ -7,6 +7,9 @@ description: " "
 featuredimage: /img/home-jumbotron.jpg
 tags:
   - amplify
+  - aws
+  - e-commerce
+  - react
 ---
 
 * **Products and Inventory** - the first thing our store needs is some products, I'll go through how to add products, manage their inventory and also search products.
