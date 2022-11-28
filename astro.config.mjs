@@ -6,12 +6,12 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://timveletta.com',
 	integrations: [mdx(), sitemap(), tailwind()],
-	output: 'server',
+	output: 'static',
 	adapter: vercel(),
 });
