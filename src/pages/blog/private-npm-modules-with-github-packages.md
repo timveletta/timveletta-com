@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/BlogPost.astro'
 title: Private NPM modules with GitHub packages
-date: 2022-04-05
+pubDate: 2022-04-05
 description: Learn how to publish to GitHub packages, package scoping, making
   your packages private and consuming them.
 heroImage: /assets/blog-format.jpg

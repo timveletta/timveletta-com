@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v1.6.11">
+
+<!-- Primary Meta Tags -->
+<title>Accessing React state in your component cleanup with hooks</title>
+<meta name="title" content="Accessing React state in your component cleanup with hooks">
+<meta name="description" content="I came across an interesting problem where I needed to access a piece of React state when unmounting a component, a problem that would have been trivial with Class components and componentWillUnmount, however with hooks, the solution was less clear.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timveletta.com/blog/accessing-react-state-in-your-component-cleanup-with-hooks/">
+<meta property="og:title" content="Accessing React state in your component cleanup with hooks">
+<meta property="og:description" content="I came across an interesting problem where I needed to access a piece of React state when unmounting a component, a problem that would have been trivial with Class components and componentWillUnmount, however with hooks, the solution was less clear.">
+<meta property="og:image" content="https://timveletta.com/placeholder-social.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://timveletta.com/blog/accessing-react-state-in-your-component-cleanup-with-hooks/">
+<meta property="twitter:title" content="Accessing React state in your component cleanup with hooks">
+<meta property="twitter:description" content="I came across an interesting problem where I needed to access a piece of React state when unmounting a component, a problem that would have been trivial with Class components and componentWillUnmount, however with hooks, the solution was less clear.">
+<meta property="twitter:image" content="https://timveletta.com/placeholder-social.jpg">
+
+	<link rel="stylesheet" href="/assets/blog.7e8fa476.css" />
+<link rel="stylesheet" href="/assets/accessing-react-state-in-your-component-cleanup-with-hooks.76bfc55d.css" /></head>
+	<body class="bg-slate-100">
+		<header class="container mx-auto flex items-center justify-between flex-wrap mt-4 px-4 md:px-0">
+	<a class="flex items-center flex-shrink-0 mr-6" href="/">
+		<img src="/assets/logo.f20f37db.svg" alt="Tim Veletta logo" style="width: 88px">
+	</a>
+	<nav role="navigation" aria-label="main-navigation" class="flex w-auto items-center">
+		<a href="/#aboutme" class="block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 border-transparent hover:border-primary w-full md:w-auto sm:hidden">
+	About Me
+</a>
+		<a href="/blog" class="block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 border-transparent hover:border-primary w-full md:w-auto sm:hidden">
+	Blog
+</a>
+		<a href="https://github.com/timveletta" target="_blank" rel="noreferrer" class="mr-4">
+	<img src="/assets/github.d8c65b9e.svg" alt="Github logo" style="width: 24px">
+</a>
+		<a href="https://linkedin.com/in/tim-veletta" target="_blank" rel="noreferrer" class="mr-4">
+	<img src="/assets/linkedin.397253c1.svg" alt="LinkedIn logo" style="width: 24px">
+</a>
+	</nav>
+</header>
+
+		<main>
+			<article>
+				<div class="container mx-auto max-w-screen-lg my-20">
+					<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug text-center">
+						Accessing React state in your component cleanup with hooks
+					</h1>
+					<time datetime="2020-07-13T00:00:00.000Z" class="block text-base leading-6 font-medium text-gray-500 text-center my-4">
+						July 13, 2020
+					</time>
+					<hr class="h-4 w-20 mt-3 mb-8 bg-primary mx-auto">
+					<div class="text-gray-900 leading-loose font-serif text-lg markdown">
+						<p>Today I came across an interesting problem where I needed to access a piece of React state when unmounting a component, a problem that would have been trivial with Class components and <code>componentWillUnmount</code>, however with hooks, the solution was less clear.</p>
+<p>If you’re just looking for the solution here it is; I will be diving into it below to try and understand it a bit better.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> [</span><span style="color: #79C0FF">value</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">setValue</span><span style="color: #C9D1D9">] </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">useState</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">valueRef</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">useRef</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">	valueRef.current </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> value;</span></span>
+<span class="line"><span style="color: #C9D1D9">}, [value]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">	</span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">cleanup</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">		console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(valueRef.current);</span></span>
+<span class="line"><span style="color: #C9D1D9">	};</span></span>
+<span class="line"><span style="color: #C9D1D9">}, []);</span></span></code></pre>
+<h2 id="useeffect"><code>useEffect</code></h2>
+<p>The <code>useEffect</code> hook allows you to perform side-effects in your components when something happens, for instance when the component is first rendered, when a property or piece of state is updated, or when the component is about to be unmounted.</p>
+<p>The <code>useEffect</code> hook is defined as follows:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(effectFunction: React.EffectCallback, dependencies</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> React.DependencyList </span><span style="color: #FF7B72">|</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">undefined</span><span style="color: #C9D1D9">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #8B949E">// for example</span></span>
+<span class="line"><span style="color: #D2A8FF">useEffect</span><span style="color: #C9D1D9">(() </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(value);</span></span>
+<span class="line"><span style="color: #C9D1D9">}, [value]);</span></span></code></pre>
+<p>In this example, the <code>value</code> will be output to the console every time it changes including when it is initialised.</p>
+<p>The dependency list passed into <code>useEffect</code> is particularly interesting; whenever <em>one of the variables in that array changes</em>, the <em>effect function will be run</em>. If we omit the dependency list, the function will run both <em>after the first render</em> and <em>after every update</em>. If we instead pass in an empty dependency list, the function <em>will only be run when the component is initialised</em>.</p>
+<p>We can also return a function from <code>useEffect</code> that can <em>cleanup</em> any side effects, for instance, we may want to unsubscribe from an external data source to prevent possible memory leaks. If we choose to include some variables in our dependency array or omit it entirely, the cleanup function will be run on each update to clean up effects from the previous render as well as when the component unmounts.</p>
+<p>If we <em>only</em> want to run the cleanup function when the component unmounts, we set the dependency array to <code>[]</code>.</p>
+<p>Our solution makes use of 2 <code>useEffect</code> statements, one to output the <code>value</code> to the console <strong>only when the component is to be unmounted</strong> and the other to update the <code>valueRef</code> with the current <code>value</code>.</p>
+<h2 id="useref"><code>useRef</code></h2>
+<p>The <code>useRef</code> hook creates a <code>ref</code> which has 2 main use cases, to access a child component outside of the usual <code>props</code> flow or to store a mutable value that exists for the lifetime of the component. In our case, we use the latter.</p>
+<p>A <code>ref</code> is a generic container that can store a value using its <code>current</code> property similar to using instance variables in object oriented programming. It is different from <em>state</em> since it does not cause a <em>rerender</em> when it is updated.</p>
+<p>Since the <code>ref</code> is mutable and exists for the lifetime of the component, we can use it to store the current <code>value</code> whenever it is updated and still access that <code>value</code> in the <em>cleanup</em> function of our <code>useEffect</code> via the <code>valueRef</code>.</p>
+<h2 id="further-resources">Further Resources</h2>
+<p><a href="https://reactjs.org/docs/hooks-effect.html">Using the Effect Hook</a></p>
+<p><a href="https://reactjs.org/docs/refs-and-the-dom.html">Refs and the DOM</a></p>
+<p><a href="https://reactjs.org/docs/hooks-faq.html#is-there-something-like-instance-variables">Is there something like instance variables?</a></p>
+					</div>
+					<div class="my-10">
+								<span class="text-gray-500 text-base mr-4">Tags</span>
+								<span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										
+										react
+									</span><span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										
+										state
+									</span><span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										
+										hooks
+									</span>
+							</div>
+					<a href="/blog" class="font-bold text-sm mt-4 py-4 text-primary self-end">
+						⭠ Back to the blog
+					</a>
+				</div>
+			</article>
+		</main>
+		<footer class="bg-gray-800 text-white">
+	<div class="container px-4 mx-auto py-10 grid gap-8 grid-cols-1 md:grid-cols-contact items-center">
+		<div>
+			<h1 class="text-sans font-bold tracking-wide text-3xl mb-8">
+				Got a question? Just want to say hi?
+			</h1>
+			<p class="flex items-center text-sans font-bold tracking-wide">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32px" height="32px" fill="#01bfa6" class="mr-4"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 0 1-.9 0L4 9.62V18h16V9.62z"></path>
+				</svg>
+				tim.veletta@gmail.com
+			</p>
+		</div>
+		<iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
+<form class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-4 gap-4 justify-start" name="contact" action="/contact" method="POST" target="hiddenFrame">
+			<label class="sr-only" for="name">
+				 
+				Name
+			</label>
+			<input aria-label="name" id="name" type="text" name="name" required placeholder="Your Name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="email">
+				 
+				Email Address
+			</label>
+			<input aria-label="email" id="email" type="text" name="email" placeholder="Your Email Address (optional)" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="subject">
+				 
+				Subject
+			</label>
+			<input aria-label="subject" id="subject" type="text" name="messageSubject" placeholder="Your Subject (optional)" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="message">
+				 
+				Message
+			</label>
+			<textarea aria-label="message" id="message" required name="message" class="row-span-3 md:col-start-2 md:row-start-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Message"></textarea>
+			<div class="flex items-baseline">
+				<button type="submit" class="bg-primary text-white font-bold px-4 py-2 mr-4 rounded hover:bg-opacity-75">
+					Send Message
+				</button>
+			</div>
+		</form>
+	</div>
+</footer>
+	</body></html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="astro-LFGF2FHQ">
+<html lang="en">
 	<head>
 		<!-- Global Metadata --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -25,61 +25,359 @@
 <meta property="twitter:description" content="Tim Veletta">
 <meta property="twitter:image" content="https://timveletta.com/placeholder-social.jpg">
 
-		
-	<link rel="stylesheet" href="/assets/blog.26c913e6.css" />
-<link rel="stylesheet" href="/assets/blog.5437ed76.css" />
-<link rel="stylesheet" href="/assets/first-post.42df320f.css" />
-<link rel="stylesheet" href="/assets/first-post.cd791a1a.css" /></head>
-	<body class="astro-LFGF2FHQ">
-		<header class="container mx-auto flex items-center justify-between flex-wrap mt-4 absolute z-10 left-1/2 transform -translate-x-1/2 px-4 md:px-0">
-	<a class="flex items-center flex-shrink-0 mr-6">
-		<img src="/assets/logo.f20f37db.svg" alt="Tim Veletta Logo" style="width: 88px">
+	<link rel="stylesheet" href="/assets/blog.7e8fa476.css" />
+<link rel="stylesheet" href="/assets/accessing-react-state-in-your-component-cleanup-with-hooks.76bfc55d.css" /></head>
+	<body class="bg-slate-100">
+		<header class="container mx-auto flex items-center justify-between flex-wrap mt-4 px-4 md:px-0">
+	<a class="flex items-center flex-shrink-0 mr-6" href="/">
+		<img src="/assets/logo.f20f37db.svg" alt="Tim Veletta logo" style="width: 88px">
 	</a>
-	<nav>
-		<a href="/" class="astro-FPRMATIO">
-	Home
+	<nav role="navigation" aria-label="main-navigation" class="flex w-auto items-center">
+		<a href="/#aboutme" class="block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 border-transparent hover:border-primary w-full md:w-auto sm:hidden">
+	About Me
 </a>
-
-		<a href="/blog" class="active astro-FPRMATIO">
+		<a href="/blog" class="block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 border-transparent hover:border-primary w-full md:w-auto sm:hidden" class="active">
 	Blog
 </a>
-
+		<a href="https://github.com/timveletta" target="_blank" rel="noreferrer" class="mr-4">
+	<img src="/assets/github.d8c65b9e.svg" alt="Github logo" style="width: 24px">
+</a>
+		<a href="https://linkedin.com/in/tim-veletta" target="_blank" rel="noreferrer" class="mr-4">
+	<img src="/assets/linkedin.397253c1.svg" alt="LinkedIn logo" style="width: 24px">
+</a>
 	</nav>
 </header>
-		<main class="astro-LFGF2FHQ">
-			<section class="astro-LFGF2FHQ">
-				<ul class="astro-LFGF2FHQ">
-					<li class="astro-LFGF2FHQ">
-								<time datetime="Jul 22 2022" class="astro-LFGF2FHQ">
-									Jul 22, 2022
-								</time>
-								<a href="/blog/second-post" class="astro-LFGF2FHQ">Second post</a>
-							</li><li class="astro-LFGF2FHQ">
-								<time datetime="Jul 15 2022" class="astro-LFGF2FHQ">
-									Jul 15, 2022
-								</time>
-								<a href="/blog/third-post" class="astro-LFGF2FHQ">Third post</a>
-							</li><li class="astro-LFGF2FHQ">
-								<time datetime="Jul 08 2022" class="astro-LFGF2FHQ">
-									Jul 8, 2022
-								</time>
-								<a href="/blog/first-post" class="astro-LFGF2FHQ">First post</a>
-							</li><li class="astro-LFGF2FHQ">
-								<time datetime="Jul 02 2022" class="astro-LFGF2FHQ">
-									Jul 2, 2022
-								</time>
-								<a href="/blog/using-mdx" class="astro-LFGF2FHQ">Using MDX</a>
-							</li><li class="astro-LFGF2FHQ">
-								<time datetime="Jul 01 2022" class="astro-LFGF2FHQ">
-									Jul 1, 2022
-								</time>
-								<a href="/blog/markdown-style-guide" class="astro-LFGF2FHQ">Markdown Style Guide</a>
-							</li>
-				</ul>
-			</section>
-		</main>
-		<footer class="astro-4XU6VB77">
-	&copy; 2022 YOUR NAME HERE. All rights reserved.
-</footer>
+		<main>
+			<div class="container mx-auto my-20 grid md:grid-cols-3 grid-cols-1 gap-8">
+				<article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/header.jpg" alt="Hero image for post Next.js 13 Layouts by Example">
+	<div class="px-6 py-4">
+		<a href="https://blog.mechanicalrock.io/2022/10/27/next-js-layouts-by-example.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Next.js 13 Layouts by Example
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2022-11-03T00:00:00.000Z">
+				November 3, 2022
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">Let&#39;s look at how the new Layouts announced at Next.js Conf 2022 improve the developer experience of working with Next.js</p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://blog.mechanicalrock.io/2022/10/27/next-js-layouts-by-example.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
 
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/blog-header.jpg" alt="Hero image for post Azure AD Authentication in Cypress Tests with MSAL">
+	<div class="px-6 py-4">
+		<a href="https://blog.mechanicalrock.io/2022/08/08/azure-ad-authentication-cypress.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Azure AD Authentication in Cypress Tests with MSAL
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2022-08-08T00:00:00.000Z">
+				August 8, 2022
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">Its been over 2 years since I wrote about this; in that time Microsoft has moved from ADAL to MSAL and so it was a good time to revisit this topic.</p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://blog.mechanicalrock.io/2022/08/08/azure-ad-authentication-cypress.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/blog-format.jpg" alt="Hero image for post Private NPM modules with GitHub packages">
+	<div class="px-6 py-4">
+		<a href="https://mechanicalrock.github.io/2022/04/04/private-npm-modules.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Private NPM modules with GitHub packages
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2022-04-05T00:00:00.000Z">
+				April 5, 2022
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">Learn how to publish to GitHub packages, package scoping, making your packages private and consuming them.</p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://mechanicalrock.github.io/2022/04/04/private-npm-modules.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/typescript-npm-modules-header.jpg" alt="Hero image for post Publishing TypeScript NPM Modules">
+	<div class="px-6 py-4">
+		<a href="https://mechanicalrock.github.io/2022/01/24/publishing-typescript-npm-modules.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Publishing TypeScript NPM Modules
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2022-01-28T00:00:00.000Z">
+				January 28, 2022
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">Understanding how to build your own NPM modules can enable your development teams to share common pieces of code across multiple applications.</p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://mechanicalrock.github.io/2022/01/24/publishing-typescript-npm-modules.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/react-application-state.jpg" alt="Hero image for post Managing React application state with Context">
+	<div class="px-6 py-4">
+		<a href="https://mechanicalrock.github.io/2021/05/27/managing-react-application-state-with-context.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Managing React application state with Context
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2021-05-30T00:00:00.000Z">
+				May 30, 2021
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">There are many state management libraries available for React but what if I told you that the best way of managing application state is actually built into React.</p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://mechanicalrock.github.io/2021/05/27/managing-react-application-state-with-context.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/lambda-direct.jpg" alt="Hero image for post Direct Lambda resolvers with AWS Amplify">
+	<div class="px-6 py-4">
+		<a href="/blog/direct-lambda-resolvers-with-aws-amplify" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Direct Lambda resolvers with AWS Amplify
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2020-12-09T00:00:00.000Z">
+				December 9, 2020
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">AWS Amplify is fantastic; it has never been easier to build and provision a cloud-based, full-stack, web application. We can easily create an API using AppSync and have it just work but what happens when you need to perform additional logic?</p>
+		
+	</div>
+	<a href="/blog/direct-lambda-resolvers-with-aws-amplify" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/cdk-spa.jpg" alt="Hero image for post Scaffolding your AWS single page application infrastructure with CDK">
+	<div class="px-6 py-4">
+		<a href="https://mechanicalrock.github.io/2020/08/24/scaffolding-single-page-applications-with-cdk.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Scaffolding your AWS single page application infrastructure with CDK
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2020-08-26T00:00:00.000Z">
+				August 26, 2020
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">I&#39;m finding CDK really enjoyable to pick up and understand. Come find out how to set up your static sites and single page applications using it.</p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://mechanicalrock.github.io/2020/08/24/scaffolding-single-page-applications-with-cdk.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/updated-github.jpg" alt="Hero image for post UPDATED: Deploying a static site to AWS using GitHub Actions">
+	<div class="px-6 py-4">
+		<a href="/blog/updated-deploying-a-static-site-to-aws-using-github-actions" class="font-bold text-gray-900 text-xl hover:text-primary">
+			UPDATED: Deploying a static site to AWS using GitHub Actions
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2020-08-16T00:00:00.000Z">
+				August 16, 2020
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">It has been just under a year since I wrote my initial about deploying static sites to AWS via Github Actions and a number of things have changed since then. I discuss my process for deploying static sites using Github Actions and whats changed since the initial version of the article.</p>
+		
+	</div>
+	<a href="/blog/updated-deploying-a-static-site-to-aws-using-github-actions" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/refresh-blog.jpg" alt="Hero image for post Refreshing my blog with Netlify CMS and Tailwind CSS">
+	<div class="px-6 py-4">
+		<a href="/blog/refreshing-my-blog-with-netlify-cms-and-tailwind-css" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Refreshing my blog with Netlify CMS and Tailwind CSS
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2020-07-16T00:00:00.000Z">
+				July 16, 2020
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">It has come time for the annual website redesign and refresh. I discuss why I wanted to refresh my website, what I used to build it and what exciting new features you can expect to see in the coming months.</p>
+		
+	</div>
+	<a href="/blog/refreshing-my-blog-with-netlify-cms-and-tailwind-css" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/react-cleanup.jpg" alt="Hero image for post Accessing React state in your component cleanup with hooks">
+	<div class="px-6 py-4">
+		<a href="/blog/accessing-react-state-in-your-component-cleanup-with-hooks" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Accessing React state in your component cleanup with hooks
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2020-07-13T00:00:00.000Z">
+				July 13, 2020
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">I came across an interesting problem where I needed to access a piece of React state when unmounting a component, a problem that would have been trivial with Class components and componentWillUnmount, however with hooks, the solution was less clear.</p>
+		
+	</div>
+	<a href="/blog/accessing-react-state-in-your-component-cleanup-with-hooks" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/cypress.jpg" alt="Hero image for post Azure AD Authentication in Cypress Tests">
+	<div class="px-6 py-4">
+		<a href="https://mechanicalrock.github.io/2020/05/05/azure-ad-authentication-cypress.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Azure AD Authentication in Cypress Tests
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2020-05-05T00:00:00.000Z">
+				May 5, 2020
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">Cypress is a browser-based, end-to-end testing framework that is enjoyable to use however I ran into some difficulty trying to authenticate with Azure Active Directory in my tests. Find out what I did to fix it! </p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://mechanicalrock.github.io/2020/05/05/azure-ad-authentication-cypress.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/css-grid.jpg" alt="Hero image for post Just Enough CSS Grid to be dangerous">
+	<div class="px-6 py-4">
+		<a href="https://mechanicalrock.github.io/2020/04/28/css-grid.html" target="_blank" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Just Enough CSS Grid to be dangerous
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2020-04-28T00:00:00.000Z">
+				April 28, 2020
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">CSS Grid is one of my favourite tools for building your web layouts. I examine where we have come from in terms of web layouts and what you need to know to start building your own.</p>
+		<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
+	</div>
+	<a href="https://mechanicalrock.github.io/2020/04/28/css-grid.html" target="_blank" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> --><article class="overflow-hidden shadow-md bg-white grid font-sans">
+	<img src="/assets/aws-github.jpg" alt="Hero image for post Deploying a static site to AWS using GitHub Actions">
+	<div class="px-6 py-4">
+		<a href="/blog/deploying-a-static-site-to-aws-using-github-actions" class="font-bold text-gray-900 text-xl hover:text-primary">
+			Deploying a static site to AWS using GitHub Actions
+		</a>
+		<p class="text-gray-500 font-bold text-sm my-2">
+			<time datetime="2019-08-31T00:00:00.000Z">
+				August 31, 2019
+			</time>
+		</p>
+		<p class="text-gray-700 text-base">I was fortunate enough to get a beta invite to Github Actions earlier this week so I figured I would try to deploy a static website to AWS. I also look at the Actions building blocks and keeping your secrets secret.</p>
+		
+	</div>
+	<a href="/blog/deploying-a-static-site-to-aws-using-github-actions" class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More ⭢
+	</a>
+</article>
+
+<!-- <li>
+    
+    <a href={post.url}>{post.frontmatter.title}</a>
+</li> -->
+			</div>
+		</main>
+		<footer class="bg-gray-800 text-white">
+	<div class="container px-4 mx-auto py-10 grid gap-8 grid-cols-1 md:grid-cols-contact items-center">
+		<div>
+			<h1 class="text-sans font-bold tracking-wide text-3xl mb-8">
+				Got a question? Just want to say hi?
+			</h1>
+			<p class="flex items-center text-sans font-bold tracking-wide">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32px" height="32px" fill="#01bfa6" class="mr-4"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 0 1-.9 0L4 9.62V18h16V9.62z"></path>
+				</svg>
+				tim.veletta@gmail.com
+			</p>
+		</div>
+		<iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
+<form class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-4 gap-4 justify-start" name="contact" action="/contact" method="POST" target="hiddenFrame">
+			<label class="sr-only" for="name">
+				 
+				Name
+			</label>
+			<input aria-label="name" id="name" type="text" name="name" required placeholder="Your Name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="email">
+				 
+				Email Address
+			</label>
+			<input aria-label="email" id="email" type="text" name="email" placeholder="Your Email Address (optional)" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="subject">
+				 
+				Subject
+			</label>
+			<input aria-label="subject" id="subject" type="text" name="messageSubject" placeholder="Your Subject (optional)" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="message">
+				 
+				Message
+			</label>
+			<textarea aria-label="message" id="message" required name="message" class="row-span-3 md:col-start-2 md:row-start-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Message"></textarea>
+			<div class="flex items-baseline">
+				<button type="submit" class="bg-primary text-white font-bold px-4 py-2 mr-4 rounded hover:bg-opacity-75">
+					Send Message
+				</button>
+			</div>
+		</form>
+	</div>
+</footer>
 	</body></html>

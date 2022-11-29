@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v1.6.11">
+
+<!-- Primary Meta Tags -->
+<title>Private NPM modules with GitHub packages</title>
+<meta name="title" content="Private NPM modules with GitHub packages">
+<meta name="description" content="Learn how to publish to GitHub packages, package scoping, making your packages private and consuming them.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timveletta.com/blog/private-npm-modules-with-github-packages/">
+<meta property="og:title" content="Private NPM modules with GitHub packages">
+<meta property="og:description" content="Learn how to publish to GitHub packages, package scoping, making your packages private and consuming them.">
+<meta property="og:image" content="https://timveletta.com/placeholder-social.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://timveletta.com/blog/private-npm-modules-with-github-packages/">
+<meta property="twitter:title" content="Private NPM modules with GitHub packages">
+<meta property="twitter:description" content="Learn how to publish to GitHub packages, package scoping, making your packages private and consuming them.">
+<meta property="twitter:image" content="https://timveletta.com/placeholder-social.jpg">
+
+	<link rel="stylesheet" href="/assets/blog.7e8fa476.css" />
+<link rel="stylesheet" href="/assets/accessing-react-state-in-your-component-cleanup-with-hooks.76bfc55d.css" /></head>
+	<body class="bg-slate-100">
+		<header class="container mx-auto flex items-center justify-between flex-wrap mt-4 px-4 md:px-0">
+	<a class="flex items-center flex-shrink-0 mr-6" href="/">
+		<img src="/assets/logo.f20f37db.svg" alt="Tim Veletta logo" style="width: 88px">
+	</a>
+	<nav role="navigation" aria-label="main-navigation" class="flex w-auto items-center">
+		<a href="/#aboutme" class="block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 border-transparent hover:border-primary w-full md:w-auto sm:hidden">
+	About Me
+</a>
+		<a href="/blog" class="block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 border-transparent hover:border-primary w-full md:w-auto sm:hidden">
+	Blog
+</a>
+		<a href="https://github.com/timveletta" target="_blank" rel="noreferrer" class="mr-4">
+	<img src="/assets/github.d8c65b9e.svg" alt="Github logo" style="width: 24px">
+</a>
+		<a href="https://linkedin.com/in/tim-veletta" target="_blank" rel="noreferrer" class="mr-4">
+	<img src="/assets/linkedin.397253c1.svg" alt="LinkedIn logo" style="width: 24px">
+</a>
+	</nav>
+</header>
+
+		<main>
+			<article>
+				<div class="container mx-auto max-w-screen-lg my-20">
+					<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug text-center">
+						Private NPM modules with GitHub packages
+					</h1>
+					<time datetime="2022-04-05T00:00:00.000Z" class="block text-base leading-6 font-medium text-gray-500 text-center my-4">
+						April 5, 2022
+					</time>
+					<hr class="h-4 w-20 mt-3 mb-8 bg-primary mx-auto">
+					<div class="text-gray-900 leading-loose font-serif text-lg markdown">
+						<blockquote>
+<p>Header image by <a href="https://unsplash.com/@petrebels?utm_source=unsplash&#x26;utm_medium=referral&#x26;utm_content=creditCopyText">Petrebels</a> on <a href="https://unsplash.com/s/photos/package?utm_source=unsplash&#x26;utm_medium=referral&#x26;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+					</div>
+					<div class="my-10">
+								<span class="text-gray-500 text-base mr-4">Tags</span>
+								<span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										
+										github
+									</span><span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										
+										npm
+									</span><span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										
+										node
+									</span><span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										
+										typescript
+									</span>
+							</div>
+					<a href="/blog" class="font-bold text-sm mt-4 py-4 text-primary self-end">
+						⭠ Back to the blog
+					</a>
+				</div>
+			</article>
+		</main>
+		<footer class="bg-gray-800 text-white">
+	<div class="container px-4 mx-auto py-10 grid gap-8 grid-cols-1 md:grid-cols-contact items-center">
+		<div>
+			<h1 class="text-sans font-bold tracking-wide text-3xl mb-8">
+				Got a question? Just want to say hi?
+			</h1>
+			<p class="flex items-center text-sans font-bold tracking-wide">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32px" height="32px" fill="#01bfa6" class="mr-4"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 0 1-.9 0L4 9.62V18h16V9.62z"></path>
+				</svg>
+				tim.veletta@gmail.com
+			</p>
+		</div>
+		<iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
+<form class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-4 gap-4 justify-start" name="contact" action="/contact" method="POST" target="hiddenFrame">
+			<label class="sr-only" for="name">
+				 
+				Name
+			</label>
+			<input aria-label="name" id="name" type="text" name="name" required placeholder="Your Name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="email">
+				 
+				Email Address
+			</label>
+			<input aria-label="email" id="email" type="text" name="email" placeholder="Your Email Address (optional)" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="subject">
+				 
+				Subject
+			</label>
+			<input aria-label="subject" id="subject" type="text" name="messageSubject" placeholder="Your Subject (optional)" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+			<label class="sr-only" for="message">
+				 
+				Message
+			</label>
+			<textarea aria-label="message" id="message" required name="message" class="row-span-3 md:col-start-2 md:row-start-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Message"></textarea>
+			<div class="flex items-baseline">
+				<button type="submit" class="bg-primary text-white font-bold px-4 py-2 mr-4 rounded hover:bg-opacity-75">
+					Send Message
+				</button>
+			</div>
+		</form>
+	</div>
+</footer>
+	</body></html>

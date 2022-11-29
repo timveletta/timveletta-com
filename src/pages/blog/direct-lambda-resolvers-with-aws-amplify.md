@@ -2,7 +2,7 @@
 layout: '../../layouts/BlogPost.astro'
 title: Direct Lambda resolvers with AWS Amplify
 isDraft: false
-date: 2020-12-09
+pubDate: 2020-12-09
 description: AWS Amplify is fantastic; it has never been easier to build and
   provision a cloud-based, full-stack, web application. We can easily create an
   API using AppSync and have it just work but what happens when you need to

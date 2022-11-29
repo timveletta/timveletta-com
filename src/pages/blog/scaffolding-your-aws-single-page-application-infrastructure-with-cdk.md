@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/BlogPost.astro'
 title: Scaffolding your AWS single page application infrastructure with CDK
-date: 2020-08-26
+pubDate: 2020-08-26
 description: I'm finding CDK really enjoyable to pick up and understand. Come
   find out how to set up your static sites and single page applications using
   it.

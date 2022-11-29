@@ -8,13 +8,13 @@ export interface Props {
 	content: {
 		title: string;
 		description: string;
-		date: string;
+		pubDate: string;
 		tags: string[];
 	};
 }
 
 const {
-	content: { title, description, date, tags },
+	content: { title, description, pubDate, tags },
 } = Astro.props;
 ---
 
@@ -34,11 +34,11 @@ const {
 						{title}
 					</h1>
 					<time
-						datetime={date}
+						datetime={pubDate}
 						class="block text-base leading-6 font-medium text-gray-500 text-center my-4"
 					>
 						{
-							new Date(date).toLocaleDateString('en-us', {
+							new Date(pubDate).toLocaleDateString('en-us', {
 								year: 'numeric',
 								month: 'long',
 								day: 'numeric',

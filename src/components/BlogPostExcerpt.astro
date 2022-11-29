@@ -16,9 +16,9 @@ const { frontmatter, url } = Astro.props;
 			{frontmatter.title}
 		</a>
 		<p class="text-gray-500 font-bold text-sm my-2">
-			<time datetime={frontmatter.date}>
+			<time datetime={frontmatter.pubDate}>
 				{
-					new Date(frontmatter.date).toLocaleDateString('en-us', {
+					new Date(frontmatter.pubDate).toLocaleDateString('en-us', {
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric',
