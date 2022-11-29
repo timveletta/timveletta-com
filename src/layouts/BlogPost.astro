@@ -1,4 +1,5 @@
 ---
+import './blog-post.css';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -7,48 +8,67 @@ export interface Props {
 	content: {
 		title: string;
 		description: string;
-		pubDate?: string;
-		updatedDate?: string;
-		heroImage?: string;
+		date: string;
+		tags: string[];
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+	content: { title, description, date, tags },
 } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-		</style>
 	</head>
-
-	<body>
+	<body class="bg-slate-100">
 		<Header />
+
 		<main>
 			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-				<h1 class="title">{title}</h1>
-				{pubDate && <time>{pubDate}</time>}
-				{
-					updatedDate && (
-						<div>
-							Last updated on <time>{updatedDate}</time>
-						</div>
-					)
-				}
-				<hr />
-				<slot />
+				<div class="container mx-auto max-w-screen-lg my-20">
+					<h1
+						class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug text-center"
+					>
+						{title}
+					</h1>
+					<time
+						datetime={date}
+						class="block text-base leading-6 font-medium text-gray-500 text-center my-4"
+					>
+						{
+							new Date(date).toLocaleDateString('en-us', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})
+						}
+					</time>
+					<hr class="h-4 w-20 mt-3 mb-8 bg-primary mx-auto" />
+					<div class="text-gray-900 leading-loose font-serif text-lg markdown">
+						<slot />
+					</div>
+					{
+						tags && tags.length ? (
+							<div class="my-10">
+								<span class="text-gray-500 text-base mr-4">Tags</span>
+								{tags.map((tag) => (
+									<span class="inline-block border border-gray-700 rounded-full py-1 px-3 mr-2 mb-1 bg-gray-700 text-white hover:bg-primary hover:border-primary">
+										{/* <a href={`/tags/${kebabCase(tag)}/`}>// </a>*/}
+										{tag}
+									</span>
+								))}
+							</div>
+						) : null
+					}
+					<a
+						href="/blog"
+						class="font-bold text-sm mt-4 py-4 text-primary self-end"
+					>
+						⭠ Back to the blog
+					</a>
+				</div>
 			</article>
 		</main>
 		<Footer />

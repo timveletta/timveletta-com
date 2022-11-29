@@ -1,0 +1,9 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { href, ...props } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noreferrer" class="mr-4" {...props}>
+	<slot />
+</a>

@@ -1,0 +1,12 @@
+---
+layout: '../../layouts/BlogPost.astro'
+title: Next.js 13 Layouts by Example
+date: 2022-11-03
+description: Let's look at how the new Layouts announced at Next.js Conf 2022
+  improve the developer experience of working with Next.js
+heroImage: /assets/header.jpg
+externalLink: https://blog.mechanicalrock.io/2022/10/27/next-js-layouts-by-example.html
+tags:
+  - react
+  - next
+---
