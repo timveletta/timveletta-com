@@ -1,0 +1,55 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
+import BlogPostExcerpt from '../../components/BlogPostExcerpt.astro';
+
+export async function getStaticPaths() {
+	const allPosts = await Astro.glob('../blog/*.{md,mdx}');
+	return [
+		...new Set(
+			[].concat.apply(
+				[],
+				allPosts.map((post) => post.frontmatter.tags)
+			)
+		),
+	].map((tag) => ({
+		params: {
+			tag,
+		},
+	}));
+}
+
+const { tag } = Astro.params;
+const posts = (await Astro.glob('../blog/*.{md,mdx}'))
+	.filter((post) => post.frontmatter.tags.includes(tag))
+	.sort(
+		(a, b) =>
+			new Date(b.frontmatter.pubDate).valueOf() -
+			new Date(a.frontmatter.pubDate).valueOf()
+	);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="bg-slate-100">
+		<Header />
+		<main>
+			<div class="container mx-auto my-20">
+				<h1
+					class="text-3xl text-center font-bold text-gray-800 tracking-wide mb-10"
+				>
+					Blog posts tagged "{tag}"
+				</h1>
+				<div class="grid md:grid-cols-3 grid-cols-1 gap-8">
+					{posts.map((post) => <BlogPostExcerpt {...post} />)}
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
