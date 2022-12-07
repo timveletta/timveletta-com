@@ -11,7 +11,7 @@ const { frontmatter, url } = Astro.props;
 		<a
 			href={frontmatter.externalLink ? frontmatter.externalLink : url}
 			target={frontmatter.externalLink ? '_blank' : undefined}
-			class="font-bold text-gray-900 text-xl hover:text-primary"
+			class="font-bold text-slate-800 text-xl hover:text-primary"
 		>
 			{frontmatter.title}
 		</a>
@@ -26,7 +26,7 @@ const { frontmatter, url } = Astro.props;
 				}
 			</time>
 		</p>
-		<p class="text-gray-700 text-base">{frontmatter.description}</p>
+		<p class="text-slate-700 text-base">{frontmatter.description}</p>
 		{
 			frontmatter.externalLink && (
 				<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
@@ -38,7 +38,7 @@ const { frontmatter, url } = Astro.props;
 		target={frontmatter.externalLink ? '_blank' : undefined}
 		class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end"
 	>
-		Read More ⭢
+		Read More
 	</a>
 </article>
 
