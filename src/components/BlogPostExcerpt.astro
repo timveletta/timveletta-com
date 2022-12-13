@@ -4,7 +4,9 @@ import { Image } from '@astrojs/image/components';
 const { frontmatter, url } = Astro.props;
 ---
 
-<article class="overflow-hidden shadow-md bg-white grid font-sans">
+<article
+	class="overflow-hidden shadow-md bg-white grid font-sans max-w-[480px]"
+>
 	<Image
 		format="webp"
 		width={480}
