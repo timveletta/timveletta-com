@@ -1,9 +1,14 @@
 ---
+import { Image } from '@astrojs/image/components';
+
 const { frontmatter, url } = Astro.props;
 ---
 
 <article class="overflow-hidden shadow-md bg-white grid font-sans">
-	<img
+	<Image
+		format="webp"
+		width={480}
+		height={300}
 		src={frontmatter.heroImage}
 		alt={`Hero image for post ${frontmatter.title}`}
 	/>

@@ -9,9 +9,17 @@ import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
+import image from '@astrojs/image';
+
+// https://astro.build/config
 export default defineConfig({
 	site: 'https://timveletta.com',
-	integrations: [mdx(), sitemap(), tailwind()],
+	integrations: [
+		mdx(),
+		sitemap(),
+		tailwind(),
+		image({ serviceEntryPoint: '@astrojs/image/sharp' }),
+	],
 	output: 'static',
 	adapter: vercel(),
 });
