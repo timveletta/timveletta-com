@@ -7,19 +7,31 @@ const msg = {
 	subject: 'TimVeletta.com Contact Form Submission',
 };
 
+function formatMessage(name, subject, email, message) {
+	return `
+	<h1>TimVeletta.com Contact Form Submission</h1>
+	<p><strong>Name:</strong> ${name}</p>
+	<p><strong>Subject:</strong> ${subject || 'None'}</p>
+	<p><strong>Email:</strong> ${email || 'None'}</p>
+	<p><strong>Message:</strong> ${message}</p>
+  `;
+}
+
 export default async function handler(request, response) {
-	console.log('Request', request);
 	try {
 		const result = await mail.send({
 			...msg,
-			text: `Name: ${request.body.name}\nEmail: ${request.body.email}\nSubject: ${request.body.subject}\nMessage: ${request.body.message}`,
+			html: formatMessage(
+				request.body.name,
+				request.body.subject,
+				request.body.email,
+				request.body.message
+			),
 		});
-		console.log(result);
 		response.status(result[0].statusCode).json({
 			body: 'Message sent successfully!',
 		});
 	} catch (error) {
-		console.log(error);
 		response.status(500).json({
 			body: 'Message failed to send.',
 		});
