@@ -3,7 +3,7 @@ mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const msg = {
 	to: 'timothy.veletta@gmail.com', // Change to your recipient
-	from: 'test@example.com', // Change to your verified sender
+	from: 'contact@em3617.timveletta.com', // Change to your verified sender
 	subject: 'TimVeletta.com Contact Form Submission',
 };
 
