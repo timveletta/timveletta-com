@@ -1,5 +1,5 @@
 ---
-import Contact from './Contact.astro';
+import Contact from './Contact.jsx';
 ---
 
 <footer class="bg-gray-800 text-white">
@@ -25,6 +25,6 @@ import Contact from './Contact.astro';
 				tim.veletta@gmail.com
 			</p>
 		</div>
-		<Contact />
+		<Contact client:visible />
 	</div>
 </footer>
