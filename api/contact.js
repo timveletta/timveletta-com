@@ -18,16 +18,11 @@ function formatMessage(name, subject, email, message) {
 }
 
 export default async function handler(request, response) {
-	console.log('request', request.body);
+	const { name, subject, email, message } = JSON.parse(request.body);
 	try {
 		const result = await mail.send({
 			...msg,
-			html: formatMessage(
-				request.body.name,
-				request.body.subject,
-				request.body.email,
-				request.body.message
-			),
+			html: formatMessage(name, subject, email, message),
 		});
 		response.status(result[0].statusCode).json({
 			body: 'Message sent successfully!',
