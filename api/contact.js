@@ -8,12 +8,10 @@ const msg = {
 };
 
 export default async function handler(request, response) {
-	const { name, email, subject, message } = request.body;
-
 	try {
 		const result = await mail.send({
 			...msg,
-			text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+			text: `Name: ${request.body.name}\nEmail: ${request.body.email}\nSubject: ${request.body.subject}\nMessage: ${request.body.message}`,
 		});
 		console.log(result);
 		response.status(result[0].statusCode).json({
