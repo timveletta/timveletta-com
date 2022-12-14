@@ -18,6 +18,7 @@ function formatMessage(name, subject, email, message) {
 }
 
 export default async function handler(request, response) {
+	console.log('request', request.body);
 	try {
 		const result = await mail.send({
 			...msg,
