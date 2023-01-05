@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
+	(post) => new Date(post.frontmatter.pubDate).getFullYear() === 2023
+).length;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="bg-slate-100">
+		<Header />
+		<main>
+			Blog posts: {postsThisYear}
+		</main>
+		<Footer />
+	</body><!-- 
+    - goodreads - 24 books
+    - board game geek - all games
+    - strava - 1200km
+    - 24 blog posts
+ -->
+</html>
