@@ -30,7 +30,7 @@ const updateEdgeConfig = async ({
 					{
 						operation: 'update',
 						key: 'expires_at',
-						value: expires_at,
+						value: expires_at.toString(),
 					},
 				],
 			}),
