@@ -15,7 +15,19 @@ const getBooksRead = async () => {
 	}
 };
 
+const getGamesPlayed = async () => {
+	try {
+		const response = await fetch('/api/games-played');
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		console.error(err);
+		return;
+	}
+};
+
 const booksRead = await getBooksRead();
+const gamesPlayed = await getGamesPlayed();
 const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 	(post) => new Date(post.frontmatter.pubDate).getFullYear() === 2023
 ).length;
@@ -31,6 +43,11 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 		<main>
 			Blog posts: {postsThisYear}
 			Books read: {booksRead || 'No data...'}
+			Games played: {
+				gamesPlayed
+					? `${gamesPlayed.gamesPlayed}/${gamesPlayed.totalCollection}`
+					: 'No data...'
+			}
 		</main>
 		<Footer />
 	</body><!-- 
