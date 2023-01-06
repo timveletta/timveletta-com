@@ -1,3 +1,7 @@
+import jsdom from 'jsdom';
+
+const { DOMParser } = new jsdom.JSDOM().window;
+
 async function fetchPlays() {
 	const result = await fetch(
 		'https://boardgamegeek.com/xmlapi2/plays?username=timmahh&mindate=2023-01-01'
