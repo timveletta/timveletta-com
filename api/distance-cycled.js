@@ -16,6 +16,7 @@ const fetchToken = async () => {
 		}),
 	});
 	const json = await result.json();
+	console.log('token', json);
 	return json.access_token;
 };
 
@@ -29,7 +30,7 @@ const fetchStats = async (token) => {
 		}
 	);
 	const json = await result.json();
-	console.log(json);
+	console.log('stats', json);
 	return json.ytd_ride_totals.distance;
 };
 
