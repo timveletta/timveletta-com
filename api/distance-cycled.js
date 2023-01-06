@@ -3,6 +3,40 @@ import { getAll } from '@vercel/edge-config';
 const clientId = process.env.STRAVA_CLIENT_ID;
 const clientSecret = process.env.STRAVA_CLIENT_SECRET;
 
+const updateEdgeConfig = async ({
+	refresh_token,
+	access_token,
+	expires_at,
+}) => {
+	const result = await fetch(
+		'https://api.vercel.com/v1/edge-config/ecfg_tdmm4r32c9lqprlyps5pcve9wo9m/items',
+		{
+			method: 'PATCH',
+			body: JSON.stringify({
+				items: [
+					{
+						operation: 'update',
+						key: 'access_token',
+						value: access_token,
+					},
+					{
+						operation: 'update',
+						key: 'refresh_token',
+						value: refresh_token,
+					},
+					{
+						operation: 'update',
+						key: 'expires_at',
+						value: expires_at,
+					},
+				],
+			}),
+		}
+	);
+	const json = await result.json();
+	console.log('updated edge config', json);
+};
+
 const fetchToken = async () => {
 	const { refresh_token, access_token, expires_at } = await getAll([
 		'refresh_token',
@@ -27,7 +61,7 @@ const fetchToken = async () => {
 		}),
 	});
 	const json = await result.json();
-	// TODO store refresh token and access token
+	await updateEdgeConfig(json);
 	return json.access_token;
 };
 
