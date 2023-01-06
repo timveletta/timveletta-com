@@ -61,6 +61,7 @@ const fetchToken = async () => {
 		}),
 	});
 	const json = await result.json();
+	console.log('token', json);
 	await updateEdgeConfig(json);
 	return json.access_token;
 };
