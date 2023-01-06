@@ -1,6 +1,7 @@
+import { get } from '@vercel/edge-config';
+
 const clientId = process.env.STRAVA_CLIENT_ID;
 const clientSecret = process.env.STRAVA_CLIENT_SECRET;
-const authorizationCode = process.env.STRAVA_AUTHORIZATION_CODE;
 
 const fetchToken = async () => {
 	const result = await fetch('https://www.strava.com/oauth/token', {
@@ -11,8 +12,8 @@ const fetchToken = async () => {
 		body: JSON.stringify({
 			client_id: clientId,
 			client_secret: clientSecret,
-			code: authorizationCode,
-			grant_type: 'authorization_code',
+			refresh_token: get('refresh_token'),
+			grant_type: 'refresh_token',
 		}),
 	});
 	const json = await result.json();
