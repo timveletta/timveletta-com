@@ -12,6 +12,9 @@ const updateEdgeConfig = async ({
 		'https://api.vercel.com/v1/edge-config/ecfg_tdmm4r32c9lqprlyps5pcve9wo9m/items',
 		{
 			method: 'PATCH',
+			headers: {
+				Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
+			},
 			body: JSON.stringify({
 				items: [
 					{
