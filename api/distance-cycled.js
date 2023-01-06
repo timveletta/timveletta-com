@@ -4,7 +4,11 @@ const clientId = process.env.STRAVA_CLIENT_ID;
 const clientSecret = process.env.STRAVA_CLIENT_SECRET;
 
 const fetchToken = async () => {
-	const { refresh_token, access_token, expires_at } = await getAll();
+	const { refresh_token, access_token, expires_at } = await getAll([
+		'refresh_token',
+		'access_token',
+		'expires_at',
+	]);
 
 	if (expires_at < Date.now() / 1000) {
 		return access_token;
