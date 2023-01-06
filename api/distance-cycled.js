@@ -4,7 +4,6 @@ const clientId = process.env.STRAVA_CLIENT_ID;
 const clientSecret = process.env.STRAVA_CLIENT_SECRET;
 
 const fetchToken = async () => {
-	console.log('refresh_token', await get('refresh_token'));
 	const result = await fetch('https://www.strava.com/oauth/token', {
 		method: 'POST',
 		headers: {
@@ -13,7 +12,7 @@ const fetchToken = async () => {
 		body: JSON.stringify({
 			client_id: clientId,
 			client_secret: clientSecret,
-			refresh_token: get('refresh_token'),
+			refresh_token: await get('refresh_token'),
 			grant_type: 'refresh_token',
 		}),
 	});
