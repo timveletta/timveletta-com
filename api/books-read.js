@@ -14,6 +14,7 @@ export default async function handler(_request, response) {
 			body: { numBooksRead: parseInt(progressText.match(/\d+/)[0]) },
 		});
 	} catch (error) {
+		console.error(error);
 		response.status(500).json({
 			body: 'Could not fetch number of books read.',
 		});

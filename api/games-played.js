@@ -33,8 +33,9 @@ export default async function handler(_request, response) {
 			body: { gamesPlayed, totalCollection },
 		});
 	} catch (error) {
+		console.error(error);
 		response.status(500).json({
-			body: 'Could not fetch number of books read.',
+			body: 'Could not fetch data from BGG.',
 		});
 	}
 }
