@@ -33,9 +33,7 @@ export default async function handler(_request, response) {
 		const gamesPlayed = await fetchPlays();
 		const totalCollection = await fetchCollection();
 
-		response.status(200).json({
-			body: { gamesPlayed, totalCollection },
-		});
+		response.status(200).json({ gamesPlayed, totalCollection });
 	} catch (error) {
 		console.error(error);
 		response.status(500).json({

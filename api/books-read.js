@@ -10,9 +10,9 @@ export default async function handler(_request, response) {
 
 		const progressText = root.querySelector('.progressText').text;
 
-		response.status(200).json({
-			body: { numBooksRead: parseInt(progressText.match(/\d+/)[0]) },
-		});
+		response
+			.status(200)
+			.json({ numBooksRead: parseInt(progressText.match(/\d+/)[0]) });
 	} catch (error) {
 		console.error(error);
 		response.status(500).json({
