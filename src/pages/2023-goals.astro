@@ -8,8 +8,7 @@ const getBooksRead = async () => {
 	try {
 		const response = await fetch('https://timveletta.com/api/books-read');
 		const data = await response.json();
-		console.log(data);
-		return data.numBooksRead;
+		return data;
 	} catch (err) {
 		console.error(err);
 		return;
@@ -27,8 +26,21 @@ const getGamesPlayed = async () => {
 	}
 };
 
+const getDistanceCycled = async () => {
+	try {
+		const response = await fetch('https://timveletta.com/api/distance-cycled');
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		console.error(err);
+		return;
+	}
+};
+
 const booksRead = await getBooksRead();
 const gamesPlayed = await getGamesPlayed();
+const distanceCycled = await getDistanceCycled();
+const updatedAt = new Date().toLocaleString('en-AU');
 const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 	(post) => new Date(post.frontmatter.pubDate).getFullYear() === 2023
 ).length;
@@ -43,18 +55,17 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 		<Header />
 		<main>
 			Blog posts: {postsThisYear}
-			Books read: {booksRead || 'No data...'}
+			Books read: {booksRead ? booksRead.numBooksRead : 'No data...'}
 			Games played: {
 				gamesPlayed
 					? `${gamesPlayed.gamesPlayed}/${gamesPlayed.totalCollection}`
 					: 'No data...'
 			}
+			Distance cycled: {
+				distanceCycled ? distanceCycled.distanceCycled : 'No data...'
+			}
+			Last updated: {updatedAt}
 		</main>
 		<Footer />
-	</body><!-- 
-    - goodreads - 24 books
-    - board game geek - all games
-    - strava - 1200km
-    - 24 blog posts
- -->
+	</body>
 </html>
