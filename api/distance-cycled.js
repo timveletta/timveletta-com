@@ -22,16 +22,16 @@ const updateEdgeConfig = async ({
 						key: 'access_token',
 						value: access_token,
 					},
-					{
-						operation: 'update',
-						key: 'refresh_token',
-						value: refresh_token,
-					},
-					{
-						operation: 'update',
-						key: 'expires_at',
-						value: expires_at.toString(),
-					},
+					// {
+					// 	operation: 'update',
+					// 	key: 'refresh_token',
+					// 	value: refresh_token,
+					// },
+					// {
+					// 	operation: 'update',
+					// 	key: 'expires_at',
+					// 	value: expires_at.toString(),
+					// },
 				],
 			}),
 		}
@@ -47,9 +47,9 @@ const fetchToken = async () => {
 		'expires_at',
 	]);
 
-	if (expires_at < Date.now() / 1000) {
-		return access_token;
-	}
+	// if (parseInt(expires_at) < Date.now() / 1000) {
+	// 	return access_token;
+	// }
 
 	const result = await fetch('https://www.strava.com/oauth/token', {
 		method: 'POST',
