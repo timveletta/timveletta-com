@@ -38,7 +38,9 @@ const updateEdgeConfig = async ({
 		}
 	);
 	const json = await result.json();
-	console.log('updated edge config', json);
+	if (json.status !== 'ok') {
+		console.error('Failed to update edge config', json);
+	}
 };
 
 const fetchToken = async () => {
@@ -65,7 +67,6 @@ const fetchToken = async () => {
 		}),
 	});
 	const json = await result.json();
-	console.log('token', json);
 	await updateEdgeConfig(json);
 	return json.access_token;
 };
@@ -80,7 +81,6 @@ const fetchStats = async (token) => {
 		}
 	);
 	const json = await result.json();
-	console.log('stats', json);
 	return json.ytd_ride_totals.distance;
 };
 
