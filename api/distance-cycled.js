@@ -14,7 +14,7 @@ const updateEdgeConfig = async ({
 			method: 'PATCH',
 			headers: {
 				Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
-				ContentType: 'application/json',
+				'content-type': 'application/json',
 			},
 			body: JSON.stringify({
 				items: [
