@@ -5,19 +5,30 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
 
-const posts = (await Astro.glob('./blog/*.{md,mdx}'))
-	.sort(
-		(a, b) =>
-			new Date(b.frontmatter.pubDate).valueOf() -
-			new Date(a.frontmatter.pubDate).valueOf()
-	)
-	.slice(0, 3);
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+	(a, b) =>
+		new Date(b.frontmatter.pubDate).valueOf() -
+		new Date(a.frontmatter.pubDate).valueOf()
+);
+const recentPosts = posts.slice(0, 3);
+
+const redirectUrl = posts.find(
+	(post) => post.frontmatter.prevUrl === Astro.url.pathname
+)?.url;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		{
+			redirectUrl && (
+				<meta
+					http-equiv="refresh"
+					content={`0; url=${Astro.url.origin}${redirectUrl}}`}
+				/>
+			)
+		}
 	</head>
 	<body class="bg-slate-100 border-t-8 border-primary">
 		<Header />
@@ -37,7 +48,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}'))
 					</h2>
 				</div>
 				<div class="grid md:grid-cols-3 grid-cols-1 gap-8">
-					{posts.map((post) => <BlogPostExcerpt {...post} />)}
+					{recentPosts.map((post) => <BlogPostExcerpt {...post} />)}
 				</div>
 				<div class="my-12 flex justify-center">
 					<a

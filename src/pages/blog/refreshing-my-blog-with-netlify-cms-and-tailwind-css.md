@@ -5,6 +5,7 @@ pubDate: 2020-07-16
 description: It has come time for the annual website redesign and refresh. I
   discuss why I wanted to refresh my website, what I used to build it and what
   exciting new features you can expect to see in the coming months.
+prevUrl: /blog/2020-07-16-refreshing-my-blog-with-netlify-cms-and-tailwind-css/
 heroImage: /assets/refresh-blog.jpg
 tags:
   - netlify

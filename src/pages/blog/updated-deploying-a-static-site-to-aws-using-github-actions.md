@@ -7,6 +7,7 @@ description: It has been just under a year since I wrote my initial about
   deploying static sites to AWS via Github Actions and a number of things have
   changed since then. I discuss my process for deploying static sites using
   Github Actions and whats changed since the initial version of the article.
+prevUrl: /blog/2020-08-14-updated-deploying-a-static-site-to-aws-using-github-actions/
 heroImage: /assets/updated-github.jpg
 tags:
   - aws

@@ -7,6 +7,7 @@ description: AWS Amplify is fantastic; it has never been easier to build and
   provision a cloud-based, full-stack, web application. We can easily create an
   API using AppSync and have it just work but what happens when you need to
   perform additional logic?
+prevUrl: /blog/2020-12-08-direct-lambda-resolvers-with-aws-amplify/
 heroImage: /assets/lambda-direct.jpg
 tags:
   - aws
