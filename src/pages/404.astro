@@ -11,24 +11,12 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 		new Date(a.frontmatter.pubDate).valueOf()
 );
 const recentPosts = posts.slice(0, 3);
-
-const redirectUrl = posts.find(
-	(post) => post.frontmatter.prevUrl === Astro.url.pathname
-)?.url;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		{
-			redirectUrl && (
-				<meta
-					http-equiv="refresh"
-					content={`0; url=${Astro.url.origin}${redirectUrl}`}
-				/>
-			)
-		}
 	</head>
 	<body class="bg-slate-100 border-t-8 border-primary">
 		<Header />
