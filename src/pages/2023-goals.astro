@@ -51,7 +51,7 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="bg-slate-100">
+	<body class="bg-slate-100 border-t-8 border-primary">
 		<Header />
 		<main>
 			Blog posts: {postsThisYear}
