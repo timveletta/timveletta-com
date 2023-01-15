@@ -1,0 +1,13 @@
+name: ⏰ Scheduled Build
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    name: 🔫 Trigger site build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ♻️ Request to Vercel Deploy Hook
+        run: curl -X POST -d {} ${{ secrets.VERCEL_DEPLOY_HOOK }}
