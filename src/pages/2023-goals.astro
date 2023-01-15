@@ -81,7 +81,7 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 					measure="Board Games Played"
 				/>
 				<GoalCard
-					value={distanceCycled.distanceCycled}
+					value={Math.round(distanceCycled.distanceCycled)}
 					goal={1200}
 					measure="Distance Cycled (km)"
 				/>
