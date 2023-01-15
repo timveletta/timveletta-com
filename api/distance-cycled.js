@@ -44,6 +44,7 @@ const updateEdgeConfig = async ({
 };
 
 const fetchToken = async () => {
+	console.log('Fetching token');
 	const { refresh_token, access_token, expires_at } = await getAll([
 		'refresh_token',
 		'access_token',
@@ -51,9 +52,11 @@ const fetchToken = async () => {
 	]);
 
 	if (parseInt(expires_at) < Date.now() / 1000) {
+		console.log('Found token in cache');
 		return access_token;
 	}
 
+	console.log('Token expired, fetching new token');
 	const result = await fetch('https://www.strava.com/oauth/token', {
 		method: 'POST',
 		headers: {
@@ -72,6 +75,7 @@ const fetchToken = async () => {
 };
 
 const fetchStats = async (token) => {
+	console.log('Fetching stats', token);
 	const result = await fetch(
 		'https://www.strava.com/api/v3/athletes/64997285/stats',
 		{
