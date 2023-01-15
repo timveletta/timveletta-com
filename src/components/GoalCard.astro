@@ -1,0 +1,20 @@
+---
+export interface Props {
+	value: number;
+	goal: number;
+	measure: string;
+	rationale?: string;
+}
+
+const { value, goal, measure, rationale } = Astro.props;
+---
+
+<div class="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
+	<div class="mb-4 font-mono">
+		<p class="inline text-5xl text-gray-700">{value}</p>
+		<p class="inline text-gray-700 text-sm">/ {goal}</p>
+	</div>
+	<p class="text-sm font-bold text-gray-500 tracking-wide">
+		{measure}
+	</p>
+</div>

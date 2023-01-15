@@ -3,6 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import ProgressBar from '../components/ProgressBar.astro';
+import GoalCard from '../components/GoalCard.astro';
 
 const getBooksRead = async () => {
 	try {
@@ -53,18 +55,37 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 	</head>
 	<body class="bg-slate-100 border-t-8 border-primary">
 		<Header />
-		<main>
-			Blog posts: {postsThisYear}
-			Books read: {booksRead ? booksRead.numBooksRead : 'No data...'}
-			Games played: {
-				gamesPlayed
-					? `${gamesPlayed.gamesPlayed}/${gamesPlayed.totalCollection}`
-					: 'No data...'
-			}
-			Distance cycled: {
-				distanceCycled ? distanceCycled.distanceCycled : 'No data...'
-			}
-			Last updated: {updatedAt}
+		<main class="my-12">
+			<div class="container mx-auto grid grid-cols-2 gap-4">
+				<div
+					class="bg-white border border-gray-300 rounded-lg p-4 shadow-sm col-span-full"
+				>
+					<ProgressBar percentage={20} />
+					<p class="text-sm font-bold text-gray-500 tracking-wide text-right">
+						Last updated: {updatedAt}
+					</p>
+				</div>
+				<GoalCard
+					value={postsThisYear}
+					goal={24}
+					measure="Blog Posts Written"
+				/>
+				<GoalCard
+					value={booksRead.numBooksRead}
+					goal={24}
+					measure="Books Read"
+				/>
+				<GoalCard
+					value={gamesPlayed.gamesPlayed}
+					goal={gamesPlayed.totalCollection}
+					measure="Board Games Played"
+				/>
+				<GoalCard
+					value={distanceCycled.distanceCycled}
+					goal={1200}
+					measure="Distance Cycled (km)"
+				/>
+			</div>
 		</main>
 		<Footer />
 	</body>
