@@ -44,7 +44,6 @@ const updateEdgeConfig = async ({
 };
 
 const fetchToken = async () => {
-	console.log('Fetching token');
 	const { refresh_token, access_token, expires_at } = await getAll([
 		'refresh_token',
 		'access_token',
@@ -52,12 +51,7 @@ const fetchToken = async () => {
 	]);
 
 	if (parseInt(expires_at) > Math.round(Date.now() / 1000)) {
-		console.log(
-			'Found token in cache',
-			parseInt(expires_at),
-			Math.round(Date.now() / 1000),
-			parseInt(expires_at) > Math.round(Date.now() / 1000)
-		);
+		console.log('Found token in cache');
 		return access_token;
 	}
 
@@ -80,7 +74,6 @@ const fetchToken = async () => {
 };
 
 const fetchStats = async (token) => {
-	console.log('Fetching stats', token);
 	const result = await fetch(
 		'https://www.strava.com/api/v3/athletes/64997285/stats',
 		{
@@ -90,8 +83,7 @@ const fetchStats = async (token) => {
 		}
 	);
 	const json = await result.json();
-	console.log('Stats fetched', json);
-	return json.ytd_ride_totals.distance;
+	return json.ytd_ride_totals.distance / 1000;
 };
 
 export default async function handler(_request, response) {
