@@ -85,6 +85,7 @@ const fetchStats = async (token) => {
 		}
 	);
 	const json = await result.json();
+	console.log('Stats fetched', json);
 	return json.ytd_ride_totals.distance;
 };
 
