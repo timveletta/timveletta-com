@@ -52,7 +52,11 @@ const fetchToken = async () => {
 	]);
 
 	if (parseInt(expires_at) < Date.now() / 1000) {
-		console.log('Found token in cache');
+		console.log(
+			'Found token in cache',
+			parseInt(expires_at),
+			Date.now() / 1000
+		);
 		return access_token;
 	}
 
