@@ -11,7 +11,7 @@ async function fetchPlays() {
 	const doc = parser.parseFromString(xml, 'text/xml');
 	const plays = doc.querySelectorAll('play');
 	for (const play of plays) {
-		console.log('Play', play);
+		console.log('Play', play.querySelector('item').getAttribute('name'));
 	}
 	return plays.length;
 }
@@ -29,7 +29,7 @@ async function fetchCollection() {
 	const doc = parser.parseFromString(xml, 'text/xml');
 	const items = doc.querySelectorAll('item');
 	for (const item of items) {
-		console.log('Item', item);
+		console.log('Item', item.querySelector('name').textContent);
 	}
 	return items.length;
 }
