@@ -1,0 +1,24 @@
+{
+	"rewrites": [
+		{
+			"source": "/blog/2020-07-14-accessing-react-state-in-your-component-cleanup-with-hooks/",
+			"destination": "/blog/accessing-react-state-in-your-component-cleanup-with-hooks"
+		},
+		{
+			"source": "/blog/2020-12-08-direct-lambda-resolvers-with-aws-amplify/",
+			"destination": "/blog/direct-lambda-resolvers-with-aws-amplify"
+		},
+		{
+			"source": "/blog/2020-07-16-refreshing-my-blog-with-netlify-cms-and-tailwind-css/",
+			"destination": "/blog/refreshing-my-blog-with-netlify-cms-and-tailwind-css"
+		},
+		{
+			"source": "/blog/2020-08-14-updated-deploying-a-static-site-to-aws-using-github-actions/",
+			"destination": "/blog/updated-deploying-a-static-site-to-aws-using-github-actions"
+		},
+		{
+			"source": "/blog/2020-07-08-deploying-a-static-site-to-aws-using-github-actions/",
+			"destination": "/blog/deploying-a-static-site-to-aws-using-github-actions"
+		}
+	]
+}
