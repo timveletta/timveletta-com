@@ -9,12 +9,16 @@ export interface Props {
 const { value, goal, measure, rationale } = Astro.props;
 ---
 
-<div class="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
-	<div class="mb-4 font-mono">
-		<p class="inline text-5xl text-gray-700">{value}</p>
-		<p class="inline text-gray-700 text-sm">/ {goal}</p>
+<div class="bg-white border border-gray-300 rounded-lg shadow-sm">
+	<div class="pt-4 px-4 mb-4 font-mono">
+		<p class="inline text-5xl text-secondary">{value}</p>
+		<p class="inline text-primary text-sm">/ {goal}</p>
 	</div>
-	<p class="text-sm font-bold text-gray-500 tracking-wide">
+	<p class="px-4 text-sm font-bold text-gray-500 tracking-wide">
 		{measure}
 	</p>
+	<div class="bg-gray-100 p-4 mt-4 rounded-b-lg border border-t-gray-300">
+		<h4 class="font-bold text-gray-500">Rationale</h4>
+		<p>{rationale}</p>
+	</div>
 </div>

@@ -11,20 +11,27 @@ export interface Props {
 		pubDate: string;
 		tags: string[];
 	};
+	frontmatter: {
+		externalLink?: string;
+	};
 }
 
 const {
 	content: { title, description, pubDate, tags },
+	frontmatter: { externalLink },
 } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead
+			title={title}
+			description={description}
+			noIndex={Boolean(externalLink)}
+		/>
 	</head>
 	<body class="bg-slate-100">
 		<Header />
-
 		<main>
 			<article>
 				<div class="container mx-auto max-w-screen-lg my-20 p-2">

@@ -3,9 +3,15 @@ export interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	noIndex?: boolean;
 }
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
+const {
+	title,
+	description,
+	image = '/placeholder-social.jpg',
+	noIndex,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -32,6 +38,8 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+{noIndex && <meta name="robots" content="noindex" />}
 
 <script
 	defer
