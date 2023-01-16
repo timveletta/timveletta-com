@@ -10,7 +10,9 @@ async function fetchPlays() {
 	const parser = new DOMParser();
 	const doc = parser.parseFromString(xml, 'text/xml');
 	const plays = doc.querySelectorAll('play');
-	console.log('Plays', plays);
+	for (const play of plays) {
+		console.log('Play', play);
+	}
 	return plays.length;
 }
 
@@ -26,7 +28,9 @@ async function fetchCollection() {
 	const parser = new DOMParser();
 	const doc = parser.parseFromString(xml, 'text/xml');
 	const items = doc.querySelectorAll('item');
-	console.log('Items', items);
+	for (const item of items) {
+		console.log('Item', item);
+	}
 	return items.length;
 }
 
