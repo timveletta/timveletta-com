@@ -46,6 +46,11 @@ const updatedAt = new Date().toLocaleString('en-AU');
 const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 	(post) => new Date(post.frontmatter.pubDate).getFullYear() === 2023
 ).length;
+
+const secondsComplete =
+	(new Date().getTime() - new Date(2023, 0, 1).getTime()) / 1000;
+const secondsInYear = 365 * 24 * 60 * 60;
+const percentageComplete = Math.round((secondsComplete / secondsInYear) * 100);
 ---
 
 <!DOCTYPE html>
@@ -60,7 +65,7 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 				<div
 					class="bg-white border border-gray-300 rounded-lg p-4 shadow-sm col-span-full"
 				>
-					<ProgressBar percentage={20} />
+					<ProgressBar percentage={percentageComplete} />
 					<p class="text-sm font-bold text-gray-500 tracking-wide text-right">
 						Last updated: {updatedAt}
 					</p>
