@@ -55,7 +55,7 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 	</head>
 	<body class="bg-slate-100 border-t-8 border-primary">
 		<Header />
-		<main class="my-12">
+		<main class="my-12 p-2">
 			<div class="container mx-auto grid md:grid-cols-2 grid-cols-1 gap-4">
 				<div
 					class="bg-white border border-gray-300 rounded-lg p-4 shadow-sm col-span-full"
@@ -69,21 +69,25 @@ const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
 					value={postsThisYear}
 					goal={24}
 					measure="Blog Posts Written"
+					rationale={"My blog has become a way for me to learn but also to share what I've learned. I want to write at least 24 posts this year."}
 				/>
 				<GoalCard
 					value={booksRead.numBooksRead}
 					goal={24}
 					measure="Books Read"
+					rationale={'I got back into reading late last year and I want to keep it up. I tend to read a mix of dystopian fiction, and non-fiction books about technology, business, and personal development.'}
 				/>
 				<GoalCard
 					value={gamesPlayed.gamesPlayed}
 					goal={gamesPlayed.totalCollection}
 					measure="Board Games Played"
+					rationale={"I love board games and have a large collection of them, some of which I haven't played for some time. I want to play each game at least once this year."}
 				/>
 				<GoalCard
 					value={Math.round(distanceCycled.distanceCycled)}
 					goal={1200}
 					measure="Distance Cycled (km)"
+					rationale={"I enjoy cycling but didn't find as much time for it last year. I want to get back into it and ride at least 100km per month which seems quite achievable."}
 				/>
 			</div>
 		</main>
