@@ -34,11 +34,11 @@ async function fetchCollection() {
 
 export default async function handler(_request, response) {
 	try {
-		const games = await fetchPlays();
+		const plays = await fetchPlays();
 		const collection = await fetchCollection();
 
-		const gamesPlayed = games.filter((game) =>
-			collection.includes(game)
+		const gamesPlayed = collection.filter((game) =>
+			plays.includes(game)
 		).length;
 
 		response
