@@ -6,6 +6,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import ProgressBar from '../components/ProgressBar.astro';
 import GoalCard from '../components/GoalCard.astro';
 
+import StravaLogo from '../images/strava.svg';
+import BoardGameGeekLogo from '../images/board-game-geek.svg';
+import GoodreadsLogo from '../images/goodreads.svg';
+
 const getBooksRead = async () => {
 	try {
 		const response = await fetch('https://timveletta.com/api/books-read');
@@ -81,18 +85,21 @@ const percentageComplete = Math.round((secondsComplete / secondsInYear) * 100);
 					goal={24}
 					measure="Books Read"
 					rationale={'I got back into reading late last year and I want to keep it up. I tend to read a mix of dystopian fiction, and non-fiction books about technology, business, and personal development.'}
+					image={GoodreadsLogo}
 				/>
 				<GoalCard
 					value={gamesPlayed.gamesPlayed}
 					goal={gamesPlayed.totalCollection}
 					measure="Board Games Played"
 					rationale={"I love board games and have a large collection of them, some of which I haven't played for some time. I want to play each game at least once this year."}
+					image={BoardGameGeekLogo}
 				/>
 				<GoalCard
 					value={Math.round(distanceCycled.distanceCycled)}
 					goal={1200}
 					measure="Distance Cycled (km)"
 					rationale={"I enjoy cycling but didn't find as much time for it last year. I want to get back into it and ride at least 100km per month which seems quite achievable."}
+					image={StravaLogo}
 				/>
 			</div>
 		</main>

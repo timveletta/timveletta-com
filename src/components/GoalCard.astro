@@ -4,19 +4,23 @@ export interface Props {
 	goal: number;
 	measure: string;
 	rationale?: string;
+	image?: string;
 }
 
-const { value, goal, measure, rationale } = Astro.props;
+const { value, goal, measure, rationale, image } = Astro.props;
 ---
 
 <div class="bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col">
-	<div class="pt-4 px-4 mb-4 font-mono">
-		<p class="inline text-5xl text-secondary">{value}</p>
-		<p class="inline text-primary text-sm">/ {goal}</p>
+	<div class="pt-4 px-4 flex justify-between items-center">
+		<div>
+			<p class="inline text-5xl text-secondary font-mono">{value}</p>
+			<p class="inline text-primary text-sm font-mono">/ {goal}</p>
+			<p class="text-sm font-bold text-gray-500 tracking-wide pt-2">
+				{measure}
+			</p>
+		</div>
+		{image && <img src={image} class="max-h-16 brightness-150 grayscale" />}
 	</div>
-	<p class="px-4 text-sm font-bold text-gray-500 tracking-wide">
-		{measure}
-	</p>
 	<div
 		class="bg-gray-100 p-4 mt-4 rounded-b-lg border-t border-t-gray-300 grow"
 	>
