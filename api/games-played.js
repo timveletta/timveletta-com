@@ -10,10 +10,9 @@ async function fetchPlays() {
 	const parser = new DOMParser();
 	const doc = parser.parseFromString(xml, 'text/xml');
 	const plays = doc.querySelectorAll('play');
-	for (const play of plays) {
-		console.log('Play', play.querySelector('item').getAttribute('name'));
-	}
-	return plays.length;
+	return Array.from(plays).map((play) =>
+		play.querySelector('item').getAttribute('name')
+	);
 }
 
 async function fetchCollection() {
@@ -28,18 +27,23 @@ async function fetchCollection() {
 	const parser = new DOMParser();
 	const doc = parser.parseFromString(xml, 'text/xml');
 	const items = doc.querySelectorAll('item');
-	for (const item of items) {
-		console.log('Item', item.querySelector('name').textContent);
-	}
-	return items.length;
+	return Array.from(items).map(
+		(item) => item.querySelector('name').textContent
+	);
 }
 
 export default async function handler(_request, response) {
 	try {
-		const gamesPlayed = await fetchPlays();
-		const totalCollection = await fetchCollection();
+		const games = await fetchPlays();
+		const collection = await fetchCollection();
 
-		response.status(200).json({ gamesPlayed, totalCollection });
+		const gamesPlayed = games.filter((game) =>
+			collection.includes(game)
+		).length;
+
+		response
+			.status(200)
+			.json({ gamesPlayed, totalCollection: collection.length });
 	} catch (error) {
 		console.error(error);
 		response.status(500).json({
