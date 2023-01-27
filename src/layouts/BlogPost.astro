@@ -9,6 +9,7 @@ export interface Props {
 		title: string;
 		description: string;
 		pubDate: string;
+		heroImage: string;
 		tags: string[];
 	};
 	frontmatter: {
@@ -17,7 +18,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, pubDate, tags },
+	content: { title, description, pubDate, tags, heroImage },
 	frontmatter: { externalLink },
 } = Astro.props;
 ---
@@ -28,6 +29,7 @@ const {
 			title={title}
 			description={description}
 			noIndex={Boolean(externalLink)}
+			image={heroImage}
 		/>
 	</head>
 	<body class="bg-slate-100">
