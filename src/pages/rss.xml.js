@@ -19,7 +19,6 @@ export const get = async () => {
 			link: post.url,
 			content: sanitizeHtml(parser.render(post.compiledContent())),
 			...post.frontmatter,
-			description: sanitizeHtml(parser.render(post.compiledContent())),
 		})),
 	});
 };
