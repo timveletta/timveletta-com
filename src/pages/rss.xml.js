@@ -1,9 +1,12 @@
 import rss from '@astrojs/rss';
 import sanitizeHtml from 'sanitize-html';
+import MarkdownIt from 'markdown-it';
+const parser = new MarkdownIt();
+
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
-export const get = () => {
-	const postImportResult = import.meta.glob('./blog/**/*.{md,mdx}', {
+export const get = async () => {
+	const postImportResult = import.meta.glob('./blog/**/*.md', {
 		eager: true,
 	});
 	const posts = Object.values(postImportResult);
@@ -14,7 +17,7 @@ export const get = () => {
 		site: import.meta.env.SITE,
 		items: posts.map((post) => ({
 			link: post.url,
-			content: sanitizeHtml(post.compiledContent()),
+			content: sanitizeHtml(parser.render(post.compiledContent())),
 			...post.frontmatter,
 		})),
 	});
