@@ -15,10 +15,16 @@ export const get = async () => {
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: import.meta.env.SITE,
-		items: posts.map((post) => ({
-			link: post.url,
-			content: sanitizeHtml(parser.render(post.compiledContent())),
-			...post.frontmatter,
-		})),
+		items: posts
+			.sort(
+				(a, b) =>
+					new Date(b.frontmatter.pubDate).valueOf() -
+					new Date(a.frontmatter.pubDate).valueOf()
+			)
+			.map((post) => ({
+				link: post.url,
+				content: sanitizeHtml(parser.render(post.compiledContent())),
+				...post.frontmatter,
+			})),
 	});
 };
