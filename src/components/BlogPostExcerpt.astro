@@ -7,10 +7,7 @@ const { frontmatter, url } = Astro.props;
 <article
 	class="overflow-hidden shadow-md bg-white grid font-sans mx-auto max-w-[480px]"
 >
-	<a
-		href={frontmatter.externalLink ? frontmatter.externalLink : url}
-		target={frontmatter.externalLink ? '_blank' : undefined}
-	>
+	<a href={url}>
 		<Image
 			format="webp"
 			width={480}
@@ -20,11 +17,7 @@ const { frontmatter, url } = Astro.props;
 		/>
 	</a>
 	<div class="px-6 py-4">
-		<a
-			href={frontmatter.externalLink ? frontmatter.externalLink : url}
-			target={frontmatter.externalLink ? '_blank' : undefined}
-			class="font-bold text-slate-800 text-xl hover:text-primary"
-		>
+		<a href={url} class="font-bold text-slate-800 text-xl hover:text-primary">
 			{frontmatter.title}
 		</a>
 		<p class="text-gray-500 font-bold text-sm my-2">
@@ -39,17 +32,8 @@ const { frontmatter, url } = Astro.props;
 			</time>
 		</p>
 		<p class="text-slate-700 text-base">{frontmatter.description}</p>
-		{
-			frontmatter.externalLink && (
-				<p class="text-gray-600 font-bold text-base mt-1">[External Link]</p>
-			)
-		}
 	</div>
-	<a
-		href={frontmatter.externalLink ? frontmatter.externalLink : url}
-		target={frontmatter.externalLink ? '_blank' : undefined}
-		class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end"
-	>
-		Read More
+	<a href={url} class="font-bold text-sm mt-2 px-6 py-4 text-primary self-end">
+		Read More →
 	</a>
 </article>
