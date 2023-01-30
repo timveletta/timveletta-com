@@ -8,9 +8,7 @@ description: CSS Grid is one of my favourite tools for building your web
 heroImage: /assets/css-grid.jpg
 externalLink: https://mechanicalrock.github.io/2020/04/28/css-grid.html
 tags:
-  - design
   - css
-  - grid
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2020/04/28/css-grid.html)

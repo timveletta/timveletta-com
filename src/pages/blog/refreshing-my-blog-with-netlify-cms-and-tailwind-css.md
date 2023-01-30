@@ -11,8 +11,7 @@ tags:
   - netlify
   - gatsby
   - react
-  - tailwindcss
-  - design
+  - tailwind
 ---
 
 I has come time for my annual website redesign and refresh. You're probably thinking, why bother redesigning your website every single year and to be honest, it's not really intentional; it just takes me about a year to get sick of the design enough to want to redo it.

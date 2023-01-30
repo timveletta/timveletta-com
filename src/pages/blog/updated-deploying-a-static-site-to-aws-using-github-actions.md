@@ -12,10 +12,7 @@ heroImage: /assets/updated-github.jpg
 tags:
   - aws
   - github
-  - github actions
-  - static site
-  - continuous integration
-  - continuous delivery
+  - devops
 ---
 
 It has been just under a year since I wrote [my initial blog post](https://www.timveletta.com/blog/2020-07-08-deploying-a-static-site-to-aws-using-github-actions/) about deploying static sites to AWS via GitHub Actions and a number of things have changed since then. Github Actions has now been generally available for some time and although number of the referenced actions have changed, the main principles remain the same. In this post I'll explain my process for deploying static sites to AWS using Github Actions in greater detail and whats changed since the initial version of the article.

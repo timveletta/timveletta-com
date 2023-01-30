@@ -8,11 +8,8 @@ description: Its been over 2 years since I wrote about this; in that time
 heroImage: /assets/blog-header.jpg
 externalLink: https://blog.mechanicalrock.io/2022/08/08/azure-ad-authentication-cypress.html
 tags:
-  - azure ad
-  - activedirectory
   - cypress
   - authentication
-  - msal
   - react
 ---
 
@@ -33,6 +30,7 @@ So, at a high level we will:
 - [1. Acquire a token from Azure AD 🔑](#1-acquire-a-token-from-azure-ad-)
 - [2. Save the token to the session storage 💾](#2-save-the-token-to-the-session-storage-)
 - [3. Run the test ✅](#3-run-the-test-)
+- [E2E testing approach](#e2e-testing-approach)
 
 We will do all this in a [Cypress command](https://docs.cypress.io/api/cypress-api/custom-commands) so that we can run `cy.login()` to authenticate with Azure AD before our tests run. Custom commands are created in the `cypress/support/commands.ts` file by default.
 

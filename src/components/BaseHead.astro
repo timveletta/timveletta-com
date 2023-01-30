@@ -4,6 +4,7 @@ export interface Props {
 	description: string;
 	image?: string;
 	noIndex?: boolean;
+	externalLink?: string;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
 	description,
 	image = '/placeholder-social.jpg',
 	noIndex,
+	externalLink,
 } = Astro.props;
 ---
 
@@ -40,6 +42,7 @@ const {
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 {noIndex && <meta name="robots" content="noindex" />}
+{externalLink && <link rel="canonical" href={externalLink} />}
 
 <script
 	defer

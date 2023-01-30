@@ -9,8 +9,6 @@ externalLink: https://mechanicalrock.github.io/2022/04/04/private-npm-modules.ht
 tags:
   - github
   - npm
-  - node
-  - typescript
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2022/04/04/private-npm-modules.html)

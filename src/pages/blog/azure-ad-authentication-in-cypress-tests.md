@@ -8,11 +8,8 @@ description: 'Cypress is a browser-based, end-to-end testing framework that is
 heroImage: /assets/cypress.jpg
 externalLink: https://mechanicalrock.github.io/2020/05/05/azure-ad-authentication-cypress.html
 tags:
-  - azure
-  - activedirectory
   - cypress
   - authentication
-  - adal
   - react
 ---
 

@@ -9,10 +9,7 @@ heroImage: /assets/aws-github.jpg
 tags:
   - aws
   - github
-  - github actions
-  - static site
-  - continuous integration
-  - continuous delivery
+  - devops
 ---
 
 I was fortunate enough to get a beta invite to Github Actions earlier this week so I figured I would try to deploy a static website to AWS as a way of comparing with other tools such as GitLab and AWS CodeBuild.

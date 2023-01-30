@@ -7,10 +7,7 @@ description: Understanding how to build your own NPM modules can enable your
 heroImage: /assets/typescript-npm-modules-header.jpg
 externalLink: https://mechanicalrock.github.io/2022/01/24/publishing-typescript-npm-modules.html
 tags:
-  - typescript
   - npm
-  - node
-  - material ui
   - react
 ---
 

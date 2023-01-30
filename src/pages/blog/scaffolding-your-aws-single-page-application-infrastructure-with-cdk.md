@@ -10,12 +10,8 @@ externalLink: https://mechanicalrock.github.io/2020/08/24/scaffolding-single-pag
 tags:
   - aws
   - cdk
-  - static site
   - react
-  - cloud development kit
-  - infrastructure as code
-  - spa
-  - single page application
+  - devops
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2020/08/24/scaffolding-single-page-applications-with-cdk.html)

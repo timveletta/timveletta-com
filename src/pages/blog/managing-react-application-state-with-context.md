@@ -9,9 +9,6 @@ heroImage: /assets/react-application-state.jpg
 externalLink: https://mechanicalrock.github.io/2021/05/27/managing-react-application-state-with-context.html
 tags:
   - react
-  - context
-  - application state
-  - redux
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2021/05/27/managing-react-application-state-with-context.html)
