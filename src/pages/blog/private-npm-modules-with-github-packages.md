@@ -5,6 +5,8 @@ pubDate: 2022-04-05
 description: Learn how to publish to GitHub packages, package scoping, making
   your packages private and consuming them.
 heroImage: /assets/blog-format.jpg
+imageCreditName: Petrebels
+imageCreditLink: https://unsplash.com/@petrebels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 externalLink: https://mechanicalrock.github.io/2022/04/04/private-npm-modules.html
 tags:
   - github
@@ -87,5 +89,3 @@ npm install @mechanicalrock/tim-veletta-theme
 ```
 
 If you have any questions or if you think we can help speed up your delivery through the use of reusable modules, please don't hesitate to [get in touch](https://www.mechanicalrock.io/lets-get-started/)
-
-> Header image by [Petrebels](https://unsplash.com/@petrebels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/package?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

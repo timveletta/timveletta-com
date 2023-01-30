@@ -6,6 +6,8 @@ description: 'Cypress is a browser-based, end-to-end testing framework that is
   enjoyable to use however I ran into some difficulty trying to authenticate
   with Azure Active Directory in my tests. Find out what I did to fix it! '
 heroImage: /assets/cypress.jpg
+imageCreditName: Bharat Patil
+imageCreditLink: https://unsplash.com/@bharat_patil_photos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 externalLink: https://mechanicalrock.github.io/2020/05/05/azure-ad-authentication-cypress.html
 tags:
   - cypress
@@ -142,7 +144,3 @@ You can then create a new Client Secret by going to **Certificates and Secrets**
 ![Client Secret](/assets/client-secret.png)
 
 There you have it, we have managed to set up our Cypress tests to authenticate with Azure AD in a way that is secure and consistent.
-
-Manual tests taking up all your time and not finding issues before they get to users? We can help!
-
-[Contact Mechanical Rock to Get Started!](https://www.mechanicalrock.io/lets-get-started)

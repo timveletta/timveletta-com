@@ -7,6 +7,8 @@ description: It has come time for the annual website redesign and refresh. I
   exciting new features you can expect to see in the coming months.
 prevUrl: /blog/2020-07-16-refreshing-my-blog-with-netlify-cms-and-tailwind-css/
 heroImage: /assets/refresh-blog.jpg
+imageCreditName: Samson
+imageCreditLink: https://unsplash.com/@samsonyyc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - netlify
   - gatsby

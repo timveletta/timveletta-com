@@ -6,6 +6,8 @@ description: I was fortunate enough to get a beta invite to Github Actions
   earlier this week so I figured I would try to deploy a static website to AWS.
   I also look at the Actions building blocks and keeping your secrets secret.
 heroImage: /assets/aws-github.jpg
+imageCreditName: cetteup
+imageCreditLink: https://unsplash.com/@cetteup?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - aws
   - github

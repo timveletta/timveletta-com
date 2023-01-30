@@ -6,6 +6,8 @@ description: Its been over 2 years since I wrote about this; in that time
   Microsoft has moved from ADAL to MSAL and so it was a good time to revisit
   this topic.
 heroImage: /assets/blog-header.jpg
+imageCreditName: Sigmund
+imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 externalLink: https://blog.mechanicalrock.io/2022/08/08/azure-ad-authentication-cypress.html
 tags:
   - cypress
@@ -187,5 +189,3 @@ One of the big changes from the previous approach was the move from using the `c
 But why should you go to all this effort to test your app end-to-end (e2e) and not use other approaches such as disabling the authentication when running your e2e tests?
 
 It's ultimately about having confidence in what you're deploying and being able to catch issues earlier **reducing lead times** and **time to restore** when things do go wrong.
-
-> Header image by <a href="https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sigmund</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

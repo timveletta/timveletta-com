@@ -6,6 +6,8 @@ description: CSS Grid is one of my favourite tools for building your web
   layouts. I examine where we have come from in terms of web layouts and what
   you need to know to start building your own.
 heroImage: /assets/css-grid.jpg
+imageCreditName: Hal Gatewood
+imageCreditLink: https://unsplash.com/@halacious?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 externalLink: https://mechanicalrock.github.io/2020/04/28/css-grid.html
 tags:
   - css

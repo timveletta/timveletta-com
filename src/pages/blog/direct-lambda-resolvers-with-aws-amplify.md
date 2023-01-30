@@ -9,6 +9,8 @@ description: AWS Amplify is fantastic; it has never been easier to build and
   perform additional logic?
 prevUrl: /blog/2020-12-08-direct-lambda-resolvers-with-aws-amplify/
 heroImage: /assets/direct-lambda-resolvers.jpg
+imageCreditName: Bench Accounting
+imageCreditLink: https://unsplash.com/@benchaccounting?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - aws
   - amplify
@@ -124,5 +126,3 @@ Pushing our changes using `amplify push` and then viewing the AppSync console, w
 ![Our pipeline resolver with multiple function calls.](/assets/screen-shot-2020-12-09-at-2.00.19-pm.png 'Our pipeline resolver with multiple function calls.')
 
 AWS Amplify has not only made it super easy to create and provision a new AppSync API, but if the out-of-the-box resolvers aren't doing everything you need, it is just as easy to use a Lambda resolver instead as we saw above.
-
-Header photo by [Bench Accounting](https://unsplash.com/@benchaccounting?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/minimal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

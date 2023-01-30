@@ -8,6 +8,8 @@ description: I came across an interesting problem where I needed to access a
   hooks, the solution was less clear.
 prevUrl: /blog/2020-07-14-accessing-react-state-in-your-component-cleanup-with-hooks/
 heroImage: /assets/react-cleanup.jpg
+imageCreditName: Sigmund
+imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - react
 ---

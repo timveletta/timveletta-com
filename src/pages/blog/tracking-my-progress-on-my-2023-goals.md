@@ -4,6 +4,8 @@ title: Tracking progress on my 2023 goals
 pubDate: 2023-01-27
 description: I built a dashboard that tracks my goals for 2023, find out the goals I set for myself and how I'm going about tracking them.
 heroImage: /assets/tracking-2023-goals.jpg
+imageCreditName: David Pisnoy
+imageCreditLink: https://unsplash.com/@davidpisnoy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - personal
   - board games
@@ -126,5 +128,3 @@ jobs:
 ```
 
 So there you have it, a bit of an insight into how I'm tracking my goals for 2023. I can't wait to see whether the visualisation of my goals has any effect on how I progress against them. Thanks for reading!
-
-Header photo by <a href="https://unsplash.com/@davidpisnoy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">David Pisnoy</a> on <a href="https://unsplash.com/photos/r1V-OtZR7XY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

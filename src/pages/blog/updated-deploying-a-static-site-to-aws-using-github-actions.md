@@ -9,6 +9,8 @@ description: It has been just under a year since I wrote my initial about
   Github Actions and whats changed since the initial version of the article.
 prevUrl: /blog/2020-08-14-updated-deploying-a-static-site-to-aws-using-github-actions/
 heroImage: /assets/updated-github.jpg
+imageCreditName: Yancy Min
+imageCreditLink: https://unsplash.com/@yancymin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - aws
   - github

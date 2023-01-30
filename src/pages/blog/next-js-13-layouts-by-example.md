@@ -5,6 +5,8 @@ pubDate: 2022-11-03
 description: Let's look at how the new Layouts announced at Next.js Conf 2022
   improve the developer experience of working with Next.js
 heroImage: /assets/header.jpg
+imageCreditName: Sigmund
+imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 externalLink: https://blog.mechanicalrock.io/2022/10/27/next-js-layouts-by-example.html
 tags:
   - react
@@ -161,5 +163,3 @@ export default function NavLink({
 We can then replace any instances of `Link` in our root layout with our newly created `NavLink` and still get the benefits of server components throughout our application.
 
 If you’d like to find out more about the new Next.js Layouts check out this [documentation page](https://beta.nextjs.org/docs/routing/pages-and-layouts) or check out the talk by [Sam Selikoff at Next.js Conf](https://youtu.be/6mQ3M1CUGnk) which a majority of this example is based on.
-
-> Header image by <a href="https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sigmund</a> on <a href="https://unsplash.com/s/photos/layout?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

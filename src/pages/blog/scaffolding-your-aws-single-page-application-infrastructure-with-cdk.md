@@ -6,6 +6,8 @@ description: I'm finding CDK really enjoyable to pick up and understand. Come
   find out how to set up your static sites and single page applications using
   it.
 heroImage: /assets/cdk-spa.jpg
+imageCreditName: Zane Lee
+imageCreditLink: https://unsplash.com/@zane404?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 externalLink: https://mechanicalrock.github.io/2020/08/24/scaffolding-single-page-applications-with-cdk.html
 tags:
   - aws

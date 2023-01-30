@@ -15,12 +15,14 @@ export interface Props {
 	};
 	frontmatter: {
 		externalLink?: string;
+		imageCreditName: string;
+		imageCreditLink: string;
 	};
 }
 
 const {
 	content: { title, description, pubDate, tags, heroImage },
-	frontmatter: { externalLink },
+	frontmatter: { externalLink, imageCreditName, imageCreditLink },
 } = Astro.props;
 ---
 
@@ -56,38 +58,54 @@ const {
 							})
 						}
 					</time>
-					<Image
-						format="webp"
-						class="object-cover mb-12 rounded-lg"
-						aspectRatio={16 / 9}
-						width={1008}
-						height={567}
-						src={heroImage}
-						alt={`Hero image for post ${title}`}
-					/>
+					<div class="relative">
+						<Image
+							format="webp"
+							class="object-cover mb-12 rounded-lg"
+							aspectRatio={16 / 9}
+							width={1008}
+							height={567}
+							src={heroImage}
+							alt={`Hero image for post ${title}`}
+						/>
+
+						<p
+							class="absolute bottom-4 right-4 bg-gray-200 text-sm px-2 py-1 rounded-md text-gray-800"
+						>
+							Photo by{' '}
+							<a class="underline" href={imageCreditLink}>
+								{imageCreditName}
+							</a>{' '}
+							on
+							<a
+								class="underline"
+								href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+							>
+								Unsplash
+							</a>
+						</p>
+					</div>
 					<div class="text-gray-900 leading-loose font-serif text-lg markdown">
 						<slot />
 					</div>
 					{
 						tags && tags.length ? (
 							<div class="my-10">
-								<span class="text-gray-500 text-base mr-4">Tags</span>
-								{tags.map((tag) => (
-									<a
-										href={`/tags/${tag}`}
-										class="flex items-center px-3 py-0.5 mr-1 mb-1 rounded-full text-sm font-medium bg-secondary hover:bg-primary text-white"
-									>
-										{tag}
-									</a>
-								))}
+								<div class="flex items-center flex-wrap">
+									{tags.map((tag) => (
+										<a
+											href={`/tags/${tag}`}
+											class="flex items-center px-3 py-0.5 mr-1 mb-1 rounded-full font-medium bg-secondary hover:bg-primary text-white"
+										>
+											{tag}
+										</a>
+									))}
+								</div>
 							</div>
 						) : null
 					}
-					<a
-						href="/blog"
-						class="font-bold text-sm mt-4 py-4 text-primary self-end"
-					>
-						Back to the blog
+					<a href="/blog" class="font-bold mt-4 py-4 text-primary self-end">
+						← Back to the blog
 					</a>
 				</div>
 			</article>

@@ -5,6 +5,8 @@ pubDate: 2022-01-28
 description: Understanding how to build your own NPM modules can enable your
   development teams to share common pieces of code across multiple applications.
 heroImage: /assets/typescript-npm-modules-header.jpg
+imageCreditName: Xavi Cabrera
+imageCreditLink: https://unsplash.com/@xavi_cabrera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 externalLink: https://mechanicalrock.github.io/2022/01/24/publishing-typescript-npm-modules.html
 tags:
   - npm
@@ -206,5 +208,3 @@ When we run it in the browser, we should see the text in the primary and seconda
 So there we have it, you can now build your own NPM modules using TypeScript and make them publicly available on the NPM registry. Often when working with clients we don't want to make modules publicly available so I'll be doing a follow up post on hosting NPM modules privately via either the NPM registry or a private artifact repository so stay tuned for that.
 
 Can we accelerate your delivery speed by building common components or themes that can be used across multiple applications? [Get in touch with us to find out how.](https://www.mechanicalrock.io/lets-get-started/)
-
-> Header image by [Xavi Cabrera](https://unsplash.com/@xavi_cabrera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/lego?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
