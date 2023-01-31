@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Accessing React state in your component cleanup with hooks
 pubDate: 2020-07-13
 description: I came across an interesting problem where I needed to access a

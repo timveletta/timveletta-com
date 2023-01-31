@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Managing React application state with Context
 pubDate: 2021-05-30
 description: There are many state management libraries available for React but

@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Publishing TypeScript NPM Modules
 pubDate: 2022-01-28
 description: Understanding how to build your own NPM modules can enable your

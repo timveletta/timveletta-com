@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: 'UPDATED: Deploying a static site to AWS using GitHub Actions'
 isDraft: false
 pubDate: 2020-08-16

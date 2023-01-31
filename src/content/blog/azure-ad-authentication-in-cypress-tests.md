@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Azure AD Authentication in Cypress Tests
 pubDate: 2020-05-05
 description: 'Cypress is a browser-based, end-to-end testing framework that is

@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Refreshing my blog with Netlify CMS and Tailwind CSS
 pubDate: 2020-07-16
 description: It has come time for the annual website redesign and refresh. I

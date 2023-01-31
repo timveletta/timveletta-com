@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -47,8 +48,8 @@ const booksRead = await getBooksRead();
 const gamesPlayed = await getGamesPlayed();
 const distanceCycled = await getDistanceCycled();
 const updatedAt = new Date().toLocaleString('en-AU');
-const postsThisYear = (await Astro.glob('./blog/*.{md,mdx}')).filter(
-	(post) => new Date(post.frontmatter.pubDate).getFullYear() === 2023
+const postsThisYear = (await getCollection('blog')).filter(
+	(post) => new Date(post.data.pubDate).getFullYear() === 2023
 ).length;
 
 const secondsComplete =

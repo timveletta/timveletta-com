@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Direct Lambda resolvers with AWS Amplify
 isDraft: false
 pubDate: 2020-12-09

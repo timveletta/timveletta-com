@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Azure AD Authentication in Cypress Tests with MSAL
 pubDate: 2022-08-08
 description: Its been over 2 years since I wrote about this; in that time

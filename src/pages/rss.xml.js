@@ -1,3 +1,4 @@
+import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
@@ -6,10 +7,7 @@ const parser = new MarkdownIt();
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 export const get = async () => {
-	const postImportResult = import.meta.glob('./blog/**/*.md', {
-		eager: true,
-	});
-	const posts = Object.values(postImportResult);
+	const posts = await getCollection('blog');
 
 	return rss({
 		title: SITE_TITLE,
@@ -18,13 +16,13 @@ export const get = async () => {
 		items: posts
 			.sort(
 				(a, b) =>
-					new Date(b.frontmatter.pubDate).valueOf() -
-					new Date(a.frontmatter.pubDate).valueOf()
+					new Date(b.data.pubDate).valueOf() -
+					new Date(a.data.pubDate).valueOf()
 			)
 			.map((post) => ({
-				link: post.url,
-				content: sanitizeHtml(parser.render(post.compiledContent())),
-				...post.frontmatter,
+				link: `/blog/${post.slug}/`,
+				content: sanitizeHtml(parser.render(post.body)),
+				...post.data,
 			})),
 	});
 };

@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Deploying a static site to AWS using GitHub Actions
 pubDate: 2019-08-31
 description: I was fortunate enough to get a beta invite to Github Actions

@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: Just Enough CSS Grid to be dangerous
 pubDate: 2020-04-28
 description: CSS Grid is one of my favourite tools for building your web

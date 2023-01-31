@@ -49,3 +49,7 @@
 .markdown blockquote > p {
 	@apply mb-0;
 }
+
+.markdown p > code {
+	@apply bg-slate-200 rounded-md p-1 text-base;
+}
