@@ -98,6 +98,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"how-to-use-vercel-edge-config-in-your-functions.md": {
+  id: "how-to-use-vercel-edge-config-in-your-functions.md",
+  slug: "how-to-use-vercel-edge-config-in-your-functions",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "just-enough-css-grid-to-be-dangerous.md": {
   id: "just-enough-css-grid-to-be-dangerous.md",
   slug: "just-enough-css-grid-to-be-dangerous",

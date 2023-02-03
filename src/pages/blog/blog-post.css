@@ -50,6 +50,7 @@
 	@apply mb-0;
 }
 
-.markdown p > code {
+.markdown p > code,
+li > code {
 	@apply bg-slate-200 rounded-md p-1 text-base;
 }
