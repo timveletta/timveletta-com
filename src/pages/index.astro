@@ -1,11 +1,12 @@
 ---
 import { Image } from '@astrojs/image/components';
 import BaseHead from '../components/BaseHead.astro';
+import Hero from '../components/Hero.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-import developer from '../images/web_developer.svg';
+
 import profile from '../images/profile_image.jpg';
 import awsCertificate from '../images/aws-developer-associate.png';
 import { getCollection } from 'astro:content';
@@ -26,24 +27,7 @@ const posts = (await getCollection('blog'))
 	<body class="bg-slate-100 border-t-8 border-primary">
 		<Header />
 		<main>
-			<div
-				class="container px-4 mx-auto mt-32 grid md:grid-cols-2 sm:grid-cols-1 content-center items-center gap-8"
-			>
-				<div class="mb-16">
-					<h1 class="font-sans text-6xl font-bold tracking-wide text-slate-800">
-						Tim Veletta
-					</h1>
-					<hr class="h-4 w-20 mt-4 mb-3 bg-primary" />
-					<h2
-						class="font-sans text-4xl font-thin tracking-wide leading-relaxed text-slate-800"
-					>
-						Cloud Native Developer based in Perth, Australia
-					</h2>
-				</div>
-				<div class="w-full flex justify-center mb-16 md:justify-end">
-					<img class="max-h-1/2" src={developer} alt="Developer" />
-				</div>
-			</div>
+			<Hero />
 			<section class="container px-4 mx-auto my-20 py-10">
 				<h1
 					class="font-sans text-slate-800 text-3xl font-bold tracking-wide text-center"
