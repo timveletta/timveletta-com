@@ -3,10 +3,10 @@ import { Image } from '@astrojs/image/components';
 import developer from '../images/hero.png';
 ---
 
-<div class="relative">
+<div class="relative -z-10">
 	<div class="isolate overflow-hidden">
 		<svg
-			class="absolute inset-0 -z-10 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
+			class="absolute inset-0 -z-10 -mt-20 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
 			aria-hidden="true"
 		>
 			<defs>
@@ -15,7 +15,18 @@ import developer from '../images/hero.png';
 					width={150}
 					height={150}
 					x="50%"
-					y={-1}
+					y={-10}
+					patternUnits="userSpaceOnUse"
+					class="hidden md:block"
+				>
+					<path d="M.5 200V.5H200" fill="none"></path>
+				</pattern>
+				<pattern
+					id="7cf1a353-ef5b-4b73-ac38-f82fba22b527"
+					width={80}
+					height={80}
+					x="50%"
+					y={-10}
 					patternUnits="userSpaceOnUse"
 				>
 					<path d="M.5 200V.5H200" fill="none"></path>
@@ -25,12 +36,13 @@ import developer from '../images/hero.png';
 				width="100%"
 				height="100%"
 				stroke-width={0}
-				fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"></rect>
+				class="md:fill-[url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)] fill-[url(#7cf1a353-ef5b-4b73-ac38-f82fba22b527)]"
+			></rect>
 		</svg>
 		<div class="container px-4 mx-auto my-32 md:my-48 lg:my-64">
 			<div>
 				<h1
-					class="font-sans lg:text-5xl sm:text-4xl text-2xl font-thin tracking-wide text-slate-800 xl:mb-6 mb-2"
+					class="font-sans lg:text-5xl sm:text-4xl text-2xl md:font-thin tracking-wide text-slate-800 xl:mb-6 mb-2"
 				>
 					The full-stack developer
 				</h1>
@@ -56,7 +68,7 @@ import developer from '../images/hero.png';
 		</div>
 	</div>
 	<span
-		class="absolute lg:top-48 md:top-32 sm:top-28 top-32 right-0 lg:text-[12rem] md:text-[10rem] sm:text-9xl text-8xl uppercase font-bold text-slate-800 opacity-5 whitespace-nowrap overflow-visible leading-none text-right -z-10"
+		class="absolute lg:top-48 md:top-32 top-28 right-0 lg:text-[12rem] md:text-[10rem] sm:text-9xl text-7xl uppercase font-bold text-slate-800 opacity-5 whitespace-nowrap overflow-visible leading-none text-right -z-10"
 		>Frontend<br />Backend<br /> UI UX Design</span
 	>
 </div>
