@@ -1,0 +1,101 @@
+---
+import { Image } from '@astrojs/image/components';
+import './project.css';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+import github from '../../images/github.svg';
+
+export async function getStaticPaths() {
+	const projectEntries = await getCollection('projects');
+	return projectEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<html lang="en">
+	<head>
+		<BaseHead
+			title={entry.data.title}
+			description={entry.data.description}
+			noIndex={Boolean(entry.data.externalLink)}
+			image={entry.data.heroImage}
+			externalLink={entry.data.externalLink}
+		/>
+	</head>
+	<body class="bg-slate-100 border-t-8 border-primary">
+		<Header />
+		<main>
+			<article>
+				<div class="container mx-auto max-w-screen-xl my-20 p-2">
+					<h1
+						class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug text-center mb-8"
+					>
+						{entry.data.title}
+					</h1>
+					<Image
+						format="webp"
+						class="object-cover mb-12 rounded-lg"
+						aspectRatio={16 / 9}
+						width={1280}
+						src={entry.data.heroImage}
+						alt={`Hero image for post ${entry.data.title}`}
+					/>
+					<div class="grid md:grid-cols-[3fr_1fr] grid-cols-1 gap-8">
+						<div
+							class="text-gray-900 leading-loose font-serif text-lg markdown"
+						>
+							<Content />
+						</div>
+						<div class="md:col-start-2 row-start-1">
+							{
+								entry.data.websiteLink && (
+									<a
+										href={entry.data.websiteLink}
+										target="_blank"
+										class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-10 text-md font-regular px-3 py-2 rounded hover:bg-opacity-75 flex items-center mb-2"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width={1.5}
+											stroke="currentColor"
+											class="w-5 h-5 mr-2"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+											/>
+										</svg>
+										View Site
+									</a>
+								)
+							}
+							{
+								entry.data.githubLink && (
+									<a
+										href={entry.data.githubLink}
+										class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-10 text-md font-regular px-3 py-2 rounded hover:bg-opacity-75 flex items-center"
+									>
+										<img src={github} alt="Github logo" class="w-5 h-5 mr-2" />
+										View on Github
+									</a>
+								)
+							}
+						</div>
+					</div>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -28,9 +28,9 @@ module.exports = {
 				contact: '1fr 2fr',
 			},
 			fontFamily: {
-				// sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+				sans: ['Mulish', ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/aspect-ratio')],
 };

@@ -169,6 +169,15 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog">
 },
 },
+"projects": {
+"teleblast.md": {
+  id: "teleblast.md",
+  slug: "teleblast",
+  body: string,
+  collection: "projects",
+  data: InferEntrySchema<"projects">
+},
+},
 
 	};
 

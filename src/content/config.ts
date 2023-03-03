@@ -13,6 +13,19 @@ const blogCollection = defineCollection({
 	}),
 });
 
+const projectCollection = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		heroImage: z.string(),
+		tags: z.array(z.string()),
+		githubLink: z.string().optional(),
+		websiteLink: z.string().optional(),
+		featured: z.boolean().optional(),
+	}),
+});
+
 export const collections = {
 	blog: blogCollection,
+	projects: projectCollection,
 };

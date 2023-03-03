@@ -7,9 +7,10 @@ import Footer from '../components/Footer.astro';
 import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
-import profile from '../images/profile_image.jpg';
+import profile from '../images/profile_image.png';
 import awsCertificate from '../images/aws-developer-associate.png';
 import { getCollection } from 'astro:content';
+import ProjectExcerpt from '../components/ProjectExcerpt.astro';
 
 const posts = (await getCollection('blog'))
 	.sort(
@@ -17,6 +18,10 @@ const posts = (await getCollection('blog'))
 			new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 	)
 	.slice(0, 3);
+
+const projects = (await getCollection('projects')).filter(
+	(project) => project.data.featured
+);
 ---
 
 <!DOCTYPE html>
@@ -28,6 +33,23 @@ const posts = (await getCollection('blog'))
 		<Header />
 		<main>
 			<Hero />
+			<section class="container px-4 mx-auto my-20 py-10">
+				<h1
+					class="font-sans text-slate-800 text-3xl font-bold tracking-wide text-center"
+				>
+					My Work
+				</h1>
+				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
+				{projects.map((post) => <ProjectExcerpt {...post} />)}
+				<!-- <div class="my-12 flex justify-center">
+					<a
+						href="/projects"
+						class="bg-primary text-white font-bold px-4 py-2 rounded hover:bg-opacity-75"
+					>
+						See All Projects
+					</a>
+				</div> -->
+			</section>
 			<section class="container px-4 mx-auto my-20 py-10">
 				<h1
 					class="font-sans text-slate-800 text-3xl font-bold tracking-wide text-center"
@@ -47,7 +69,7 @@ const posts = (await getCollection('blog'))
 					</a>
 				</div>
 			</section>
-			<section class="container px-4 mx-auto my-20 pt-10 pb-20">
+			<section class="container relative px-4 mx-auto mt-20 pt-10 lg:pb-20">
 				<div class="block text-center">
 					<h1
 						id="aboutme"
@@ -88,7 +110,7 @@ const posts = (await getCollection('blog'))
 					</div>
 					<Image
 						format="webp"
-						class="rounded"
+						class="lg:absolute bottom-0 right-0"
 						src={profile}
 						alt="Picture of me"
 					/>
