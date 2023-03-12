@@ -177,6 +177,13 @@ declare module 'astro:content' {
   collection: "projects",
   data: InferEntrySchema<"projects">
 },
+"wadash.md": {
+  id: "wadash.md",
+  slug: "wadash",
+  body: string,
+  collection: "projects",
+  data: InferEntrySchema<"projects">
+},
 },
 
 	};
