@@ -1,14 +1,10 @@
 ---
 title: Pushing Content to AWS S3 from Github Actions
 pubDate: 2023-02-27
-description: I came across an interesting problem where I needed to access a
-  piece of React state when unmounting a component, a problem that would have
-  been trivial with Class components and componentWillUnmount, however with
-  hooks, the solution was less clear.
-prevUrl: /blog/2020-07-14-accessing-react-state-in-your-component-cleanup-with-hooks/
-heroImage: /assets/react-cleanup.jpg
-imageCreditName: Sigmund
-imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+description: Something I constantly get asked about is how to easily sync data between Github Actions and AWS S3 so lets explore how to create a bucket and sync some content to it from your Actions.
+heroImage: /assets/s3-github-actions.jpg
+imageCreditName: Obi - @pixel7propix
+imageCreditLink: https://unsplash.com/@obionyeador?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - aws
   - github
