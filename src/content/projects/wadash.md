@@ -31,6 +31,6 @@ After going away and getting further UI design experience and coaching; I felt l
 
 ![New WA Dash Website](/assets/wadash-new.jpg)
 
-Other things I improved on along with the design was better optimisation for search engines including keywords, descriptions and Open Graph tags, hosting on Vercel for simplification and the contact form now utilises Twilio SendGrid for emails.
+The new version of the website was built with Astro and still uses Tailwind for styling. Other things I improved on along with the design was better optimisation for search engines including keywords, descriptions and Open Graph tags, hosting on Vercel for simplification and the contact form now utilises Twilio SendGrid for emails.
 
 If you're interested in discussing a website project for your business, please don't hesitate to contact me; I'd be happy to discuss your needs.
