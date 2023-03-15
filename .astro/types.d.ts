@@ -140,9 +140,23 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"pushing-content-to-S3-from-github-actions.md": {
+  id: "pushing-content-to-S3-from-github-actions.md",
+  slug: "pushing-content-to-s3-from-github-actions",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "refreshing-my-blog-with-netlify-cms-and-tailwind-css.md": {
   id: "refreshing-my-blog-with-netlify-cms-and-tailwind-css.md",
   slug: "refreshing-my-blog-with-netlify-cms-and-tailwind-css",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"saas-products-not-cloud-providers.md": {
+  id: "saas-products-not-cloud-providers.md",
+  slug: "saas-products-not-cloud-providers",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
