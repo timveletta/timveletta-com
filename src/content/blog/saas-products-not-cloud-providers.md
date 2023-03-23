@@ -2,7 +2,6 @@
 title: Why I use SaaS products instead of cloud providers
 pubDate: 2023-03-15
 description: I work with AWS every day and choose to use it for a number of my own projects but lately I've started to change. Lets explore some SaaS products out there that will do a better job, in a better way.
-prevUrl: /blog/2020-07-14-accessing-react-state-in-your-component-cleanup-with-hooks/
 heroImage: /assets/saas-cloud-providers.jpg
 imageCreditName: Cash Macanaya
 imageCreditLink: https://unsplash.com/@cashmacanaya?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
