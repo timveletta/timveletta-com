@@ -24,5 +24,5 @@ export default defineConfig({
 		image({ serviceEntryPoint: '@astrojs/image/sharp' }),
 	],
 	output: 'static',
-	adapter: vercel({ includeFiles: ['./email.js'] }),
+	adapter: vercel(),
 });
