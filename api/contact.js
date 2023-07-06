@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import email from '../email';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
