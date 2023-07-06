@@ -77,7 +77,7 @@ export default function Contact() {
 				className="row-span-3 md:col-start-2 md:row-start-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 				placeholder="Your Message"
 			/>
-			<div className="flex items-baseline">
+			<div className="flex items-baseline md:col-span-2">
 				<button
 					type="submit"
 					className="bg-primary text-white font-bold px-4 py-2 mr-4 rounded hover:bg-opacity-75"
