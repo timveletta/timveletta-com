@@ -1,5 +1,7 @@
-import mail from '@sendgrid/mail';
-mail.setApiKey(process.env.SENDGRID_API_KEY);
+import { Resend } from 'resend';
+import EmailTemplate from '../src/components/EmailTemplate';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const msg = {
 	to: 'timothy.veletta@gmail.com', // Change to your recipient
@@ -20,13 +22,13 @@ function formatMessage(name, subject, email, message) {
 export default async function handler(request, response) {
 	const { name, subject, email, message } = JSON.parse(request.body);
 	try {
-		const result = await mail.send({
-			...msg,
-			html: formatMessage(name, subject, email, message),
+		const data = await resent.emails.send({
+			from: 'contact@timveletta.com',
+			to: 'timothy.veletta@gmail.com',
+			subject: 'TimVeletta.com Contact Form Submission',
+			react: EmailTemplate({ firstName: name }),
 		});
-		response.status(result[0].statusCode).json({
-			body: 'Message sent successfully!',
-		});
+		response.status(200).json(data);
 	} catch (error) {
 		response.status(500).json({
 			body: 'Message failed to send.',

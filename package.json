@@ -24,6 +24,7 @@
 		"jsdom": "^20.0.3",
 		"markdown-it": "^13.0.1",
 		"node-html-parser": "^6.1.4",
+		"resend": "^0.16.0",
 		"sanitize-html": "^2.8.1",
 		"sharp": "^0.31.2",
 		"tailwindcss": "^3.2.4"
