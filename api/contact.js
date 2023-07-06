@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import email from '../email';
+import email from './_email';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -22,6 +22,7 @@ export default async function handler(request, response) {
 			subject: 'TimVeletta.com Contact Form Submission',
 			html: formatMessage(name, subject, email, message),
 		});
+		console.log(email);
 		response.status(200).json(data);
 	} catch (error) {
 		response.status(500).json({
