@@ -84,6 +84,7 @@ export default function Contact() {
 				>
 					Send Message
 				</button>
+				* I'm not interested in affiliate marketing
 			</div>
 		</form>
 	);
