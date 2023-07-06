@@ -21,7 +21,6 @@ export default async function handler(request, response) {
 			subject: 'TimVeletta.com Contact Form Submission',
 			html: formatMessage(name, subject, email, message),
 		});
-		console.log(testEmail);
 		response.status(200).json(data);
 	} catch (error) {
 		response.status(500).json({
