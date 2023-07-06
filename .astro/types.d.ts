@@ -294,6 +294,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"the-easiest-way-to-send-emails-with-resend.md": {
+	id: "the-easiest-way-to-send-emails-with-resend.md";
+  slug: "the-easiest-way-to-send-emails-with-resend";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "tracking-my-progress-on-my-2023-goals.md": {
 	id: "tracking-my-progress-on-my-2023-goals.md";
   slug: "tracking-my-progress-on-my-2023-goals";
