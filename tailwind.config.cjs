@@ -4,6 +4,11 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+		container: {
+			screens: {
+				'2xl': '1280px',
+			},
+		},
 		extend: {
 			maxHeight: {
 				'1/2': '50vh',
