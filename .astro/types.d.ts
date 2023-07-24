@@ -217,6 +217,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"developers-should-give-a-shit-about-design.md": {
+	id: "developers-should-give-a-shit-about-design.md";
+  slug: "developers-should-give-a-shit-about-design";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "direct-lambda-resolvers-with-aws-amplify.md": {
 	id: "direct-lambda-resolvers-with-aws-amplify.md";
   slug: "direct-lambda-resolvers-with-aws-amplify";
