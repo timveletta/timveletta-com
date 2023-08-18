@@ -198,6 +198,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"array-set-object-map.md": {
+	id: "array-set-object-map.md";
+  slug: "array-set-object-map";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "azure-ad-authentication-in-cypress-tests-with-msal.md": {
 	id: "azure-ad-authentication-in-cypress-tests-with-msal.md";
   slug: "azure-ad-authentication-in-cypress-tests-with-msal";
