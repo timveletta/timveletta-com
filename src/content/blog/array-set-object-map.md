@@ -25,7 +25,7 @@ console.log(userIdSet); // Set(5) { 1, 2, 3, 4, 7 }
 
 ### Adding Items
 
-Adding a new item to an `Array` can be done using `push` to add items to the end of the `Array` or `unshift` to add them to the start of the `Array`. In terms of performance, using `push` appends an element to the end of the `Array` with **constant time complexity** or \***\*O(1)\*\***. If `unshift` is used, an element with an index of 0 is added and all the other elements are shifted by 1, resulting in **linear time complexity** or **O(n)**.
+Adding a new item to an `Array` can be done using `push` to add items to the end of the `Array` or `unshift` to add them to the start of the `Array`. In terms of performance, using `push` appends an element to the end of the `Array` with **constant time complexity** or **O(1)**. If `unshift` is used, an element with an index of 0 is added and all the other elements are shifted by 1, resulting in **linear time complexity** or **O(n)**.
 
 In contrast, `Set` only allows the `add` function to add an element to the end of the `Set`, providing it with **constant time complexity**.
 
