@@ -1,10 +1,11 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import './blog-post.css';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import { fade } from 'astro:transitions';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
@@ -18,7 +19,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead
 			title={entry.data.title}
@@ -54,7 +55,6 @@ const { Content } = await entry.render();
 						<Image
 							format="webp"
 							class="object-cover mb-12 rounded-lg"
-							aspectRatio={16 / 9}
 							width={1008}
 							height={567}
 							src={entry.data.heroImage}

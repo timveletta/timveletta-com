@@ -11,27 +11,25 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/image": "^0.13.0",
-		"@astrojs/mdx": "^0.15.1",
-		"@astrojs/rss": "^2.1.0",
-		"@astrojs/sitemap": "^1.0.0",
-		"@astrojs/tailwind": "^3.0.0",
-		"@astrojs/vercel": "^3.0.0",
+		"@astrojs/mdx": "^1.0.0",
+		"@astrojs/rss": "^3.0.0",
+		"@astrojs/sitemap": "^3.0.0",
+		"@astrojs/tailwind": "^5.0.0",
+		"@astrojs/vercel": "^4.0.3",
 		"@sendgrid/mail": "^7.7.0",
 		"@vercel/analytics": "^0.1.6",
 		"@vercel/edge-config": "^0.1.0",
-		"astro": "^2.0.2",
+		"astro": "^3.0.8",
 		"jsdom": "^20.0.3",
 		"markdown-it": "^13.0.1",
 		"node-html-parser": "^6.1.4",
 		"resend": "^0.16.0",
 		"sanitize-html": "^2.8.1",
-		"sharp": "^0.31.2",
-		"tailwindcss": "^3.2.4"
+		"sharp": "^0.32.5",
+		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
-		"@astrojs/react": "^2.0.1",
-		"@tailwindcss/aspect-ratio": "^0.4.2",
+		"@astrojs/react": "^3.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	}

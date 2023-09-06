@@ -10,6 +10,7 @@ import GoalCard from '../components/GoalCard.astro';
 import StravaLogo from '../images/strava.svg';
 import BoardGameGeekLogo from '../images/board-game-geek.svg';
 import GoodreadsLogo from '../images/goodreads.svg';
+import { fade } from 'astro:transitions';
 
 const getBooksRead = async () => {
 	try {
@@ -59,7 +60,7 @@ const percentageComplete = Math.round((secondsComplete / secondsInYear) * 100);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>

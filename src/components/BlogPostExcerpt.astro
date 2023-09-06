@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 
 const { data, slug }: CollectionEntry<'blog'> = Astro.props;
 ---
@@ -10,7 +10,7 @@ const { data, slug }: CollectionEntry<'blog'> = Astro.props;
 		<Image
 			format="webp"
 			class="w-full object-cover"
-			aspectRatio={16 / 9}
+			width={342}
 			height={192}
 			src={data.heroImage}
 			alt={`Hero image for post ${data.title}`}

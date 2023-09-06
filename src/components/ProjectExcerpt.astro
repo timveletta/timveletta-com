@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 
 import github from '../images/github.svg';
 
@@ -50,7 +50,7 @@ const { data, slug }: CollectionEntry<'projects'> = Astro.props;
 						href={data.githubLink}
 						class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-10 border rounded-md border-primary text-sm font-bold px-3 py-2 rounded hover:bg-opacity-75 flex items-center"
 					>
-						<img src={github} alt="Github logo" class="w-4 h-4 mr-2" />
+						<Image src={github} alt="Github logo" class="w-4 h-4 mr-2" />
 						View on Github
 					</a>
 				)
@@ -70,7 +70,7 @@ const { data, slug }: CollectionEntry<'projects'> = Astro.props;
 		<Image
 			format="webp"
 			class="w-full object-cover rounded-lg my-auto"
-			aspectRatio={16 / 9}
+			width={342}
 			height={192}
 			src={data.heroImage}
 			alt={`Hero image for post ${data.title}`}

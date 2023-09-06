@@ -5,12 +5,13 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import { getCollection } from 'astro:content';
 import ProjectExcerpt from '../components/ProjectExcerpt.astro';
+import { fade } from 'astro:transitions';
 
 const projects = await getCollection('projects');
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>

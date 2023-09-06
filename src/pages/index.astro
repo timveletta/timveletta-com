@@ -1,5 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
+import { fade } from 'astro:transitions';
 import BaseHead from '../components/BaseHead.astro';
 import Hero from '../components/Hero.astro';
 import Header from '../components/Header.astro';
@@ -25,7 +26,7 @@ const projects = (await getCollection('projects')).filter(
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>

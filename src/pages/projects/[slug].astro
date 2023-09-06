@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import './project.css';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
@@ -7,6 +7,7 @@ import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
 import github from '../../images/github.svg';
+import { fade } from 'astro:transitions';
 
 export async function getStaticPaths() {
 	const projectEntries = await getCollection('projects');
@@ -20,7 +21,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead
 			title={entry.data.title}
@@ -43,7 +44,7 @@ const { Content } = await entry.render();
 					<Image
 						format="webp"
 						class="object-cover mb-12 rounded-lg"
-						aspectRatio={16 / 9}
+						height={720}
 						width={1280}
 						src={entry.data.heroImage}
 						alt={`Hero image for post ${entry.data.title}`}
@@ -86,7 +87,7 @@ const { Content } = await entry.render();
 										href={entry.data.githubLink}
 										class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-10 text-md font-regular px-3 py-2 rounded hover:bg-opacity-75 flex items-center"
 									>
-										<img src={github} alt="Github logo" class="w-5 h-5 mr-2" />
+										<Image src={github} alt="Github logo" class="w-5 h-5 mr-2" />
 										View on Github
 									</a>
 								)
