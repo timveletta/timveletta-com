@@ -18,7 +18,7 @@
 		"@astrojs/vercel": "^4.0.3",
 		"@sendgrid/mail": "^7.7.0",
 		"@vercel/analytics": "^0.1.6",
-		"@vercel/edge-config": "^0.1.0",
+		"@vercel/edge-config": "^0.4.1",
 		"astro": "^3.0.8",
 		"jsdom": "^20.0.3",
 		"markdown-it": "^13.0.1",
