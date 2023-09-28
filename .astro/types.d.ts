@@ -235,6 +235,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"integrating-clerk-and-planetscale-in-your-nextjs-applications.md": {
+	id: "integrating-clerk-and-planetscale-in-your-nextjs-applications.md";
+  slug: "integrating-clerk-and-planetscale-in-your-nextjs-applications";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "just-enough-css-grid-to-be-dangerous.md": {
 	id: "just-enough-css-grid-to-be-dangerous.md";
   slug: "just-enough-css-grid-to-be-dangerous";
