@@ -1,5 +1,3 @@
-import { getAll } from '@vercel/edge-config/index.cjs';
-
 const clientId = process.env.STRAVA_CLIENT_ID;
 const clientSecret = process.env.STRAVA_CLIENT_SECRET;
 
