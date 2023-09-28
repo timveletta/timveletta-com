@@ -1,4 +1,4 @@
-import { getAll } from '@vercel/edge-config';
+const edgeConfig = require('@vercel/edge-config');
 
 const clientId = process.env.STRAVA_CLIENT_ID;
 const clientSecret = process.env.STRAVA_CLIENT_SECRET;
@@ -44,7 +44,7 @@ const updateEdgeConfig = async ({
 };
 
 const fetchToken = async () => {
-	const { refresh_token, access_token, expires_at } = await getAll([
+	const { refresh_token, access_token, expires_at } = await edgeConfig.getAll([
 		'refresh_token',
 		'access_token',
 		'expires_at',
