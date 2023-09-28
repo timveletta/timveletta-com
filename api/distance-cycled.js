@@ -1,4 +1,4 @@
-const edgeConfig = require('@vercel/edge-config');
+import edgeConfig from '@vercel/edge-config';
 
 const clientId = process.env.STRAVA_CLIENT_ID;
 const clientSecret = process.env.STRAVA_CLIENT_SECRET;
