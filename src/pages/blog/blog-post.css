@@ -31,7 +31,7 @@
 }
 
 .markdown img {
-	@apply mx-auto my-8 rounded-md;
+	@apply mx-auto my-8 rounded-md p-2;
 }
 
 .markdown ul {
@@ -53,4 +53,19 @@
 .markdown p > code,
 li > code {
 	@apply bg-slate-200 rounded-md p-1 text-base;
+}
+
+@media (prefers-color-scheme: dark) {
+	.markdown p > code,
+	li > code {
+		@apply bg-slate-800 rounded-md p-1 text-base;
+	}
+
+	.markdown blockquote {
+		@apply border-l-4 border-slate-600 italic my-4 p-4 bg-slate-800 rounded-tr-md rounded-br-md;
+	}
+
+	.markdown img {
+		@apply bg-slate-200;
+	}
 }

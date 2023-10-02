@@ -5,6 +5,7 @@ import logo from '../images/logo.svg';
 import github from '../images/github.svg';
 import linkedin from '../images/linkedin.svg';
 import { Image } from 'astro:assets';
+import ThemeIcon from './ThemeIcon.astro';
 ---
 
 <header
@@ -28,5 +29,6 @@ import { Image } from 'astro:assets';
 		<SocialLink href="https://linkedin.com/in/tim-veletta">
 			<Image src={linkedin} alt="LinkedIn logo" width={24} />
 		</SocialLink>
+		<ThemeIcon/>
 	</nav>
 </header>

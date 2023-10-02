@@ -40,7 +40,7 @@ const projects = (await getCollection('projects')).filter(
 				>
 					My Work
 				</h1>
-				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
+				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
 				{projects.map((post) => <ProjectExcerpt {...post} />)}
 				<!-- <div class="my-12 flex justify-center">
 					<a
@@ -53,7 +53,7 @@ const projects = (await getCollection('projects')).filter(
 			</section>
 			<section class="container px-4 mx-auto my-20 py-10">
 				<h1
-					class="font-sans text-slate-800 text-3xl font-bold tracking-wide text-center"
+					class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
 				>
 					Recent Articles
 				</h1>
@@ -82,7 +82,7 @@ const projects = (await getCollection('projects')).filter(
 				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 align-center">
 					<div
-						class="leading-loose text-slate-800 dark:text-gray-200 p-2 text-lg font-serif"
+						class="leading-loose text-slate-800 dark:text-gray-200 p-2 text-lg font-serif lg:pb-48"
 					>
 						<p class="mb-4">
 							I'm a software engineer passionate about building highly scalable
@@ -106,12 +106,6 @@ const projects = (await getCollection('projects')).filter(
 							href="/assets/TimVeletta-Resume.pdf"
 							target="_blank">Download my resume (updated July 2023)</a
 						>
-						<Image
-							format="webp"
-							class="max-h-1/2 mx-auto mt-8"
-							src={awsCertificate}
-							alt="AWS Developer Associate certificate"
-						/>
 					</div>
 					<Image
 						format="webp"

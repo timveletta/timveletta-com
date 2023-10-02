@@ -24,7 +24,7 @@ After creating the access key, navigate to your Github repository, click on the 
 
 Here is an example workflow file that pushes the contents of the 'build' directory to an S3 bucket:
 
-```
+```yaml
 name: Push to S3
 
 on: [push]
@@ -33,18 +33,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup AWS CLI
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-    - name: Sync files to S3 bucket
-      run: |
-        aws s3 sync build s3://my-bucket-name --delete
-
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Sync files to S3 bucket
+        run: |
+          aws s3 sync build s3://my-bucket-name --delete
 ```
 
 Note that the access key and secret access key are stored as Github repository secrets, and are accessed using `${{ secrets.AWS_ACCESS_KEY_ID }}` and `${{ secrets.AWS_SECRET_ACCESS_KEY }}`. Also the `--delete` flag means that any files that exist in S3 but not our `build` directory are deleted when the sync happens.
