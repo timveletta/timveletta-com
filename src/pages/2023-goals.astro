@@ -10,6 +10,7 @@ import GoalCard from '../components/GoalCard.astro';
 import StravaLogo from '../images/strava.svg';
 import BoardGameGeekLogo from '../images/board-game-geek.svg';
 import GoodreadsLogo from '../images/goodreads.svg';
+import { fade } from 'astro:transitions';
 
 const getBooksRead = async () => {
 	try {
@@ -33,20 +34,20 @@ const getGamesPlayed = async () => {
 	}
 };
 
-const getDistanceCycled = async () => {
-	try {
-		const response = await fetch('https://timveletta.com/api/distance-cycled');
-		const data = await response.json();
-		return data;
-	} catch (err) {
-		console.error(err);
-		return;
-	}
-};
+// const getDistanceCycled = async () => {
+// 	try {
+// 		const response = await fetch('https://timveletta.com/api/distance-cycled');
+// 		const data = await response.json();
+// 		return data;
+// 	} catch (err) {
+// 		console.error(err);
+// 		return;
+// 	}
+// };
 
 const booksRead = await getBooksRead();
 const gamesPlayed = await getGamesPlayed();
-const distanceCycled = await getDistanceCycled();
+// const distanceCycled = await getDistanceCycled();
 const updatedAt = new Date().toLocaleString('en-AU');
 const postsThisYear = (await getCollection('blog')).filter(
 	(post) => new Date(post.data.pubDate).getFullYear() === 2023
@@ -59,7 +60,7 @@ const percentageComplete = Math.round((secondsComplete / secondsInYear) * 100);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
@@ -95,13 +96,13 @@ const percentageComplete = Math.round((secondsComplete / secondsInYear) * 100);
 					rationale={"I love board games and have a large collection of them, some of which I haven't played for some time. I want to play each game at least once this year."}
 					image={BoardGameGeekLogo}
 				/>
-				<GoalCard
+				<!-- <GoalCard
 					value={Math.round(distanceCycled.distanceCycled)}
 					goal={1200}
 					measure="Distance Cycled (km)"
 					rationale={"I enjoy cycling but didn't find as much time for it last year. I want to get back into it and ride at least 100km per month which seems quite achievable."}
 					image={StravaLogo}
-				/>
+				/> -->
 			</div>
 		</main>
 		<Footer />

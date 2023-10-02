@@ -4,6 +4,11 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+		container: {
+			screens: {
+				'2xl': '1280px',
+			},
+		},
 		extend: {
 			maxHeight: {
 				'1/2': '50vh',
@@ -28,9 +33,8 @@ module.exports = {
 				contact: '1fr 2fr',
 			},
 			fontFamily: {
-				// sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+				sans: ['Mulish', ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
-	plugins: [],
 };

@@ -1,0 +1,205 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import { fade } from 'astro:transitions';
+---
+
+<!DOCTYPE html>
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="bg-slate-100 border-t-8 border-primary">
+		<Header />
+		<main>
+			<section class="container px-4 mx-auto my-20 py-10">
+				<h1
+					class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug text-center mb-8"
+				>
+					Uses
+				</h1>
+				<p class="text-2xl font-light text-gray-900 tracking-wide mb-4">
+					Check out some of the tools, utilities and services I enjoy using to
+					get things done.
+				</p>
+				<p class="text-2xl font-light text-gray-900 tracking-wide mb-8">
+					Inspired by <a
+						class="text-primary underline"
+						href="https://wesbos.com/uses">WesBos</a
+					>. See what other people are using on <a
+						class="text-primary underline"
+						href="https://uses.tech/">uses.tech</a
+					>
+				</p>
+				<h2
+					class="text-2xl font-extrabold text-gray-900 tracking-tight leading-snug mb-4"
+				>
+					Development
+				</h2>
+				<ul
+					class="text-lg font-serif mb-8 list-disc list-outside space-y-2 leading-loose ml-4"
+				>
+					<li>
+						<a
+							href="https://code.visualstudio.com/"
+							class="font-bold text-primary underline">Visual Studio Code</a
+						> is my editor of choice. I usually install extensions for the languages
+						and tools that I'm using.
+					</li>
+					<li>
+						<a
+							href="https://www.mozilla.org/en-US/firefox/developer/"
+							class="font-bold text-primary underline"
+							>Firefox Developer Edition</a
+						> has been my browser of choice for a while now. I love the dev tools,
+						and containers have been a game-changer, especially when working with
+						multiple AWS accounts.
+					</li>
+					<li>
+						I've been using <a
+							href="https://react.dev/"
+							class="font-bold text-primary underline">React</a
+						> for around 6 years now, but since <a
+							href="https://nextjs.org/"
+							class="text-primary underline">Next.js</a
+						> came along, it has changed the game for me. I love the developer experience,
+						not having to worry about how your routing is going to work, and the
+						focus on new features such as server actions has really pushed the React
+						community as a whole forward.
+					</li>
+					<li>
+						<a
+							href="https://tailwindcss.com/"
+							class="font-bold text-primary underline">Tailwind</a
+						> made styling fun again for me. Ever since reading <a
+							class="text-primary underline"
+							href="https://www.refactoringui.com/">Refactoring UI</a
+						> and using Tailwind, it has made me a better developer and designer.
+						Right now, I'm testing out
+						<a href="https://ui.shadcn.com/" class="text-primary underline"
+							>shadcn/ui</a
+						> as a way to get some usable Tailwind components out of the box and
+						quickly build projects.
+					</li>
+					<li>
+						<a
+							href="https://www.prisma.io/"
+							class="font-bold text-primary underline">Prisma</a
+						> has completely replaced GraphQL for me. The fact that I can use it
+						in conjunction with Next.js Server Actions to build a full-stack, type-safe
+						application is amazing.
+						<li>
+							<a
+								href="https://www.figma.com/"
+								class="font-bold text-primary underline">Figma</a
+							> is the design tool that I believe all developers should learn to
+							use, especially if you're working on front-end applications. I like
+							how intuitive it is, and it's amazing to be able to prototype your
+							ideas before you write even a single line of code.
+						</li>
+					</li>
+				</ul>
+				<h2
+					class="text-2xl font-extrabold text-gray-900 tracking-tight leading-snug mb-4"
+				>
+					Services
+				</h2>
+				<ul
+					class="text-lg font-serif mb-8 list-disc list-outside space-y-2 leading-loose ml-4"
+				>
+					<li>
+						<a
+							href="https://vercel.com"
+							class="font-bold text-primary underline">Vercel</a
+						> is used to host all my sites because of its ease of use. I used to
+						set up an AWS stack, but it's not worth the additional time investment
+						and mental load, as I detailed in my blog post on <a
+							class="text-primary underline"
+							href="/blog/saas-products-not-cloud-providers"
+							>Why I use SaaS products instead of cloud providers</a
+						>.
+					</li>
+					<li>
+						<a
+							href="https://www.notion.so"
+							class="font-bold text-primary underline">Github</a
+						> is the standard for source code repositories, so it's hard to go past
+						it.
+					</li>
+					<li>
+						<a
+							href="https://planetscale.com/"
+							class="font-bold text-primary underline">PlanetScale</a
+						> is the easiest and most enjoyable way I've found to work with databases.
+						It helps me build things quickly without worrying about how my database
+						is managed. I love the database branching and deploy request flow because
+						it's so similar to the Git pull request flow.
+					</li>
+					<li>
+						<a
+							href="https://www.notion.so"
+							class="font-bold text-primary underline">Notion</a
+						> is my <a
+							class="text-primary underline"
+							href="https://www.buildingasecondbrain.com/">second brain</a
+						>, I use the CODE method (Capture, Organise, Distill, Express) to
+						keep it organised and useful.
+					</li>
+					<li>
+						<a
+							href="https://www.namecheap.com/"
+							class="font-bold text-primary underline">Namecheap</a
+						> is my domain registrar.
+					</li>
+					<li>
+						<a
+							href="https://1password.com/"
+							class="font-bold text-primary underline">1Password</a
+						> for password management.
+					</li>
+				</ul>
+				<h2
+					class="text-2xl font-extrabold text-gray-900 tracking-tight leading-snug mb-4"
+				>
+					Gadgets
+				</h2>
+				<ul
+					class="text-lg font-serif mb-8 list-disc list-outside space-y-2 leading-loose ml-4"
+				>
+					<li><span class="font-bold">Phone</span> - Google Pixel 7</li>
+					<li>
+						<span class="font-bold">Earbuds</span> - Google Pixel Buds Pro
+					</li>
+					<li>
+						<span class="font-bold">Monitor</span> - Lenovo G34w-10 34" Ultra-Wide
+						Curved
+					</li>
+					<li>
+						<span class="font-bold">Keyboard</span> - Corsair K63 Wireless Mechanical
+						(Cherry MX Red)
+					</li>
+					<li><span class="font-bold">Mouse</span> - Logitech G502</li>
+					<li>
+						<span class="font-bold">Sim Racing Equipment</span>
+						<ul
+							class="text-lg font-serif mb-8 list-disc list-outside space-y-2 leading-loose ml-4"
+						>
+							<li>
+								<span class="font-bold">Wheel</span> - Moza R9 with ES Steering Wheel
+							</li>
+							<li>
+								<span class="font-bold">Pedals</span> - Logitech G PRO Racing Pedals
+							</li>
+							<li>
+								<span class="font-bold">Rig</span> - Trak Racer TR80 Lite
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<Footer />
+		</main>
+	</body>
+</html>

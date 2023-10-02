@@ -4,26 +4,29 @@ import SocialLink from './SocialLink.astro';
 import logo from '../images/logo.svg';
 import github from '../images/github.svg';
 import linkedin from '../images/linkedin.svg';
+import { Image } from 'astro:assets';
 ---
 
 <header
 	class="container mx-auto flex items-center justify-between flex-wrap mt-8 px-4 md:px-0"
 >
-	<a class="flex items-center flex-shrink-0 mr-6" href="/">
-		<img src={logo} alt="Tim Veletta logo" style="width: 88px" />
+	<a class="flex items-center flex-shrink-0 mr-6 z-10" href="/">
+		<Image src={logo} width={88} alt="Tim Veletta logo"/>
 	</a>
 	<nav
 		role="navigation"
 		aria-label="main-navigation"
-		class="flex w-auto items-center"
+		class="flex w-auto items-center z-10"
 	>
 		<HeaderLink href="/#aboutme">About Me</HeaderLink>
+		<HeaderLink href="/projects">Projects</HeaderLink>
+		<HeaderLink href="/uses">Uses</HeaderLink>
 		<HeaderLink href="/blog">Blog</HeaderLink>
 		<SocialLink href="https://github.com/timveletta">
-			<img src={github} alt="Github logo" style="width: 24px" />
+			<Image src={github} alt="Github logo" width={24} />
 		</SocialLink>
 		<SocialLink href="https://linkedin.com/in/tim-veletta">
-			<img src={linkedin} alt="LinkedIn logo" style="width: 24px" />
+			<Image src={linkedin} alt="LinkedIn logo" width={24} />
 		</SocialLink>
 	</nav>
 </header>

@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
 import { getCollection } from 'astro:content';
+import { fade } from 'astro:transitions';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) =>
@@ -13,7 +14,7 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>

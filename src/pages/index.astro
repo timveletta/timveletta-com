@@ -1,5 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
+import { fade } from 'astro:transitions';
 import BaseHead from '../components/BaseHead.astro';
 import Hero from '../components/Hero.astro';
 import Header from '../components/Header.astro';
@@ -7,9 +8,10 @@ import Footer from '../components/Footer.astro';
 import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
-import profile from '../images/profile_image.jpg';
+import profile from '../images/profile_image.png';
 import awsCertificate from '../images/aws-developer-associate.png';
 import { getCollection } from 'astro:content';
+import ProjectExcerpt from '../components/ProjectExcerpt.astro';
 
 const posts = (await getCollection('blog'))
 	.sort(
@@ -17,10 +19,14 @@ const posts = (await getCollection('blog'))
 			new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 	)
 	.slice(0, 3);
+
+const projects = (await getCollection('projects')).filter(
+	(project) => project.data.featured
+);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
@@ -31,6 +37,23 @@ const posts = (await getCollection('blog'))
 			<section class="container px-4 mx-auto my-20 py-10">
 				<h1
 					class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
+				>
+					My Work
+				</h1>
+				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
+				{projects.map((post) => <ProjectExcerpt {...post} />)}
+				<!-- <div class="my-12 flex justify-center">
+					<a
+						href="/projects"
+						class="bg-primary text-white font-bold px-4 py-2 rounded hover:bg-opacity-75"
+					>
+						See All Projects
+					</a>
+				</div> -->
+			</section>
+			<section class="container px-4 mx-auto my-20 py-10">
+				<h1
+					class="font-sans text-slate-800 text-3xl font-bold tracking-wide text-center"
 				>
 					Recent Articles
 				</h1>
@@ -47,7 +70,7 @@ const posts = (await getCollection('blog'))
 					</a>
 				</div>
 			</section>
-			<section class="container px-4 mx-auto my-20 pt-10 pb-20">
+			<section class="container relative px-4 mx-auto mt-20 pt-10 lg:pb-20">
 				<div class="block text-center">
 					<h1
 						id="aboutme"
@@ -75,11 +98,13 @@ const posts = (await getCollection('blog'))
 							build them.
 						</p>
 						<p class="mb-4">
-							In my spare time I enjoy board games with friends, woodworking,
-							reading and playing with my two dogs.
+							In my spare time I enjoy playing board games with friends, sim
+							racing, reading and playing with my two dogs.
 						</p>
-						<a class="text-primary underline" href="/2023-goals"
-							>Check out some of the things I hope to achieve in 2023!</a
+						<a
+							class="text-primary underline text-md font-bold"
+							href="/assets/TimVeletta-Resume.pdf"
+							target="_blank">Download my resume (updated July 2023)</a
 						>
 						<Image
 							format="webp"
@@ -90,7 +115,7 @@ const posts = (await getCollection('blog'))
 					</div>
 					<Image
 						format="webp"
-						class="rounded"
+						class="lg:absolute bottom-0 right-0"
 						src={profile}
 						alt="Picture of me"
 					/>

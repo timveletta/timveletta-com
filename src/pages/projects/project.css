@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.markdown p {
+	@apply mb-4;
+}
+
+.markdown h1 {
+	@apply text-3xl font-bold mb-4 mt-8;
+}
+
+.markdown h2 {
+	@apply text-xl font-bold mb-4 mt-8;
+}
+
+.markdown h3 {
+	@apply text-lg font-bold mb-4 mt-8;
+}
+
+.markdown h4 {
+	@apply text-lg mb-4 mt-8;
+}
+
+.markdown pre {
+	@apply p-4 rounded-lg my-6;
+}
+
+.markdown a {
+	@apply text-primary;
+}
+
+.markdown img {
+	@apply mx-auto my-8 rounded-md;
+}
+
+.markdown ul {
+	@apply list-disc list-inside my-4 ml-4;
+}
+
+.markdown li {
+	@apply mb-2;
+}
+
+.markdown blockquote {
+	@apply border-l-4 border-slate-600 italic my-4 p-4 bg-slate-200 rounded-tr-md rounded-br-md;
+}
+
+.markdown blockquote > p {
+	@apply mb-0;
+}
+
+.markdown p > code,
+li > code {
+	@apply bg-slate-200 rounded-md p-1 text-base;
+}
