@@ -30,17 +30,17 @@ const projects = (await getCollection('projects')).filter(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="bg-slate-100 border-t-8 border-primary">
+	<body class="bg-slate-100 dark:bg-gray-900 border-t-8 border-primary">
 		<Header />
 		<main>
 			<Hero />
 			<section class="container px-4 mx-auto my-20 py-10">
 				<h1
-					class="font-sans text-slate-800 text-3xl font-bold tracking-wide text-center"
+					class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
 				>
 					My Work
 				</h1>
-				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
+				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
 				{projects.map((post) => <ProjectExcerpt {...post} />)}
 				<!-- <div class="my-12 flex justify-center">
 					<a
@@ -53,11 +53,11 @@ const projects = (await getCollection('projects')).filter(
 			</section>
 			<section class="container px-4 mx-auto my-20 py-10">
 				<h1
-					class="font-sans text-slate-800 text-3xl font-bold tracking-wide text-center"
+					class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
 				>
 					Recent Articles
 				</h1>
-				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
+				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
 				<div class="grid lg:grid-cols-3 grid-cols-1 gap-8">
 					{posts.map((post) => <BlogPostExcerpt {...post} />)}
 				</div>
@@ -74,14 +74,16 @@ const projects = (await getCollection('projects')).filter(
 				<div class="block text-center">
 					<h1
 						id="aboutme"
-						class="font-sans text-3xl font-bold tracking-wide text-slate-800"
+						class="font-sans text-3xl font-bold tracking-wide text-slate-800 dark:text-gray-100"
 					>
 						About Me
 					</h1>
 				</div>
-				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto" />
+				<hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 align-center">
-					<div class="leading-loose text-slate-800 p-2 text-lg font-serif">
+					<div
+						class="leading-loose text-slate-800 dark:text-gray-200 p-2 text-lg font-serif lg:pb-48"
+					>
 						<p class="mb-4">
 							I'm a software engineer passionate about building highly scalable
 							and available serverless applications. I particularly enjoy being
@@ -104,12 +106,6 @@ const projects = (await getCollection('projects')).filter(
 							href="/assets/TimVeletta-Resume.pdf"
 							target="_blank">Download my resume (updated July 2023)</a
 						>
-						<Image
-							format="webp"
-							class="max-h-1/2 mx-auto mt-8"
-							src={awsCertificate}
-							alt="AWS Developer Associate certificate"
-						/>
 					</div>
 					<Image
 						format="webp"

@@ -29,13 +29,13 @@ const { Content } = await entry.render();
 			externalLink={entry.data.externalLink}
 		/>
 	</head>
-	<body class="bg-slate-100 border-t-8 border-primary">
+	<body class="bg-slate-100 border-t-8 border-primary dark:bg-gray-900 ">
 		<Header />
 		<main>
 			<article>
 				<div class="container mx-auto max-w-screen-lg my-20 p-2">
 					<h1
-						class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug text-center"
+						class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-4xl md:text-5xl leading-snug text-center"
 					>
 						{entry.data.title}
 					</h1>
@@ -77,7 +77,7 @@ const { Content } = await entry.render();
 							</a>
 						</p>
 					</div>
-					<div class="text-gray-900 leading-loose font-serif text-lg markdown">
+					<div class="text-gray-900 dark:text-gray-200 leading-loose font-serif text-lg markdown">
 						<Content />
 					</div>
 					{
