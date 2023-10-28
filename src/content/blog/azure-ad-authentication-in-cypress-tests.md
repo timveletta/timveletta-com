@@ -7,7 +7,6 @@ description: 'Cypress is a browser-based, end-to-end testing framework that is
 heroImage: /assets/cypress.jpg
 imageCreditName: Bharat Patil
 imageCreditLink: https://unsplash.com/@bharat_patil_photos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-externalLink: https://mechanicalrock.github.io/2020/05/05/azure-ad-authentication-cypress.html
 tags:
   - cypress
   - authentication

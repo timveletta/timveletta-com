@@ -7,7 +7,6 @@ description: There are many state management libraries available for React but
 heroImage: /assets/react-application-state.jpg
 imageCreditName: Marvin Meyer
 imageCreditLink: https://unsplash.com/@marvelous?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-externalLink: https://mechanicalrock.github.io/2021/05/27/managing-react-application-state-with-context.html
 tags:
   - react
 ---

@@ -6,7 +6,6 @@ description: Let's look at how the new Layouts announced at Next.js Conf 2022
 heroImage: /assets/header.jpg
 imageCreditName: Sigmund
 imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-externalLink: https://blog.mechanicalrock.io/2022/10/27/next-js-layouts-by-example.html
 tags:
   - react
   - next

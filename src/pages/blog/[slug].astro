@@ -24,9 +24,7 @@ const { Content } = await entry.render();
 		<BaseHead
 			title={entry.data.title}
 			description={entry.data.description}
-			noIndex={Boolean(entry.data.externalLink)}
 			image={entry.data.heroImage}
-			externalLink={entry.data.externalLink}
 		/>
 	</head>
 	<body class="bg-slate-100 border-t-8 border-primary dark:bg-gray-900 ">

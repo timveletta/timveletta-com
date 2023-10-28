@@ -33,6 +33,42 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "datetime",
+            name: "pubDate",
+            label: "Publish Date",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "heroImage",
+            label: "Hero Image",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "imageCreditName",
+            label: "Image Credit - Name",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "imageCreditLink",
+            label: "Image Credit - Link",
+            required: true,
+          },
+          {
+            label: 'Tags',
+            name: 'tags',
+            type: 'string',
+            list: true,
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",

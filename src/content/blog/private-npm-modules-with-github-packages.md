@@ -6,7 +6,6 @@ description: Learn how to publish to GitHub packages, package scoping, making
 heroImage: /assets/blog-format.jpg
 imageCreditName: Petrebels
 imageCreditLink: https://unsplash.com/@petrebels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-externalLink: https://mechanicalrock.github.io/2022/04/04/private-npm-modules.html
 tags:
   - github
   - npm

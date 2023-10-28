@@ -7,7 +7,6 @@ description: Its been over 2 years since I wrote about this; in that time
 heroImage: /assets/blog-header.jpg
 imageCreditName: Sigmund
 imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-externalLink: https://blog.mechanicalrock.io/2022/08/08/azure-ad-authentication-cypress.html
 tags:
   - cypress
   - authentication
