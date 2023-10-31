@@ -9,11 +9,11 @@ import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 import profile from '../images/profile_image.png';
-import awsCertificate from '../images/aws-developer-associate.png';
 import { getCollection } from 'astro:content';
 import ProjectExcerpt from '../components/ProjectExcerpt.astro';
 
 const posts = (await getCollection('blog'))
+	.filter(post => post.data.draft !== true)
 	.sort(
 		(a, b) =>
 			new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
