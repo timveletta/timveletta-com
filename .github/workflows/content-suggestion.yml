@@ -1,0 +1,18 @@
+name: Content Suggestion
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  make-suggestion:
+    name: "Make Suggestion"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tinacms/ai-content@v0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
