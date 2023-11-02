@@ -10,7 +10,7 @@ const isActive =
 
 <a
 	href={href}
-	class={`text-slate-800 dark:text-gray-100 md:block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 hover:border-primary w-full md:w-auto hidden ${
+	class={`text-slate-800 dark:text-gray-100 block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 hover:border-primary md:w-auto ${
 		isActive && 'border-primary font-bold'
 	} ${!isActive && 'border-transparent'}`}
 	{...props}
