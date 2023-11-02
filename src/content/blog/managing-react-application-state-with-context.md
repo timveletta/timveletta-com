@@ -1,6 +1,7 @@
 ---
 title: Managing React application state with Context
 pubDate: 2021-05-30
+draft: false
 description: There are many state management libraries available for React but
   what if I told you that the best way of managing application state is actually
   built into React.

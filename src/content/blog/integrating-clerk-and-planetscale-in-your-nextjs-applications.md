@@ -1,6 +1,7 @@
 ---
 title: Integrating Clerk and PlanetScale in your Next.js applications
 pubDate: 2023-09-28
+draft: false
 description: Clerk makes authentication easy and PlanetScale makes databases easy but how do you make them work together?
 heroImage: /assets/clerk-planetscale.jpg
 imageCreditName: Deva Darshan

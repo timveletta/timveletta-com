@@ -1,6 +1,7 @@
 ---
 title: Tracking progress on my 2023 goals
 pubDate: 2023-01-27
+draft: false
 description: I built a dashboard that tracks my goals for 2023, find out the goals I set for myself and how I'm going about tracking them.
 heroImage: /assets/tracking-2023-goals.jpg
 imageCreditName: David Pisnoy

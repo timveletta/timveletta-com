@@ -1,6 +1,6 @@
 ---
 title: Direct Lambda resolvers with AWS Amplify
-isDraft: false
+draft: false
 pubDate: 2020-12-09
 description: AWS Amplify is fantastic; it has never been easier to build and
   provision a cloud-based, full-stack, web application. We can easily create an

@@ -1,6 +1,7 @@
 ---
 title: Next.js 13 Layouts by Example
 pubDate: 2022-11-03
+draft: false
 description: Let's look at how the new Layouts announced at Next.js Conf 2022
   improve the developer experience of working with Next.js
 heroImage: /assets/header.jpg

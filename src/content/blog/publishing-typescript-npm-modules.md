@@ -1,6 +1,7 @@
 ---
 title: Publishing TypeScript NPM Modules
 pubDate: 2022-01-28
+draft: false
 description: Understanding how to build your own NPM modules can enable your
   development teams to share common pieces of code across multiple applications.
 heroImage: /assets/typescript-npm-modules-header.jpg

@@ -1,6 +1,7 @@
 ---
 title: Developers should give a shit about design
 pubDate: 2023-07-21
+draft: false
 description: If I had a dollar for every time I heard the phrase "I'm no good at design, so that's why I became a developer," I would be rich. Lets explore how developers can better educate themselves in design and the benefits of getting involved in the design process.
 heroImage: /assets/developers-designers.jpg
 imageCreditName: Mia Baker

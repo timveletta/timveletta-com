@@ -1,6 +1,7 @@
 ---
 title: Array vs Set vs Object vs Map
 pubDate: 2023-08-18
+draft: false
 description: While I'm knee deep in technical interviews, I thought I'd do a bit of a deep dive into these commonly misunderstood JavaScript data structures and provide a view on when you'd use one of the other.
 heroImage: /assets/collections.jpg
 imageCreditName: Karen Vardazaryan

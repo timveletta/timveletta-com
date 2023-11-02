@@ -1,6 +1,7 @@
 ---
 title: The easiest way to send emails with Resend
 pubDate: 2023-07-06
+draft: false
 description: If you're looking for an easy way to send emails from your Node.js or Next.js applications, might be the answer. Find out how to sign up, add Resend to your project and send an email.
 heroImage: /assets/resend.jpg
 imageCreditName: Alexander Grey

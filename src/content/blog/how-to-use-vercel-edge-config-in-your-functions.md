@@ -1,6 +1,7 @@
 ---
 title: How to use Vercel Edge Config in your Functions
 pubDate: 2023-01-31
+draft: false
 description: Vercel Edge Config is a "a key-value data store (...) [that] enables you to read data at the edge without querying an external database". Find out how to use it in your projects!
 heroImage: /assets/edge-config.jpg
 imageCreditName: Fiona Smallwood

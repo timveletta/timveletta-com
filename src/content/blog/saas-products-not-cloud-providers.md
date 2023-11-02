@@ -1,6 +1,7 @@
 ---
 title: Why I use SaaS products instead of cloud providers
 pubDate: 2023-03-15
+draft: false
 description: I work with AWS every day and choose to use it for a number of my own projects but lately I've started to change. Lets explore some SaaS products out there that will do a better job, in a better way.
 heroImage: /assets/saas-cloud-providers.jpg
 imageCreditName: Cash Macanaya

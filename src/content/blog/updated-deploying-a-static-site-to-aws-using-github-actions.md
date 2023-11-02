@@ -1,6 +1,6 @@
 ---
 title: 'UPDATED: Deploying a static site to AWS using GitHub Actions'
-isDraft: false
+draft: false
 pubDate: 2020-08-16
 description: It has been just under a year since I wrote my initial about
   deploying static sites to AWS via Github Actions and a number of things have

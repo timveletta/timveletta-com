@@ -1,6 +1,7 @@
 ---
 title: Deploying a static site to AWS using GitHub Actions
 pubDate: 2019-08-31
+draft: false
 description: I was fortunate enough to get a beta invite to Github Actions
   earlier this week so I figured I would try to deploy a static website to AWS.
   I also look at the Actions building blocks and keeping your secrets secret.
