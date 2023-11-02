@@ -24,8 +24,8 @@ The game features a wide array of maps, game modes, and modifiers that allow you
 - _Multiple maps with more in development._ Challenge each other on a number of maps with more on the way. Early Access will have 2 maps with more being developed.
 - _Multiple game modes and modifiers under development._ The simple gameplay can be modified and customised to your liking with more options always being added.
 
-<div class="aspect-w-16 aspect-h-9 my-8">
-  <iframe src="https://www.youtube.com/embed/hvwG9P39ASA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="aspect-video my-8">
+  <iframe class="w-full h-full" src="https://www.youtube.com/embed/hvwG9P39ASA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 ## How it started?
@@ -38,8 +38,8 @@ The game was originally called Major League TeleBlast and had a very light and b
 
 [Major League TeleBlast on Global Game Jam](https://globalgamejam.org/2018/games/major-league-teleblast)
 
-<div class="aspect-w-16 aspect-h-9 my-8">
-  <iframe src="https://www.youtube.com/embed/rQ_cD9PZIfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="aspect-video my-8">
+  <iframe class="w-full h-full" src="https://www.youtube.com/embed/rQ_cD9PZIfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 ## After Global Game Jam
