@@ -14,4 +14,8 @@ Its been a hot minute since my last blog post with good reason; I just started w
 
 In the meantime, I've been seeing a
 
+[https://blog.cassidoo.co/post/trying-tinacms/](https://blog.cassidoo.co/post/trying-tinacms/)
+
+[https://www.smashingmagazine.com/2023/09/smashing-magazine-tinacms-manage-editorial-workflow/](https://www.smashingmagazine.com/2023/09/smashing-magazine-tinacms-manage-editorial-workflow/)
+
 My usual workflow when it comes to creating blog posts has a few stages,
