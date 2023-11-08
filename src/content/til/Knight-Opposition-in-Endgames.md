@@ -20,3 +20,5 @@ If we instead have a King and Rook endgame, the process is a involves your own K
 What we are looking for is a position where the 2 Kings are in "direct opposition" like the image below. Once we have this position, we can use our Rook to deliver a check which forces the opposing King closer to the edge of the board.
 
 ![The 2 Kings are in "direct opposition"](/public/assets/assets/phpmfJBKr.png "Image courtesy of Chess.com")
+
+The key thing to note about this sequence is that if you notice your opponent will be forced to move into Knight Opposition on their next move, you will need to play a "waiting move" with your rook. You don't have to be worried about stalemate in this position.
