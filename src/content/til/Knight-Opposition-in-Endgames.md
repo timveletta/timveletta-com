@@ -5,9 +5,9 @@ draft: false
 category: Chess
 ---
 
-This one I picked up reading Levy Rozman's new book [How to Win At Chess](https://www.goodreads.com/en/book/show/125107160 "How to Win at Chess") and talks about dealing with chess endgames where you have a King and Queen or Rook versus a solitary King. Its a situation I have struggled with in the past, often causing stalemates, but the concept of **Knight** **Opposition** is key to closing out this winning position.
+This one I picked up reading Levy Rozman's new book [How to Win At Chess](https://www.goodreads.com/en/book/show/125107160 "How to Win at Chess") and talks about dealing with chess endgames where you have a King and Queen or Rook versus a solitary King. Its a situation I have struggled with in the past, often causing stalemates, but the concept of **Knight Opposition** is key to closing out this winning position.
 
-The key to **Knight** **Opposition** is in moving "your Queen to a square where--if your queen were a knight--it would be checking the \[opposing] king." This also works in King and Rook endgames albeit slightly differently.
+The key to **Knight Opposition** is in moving "your Queen to a square where--if your queen were a knight--it would be checking the \[opposing] king." This also works in King and Rook endgames albeit slightly differently.
 
 With a Queen endgame, the key is to do this until the opposing King is moved into a corner before moving your own King over to aid in the checkmate. In doing so, we must give the opposing King 2 valid squares for them to move between in order to prevent stalemate.
 
@@ -21,4 +21,4 @@ What we are looking for is a position where the 2 Kings are in "direct oppositio
 
 ![The 2 Kings are in "direct opposition"](/public/assets/assets/phpmfJBKr.png "Image courtesy of Chess.com")
 
-The key thing to note about this sequence is that if you notice your opponent will be forced to move into Knight Opposition on their next move, you will need to play a "waiting move" with your rook. You don't have to be worried about stalemate in this position.
+The key thing to note about this sequence is that if you notice your opponent will be forced to move **into Knight Opposition** on their next move, you will need to play a "waiting move" with your rook. You don't have to be worried about stalemate in this position.
