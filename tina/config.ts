@@ -85,9 +85,9 @@ export default defineConfig({
         ],
       },
       {
-        name: "post",
-        label: "Posts",
-        path: "src/content/blog",
+        name: "til",
+        label: "TILs",
+        path: "src/content/til",
         fields: [
           {
             type: "string",
