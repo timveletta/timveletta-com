@@ -6,6 +6,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import { fade } from 'astro:transitions';
+import UsefulContentButton from '../../components/UsefulContentButton.astro';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('til');
@@ -52,9 +53,12 @@ const { Content } = await entry.render();
 					<div class="text-gray-900 dark:text-gray-200 leading-loose font-serif text-lg markdown">
 						<Content />
 					</div>
-					<a href="/til" class="font-bold mt-4 py-4 text-primary self-end">
-						← Back to my TILs
-					</a>
+					<div class="flex justify-between items-center">
+						<a href="/til" class="font-bold mt-4 py-4 text-primary self-end">
+							← Back to my TILs
+						</a>
+						<UsefulContentButton/>
+					</div>
 				</div>
 			</article>
 		</main>

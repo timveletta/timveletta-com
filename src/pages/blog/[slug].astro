@@ -6,6 +6,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import { fade } from 'astro:transitions';
+import UsefulContentButton from '../../components/UsefulContentButton.astro';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
@@ -94,9 +95,12 @@ const { Content } = await entry.render();
 							</div>
 						) : null
 					}
-					<a href="/blog" class="font-bold mt-4 py-4 text-primary self-end">
-						← Back to the blog
-					</a>
+					<div class="flex justify-between items-center">
+						<a href="/blog" class="font-bold mt-4 py-4 text-primary self-end">
+							← Back to the blog
+						</a>
+						<UsefulContentButton/>
+					</div>
 				</div>
 			</article>
 		</main>
