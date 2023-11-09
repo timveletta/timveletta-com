@@ -28,7 +28,7 @@
         document.getElementById('thanks-text')?.classList.remove('hidden');
         button.classList.add('hidden');
         
-        const { trackEvent } = plausible();
+        const { trackEvent } = plausible({domain: 'timveletta.com'});
         trackEvent('useful_content');
     });
 </script>
