@@ -31,14 +31,14 @@ const categories = new Set(tils.map(post => post.data.category).sort());
 				<p class="text-2xl font-light text-gray-900 dark:text-white tracking-wide leading-relaxed mb-4">
 					This is a collection of small write-ups on things I learn day-to-day through work, side projects, reading and other life experiences. These are things that don't really warrant a full blog post and are intended to be short and to the point. 
 				</p>
-				<p class="text-2xl font-light text-gray-900 dark:text-white tracking-wide mb-8">
+				<p class="text-lg font-light text-gray-900 dark:text-white tracking-wide leading-relaxed mb-8">
 					This is inspired by <a
 						class="text-primary underline"
                         target="_blank"
 						href="https://github.com/jbranchaud/til">Josh Branchaud's</a
 					> impressive collection of TILs.
 				</p>
-                <div class="flex">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {[...categories].map(category => (
                         <div>
                             <h2

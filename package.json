@@ -1,39 +1,39 @@
 {
-	"name": "timveletta-com",
-	"type": "module",
-	"version": "0.0.2",
-	"private": true,
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-		"tinacms": "tinacms"
-	},
-	"dependencies": {
-		"@astrojs/mdx": "^1.0.0",
-		"@astrojs/rss": "^3.0.0",
-		"@astrojs/sitemap": "^3.0.0",
-		"@astrojs/tailwind": "^5.0.0",
-		"@astrojs/vercel": "^4.0.3",
-		"@sendgrid/mail": "^7.7.0",
-		"@tinacms/cli": "^1.5.31",
-		"@vercel/analytics": "^0.1.6",
-		"@vercel/edge-config": "0.1.0",
-		"astro": "^3.0.8",
-		"jsdom": "^20.0.3",
-		"markdown-it": "^13.0.1",
-		"node-html-parser": "^6.1.4",
-		"resend": "^0.16.0",
-		"sanitize-html": "^2.8.1",
-		"sharp": "^0.32.5",
-		"tailwindcss": "^3.3.5",
-		"tinacms": "^1.5.22"
-	},
-	"devDependencies": {
-		"@astrojs/react": "^3.0.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
-	}
+  "name": "timveletta-com",
+  "type": "module",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "tinacms": "tinacms"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^1.0.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vercel": "^4.0.3",
+    "@sendgrid/mail": "^7.7.0",
+    "@tinacms/cli": "^1.5.31",
+    "@vercel/analytics": "^0.1.6",
+    "@vercel/edge-config": "0.1.0",
+    "astro": "^3.0.8",
+    "jsdom": "^20.0.3",
+    "markdown-it": "^13.0.1",
+    "node-html-parser": "^6.1.4",
+    "resend": "^0.16.0",
+    "sanitize-html": "^2.8.1",
+    "sharp": "^0.32.5",
+    "tailwindcss": "^3.3.5",
+    "tinacms": "^1.5.22"
+  },
+  "devDependencies": {
+    "@astrojs/react": "^3.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
