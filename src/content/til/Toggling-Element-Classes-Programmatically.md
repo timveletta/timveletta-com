@@ -1,7 +1,7 @@
 ---
 title: Toggling Element Classes Programmatically
 updatedAt: 2023-11-12T16:00:00.000Z
-draft: true
+draft: false
 category: JavaScript
 ---
 
@@ -16,6 +16,6 @@ const menu = document.getElementById('mobile-menu');
 button.addEventListener('click', () => {
   menu.classList.toggle('hidden');
 });
-
-
 ```
+
+BTW, `hidden` is a Tailwind class that is equivalent to `display: none`.
