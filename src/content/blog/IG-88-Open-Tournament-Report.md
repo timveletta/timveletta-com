@@ -17,10 +17,9 @@ The decklist I brought into the day was as follows:
 
 ![](/public/assets/assets/cnGrNLrUvXYj.webp)
 
-\
-Despite going 0-3 at the last 2 Beskar Forge events, I was somewhat confident going into the day as long as I could avoid the Boba Fett. I had been smashing games on Karabast the whole week and felt like I knew the match ups well enough but continually struggled into Boba which is somewhat expected. 
+Since I had gone 0-3 at the last 2 Beskar Forge events that I attended; confidence levels were not high and given it was double elimination, I was prepared for an early day. Having said that, I had been smashing games on Karabast all week and felt like if I could dodge the Boba Fett matchup, I might be able to make it a few rounds.
 
-Also since the event was double elimination; 2 losses and you're out so 
+I must also give props to the guys at Beskar Forge for experimenting with different formats. In the lead up to the IG-88 Open, you could collect Bounties weekly for things such as having a winning record with a deck containing only commons and uncommons or bringing a friend. Those bounties were used to seed players into the bracket for the Open
 
 Round 1 vs Ash Boba Cunning
 
