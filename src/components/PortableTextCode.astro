@@ -1,0 +1,8 @@
+---
+import { Code } from "astro:components";
+
+const {code, language} = Astro.props.node
+const { isInline } = Astro.props
+---
+
+<Code lang={language} code={code} inline={isInline}/>

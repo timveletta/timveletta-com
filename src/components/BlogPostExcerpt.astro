@@ -1,35 +1,40 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+import { urlForImage, type Post } from '../utils/sanity';
 
-const { data, slug }: CollectionEntry<'blog'> = Astro.props;
+const { slug, title, heroImage, pubDate, tags, description }: Partial<Post> = Astro.props;
+
+const webpUrl = heroImage && urlForImage(heroImage.image).format('webp').url()
 ---
 
 <article class="flex flex-col overflow-hidden rounded-lg shadow-lg">
 	<a href={`/blog/${slug}`} class="flex-shrink-0">
-		<Image
-			format="webp"
-			class="w-full object-cover"
-			width={342}
-			height={192}
-			src={data.heroImage}
-			alt={`Hero image for post ${data.title}`}
-		/>
+		{heroImage && 
+			<Image
+				format="webp"
+				class="w-full object-cover"
+				width={342}
+				height={192}
+				src={webpUrl}
+				alt={`Hero image for post ${title}`}
+			/>
+		}
 	</a>
 	<div
 		class="flex flex-1 flex-col justify-between bg-white dark:bg-slate-800 p-6"
 	>
 		<div class="flex-1">
 			<a
-				href={`/blog/${slug}`}
+				href={`/blog/${slug?.current}`}
 				class="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-primary line-clamp-2"
 			>
-				{data.title}
+				{title}
 			</a>
 			<p class="text-primary font-medium text-sm my-2">
-				<time datetime={data.pubDate}>
+				<time datetime={pubDate}>
 					{
-						new Date(data.pubDate).toLocaleDateString('en-us', {
+						new Date(pubDate).toLocaleDateString('en-us', {
 							year: 'numeric',
 							month: 'long',
 							day: 'numeric',
@@ -38,17 +43,17 @@ const { data, slug }: CollectionEntry<'blog'> = Astro.props;
 				</time>
 			</p>
 			<p class="mt-4 text-base text-gray-500 dark:text-gray-200 line-clamp-4">
-				{data.description}
+				{description}
 			</p>
 		</div>
 		<div class="mt-6 flex items-center flex-wrap">
 			{
-				data.tags.map((tag: string) => (
+				tags?.map((tag: string) => (
 					<a
 						href={`/tags/${tag}`}
 						class="flex items-center px-3 py-0.5 mr-1 mb-1 rounded-full text-sm font-medium bg-secondary dark:bg-primary hover:bg-primary text-white"
 					>
-						{tag}
+						{tag} 
 					</a>
 				))
 			}

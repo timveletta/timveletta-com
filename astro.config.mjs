@@ -1,31 +1,35 @@
+import { loadEnv } from "vite";
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
-// https://astro.build/config
 import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
 import vercel from "@astrojs/vercel/static";
-
 import react from "@astrojs/react";
+import sanity from "@sanity/astro";
 
-const tina = ({ directiveName = "tina" } = {}) => ({
-  name: "tina-cms",
-  hooks: {
-    "astro:config:setup": ({ addClientDirective, opts }) => {
-      addClientDirective({
-        name: directiveName,
-        entrypoint: "./tina/tina.mjs",
-      });
-    },
-  },
-});
+const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
+  import.meta.env.MODE,
+  process.cwd(),
+  ""
+);
 
-// https://astro.build/config
+const projectId = PUBLIC_SANITY_PROJECT_ID;
+const dataset = PUBLIC_SANITY_DATASET;
+
 export default defineConfig({
   site: "https://timveletta.com",
-  integrations: [react(), mdx(), sitemap(), tailwind(), tina()],
+  integrations: [
+    react(),
+    mdx(),
+    sitemap(),
+    tailwind(),
+    sanity({
+      projectId,
+      dataset,
+      useCdn: false,
+      studioBasePath: "/admin",
+    }),
+  ],
   output: "static",
   adapter: vercel(),
 });
