@@ -72,7 +72,6 @@ export const blogPostType = defineType({
             { title: "H4", value: "h4" },
             { title: "Quote", value: "blockquote" },
             { title: "Caption", value: "figcaption" },
-            { title: "Code", value: "code" },
           ],
           lists: [{ title: "Bullet", value: "bullet" }],
           marks: {
@@ -86,7 +85,7 @@ export const blogPostType = defineType({
               },
               {
                 title: "Inline Code",
-                value: "inlineCode",
+                value: "code",
                 icon: () => "</>",
               },
             ],
