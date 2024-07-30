@@ -1,7 +1,13 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import type { ComponentType } from "react";
+import {
+  defineArrayMember,
+  defineField,
+  defineType,
+  type BlockDecoratorProps,
+} from "sanity";
 
-const CodeDecorator = (props) => (
-  <span style={{ fontFamily: "monospace" }}>{props.children}</span>
+const CodeDecorator: ComponentType<BlockDecoratorProps> = (props) => (
+  <code>{props.children}</code>
 );
 
 export const blogPostType = defineType({
@@ -89,7 +95,7 @@ export const blogPostType = defineType({
               },
               {
                 title: "Inline Code",
-                value: "inlinecode",
+                value: "code",
                 icon: () => "</>",
                 component: CodeDecorator,
               },
