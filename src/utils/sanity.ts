@@ -34,7 +34,7 @@ export interface Post {
   description: string;
   pubDate: string;
   heroImage: {
-    image: ImageAsset;
+    asset: ImageAsset;
     link?: string;
     name?: string;
   };

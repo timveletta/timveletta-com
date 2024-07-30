@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 
 const post: Post = Astro.props;
 
-const webpUrl = post.heroImage && urlForImage(post.heroImage.image).format('webp').url()
+const webpUrl = post.heroImage && urlForImage(post.heroImage.asset).format('webp').url()
 ---
 
 <html lang="en" transition:animate={fade({ duration: '0.4s' })}>

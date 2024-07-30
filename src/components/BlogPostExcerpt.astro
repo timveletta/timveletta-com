@@ -5,7 +5,7 @@ import { urlForImage, type Post } from '../utils/sanity';
 
 const { slug, title, heroImage, pubDate, tags, description }: Partial<Post> = Astro.props;
 
-const webpUrl = heroImage && urlForImage(heroImage.image).format('webp').url()
+const webpUrl = heroImage && urlForImage(heroImage.asset).format('webp').url()
 ---
 
 <article class="flex flex-col overflow-hidden rounded-lg shadow-lg">

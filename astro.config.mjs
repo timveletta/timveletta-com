@@ -6,6 +6,7 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/static";
 import react from "@astrojs/react";
 import sanity from "@sanity/astro";
+import partytown from "@astrojs/partytown";
 
 const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
   import.meta.env.MODE,
@@ -28,6 +29,11 @@ export default defineConfig({
       dataset,
       useCdn: false,
       studioBasePath: "/admin",
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
     }),
   ],
   output: "static",
