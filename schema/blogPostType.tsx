@@ -1,7 +1,7 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 const CodeDecorator = (props) => (
-  <span style="font-family: monospace, monospace">{props.children}</span>
+  <span style={{ fontFamily: "monospace" }}>{props.children}</span>
 );
 
 export const blogPostType = defineType({
