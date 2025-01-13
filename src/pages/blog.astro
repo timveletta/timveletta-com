@@ -1,34 +1,32 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
-import { getCollection } from 'astro:content';
-import { fade } from 'astro:transitions';
-import { getPosts, type Post } from '../utils/sanity';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import BlogPostExcerpt from "../components/BlogPostExcerpt.astro";
+import { getCollection } from "astro:content";
+import { fade } from "astro:transitions";
 
-const posts: Post[] = (await getPosts())
-	.sort(
-		(a, b) =>
-			new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf()
-	);
+const posts = (await getCollection("blog")).sort(
+  (a, b) =>
+    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
 ---
 
-<!DOCTYPE html>
-<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="bg-slate-100 dark:bg-gray-900 border-t-8 border-primary">
-		<Header />
-		<main>
-			<div
-				class="container mx-auto my-20 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 p-2"
-			>
-				{posts.map((post) => <BlogPostExcerpt {...post} />)}
-			</div>
-		</main>
-		<Footer />
-	</body>
+<!doctype html>
+<html lang="en" transition:animate={fade({ duration: "0.4s" })}>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-slate-100 dark:bg-gray-900 border-t-8 border-primary">
+    <Header />
+    <main>
+      <div
+        class="container mx-auto my-20 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 p-2"
+      >
+        {posts.map((post) => <BlogPostExcerpt {...post} />)}
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>
