@@ -21,9 +21,7 @@ const posts = (await getCollection("blog")).sort(
   <body class="bg-slate-100 dark:bg-gray-900 border-t-8 border-primary">
     <Header />
     <main>
-      <div
-        class="container mx-auto my-20 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 p-2"
-      >
+      <div class="container mx-auto my-20 grid grid-cols-1 p-2">
         {posts.map((post) => <BlogPostExcerpt {...post} />)}
       </div>
     </main>

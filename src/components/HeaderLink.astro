@@ -5,15 +5,15 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive =
-	pathname.startsWith(href?.toString()) || href === pathname.replace(/\/$/, '');
+  pathname.startsWith(href?.toString()) || href === pathname.replace(/\/$/, "");
 ---
 
 <a
-	href={href}
-	class={`text-slate-800 dark:text-gray-100 block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 hover:border-primary md:w-auto ${
-		isActive && 'border-primary font-bold'
-	} ${!isActive && 'border-transparent'}`}
-	{...props}
+  href={href}
+  class={`text-slate-600 dark:text-gray-100 block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 hover:border-primary hover:text-slate-900 md:w-auto ${
+    isActive && "border-primary font-bold text-slate-900"
+  } ${!isActive && "border-transparent"}`}
+  {...props}
 >
-	<slot />
+  <slot />
 </a>

@@ -1,54 +1,54 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-import BlogPostExcerpt from '../components/BlogPostExcerpt.astro';
-import { fade } from 'astro:transitions';
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import BlogPostExcerpt from "../components/BlogPostExcerpt.astro";
+import { fade } from "astro:transitions";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) =>
-		new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+const posts = (await getCollection("blog")).sort(
+  (a, b) =>
+    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 const recentPosts = posts.slice(0, 3);
 ---
 
-<!DOCTYPE html>
-<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="bg-slate-100 dark:bg-gray-900 border-t-8 border-primary">
-		<Header />
-		<main>
-			<div class="container px-4 mx-auto content-center items-center sm:mt-0">
-				<div class="mt-32 mb-16">
-					<h1
-						class="font-sans text-6xl font-bold tracking-wide leading-24 text-slate-800"
-					>
-						Sorry, I couldn't find that page.
-					</h1>
-					<hr class="h-4 w-20 mt-4 mb-3 bg-primary" />
-					<h2
-						class="font-sans text-4xl font-light tracking-wide leading-relaxed text-slate-800"
-					>
-						Perhaps one of my recent blog posts could get you back on track.
-					</h2>
-				</div>
-				<div class="grid md:grid-cols-3 grid-cols-1 gap-8">
-					{recentPosts.map((post) => <BlogPostExcerpt {...post} />)}
-				</div>
-				<div class="my-12 flex justify-center">
-					<a
-						href="/blog"
-						class="bg-primary text-white font-bold px-4 py-2 rounded hover:bg-opacity-75"
-					>
-						See All Posts
-					</a>
-				</div>
-			</div>
-		</main>
-		<Footer />
-	</body>
+<!doctype html>
+<html lang="en" transition:animate={fade({ duration: "0.4s" })}>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-slate-100 dark:bg-gray-900 border-t-8 border-primary">
+    <Header />
+    <main>
+      <div class="container px-4 mx-auto content-center items-center sm:mt-0">
+        <div class="mt-32 mb-16">
+          <h1
+            class="font-sans text-6xl font-bold tracking-wide leading-24 text-slate-800"
+          >
+            Sorry, I couldn't find that page.
+          </h1>
+          <hr class="h-4 w-20 mt-4 mb-3 bg-primary" />
+          <h2
+            class="font-sans text-4xl font-light tracking-wide leading-relaxed text-slate-800"
+          >
+            Perhaps one of my recent blog posts could get you back on track.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1">
+          {recentPosts.map((post) => <BlogPostExcerpt {...post} />)}
+        </div>
+        <div class="my-12 flex justify-center">
+          <a
+            href="/blog"
+            class="bg-primary text-white font-bold px-4 py-2 rounded hover:bg-opacity-75"
+          >
+            See All Posts
+          </a>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>

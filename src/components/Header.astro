@@ -2,13 +2,12 @@
 import HeaderLink from "./HeaderLink.astro";
 import SocialLink from "./SocialLink.astro";
 import github from "../images/github.svg";
-import linkedin from "../images/linkedin.svg";
 import { Image } from "astro:assets";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <header
-  class="container mx-auto flex items-center justify-between flex-wrap mt-8 px-4 md:px-0"
+  class="container mx-auto flex sm:flex-row flex-col items-center justify-between flex-wrap mt-8 px-4 md:px-0"
 >
   <a class="flex items-center flex-shrink-0 mr-6 z-10" href="/">
     <svg
@@ -36,65 +35,10 @@ import ThemeIcon from "./ThemeIcon.astro";
   <nav
     role="navigation"
     aria-label="main-navigation"
-    class="md:flex w-auto items-center z-10 hidden"
+    class="flex w-auto items-center z-10 sm:mt-0 mt-8 font-semibold"
   >
+    <HeaderLink href="/blog">Blog</HeaderLink>
     <HeaderLink href="/projects">Projects</HeaderLink>
     <HeaderLink href="/til">TIL</HeaderLink>
-    <HeaderLink href="/uses">Uses</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <SocialLink href="https://github.com/timveletta">
-      <Image src={github} alt="Github logo" width={24} />
-    </SocialLink>
-    <ThemeIcon />
-  </nav>
-  <button
-    class="md:hidden fill-secondary dark:fill-primary z-10"
-    id="mobileNavigationToggle"
-  >
-    <svg
-      height="32px"
-      id="Layer_1"
-      style="enable-background:new 0 0 32 32;"
-      version="1.1"
-      viewBox="0 0 32 32"
-      width="32px"
-      xml:space="preserve"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      ><path
-        d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"
-      ></path></svg
-    >
-  </button>
-  <nav
-    role="navigation"
-    aria-label="mobile-navigation"
-    aria-hidden="true"
-    class="absolute border hidden border-gray-300 shadow-md top-20 w-[calc(100vw-2rem)] md:hidden bg-white dark:bg-slate-800 my-2 z-10 rounded-lg p-4"
-  >
-    <div class="flex flex-col text-center items-center gap-4">
-      <HeaderLink href="/projects">Projects</HeaderLink>
-      <HeaderLink href="/til">TIL</HeaderLink>
-      <HeaderLink href="/uses">Uses</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <div class="flex items-center gap-4">
-        <SocialLink href="https://github.com/timveletta">
-          <Image src={github} alt="Github logo" width={24} />
-        </SocialLink>
-      </div>
-    </div>
   </nav>
 </header>
-
-<script is:inline>
-  function toggleNavigation() {
-    const mobileNav = document.querySelector(
-      "nav[aria-label='mobile-navigation']"
-    );
-    mobileNav.classList.toggle("hidden");
-  }
-
-  document
-    .getElementById("mobileNavigationToggle")
-    .addEventListener("click", toggleNavigation);
-</script>
