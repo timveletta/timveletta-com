@@ -1,79 +1,85 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
-import github from '../images/github.svg';
+import github from "../images/github.svg";
 
-const { data, slug }: CollectionEntry<'projects'> = Astro.props;
+const { data, slug }: CollectionEntry<"projects"> = Astro.props;
 ---
 
 <div
-	class="flex mb-16 lg:pl-0 pl-4 lg:even:border-l-0 lg:even:border-r-8 border-l-8 border-primary mx-auto lg:even:flex-row-reverse flex-wrap"
+  class="flex mb-16 md:pl-0 pl-4 md:even:border-l-0 md:even:border-r-8 border-l-8 border-primary max-w-6xl mx-auto md:even:flex-row-reverse flex-wrap"
 >
-	<div class="xl:basis-2/3 lg:basis-1/2 lg:px-8 py-4 flex flex-col">
-		<a
-			href={`/projects/${slug}`}
-			class="text-xl font-bold dark:text-primary dark:hover:opacity-80 text-gray-900 hover:text-primary">{data.title}</a
-		>
-		<p class="mt-3 text-base leading-loose dark:text-gray-200 text-gray-500 mb-auto">
-			{data.description}
-		</p>
-		<div class="flex mt-4">
-			{
-				data.websiteLink && (
-					<a
-						href={data.websiteLink}
-						target="_blank"
-						class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-20 border rounded-md border-primary text-sm font-bold px-3 py-2 mr-2 flex items-center"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width={1.5}
-							stroke="currentColor"
-							class="w-4 h-4 mr-2"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-							/>
-						</svg>
-						View Site
-					</a>
-				)
-			}
-			{
-				data.githubLink && (
-					<a
-						href={data.githubLink}
-						class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-20 border rounded-md border-primary text-sm font-bold px-3 py-2 flex items-center"
-					>
-						<Image src={github} alt="Github logo" class="w-4 h-4 mr-2" />
-						View on Github
-					</a>
-				)
-			}
-			<div class="ml-auto flex">
-				{
-					data.tags.map((tag: string) => (
-						<div class="flex items-center px-3 py-0.5 mr-1 mb-1 rounded-full text-sm font-medium bg-secondary text-white">
-							{tag}
-						</div>
-					))
-				}
-			</div>
-		</div>
-	</div>
-	<a href={`/projects/${slug}`} class="xl:basis-1/3 lg:basis-1/2 w-full">
-		<Image
-			format="webp"
-			class="w-full object-cover rounded-lg my-auto"
-			width={342}
-			height={192}
-			src={data.heroImage}
-			alt={`Hero image for post ${data.title}`}
-		/>
-	</a>
+  <div class="xl:basis-2/3 md:basis-1/2 md:px-8 py-4 flex flex-col">
+    <a
+      href={`/projects/${slug}`}
+      class="text-xl font-bold dark:text-primary dark:hover:opacity-80 text-gray-900 hover:text-primary"
+      >{data.title}</a
+    >
+    <p
+      class="mt-3 text-base leading-loose dark:text-gray-200 text-gray-500 mb-auto"
+    >
+      {data.description}
+    </p>
+    <div class="flex mt-4">
+      {
+        data.websiteLink && (
+          <a
+            href={data.websiteLink}
+            target="_blank"
+            class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-20 border rounded-md border-primary text-sm font-bold px-3 py-2 mr-2 flex items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width={1.5}
+              stroke="currentColor"
+              class="w-4 h-4 mr-2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              />
+            </svg>
+            View Site
+          </a>
+        )
+      }
+      {
+        data.githubLink && (
+          <a
+            href={data.githubLink}
+            class="bg-transparent text-primary hover:bg-primary hover:bg-opacity-20 border rounded-md border-primary text-sm font-bold px-3 py-2 flex items-center"
+          >
+            <Image src={github} alt="Github logo" class="w-4 h-4 mr-2" />
+            View on Github
+          </a>
+        )
+      }
+      <div class="ml-auto flex">
+        {
+          data.tags.map((tag: string) => (
+            <div class="flex items-center px-3 py-0.5 mr-1 mb-1 rounded-full text-sm font-medium bg-secondary text-white">
+              {tag}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <a
+    href={`/projects/${slug}`}
+    class="xl:basis-1/3 md:basis-1/2 w-full my-auto"
+  >
+    <Image
+      format="webp"
+      class="w-full object-cover rounded-lg"
+      width={342}
+      height={192}
+      src={data.heroImage}
+      alt={`Hero image for post ${data.title}`}
+    />
+  </a>
 </div>

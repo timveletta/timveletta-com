@@ -1,74 +1,30 @@
 ---
-import { Image } from 'astro:assets';
-import developer from '../images/hero.png';
+import { Image } from "astro:assets";
+import SocialLink from "./SocialLink.astro";
+import github from "../images/github.svg";
+import email from "../images/email.svg";
 ---
 
-<div class="relative">
-	<div class="isolate overflow-hidden">
-		<svg
-			class="absolute inset-0 -z-10 -mt-24 h-full w-full stroke-gray-300 dark:stroke-slate-700 [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
-			aria-hidden="true"
-		>
-			<defs>
-				<pattern
-					id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
-					width={150}
-					height={150}
-					x="50%"
-					y={-10}
-					patternUnits="userSpaceOnUse"
-					class="hidden md:block"
-				>
-					<path d="M.5 200V.5H200" fill="none"></path>
-				</pattern>
-				<pattern
-					id="7cf1a353-ef5b-4b73-ac38-f82fba22b527"
-					width={80}
-					height={80}
-					x="50%"
-					y={-10}
-					patternUnits="userSpaceOnUse"
-				>
-					<path d="M.5 200V.5H200" fill="none"></path>
-				</pattern>
-			</defs>
-			<rect
-				width="100%"
-				height="100%"
-				stroke-width={0}
-				class="md:fill-[url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)] fill-[url(#7cf1a353-ef5b-4b73-ac38-f82fba22b527)]"
-			></rect>
-		</svg>
-		<div class="container px-4 mx-auto my-32 md:my-48 lg:my-64">
-			<div>
-				<h1
-					class="font-sans dark:text-gray-200 lg:text-5xl sm:text-4xl text-2xl md:font-light tracking-wide text-slate-800 xl:mb-6 mb-2"
-				>
-					The full-stack developer
-				</h1>
-				<h2
-					class="font-sans dark:text-gray-200 xl:text-9xl xl:max-w-6xl lg:max-w-4xl lg:text-8xl md:max-w-2xl sm:text-7xl sm:max-w-full text-[2.3rem] uppercase font-black tracking-wide text-slate-800"
-				>
-					That brings it all together
-				</h2>
-			</div>
-			<hr class="h-4 w-20 my-12 bg-primary border-none" />
-			<a
-				href="/projects"
-				class="bg-primary text-white text-lg font-bold px-4 py-3 rounded hover:bg-opacity-75 mr-4"
-			>
-				My Work
-			</a>
-			<a
-				href="/#contact-me"
-				class="bg-transparent border border-primary text-primary text-lg font-bold px-4 py-3 rounded hover:bg-primary hover:bg-opacity-20"
-			>
-				Contact Me
-			</a>
-		</div>
-	</div>
-	<span
-		class="absolute lg:top-48 md:top-32 top-32 right-0 lg:text-[12rem] md:text-[9rem] sm:text-9xl text-6xl uppercase font-bold text-primary dark:text-slate-50 opacity-[0.15] whitespace-nowrap overflow-visible leading-none text-right -z-10"
-		>Frontend<br />Backend<br /> UI Design</span
-	>
+<div class="container px-4 mx-auto my-24">
+  <div class="max-w-4xl">
+    <h1
+      class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug"
+    >
+      Tim Veletta
+    </h1>
+    <hr class="h-3 w-20 my-6 bg-primary border-none" />
+    <h2 class="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed">
+      I’m Tim, a software developer based in Perth, Australia. I am enthusiastic
+      about creating simple, enjoyable and easy to use products and strive to
+      find the right balance between aesthetic and function.
+    </h2>
+    <div class="flex mt-6">
+      <SocialLink href="https://github.com/timveletta">
+        <Image src={github} alt="Github logo" width={32} />
+      </SocialLink>
+      <SocialLink href="mailto:timothy.veletta@gmail.com">
+        <Image src={email} alt="Email icon" width={32} />
+      </SocialLink>
+    </div>
+  </div>
 </div>

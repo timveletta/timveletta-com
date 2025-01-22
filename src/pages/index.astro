@@ -17,7 +17,7 @@ const posts = (await getCollection("blog"))
     (a, b) =>
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   )
-  .slice(0, 3);
+  .slice(0, 5);
 
 const projects = (await getCollection("projects")).filter(
   (project) => project.data.featured
@@ -37,29 +37,12 @@ const projects = (await getCollection("projects")).filter(
         <h1
           class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
         >
-          My Work
-        </h1>
-        <hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
-        {projects.map((post) => <ProjectExcerpt {...post} />)}
-        <!-- <div class="my-12 flex justify-center">
-					<a
-						href="/projects"
-						class="bg-primary text-white font-bold px-4 py-2 rounded hover:bg-opacity-75"
-					>
-						See All Projects
-					</a>
-				</div> -->
-      </section>
-      <section class="container px-4 mx-auto my-20 py-10">
-        <h1
-          class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
-        >
           Recent Articles
         </h1>
         <hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
-        <div class="grid lg:grid-cols-3 grid-cols-1 gap-8">
-          {posts.map((post) => <BlogPostExcerpt {...post} />)}
-        </div>
+
+        {posts.map((post) => <BlogPostExcerpt {...post} />)}
+
         <div class="my-12 flex justify-center">
           <a
             href="/blog"
@@ -69,50 +52,14 @@ const projects = (await getCollection("projects")).filter(
           </a>
         </div>
       </section>
-      <section class="container relative px-4 mx-auto mt-20 pt-10 lg:pb-20">
-        <div class="block text-center">
-          <h1
-            id="aboutme"
-            class="font-sans text-3xl font-bold tracking-wide text-slate-800 dark:text-gray-100"
-          >
-            About Me
-          </h1>
-        </div>
+      <section class="container px-4 mx-auto my-20 py-10">
+        <h1
+          class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
+        >
+          My Work
+        </h1>
         <hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 align-center">
-          <div
-            class="leading-loose text-slate-800 dark:text-gray-200 p-2 text-lg font-serif lg:pb-48"
-          >
-            <p class="mb-4">
-              I'm a software engineer passionate about building highly scalable
-              and available serverless applications. I particularly enjoy being
-              able to see ideas all the way from conceptualisation through to
-              delivery and have been known to work on multiple projects in my
-              own time to experience the full development process.
-            </p>
-            <p class="mb-4">
-              I am enthusiastic about creating simple, enjoyable and easy to use
-              products and strive to find the right balance between aesthetic
-              and function and enjoy pushing the boundaries of my knowledge to
-              build them.
-            </p>
-            <p class="mb-4">
-              In my spare time I enjoy playing board games with friends, sim
-              racing, reading and playing with my two dogs.
-            </p>
-            <a
-              class="text-primary underline text-md font-bold"
-              href="/assets/TimVeletta-Resume.pdf"
-              target="_blank">Download my resume (updated July 2023)</a
-            >
-          </div>
-          <Image
-            format="webp"
-            class="lg:absolute bottom-0 right-0"
-            src={profile}
-            alt="Picture of me"
-          />
-        </div>
+        {projects.map((post) => <ProjectExcerpt {...post} />)}
       </section>
     </main>
     <Footer />
