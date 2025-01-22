@@ -1,19 +1,14 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
-	title: string;
-	description: string;
-	image?: string;
-	noIndex?: boolean;
+  title: string;
+  description: string;
+  image?: string;
+  noIndex?: boolean;
 }
 
-const {
-	title,
-	description,
-	image = '/social.jpg',
-	noIndex,
-} = Astro.props;
+const { title, description, image = "/social.jpg", noIndex } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -43,21 +38,34 @@ const {
 
 {noIndex && <meta name="robots" content="noindex" />}
 
-
 <!-- Google tag (gtag.js) -->
-<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-LLQXVV574Z"></script>
+<script
+  type="text/partytown"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-LLQXVV574Z"></script>
 <script type="text/partytown">
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
 
-  gtag('config', 'G-LLQXVV574Z');
+  gtag("config", "G-LLQXVV574Z");
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-	href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;1000&display=swap"
-	rel="stylesheet"
+  rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;1000&display=swap"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
 />
-<ViewTransitions fallback='swap'/>
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;1000&display=swap"
+    rel="stylesheet"
+    type="text/css"
+  />
+</noscript>
+<ViewTransitions fallback="swap" />
