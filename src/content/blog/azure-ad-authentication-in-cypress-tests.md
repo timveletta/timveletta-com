@@ -2,10 +2,10 @@
 title: Azure AD Authentication in Cypress Tests
 pubDate: 2020-05-05
 draft: false
-description: 'Cypress is a browser-based, end-to-end testing framework that is
+description: "Cypress is a browser-based, end-to-end testing framework that is
   enjoyable to use however I ran into some difficulty trying to authenticate
-  with Azure Active Directory in my tests. Find out what I did to fix it! '
-heroImage: /assets/cypress.jpg
+  with Azure Active Directory in my tests. Find out what I did to fix it! "
+heroImage: "./assets/cypress.jpg"
 imageCreditName: Bharat Patil
 imageCreditLink: https://unsplash.com/@bharat_patil_photos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -33,33 +33,33 @@ Looking through the Azure documentation, there was a rather [helpful article](ht
 In our Cypress code, we add a custom _command_ to authenticate. Commands are used for adding or overriding functionality within Cypress and are defined in the `cypress/support/commands.js` file by default. In our case, we are adding a custom command called `login` so that we can use it in our tests simply through `cy.login()`.
 
 ```javascript
-Cypress.Commands.add('login', () => {
-	cy.request({
-		method: 'POST',
-		url: `https://login.microsoftonline.com/${Cypress.config(
-			'tenantId'
-		)}/oauth2/token`,
-		form: true,
-		body: {
-			grant_type: 'client_credentials',
-			client_id: Cypress.config('clientId'),
-			client_secret: Cypress.config('clientSecret'),
-		},
-	}).then((response) => {
-		const ADALToken = response.body.access_token;
-		const expiresOn = response.body.expires_on;
+Cypress.Commands.add("login", () => {
+  cy.request({
+    method: "POST",
+    url: `https://login.microsoftonline.com/${Cypress.config(
+      "tenantId"
+    )}/oauth2/token`,
+    form: true,
+    body: {
+      grant_type: "client_credentials",
+      client_id: Cypress.config("clientId"),
+      client_secret: Cypress.config("clientSecret"),
+    },
+  }).then((response) => {
+    const ADALToken = response.body.access_token;
+    const expiresOn = response.body.expires_on;
 
-		localStorage.setItem('adal.token.keys', `${Cypress.config('clientId')}|`);
-		localStorage.setItem(
-			`adal.access.token.key${Cypress.config('clientId')}`,
-			ADALToken
-		);
-		localStorage.setItem(
-			`adal.expiration.key${Cypress.config('clientId')}`,
-			expiresOn
-		);
-		localStorage.setItem('adal.idtoken', ADALToken);
-	});
+    localStorage.setItem("adal.token.keys", `${Cypress.config("clientId")}|`);
+    localStorage.setItem(
+      `adal.access.token.key${Cypress.config("clientId")}`,
+      ADALToken
+    );
+    localStorage.setItem(
+      `adal.expiration.key${Cypress.config("clientId")}`,
+      expiresOn
+    );
+    localStorage.setItem("adal.idtoken", ADALToken);
+  });
 });
 ```
 
@@ -81,17 +81,17 @@ We then extract the token and expiry from the response before setting some varia
 Previously in our `index.tsx`, we would use the `runWithAdal` function provided by `react-adal` to authenticate as follows.
 
 ```javascript
-import { runWithAdal } from 'react-adal';
-import { authContext } from './auth'; // contains authentication config
+import { runWithAdal } from "react-adal";
+import { authContext } from "./auth"; // contains authentication config
 
 const DO_NOT_LOGIN = false;
 
 runWithAdal(
-	authContext,
-	() => {
-		ReactDOM.render(<App />, document.getElementById('root'));
-	},
-	DO_NOT_LOGIN
+  authContext,
+  () => {
+    ReactDOM.render(<App />, document.getElementById("root"));
+  },
+  DO_NOT_LOGIN
 );
 ```
 
@@ -128,7 +128,7 @@ One simple way of ensuring we have a valid token when we run the end-to-end test
 
 ```javascript
 beforeEach(() => {
-	cy.login();
+  cy.login();
 });
 ```
 
@@ -136,10 +136,10 @@ beforeEach(() => {
 
 These values can be found in the Azure portal by clicking on **App Registrations** and then selecting the application you are trying to authenticate. From the overview page, you can find the Tenant ID and Client ID as shown below.
 
-![Tenant ID and Client ID](/assets/client-tenant-id.png)
+![Tenant ID and Client ID](./assets/client-tenant-id.png)
 
 You can then create a new Client Secret by going to **Certificates and Secrets** and selecting **New Client Secret**.
 
-![Client Secret](/assets/client-secret.png)
+![Client Secret](./assets/client-secret.png)
 
 There you have it, we have managed to set up our Cypress tests to authenticate with Azure AD in a way that is secure and consistent.

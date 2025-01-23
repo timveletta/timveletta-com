@@ -3,7 +3,7 @@ title: Integrating Clerk and PlanetScale in your Next.js applications
 pubDate: 2023-09-28
 draft: false
 description: Clerk makes authentication easy and PlanetScale makes databases easy but how do you make them work together?
-heroImage: /assets/clerk-planetscale.jpg
+heroImage: "./assets/clerk-planetscale.jpg"
 imageCreditName: Deva Darshan
 imageCreditLink: https://unsplash.com/@darshan394?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -23,11 +23,11 @@ To start, I've initialized a new Next.js application using the `/app` directory 
 
 Go to [https://clerk.com/](https://clerk.com/) and create a new account. Once you've done that, you'll be taken to a dashboard where you can add an application. When you click on "Add application", you'll see a screen where you can give your application a name, choose how users will sign in, and specify the sign-in screen's appearance.
 
-![The Clerk add application screen.](/assets/clerk-create.png)
+![The Clerk add application screen.](./assets/clerk-create.png)
 
 Clerk will provide you with some tips to get started with building your application. First, you'll need to copy the API keys into your `.env.local` file. If the file doesn't exist, create it in the root of your project. Additionally, add the API keys to your Vercel environment variables in your project settings.
 
-![All the Clerk quickstart options](/assets/clerk-quickstarts.png)
+![All the Clerk quickstart options](./assets/clerk-quickstarts.png)
 
 Clerk provides application quickstarts for different frameworks, explaining how to get started better than I can. I recommend checking those out and returning here when you're ready to add PlanetScale. You can find the [Next.js quickstart here](https://clerk.com/docs/quickstarts/nextjs).
 
@@ -35,7 +35,7 @@ Clerk provides application quickstarts for different frameworks, explaining how 
 
 Next, let's add our database with PlanetScale. Go to [https://planetscale.com/](https://planetscale.com/) and sign up for an account. Once you've signed up, you can create a new database.
 
-![The PlanetScale create database screen](/assets/planetscale-create-database.png)
+![The PlanetScale create database screen](./assets/planetscale-create-database.png)
 
 After creating the database, PlanetScale will prompt you to connect to it. For now, let's save the generated database connection string in our Vercel environment variables under `DATABASE_URL`.
 
@@ -106,7 +106,7 @@ npx prisma db push
 
 Once the process is complete, you can view the new table in the PlanetScale console by clicking on the list of tables or by running the Prisma studio (`npx prisma studio`).
 
-![The PlanetScale tables display](/assets/planetscale-tables.png)
+![The PlanetScale tables display](./assets/planetscale-tables.png)
 
 The next step is to perform actions on that table through our Next.js application and Prisma. First, we need to install the Prisma client:
 

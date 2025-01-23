@@ -3,7 +3,7 @@ title: How to use Vercel Edge Config in your Functions
 pubDate: 2023-01-31
 draft: false
 description: Vercel Edge Config is a "a key-value data store (...) [that] enables you to read data at the edge without querying an external database". Find out how to use it in your projects!
-heroImage: /assets/edge-config.jpg
+heroImage: "./assets/edge-config.jpg"
 imageCreditName: Fiona Smallwood
 imageCreditLink: https://unsplash.com/@thepeoplesdigital?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -25,11 +25,11 @@ Before I get into how to use Edge Config, there are some important things that a
 
 To get started with Vercel Edge Config, you first need to enable Edge Config on your account by logging into your Vercel account and going to the "Edge Config" tab. From there it will prompt you to create your first store.
 
-![Edge Config Tab](/assets/vercel-edge-config-create.png)
+![Edge Config Tab](./assets/vercel-edge-config-create.png)
 
 On creation, it will give you an example key-value pair which we are going to use for the rest of this article. Next, you will need to connect your project to the store. This can be done in the "Projects" menu. When you connect your project to the store, it will set the `EDGE_CONFIG` environment variable which is a token that is used to authenticate with your Edge Config.
 
-![Connecting to Project](/assets/vercel-edge-connect.png)
+![Connecting to Project](./assets/vercel-edge-connect.png)
 
 ## Reading from Edge Config
 
@@ -38,9 +38,9 @@ Reading from Edge Config is fairly easy if you're also using Vercel Functions. F
 Then its just a case of using the `getAll` function passing in a list of variables you would like to receive. If you omit the list, it will return all variables in the Edge Config. The `@vercel/edge-config` package makes use of the `EDGE_CONFIG` environment variable we created in the previous step so if you're having issues authenticating, that is the first place to look.
 
 ```javascript
-import { getAll } from '@vercel/edge-config';
+import { getAll } from "@vercel/edge-config";
 
-const { greeting } = await getAll(['greeting']);
+const { greeting } = await getAll(["greeting"]);
 ```
 
 ## Writing to Edge Config
@@ -65,27 +65,27 @@ Upon making the request; you can check the `status` parameter in the result to s
 
 ```javascript
 const result = await fetch(
-	'https://api.vercel.com/v1/edge-config/your_edge_config_id_here/items',
-	{
-		method: 'PATCH',
-		headers: {
-			Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
-			'content-type': 'application/json',
-		},
-		body: JSON.stringify({
-			items: [
-				{
-					operation: 'update',
-					key: 'greeting',
-					value: 'hello vercel',
-				},
-			],
-		}),
-	}
+  "https://api.vercel.com/v1/edge-config/your_edge_config_id_here/items",
+  {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      items: [
+        {
+          operation: "update",
+          key: "greeting",
+          value: "hello vercel",
+        },
+      ],
+    }),
+  }
 );
 const json = await result.json();
-if (json.status !== 'ok') {
-	console.error('Failed to update edge config', json);
+if (json.status !== "ok") {
+  console.error("Failed to update edge config", json);
 }
 ```
 

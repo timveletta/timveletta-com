@@ -5,7 +5,7 @@ draft: false
 description: Its been over 2 years since I wrote about this; in that time
   Microsoft has moved from ADAL to MSAL and so it was a good time to revisit
   this topic.
-heroImage: /assets/blog-header.jpg
+heroImage: "./assets/blog-header.jpg"
 imageCreditName: Sigmund
 imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -48,25 +48,25 @@ It is important to note that this test user:
 Now, we can emulate the request a browser makes to the Azure token endpoint when a user enters their login details on the page.
 
 ```typescript
-Cypress.Commands.add('login', () => {
-	cy.request({
-		method: 'POST',
-		url: `https://login.microsoftonline.com/${Cypress.env(
-			'AZURE_TENANT_ID'
-		)}/oauth2/v2.0/token`,
-		form: true,
-		body: {
-			grant_type: 'password',
-			client_id: Cypress.env('AZURE_CLIENT_ID'),
-			client_secret: Cypress.env('AZURE_CLIENT_SECRET'),
-			scope: 'openid profile email',
-			username: Cypress.env('USERNAME'),
-			password: Cypress.env('PASSWORD'),
-		},
-	}).then((response) => {
-		// defined in step 2
-		injectTokens(response);
-	});
+Cypress.Commands.add("login", () => {
+  cy.request({
+    method: "POST",
+    url: `https://login.microsoftonline.com/${Cypress.env(
+      "AZURE_TENANT_ID"
+    )}/oauth2/v2.0/token`,
+    form: true,
+    body: {
+      grant_type: "password",
+      client_id: Cypress.env("AZURE_CLIENT_ID"),
+      client_secret: Cypress.env("AZURE_CLIENT_SECRET"),
+      scope: "openid profile email",
+      username: Cypress.env("USERNAME"),
+      password: Cypress.env("PASSWORD"),
+    },
+  }).then((response) => {
+    // defined in step 2
+    injectTokens(response);
+  });
 });
 ```
 
@@ -74,13 +74,13 @@ As you can see, there are a number of references to `Cypress.env('...')`; we can
 
 ```json
 {
-	"env": {
-		"AZURE_CLIENT_ID": "<Azure client ID>",
-		"AZURE_TENANT_ID": "<Azure tenant ID>",
-		"AZURE_CLIENT_SECRET": "<Azure client secret>",
-		"USERNAME": "test.user@mechanicalrock.io",
-		"PASSWORD": "password1234"
-	}
+  "env": {
+    "AZURE_CLIENT_ID": "<Azure client ID>",
+    "AZURE_TENANT_ID": "<Azure tenant ID>",
+    "AZURE_CLIENT_SECRET": "<Azure client secret>",
+    "USERNAME": "test.user@mechanicalrock.io",
+    "PASSWORD": "password1234"
+  }
 }
 ```
 
@@ -90,7 +90,7 @@ Now that we can successfully obtain a token for our test user, we can now move o
 
 Prior to making a login request, `@azure/msal-browser` checks the session storage for a number of values to see if a user is currently logged in and has a valid session token. If so, the user is not redirected to log in again and can simply continue using the app as expected. This step involves populating those session storage values that `@azure/msal-browser` expects so that we can convince it that we have already logged in through the browser.
 
-![MSAL browser session values](/assets/msal-browser-session.jpg)
+![MSAL browser session values](./assets/msal-browser-session.jpg)
 
 We begin by installing the `jsonwebtoken` library so that we can decode the token response from Azure AD. Next, we extract some values that are used in multiple places in the session storage. These include:
 
@@ -120,14 +120,14 @@ The session item value consists of the deconstructed token, some information abo
 
 ```typescript
 const token = {
-	authorityType: 'MSSTS',
-	homeAccountId,
-	environment,
-	realm,
-	idTokenClaims,
-	localAccountId,
-	username: idTokenClaims.preferred_username,
-	name: idTokenClaims.name,
+  authorityType: "MSSTS",
+  homeAccountId,
+  environment,
+  realm,
+  idTokenClaims,
+  localAccountId,
+  username: idTokenClaims.preferred_username,
+  name: idTokenClaims.name,
 };
 sessionStorage.setItem(tokenId, JSON.stringify(token));
 ```
@@ -136,22 +136,22 @@ We follow a similar pattern for the `accesstoken` session item which includes de
 
 ```typescript
 const accessTokenId = `${homeAccountId}-${environment}-accesstoken-${Cypress.env(
-	'AZURE_CLIENT_ID'
-)}-${Cypress.env('AZURE_TENANT_ID')}-${tokenResponse.scope}--`;
+  "AZURE_CLIENT_ID"
+)}-${Cypress.env("AZURE_TENANT_ID")}-${tokenResponse.scope}--`;
 
 const now = Math.floor(Date.now() / 1000);
 const accessToken = {
-	credentialType: 'AccessToken',
-	tokenType: 'Bearer',
-	homeAccountId,
-	secret: tokenResponse.access_token,
-	cachedAt: now.toString(),
-	expiresOn: (now + tokenResponse.expires_in).toString(),
-	extendedExpiresOn: (now + tokenResponse.ext_expires_in).toString(),
-	environment,
-	target: tokenResponse.scope,
-	realm,
-	clientId,
+  credentialType: "AccessToken",
+  tokenType: "Bearer",
+  homeAccountId,
+  secret: tokenResponse.access_token,
+  cachedAt: now.toString(),
+  expiresOn: (now + tokenResponse.expires_in).toString(),
+  extendedExpiresOn: (now + tokenResponse.ext_expires_in).toString(),
+  environment,
+  target: tokenResponse.scope,
+  realm,
+  clientId,
 };
 sessionStorage.setItem(accessTokenId, JSON.stringify(accessToken));
 ```
@@ -163,23 +163,23 @@ Note that in the screenshot above, we had 4 items in session storage but we have
 We can now write a test that demonstrates the login functionality as shown below.
 
 ```typescript
-describe('login spec', () => {
-	before(() => {
-		cy.login();
-	});
+describe("login spec", () => {
+  before(() => {
+    cy.login();
+  });
 
-	it('should be logged in', () => {
-		cy.visit('/');
-		cy.contains('Welcome');
-		cy.contains('Authenticated');
-		cy.contains('Token: ');
-	});
+  it("should be logged in", () => {
+    cy.visit("/");
+    cy.contains("Welcome");
+    cy.contains("Authenticated");
+    cy.contains("Token: ");
+  });
 });
 ```
 
 Last but not least, lets see it running successfully.
 
-![MSAL browser session values](/assets/cypress-test.jpg)
+![MSAL browser session values](./assets/cypress-test.jpg)
 
 ## E2E testing approach
 

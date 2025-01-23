@@ -5,7 +5,7 @@ draft: false
 description: There are many state management libraries available for React but
   what if I told you that the best way of managing application state is actually
   built into React.
-heroImage: /assets/react-application-state.jpg
+heroImage: "./assets/react-application-state.jpg"
 imageCreditName: Marvin Meyer
 imageCreditLink: https://unsplash.com/@marvelous?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -24,7 +24,7 @@ Before I get to that I feel like its important to look into where we have come f
 
 When Facebook released React back in 2013, it also publicised the Flux pattern as a way of structuring your applications since it complimented the composable view components by utilising a unidirectional data flow to make systems predictable and easy to test.
 
-![The Flux Pattern diagram](/assets/flux-pattern.png)
+![The Flux Pattern diagram](./assets/flux-pattern.png)
 
 In the Flux Pattern, there is a centralised **Store** which contains state to be shown in the **View**. The only way to modify that state is through dispatching **Actions** through a **Reducer** function (not shown but is essentially the Dispatcher in the diagram) which updates the store by returning the new state.
 
@@ -43,11 +43,11 @@ In our example, we have a simple application that displays a _count_ and allows 
 ```javascript
 // countProvider.tsx
 type Action =
-	| { type: 'increment' }
-	| { type: 'decrement' }
-	| { type: 'setValue', payload: { value: number } };
+  | { type: "increment" }
+  | { type: "decrement" }
+  | { type: "setValue", payload: { value: number } };
 type State = {
-	count: number,
+  count: number,
 };
 type Dispatch = (action: Action) => void;
 ```
@@ -88,23 +88,23 @@ Next, I set up Context for both the `State` and `Dispatch` and provide a functio
 // countProvider.tsx
 const CountStateContext = (createContext < State) | (undefined > undefined);
 const CountDispatchContext =
-	(createContext < Dispatch) | (undefined > undefined);
+  (createContext < Dispatch) | (undefined > undefined);
 
 const CountProvider: FC<{ init?: Partial<State> }> = ({ children, init }) => {
-	const initialState: State = {
-		count: 0,
-		...init,
-	};
+  const initialState: State = {
+    count: 0,
+    ...init,
+  };
 
-	const [state, dispatch] = useReducer(CountReducer, initialState);
+  const [state, dispatch] = useReducer(CountReducer, initialState);
 
-	return (
-		<CountStateContext.Provider value={state}>
-			<CountDispatchContext.Provider value={dispatch}>
-				{children}
-			</CountDispatchContext.Provider>
-		</CountStateContext.Provider>
-	);
+  return (
+    <CountStateContext.Provider value={state}>
+      <CountDispatchContext.Provider value={dispatch}>
+        {children}
+      </CountDispatchContext.Provider>
+    </CountStateContext.Provider>
+  );
 };
 ```
 
@@ -113,16 +113,16 @@ I then wrap our `App` in the `CountProvider` component, ensuring that all of the
 ```javascript
 // App.tsx
 function App() {
-	return (
-		<div>
-			<Header />
-			<CountProvider>
-				<CountDisplay />
-				<CountButtons />
-				<CountInput />
-			</CountProvider>
-		</div>
-	);
+  return (
+    <div>
+      <Header />
+      <CountProvider>
+        <CountDisplay />
+        <CountButtons />
+        <CountInput />
+      </CountProvider>
+    </div>
+  );
 }
 ```
 
@@ -131,24 +131,24 @@ Finally, I provide some convenience functions which allow us to easily access th
 ```javascript
 // countProvider.tsx
 export function useCount(): [State, Dispatch] {
-	const state = useContext(CountStateContext);
-	const dispatch = useContext(CountDispatchContext);
-	if (state === undefined || dispatch === undefined) {
-		throw new Error('useCount must be used within a CountProvider');
-	}
-	return [state, dispatch];
+  const state = useContext(CountStateContext);
+  const dispatch = useContext(CountDispatchContext);
+  if (state === undefined || dispatch === undefined) {
+    throw new Error("useCount must be used within a CountProvider");
+  }
+  return [state, dispatch];
 }
 
 export function increment(dispatch: Dispatch) {
-	dispatch({ type: 'increment' });
+  dispatch({ type: "increment" });
 }
 
 export function decrement(dispatch: Dispatch) {
-	dispatch({ type: 'decrement' });
+  dispatch({ type: "decrement" });
 }
 
 export function setValue(dispatch: Dispatch, value: number) {
-	dispatch({ type: 'setValue', payload: { value } });
+  dispatch({ type: "setValue", payload: { value } });
 }
 ```
 
@@ -157,29 +157,29 @@ I've included some examples below of what this looks like within our components.
 ```javascript
 // CountDisplay.tsx
 const CountDisplay = () => {
-	const [{ count }] = useCount();
+  const [{ count }] = useCount();
 
-	return <div>{count}</div>;
+  return <div>{count}</div>;
 };
 
 // CountButtons.tsx
 const CountButtons = () => {
-	const [, dispatch] = useCount();
+  const [, dispatch] = useCount();
 
-	const onIncrement = () => {
-		increment(dispatch);
-	};
+  const onIncrement = () => {
+    increment(dispatch);
+  };
 
-	const onDecrement = () => {
-		decrement(dispatch);
-	};
+  const onDecrement = () => {
+    decrement(dispatch);
+  };
 
-	return (
-		<div>
-			<button onClick={onIncrement}>Increment</button>
-			<button onClick={onDecrement}>Decrement</button>
-		</div>
-	);
+  return (
+    <div>
+      <button onClick={onIncrement}>Increment</button>
+      <button onClick={onDecrement}>Decrement</button>
+    </div>
+  );
 };
 ```
 

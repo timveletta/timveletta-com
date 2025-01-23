@@ -3,7 +3,7 @@ title: Array vs Set vs Object vs Map
 pubDate: 2023-08-18
 draft: false
 description: While I'm knee deep in technical interviews, I thought I'd do a bit of a deep dive into these commonly misunderstood JavaScript data structures and provide a view on when you'd use one of the other.
-heroImage: /assets/collections.jpg
+heroImage: "./assets/collections.jpg"
 imageCreditName: Karen Vardazaryan
 imageCreditLink: https://unsplash.com/@bright?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -65,18 +65,18 @@ For a `Set`, we can simply use the `delete` function to remove the matching item
 
 ```jsx
 function removeUserByIdSplice(id) {
-	userIds.splice(
-		userIds.findIndex((userId) => userId === id),
-		1
-	);
+  userIds.splice(
+    userIds.findIndex((userId) => userId === id),
+    1
+  );
 }
 
 function removeUserByIdFilter(id) {
-	userIds = userIds.filter((userId) => userId !== id);
+  userIds = userIds.filter((userId) => userId !== id);
 }
 
 function removeUserByIdSet(id) {
-	userIdSet.delete(id);
+  userIdSet.delete(id);
 }
 ```
 
@@ -99,7 +99,7 @@ You can easily instantiate a new `Map` based on an `Object` using the following 
 
 ```jsx
 const usersObject = {
-	tim: { id: 12, city: 'Perth' },
+  tim: { id: 12, city: "Perth" },
 };
 const usersMap = new Map(Object.entries(usersObject));
 
@@ -112,20 +112,20 @@ console.log(usersMap); // Map(1) { 'tim' => { id: 12, city: 'Perth' } }
 Adding to an `Object` or a `Map` has **constant time complexity**. However, there is a bit of a gotcha with the `Map` code below. If we run this in JavaScript, it wouldn't complain. However, we might notice that `henry` doesn't get added in the way we expect. Instead, it gets added as an object property to the `Map`, and hence it cannot be accessed using the `Map` `get` function.
 
 ```jsx
-usersObject['henry'] = { id: 17, city: 'Melbourne' };
-usersMap['henry'] = { id: 17, city: 'Melbourne' }; // 🚩
+usersObject["henry"] = { id: 17, city: "Melbourne" };
+usersMap["henry"] = { id: 17, city: "Melbourne" }; // 🚩
 
 console.log(usersObject); // { tim: { id: 12, city: 'Perth' }, henry: { id: 17, city: 'Melbourne' } }
 console.log(usersMap); // Map { 'tim' => { id: 12, city: 'Perth' }, henry: { id: 17, city: 'Melbourne' } }
 
 console.log(usersMap.henry); // { id: 17, city: 'Melbourne' }
-console.log(usersMap.get('henry')); // undefined
+console.log(usersMap.get("henry")); // undefined
 ```
 
 Instead, we must use the `set` function to add a key-value pair to a `Map`.
 
 ```jsx
-usersMap.set('henry', { id: 17, city: 'Melbourne' });
+usersMap.set("henry", { id: 17, city: "Melbourne" });
 
 console.log(usersMap); // Map { 'tim' => { id: 12, city: 'Perth' }, 'henry' => { id: 17, city: 'Melbourne' } }
 ```
@@ -135,13 +135,13 @@ If we try to do something similar to an `Object` in TypeScript, we encounter iss
 ```jsx
 // TypeScript
 const usersObject = {
-	tim: { id: 12, city: 'Perth' },
+  tim: { id: 12, city: "Perth" },
 };
 const usersMap = new Map(Object.entries(usersObject));
 
 // 🚩 Property 'henry' does not exist on type '{ tim: { id: number; city: string; }; }'.
-usersObject['henry'] = { id: 17, city: 'Melbourne' };
-usersMap.set('henry', { id: 17, city: 'Melbourne' });
+usersObject["henry"] = { id: 17, city: "Melbourne" };
+usersMap.set("henry", { id: 17, city: "Melbourne" });
 ```
 
 ### Accessing Key-Value Pairs
@@ -150,7 +150,7 @@ Again, accessing key-value pairs has a **constant time complexity** for both `Ob
 
 ```jsx
 console.log(usersObject.henry); // { id: 17, city: 'Melbourne' }
-console.log(usersMap.get('henry')); // { id: 17, city: 'Melbourne' }
+console.log(usersMap.get("henry")); // { id: 17, city: 'Melbourne' }
 ```
 
 ### Removing Key-Value Pairs
@@ -159,7 +159,7 @@ The `delete` operator is one of my least understood operators in JavaScript, so 
 
 ```jsx
 delete usersObject.henry; // OR const { henry, ...newUsersObject } = usersObject;
-usersMap.delete('henry');
+usersMap.delete("henry");
 
 console.log(usersObject); // { tim: { id: 12, city: 'Perth' } }
 console.log(usersMap); // Map { 'tim' => { id: 12, city: 'Perth' } }
@@ -172,11 +172,11 @@ If we are using TypeScript, we would encounter the following error when trying t
 ```jsx
 // TypeScript
 const usersObject = {
-	tim: { id: 12, city: 'Perth' },
+  tim: { id: 12, city: "Perth" },
 };
 
 // 🚩 The operand of a 'delete' operator must be optional.
-delete usersObject['tim'];
+delete usersObject["tim"];
 ```
 
 ### Other reasons to consider using a Map
@@ -186,11 +186,11 @@ One of the interesting properties of a `Map` is that you're not restricted to us
 ```jsx
 const userLocationMap = new Map();
 
-const tim = { id: 12, firstName: 'Tim', lastName: 'Veletta' };
-const henry = { id: 17, firstName: 'Henry', lastName: 'Jones' };
+const tim = { id: 12, firstName: "Tim", lastName: "Veletta" };
+const henry = { id: 17, firstName: "Henry", lastName: "Jones" };
 
-userLocationMap.set(tim, 'Perth');
-userLocationMap.set(henry, 'Melbourne');
+userLocationMap.set(tim, "Perth");
+userLocationMap.set(henry, "Melbourne");
 
 console.log(userLocationMap); // Map { { id: 12, firstName: 'Tim', lastName: 'Veletta' } => 'Perth', { id: 17, firstName: 'Henry', lastName: 'Jones' } => 'Melbourne' }
 
@@ -202,11 +202,11 @@ Another property of a `Map` that could be useful is that the order of elements i
 
 ```jsx
 for (let userLocation of userLocationMap) {
-	console.log(userLocation); // [ { id: 12, firstName: 'Tim', lastName: 'Veletta' }, 'Perth' ] [ { id: 17, firstName: 'Henry', lastName: 'Jones' }, 'Melbourne' ]
+  console.log(userLocation); // [ { id: 12, firstName: 'Tim', lastName: 'Veletta' }, 'Perth' ] [ { id: 17, firstName: 'Henry', lastName: 'Jones' }, 'Melbourne' ]
 }
 
 userLocationMap.forEach((location, user) => {
-	console.log(`${user.firstName} lives in ${location}`); // Tim lives in Perth Henry lives in Melbourne
+  console.log(`${user.firstName} lives in ${location}`); // Tim lives in Perth Henry lives in Melbourne
 });
 ```
 

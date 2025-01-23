@@ -3,7 +3,7 @@ title: Developers should give a shit about design
 pubDate: 2023-07-21
 draft: false
 description: If I had a dollar for every time I heard the phrase "I'm no good at design, so that's why I became a developer," I would be rich. Lets explore how developers can better educate themselves in design and the benefits of getting involved in the design process.
-heroImage: /assets/developers-designers.jpg
+heroImage: "./assets/developers-designers.jpg"
 imageCreditName: Mia Baker
 imageCreditLink: https://unsplash.com/@miabaker?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -21,7 +21,7 @@ In this article, I'm going to dive into my experience with how developers can im
 
 Just as [shift left](https://www.dynatrace.com/news/blog/what-is-shift-left-and-what-is-shift-right/) can be applied in DevOps to ensure that we are building the right thing the right way, we can apply a similar set of principles by involving developers in the design process. By doing so, developers can quickly answer questions about whether a feature is technically feasible, and it allows them to better understand the intended functionality.
 
-![Getting developers involved earlier in the process](/assets/shift-left.png)
+![Getting developers involved earlier in the process](./assets/shift-left.png)
 
 Since we're cultivating a stronger relationship between developers and designers, it also makes sense for designers to be involved in the development process. Some things that I've seen work include deploying features to a shared environment for feedback while they are being developed and using [Storybook](https://storybook.js.org/) as a way to isolate components and understand their intent and functionality.
 

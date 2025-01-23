@@ -5,7 +5,7 @@ draft: false
 description: I was fortunate enough to get a beta invite to Github Actions
   earlier this week so I figured I would try to deploy a static website to AWS.
   I also look at the Actions building blocks and keeping your secrets secret.
-heroImage: /assets/aws-github.jpg
+heroImage: "./assets/aws-github.jpg"
 imageCreditName: cetteup
 imageCreditLink: https://unsplash.com/@cetteup?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -34,7 +34,7 @@ From here the jobs differ in that the test job just runs the tests and then is c
 
 Its as easy as going into your repository settings, going to secrets and then setting them up. You refer to them in your build job using `${{ secrets.SECRET_NAME }}`.
 
-![Secrets on Github](/assets/secrets.png 'Secrets on Github')
+![Secrets on Github](./assets/secrets.png "Secrets on Github")
 
 ## The workflow configuration
 

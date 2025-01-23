@@ -7,7 +7,7 @@ description: AWS Amplify is fantastic; it has never been easier to build and
   API using AppSync and have it just work but what happens when you need to
   perform additional logic?
 prevUrl: /blog/2020-12-08-direct-lambda-resolvers-with-aws-amplify/
-heroImage: /assets/direct-lambda-resolvers.jpg
+heroImage: "./assets/direct-lambda-resolvers.jpg"
 imageCreditName: Bench Accounting
 imageCreditLink: https://unsplash.com/@benchaccounting?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -82,18 +82,18 @@ I've just included some dummy logic within my Lambda function which just returns
 
 ```javascript
 exports.handler = async (event) => {
-	// TODO include any additional logic here
-	return {
-		id: '1234',
-		name: 'Finish blog post',
-		description: 'AWS Amplify is great',
-	};
+  // TODO include any additional logic here
+  return {
+    id: "1234",
+    name: "Finish blog post",
+    description: "AWS Amplify is great",
+  };
 };
 ```
 
 Once again, we have to run `amplify push` to update our changes; then we can go into the AppSync console and run our mutation to see the results below.
 
-![Calling our mutation through the AppSync console.](/assets/screen-shot-2020-12-09-at-1.45.33-pm.png 'Calling our mutation through the AppSync console.')
+![Calling our mutation through the AppSync console.](./assets/screen-shot-2020-12-09-at-1.45.33-pm.png "Calling our mutation through the AppSync console.")
 
 So that's it, easy enough right!
 
@@ -103,7 +103,7 @@ Well, its not _technically_ a **direct** Lambda resolver as the title says. If w
 
 A Pipeline resolver allows us to compose multiple functions into a single call to the GraphQL API. It does so by calling a Velocity template prior to the function or functions, mapping the data from the GraphQL inputs to a Lambda event. Another Velocity template is ran after each of the functions, mapping the data from the last function to the GraphQL response.
 
-![Our resulting pipeline resolver.](/assets/screen-shot-2020-12-09-at-1.47.57-pm.png 'Our resulting pipeline resolver.')
+![Our resulting pipeline resolver.](./assets/screen-shot-2020-12-09-at-1.47.57-pm.png "Our resulting pipeline resolver.")
 
 In my opinion, this isn't necessarily a bad thing. You might be sacrificing a miniscule amount of execution speed since calling the resolver now involves running a Velocity template both before and after your Lambda function execution, however, it now allows you to do some great things such as chaining function executions to include additional logic.
 
@@ -122,6 +122,6 @@ type Mutation {
 
 Pushing our changes using `amplify push` and then viewing the AppSync console, we can see the two functions that are chained together to form our pipeline resolver.
 
-![Our pipeline resolver with multiple function calls.](/assets/screen-shot-2020-12-09-at-2.00.19-pm.png 'Our pipeline resolver with multiple function calls.')
+![Our pipeline resolver with multiple function calls.](./assets/screen-shot-2020-12-09-at-2.00.19-pm.png "Our pipeline resolver with multiple function calls.")
 
 AWS Amplify has not only made it super easy to create and provision a new AppSync API, but if the out-of-the-box resolvers aren't doing everything you need, it is just as easy to use a Lambda resolver instead as we saw above.

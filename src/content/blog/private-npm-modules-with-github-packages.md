@@ -4,7 +4,7 @@ pubDate: 2022-04-05
 draft: false
 description: Learn how to publish to GitHub packages, package scoping, making
   your packages private and consuming them.
-heroImage: /assets/blog-format.jpg
+heroImage: "./assets/blog-format.jpg"
 imageCreditName: Petrebels
 imageCreditLink: https://unsplash.com/@petrebels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -63,7 +63,7 @@ Note that the package scope **must be either your GitHub username or an organisa
 
 From here I can simply run `npm publish` to publish the package to GitHub. The package will show up on repository homepage on GitHub as well as the organisation packages page.
 
-![The GitHub package page](/assets/github-package.png)
+![The GitHub package page](./assets/github-package.png)
 
 **To ensure the package is private, you will also need to make the repository private.** If however, you want to keep the repository private but make the package publicly available, you can change the privacy in the package settings.
 

@@ -3,7 +3,7 @@ title: Why I use SaaS products instead of cloud providers
 pubDate: 2023-03-15
 draft: false
 description: I work with AWS every day and choose to use it for a number of my own projects but lately I've started to change. Lets explore some SaaS products out there that will do a better job, in a better way.
-heroImage: /assets/saas-cloud-providers.jpg
+heroImage: "./assets/saas-cloud-providers.jpg"
 imageCreditName: Cash Macanaya
 imageCreditLink: https://unsplash.com/@cashmacanaya?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -35,7 +35,7 @@ Here the choice is easy; **Vercel** makes it so easy to connect a Github reposit
 
 If you were to try and tackle this in AWS you would have to configure Route53 to point to a Cloudfront distribution which would then point to an S3 bucket but even then you would only be able to manage static or client-rendered sites. I've shown an example of how to do this in my post on [Scaffolding your AWS single page application infrastructure with CDK](/blog/scaffolding-your-aws-single-page-application-infrastructure-with-cdk)
 
-![AWS Hosting Infrastructure](/assets/cdk-hosting-infrastructure.png)
+![AWS Hosting Infrastructure](./assets/cdk-hosting-infrastructure.png)
 
 The general direction for React and other web frameworks is that they are moving more towards a server-rendered model where the server fetches the necessary data to render the page before sending it to the client. Doing it this way allows for faster initial loading of sites, a better user-experience and improved SEO ranking.
 

@@ -3,7 +3,7 @@ title: Pushing Content to AWS S3 from Github Actions
 pubDate: 2023-02-27
 draft: false
 description: Something I constantly get asked about is how to easily sync data between Github Actions and AWS S3 so lets explore how to create a bucket and sync some content to it from your Actions.
-heroImage: /assets/s3-github-actions.jpg
+heroImage: "./assets/s3-github-actions.jpg"
 imageCreditName: Obi - @pixel7propix
 imageCreditLink: https://unsplash.com/@obionyeador?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:

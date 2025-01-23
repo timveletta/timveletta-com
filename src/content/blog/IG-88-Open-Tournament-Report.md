@@ -3,7 +3,7 @@ title: IG-88 Open Tournament Report
 pubDate: 2024-06-03T16:00:00.000Z
 draft: false
 description: "My local game store held a Star Wars: Unlimited tournament that I did pretty well at so here is my tournament report."
-heroImage: /assets/cards.webp
+heroImage: "./assets/cards.webp"
 imageCreditName: 2HMedia
 imageCreditLink: https://unsplash.com/@2hmedia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -14,7 +14,7 @@ The day started out unlike most others, I don't normally eat breakfast, but we m
 
 The decklist I brought into the day was as follows:
 
-![Star Wars: Unlimited Deck List](/public/assets/assets/cnGrNLrUvXYj.webp)
+![Star Wars: Unlimited Deck List](./assets/cnGrNLrUvXYj.webp)
 
 Since I had gone 0-3 at the last 2 Beskar Forge events that I attended; confidence levels were not high and given it was double elimination, I was prepared for an early day. Having said that, I had been smashing games on Karabast all week and felt like if I could dodge the Boba Fett matchup, I might be able to make it a few rounds.
 
@@ -120,4 +120,4 @@ Finito.
 
 (But I got a sweet hyperspace Boba out of it)
 
-![Photo of me with the winner of the IG-88 Open out the front of Beskar Forge](/assets/ig88openwinners.webp)
+![Photo of me with the winner of the IG-88 Open out the front of Beskar Forge](./assets/ig88openwinners.webp)

@@ -4,7 +4,7 @@ pubDate: 2022-11-03
 draft: false
 description: Let's look at how the new Layouts announced at Next.js Conf 2022
   improve the developer experience of working with Next.js
-heroImage: /assets/header.jpg
+heroImage: "./assets/header.jpg"
 imageCreditName: Sigmund
 imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -22,7 +22,7 @@ Thankfully, at Next.js Conf, Vercel revealed a new file-based router build on to
 
 One of the big changes that you will notice coming from Next.js 12 and earlier is the addition of the `/app` folder which is similar to the `/pages` folder however components within `/app` are React Server Components by default.
 
-![Mapping route segments to folder structure](/assets/route_segments.png)
+![Mapping route segments to folder structure](./assets/route_segments.png)
 
 Within the `/app` folder we are going to create several **route segments** with each segment mapped to a URL path. Within those folders, Next.js provides a set of special files which include:
 
@@ -34,7 +34,7 @@ With this in mind, we are going to look at an example which makes use of **neste
 
 > Check out the [example repository on Github here](https://github.com/MechanicalRock/next-layout-example)
 
-![Nested layouts in the example](/assets/layout.png)
+![Nested layouts in the example](./assets/layout.png)
 
 ## The Root Layout
 
@@ -42,29 +42,29 @@ When you create a new Next.js project with the `/app` folder; it will automatica
 
 ```jsx
 // /app/layout.tsx
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode,
+  children: React.ReactNode,
 }) {
-	return (
-		<html lang="en">
-			<head>
-				<title>Next Layout Example</title>
-			</head>
-			<body>
-				<header>
-					<nav>
-						<Link href="/">Home</Link>
-						<Link href="/games">Games</Link>
-					</nav>
-				</header>
-				<div>{children}</div>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <head>
+        <title>Next Layout Example</title>
+      </head>
+      <body>
+        <header>
+          <nav>
+            <Link href="/">Home</Link>
+            <Link href="/games">Games</Link>
+          </nav>
+        </header>
+        <div>{children}</div>
+      </body>
+    </html>
+  );
 }
 ```
 
@@ -77,29 +77,29 @@ This allows us to create relatively clean components without having to use `useE
 ```jsx
 // /app/games/layout.tsx
 async function getGames() {
-	const res = await fetch('http://localhost:3000/api/games');
-	return res.json();
+  const res = await fetch("http://localhost:3000/api/games");
+  return res.json();
 }
 
 export default async function Layout({
-	children,
+  children,
 }: {
-	children: React.ReactNode,
+  children: React.ReactNode,
 }) {
-	const games = await getGames();
+  const games = await getGames();
 
-	return (
-		<div>
-			<ul>
-				{games.map((game: Game) => (
-					<li key={game.id}>
-						<Link href={`/games/${game.id}`}>{game.name}</Link>
-					</li>
-				))}
-			</ul>
-			{children}
-		</div>
-	);
+  return (
+    <div>
+      <ul>
+        {games.map((game: Game) => (
+          <li key={game.id}>
+            <Link href={`/games/${game.id}`}>{game.name}</Link>
+          </li>
+        ))}
+      </ul>
+      {children}
+    </div>
+  );
 }
 ```
 
@@ -112,7 +112,7 @@ You can define a loading state at any level of your app and it will apply to any
 ```jsx
 // /app/loading.tsx
 export default function Loading() {
-	return <p>Loading...</p>;
+  return <p>Loading...</p>;
 }
 ```
 
@@ -121,7 +121,7 @@ To further exercise how loading states are selected, here's another example of a
 ```jsx
 // /app/games/loading.tsx
 export default function LoadingGames() {
-	return <p>Loading Games...</p>;
+  return <p>Loading Games...</p>;
 }
 ```
 
@@ -135,27 +135,27 @@ We could make the entire root layout component a client component but that would
 
 ```jsx
 // /app/NavLink.tsx
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { useSelectedLayoutSegment } from 'next/navigation';
+import React from "react";
+import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 export default function NavLink({
-	href,
-	children,
+  href,
+  children,
 }: {
-	href: string,
-	children: React.ReactNode,
+  href: string,
+  children: React.ReactNode,
 }) {
-	const segment = useSelectedLayoutSegment();
-	const active = `/${segment}` === href;
+  const segment = useSelectedLayoutSegment();
+  const active = `/${segment}` === href;
 
-	return (
-		<Link className={active ? 'underline' : ''} href={href}>
-			{children}
-		</Link>
-	);
+  return (
+    <Link className={active ? "underline" : ""} href={href}>
+      {children}
+    </Link>
+  );
 }
 ```
 

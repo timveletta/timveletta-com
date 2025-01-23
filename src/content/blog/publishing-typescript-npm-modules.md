@@ -4,7 +4,7 @@ pubDate: 2022-01-28
 draft: false
 description: Understanding how to build your own NPM modules can enable your
   development teams to share common pieces of code across multiple applications.
-heroImage: /assets/typescript-npm-modules-header.jpg
+heroImage: "./assets/typescript-npm-modules-header.jpg"
 imageCreditName: Xavi Cabrera
 imageCreditLink: https://unsplash.com/@xavi_cabrera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -24,16 +24,16 @@ Firstly, lets initialise a new project by creating an empty directory and runnin
 
 ```json
 {
-	"name": "tim-veletta-theme",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC"
+  "name": "tim-veletta-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
 ```
 
@@ -54,17 +54,17 @@ Now, we are going to build our custom theme. Start by creating a `src` directory
 > You can find out more about the [Material UI theming options here](https://mui.com/customization/theming/)
 
 ```js
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
-	palette: {
-		primary: {
-			main: '#40bfb4',
-		},
-		secondary: {
-			main: '#e15554',
-		},
-	},
+  palette: {
+    primary: {
+      main: "#40bfb4",
+    },
+    secondary: {
+      main: "#e15554",
+    },
+  },
 });
 
 export default theme;
@@ -121,9 +121,9 @@ We are almost ready to publish our module, we just need to tell NPM where our co
 
 ```json
 {
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"files": ["/dist"]
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["/dist"]
 }
 ```
 
@@ -165,7 +165,7 @@ npm notice
 
 There it is! The module has been added to the NPM registry and anyone using the registry can install it into their project. You can view the module on the [NPM registry](https://www.npmjs.com/package/tim-veletta-theme) or the [Github repository](https://github.com/MechanicalRock/tim-veletta-theme).
 
-![The theme NPM module](/assets/theme-npm-module.png)
+![The theme NPM module](./assets/theme-npm-module.png)
 
 ## Using the Package
 
@@ -181,20 +181,20 @@ This should also install the `@mui/material` and `@emotion/styled` packages for 
 
 ```jsx
 // /src/App.js
-import { ThemeProvider, Typography } from '@mui/material';
-import theme from 'tim-veletta-theme';
+import { ThemeProvider, Typography } from "@mui/material";
+import theme from "tim-veletta-theme";
 
 function App() {
-	return (
-		<ThemeProvider theme={theme}>
-			<Typography variant="h1" color="primary">
-				This should be in the primary color #40bfb4
-			</Typography>
-			<Typography variant="h1" color="secondary">
-				This should be in the secondary color #e15554
-			</Typography>
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={theme}>
+      <Typography variant="h1" color="primary">
+        This should be in the primary color #40bfb4
+      </Typography>
+      <Typography variant="h1" color="secondary">
+        This should be in the secondary color #e15554
+      </Typography>
+    </ThemeProvider>
+  );
 }
 
 export default App;
@@ -202,7 +202,7 @@ export default App;
 
 When we run it in the browser, we should see the text in the primary and secondary colours we set in our module.
 
-![The resulting theme](/assets/typescript-npm-modules.png)
+![The resulting theme](./assets/typescript-npm-modules.png)
 
 So there we have it, you can now build your own NPM modules using TypeScript and make them publicly available on the NPM registry. Often when working with clients we don't want to make modules publicly available so I'll be doing a follow up post on hosting NPM modules privately via either the NPM registry or a private artifact repository so stay tuned for that.
 

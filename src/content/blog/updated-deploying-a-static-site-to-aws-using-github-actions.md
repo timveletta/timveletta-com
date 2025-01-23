@@ -1,5 +1,5 @@
 ---
-title: 'UPDATED: Deploying a static site to AWS using GitHub Actions'
+title: "UPDATED: Deploying a static site to AWS using GitHub Actions"
 draft: false
 pubDate: 2020-08-16
 description: It has been just under a year since I wrote my initial about
@@ -7,7 +7,7 @@ description: It has been just under a year since I wrote my initial about
   changed since then. I discuss my process for deploying static sites using
   Github Actions and whats changed since the initial version of the article.
 prevUrl: /blog/2020-08-14-updated-deploying-a-static-site-to-aws-using-github-actions/
-heroImage: /assets/updated-github.jpg
+heroImage: "./assets/updated-github.jpg"
 imageCreditName: Yancy Min
 imageCreditLink: https://unsplash.com/@yancymin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -24,7 +24,7 @@ If you're just interested in the build template, it is posted in its entirety at
 
 The template assumes you are using a **privately hosted** S3 static site and serving the content using CloudFront. You could just as easily use a **public** S3 static site and omit the `Invalidate Cloudfront CDN` step.
 
-![Assumed infrastructure layout](/assets/blank-wireframe.png 'Assumed infrastructure layout')
+![Assumed infrastructure layout](./assets/blank-wireframe.png "Assumed infrastructure layout")
 
 ## Breaking down the build template
 
@@ -71,7 +71,7 @@ build:
         path: build
 ```
 
-![The frontend artifact showing in the GitHub interface](/assets/screen-shot-2020-08-16-at-2.48.05-pm.png 'The frontend artifact showing in the GitHub interface')
+![The frontend artifact showing in the GitHub interface](./assets/screen-shot-2020-08-16-at-2.48.05-pm.png "The frontend artifact showing in the GitHub interface")
 
 ## The `deploy` job
 

@@ -6,7 +6,7 @@ description: It has come time for the annual website redesign and refresh. I
   discuss why I wanted to refresh my website, what I used to build it and what
   exciting new features you can expect to see in the coming months.
 prevUrl: /blog/2020-07-16-refreshing-my-blog-with-netlify-cms-and-tailwind-css/
-heroImage: /assets/refresh-blog.jpg
+heroImage: "./assets/refresh-blog.jpg"
 imageCreditName: Samson
 imageCreditLink: https://unsplash.com/@samsonyyc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -40,6 +40,6 @@ Also since I am going to be writing some additional blog posts for my employer a
 
 Lastly, rebuilding my website was about being able to practice and improve my design skills. A majority of my "design work" previously has been taking inspiration from a number of sources and trying to make something somewhat unique. Designing my new website was no different; I had a number of inspirations which I collected in [this Dribbble album](https://dribbble.com/timveletta/collections/2170521-Portfolio-Inspiration?utm_source=Clipboard_clipboard_collection&utm_campaign=timveletta&utm_content=Portfolio%20Inspiration&utm_medium=Social_Share) which ultimately inspired the overall design.
 
-![My website design](/assets/blog.jpg 'My website design')
+![My website design](./assets/blog.jpg "My website design")
 
 As for next steps, I still want to add an area to my website which showcases some of the projects I have worked on but for now blog content is king. I'm looking to write at least one blog post a week as I learn more about the AWS Cloud Development Kit (CDK) and AWS Amplify.

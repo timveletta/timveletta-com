@@ -5,7 +5,7 @@ draft: false
 description: I'm finding CDK really enjoyable to pick up and understand. Come
   find out how to set up your static sites and single page applications using
   it.
-heroImage: /assets/cdk-spa.jpg
+heroImage: "./assets/cdk-spa.jpg"
 imageCreditName: Zane Lee
 imageCreditLink: https://unsplash.com/@zane404?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -23,7 +23,7 @@ In this post I will detail the process from creating an S3 bucket to host our si
 
 The infrastructure we are deploying and the communication points are shown in the diagram below. We are able to break things into 3 distinct chunks that build on our infrastructure starting with an S3 static site. We add to it by implementing CloudFront for serving the site using a Content Delivery Network (CDN) and finally add our own secured domain.
 
-![CDK Hosting Infrastructure](/assets/cdk-hosting-infrastructure.png)
+![CDK Hosting Infrastructure](./assets/cdk-hosting-infrastructure.png)
 
 ## Dependencies
 
@@ -59,13 +59,13 @@ The most important part of this is the `bucketConfig`; it simply sets the name o
 We then call the function from within the Stack `constructor` and define the resulting site URL as a CloudFormation output so that it will be displayed to console and in the Outputs tab in CloudFormation.
 
 ```typescript
-const bucketName = 'some-bucket-name';
+const bucketName = "some-bucket-name";
 
 const bucket = this.getS3Bucket(bucketName);
 
-new CfnOutput(this, 'URL', {
-	description: 'The URL of the site',
-	value: bucket.bucketWebsiteUrl,
+new CfnOutput(this, "URL", {
+  description: "The URL of the site",
+  value: bucket.bucketWebsiteUrl,
 });
 ```
 
@@ -77,9 +77,9 @@ The next stage involves adding CloudFront to ensure our content is served to our
 
 ```typescript
 const bucketConfig: BucketProps = {
-	bucketName,
-	publicReadAccess: false,
-	blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+  bucketName,
+  publicReadAccess: false,
+  blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
 };
 ```
 
@@ -103,16 +103,16 @@ If you're building a single-page application, it can also be useful to configure
 
 ```typescript
 const errorConfigurations: CfnDistribution.CustomErrorResponseProperty[] = [
-	{
-		errorCode: 403,
-		responsePagePath: '/',
-		responseCode: 200,
-	},
-	{
-		errorCode: 404,
-		responsePagePath: '/index.html',
-		responseCode: 200,
-	},
+  {
+    errorCode: 403,
+    responsePagePath: "/",
+    responseCode: 200,
+  },
+  {
+    errorCode: 404,
+    responsePagePath: "/index.html",
+    responseCode: 200,
+  },
 ];
 ```
 
@@ -137,9 +137,9 @@ Finally, we add the function call to the `constructor`, passing in the bucket we
 ```typescript
 const { distribution } = this.getCloudFrontDistribution(bucket);
 
-new CfnOutput(this, 'URL', {
-	description: 'The URL of the site',
-	value: distribution.distributionDomainName,
+new CfnOutput(this, "URL", {
+  description: "The URL of the site",
+  value: distribution.distributionDomainName,
 });
 ```
 
@@ -152,11 +152,11 @@ Neither the basic website or the CloudFront distribution have particularly reada
 A Hosted Zone is a set of records that detail how to route traffic for a specific domain. To reference the Hosted Zone in CDK, we first have to set the `account` and `region` variables in our Stack `env` which we can simply get from the environment variables in CDK. You would have set these when you initially installed CDK.
 
 ```typescript
-new HostingStack(app, 'HostingStack', {
-	env: {
-		account: process.env.CDK_DEFAULT_ACCOUNT,
-		region: process.env.CDK_DEFAULT_REGION,
-	},
+new HostingStack(app, "HostingStack", {
+  env: {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION,
+  },
 });
 ```
 
@@ -203,38 +203,38 @@ We also need to inform CloudFront that we are using an SSL certificate to serve 
 
 ```typescript
 const viewerCertificate = ViewerCertificate.fromAcmCertificate(certificate, {
-	aliases: [url],
+  aliases: [url],
 });
 
 const distribution = new CloudFrontWebDistribution(
-	this,
-	'WebsiteDistribution',
-	{
-		originConfigs: [originConfig],
-		errorConfigurations,
-		viewerCertificate,
-	}
+  this,
+  "WebsiteDistribution",
+  {
+    originConfigs: [originConfig],
+    errorConfigurations,
+    viewerCertificate,
+  }
 );
 ```
 
 Putting it all together, we can now change our `constructor` to include the certificate and Hosted Zone as below.
 
 ```typescript
-const bucketName = 'some-bucket-name';
-const url = 'some-url.com';
+const bucketName = "some-bucket-name";
+const url = "some-url.com";
 
 const bucket = this.getS3Bucket(bucketName);
 const { certificate, hostedZone } = this.getRoute53HostedZone(url);
 const { distribution } = this.getCloudFrontDistribution(
-	bucket,
-	certificate,
-	url
+  bucket,
+  certificate,
+  url
 );
 this.getRoute53Records(distribution, hostedZone, url);
 
-new CfnOutput(this, 'URL', {
-	description: 'The URL of the site',
-	value: hostedZone.zoneName,
+new CfnOutput(this, "URL", {
+  description: "The URL of the site",
+  value: hostedZone.zoneName,
 });
 ```
 

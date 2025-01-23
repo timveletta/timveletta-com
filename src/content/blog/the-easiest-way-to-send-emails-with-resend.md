@@ -3,7 +3,7 @@ title: The easiest way to send emails with Resend
 pubDate: 2023-07-06
 draft: false
 description: If you're looking for an easy way to send emails from your Node.js or Next.js applications, might be the answer. Find out how to sign up, add Resend to your project and send an email.
-heroImage: /assets/resend.jpg
+heroImage: "./assets/resend.jpg"
 imageCreditName: Alexander Grey
 imageCreditLink: https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
@@ -28,15 +28,15 @@ The `RESEND_API_KEY` can be created on the "API Keys" page in Resend. You can no
 
 ```javascript
 const data = await resend.emails.send({
-	from: 'contact@timveletta.com', // must verify the from domain
-	to: 'timothy.veletta@gmail.com',
-	subject: 'Resend is easy!',
-	html: '<p>You should try it</p>',
+  from: "contact@timveletta.com", // must verify the from domain
+  to: "timothy.veletta@gmail.com",
+  subject: "Resend is easy!",
+  html: "<p>You should try it</p>",
 });
 ```
 
 If you're using Vercel Functions, add your API Key to the Environment Variables on Vercel, deploy your app, and hit your API endpoint. You can also check the "Emails" page in Resend to see what emails it has sent.
 
-![The Resend emails page.](/assets/resend-emails.png 'The Resend emails page.')
+![The Resend emails page.](./assets/resend-emails.png "The Resend emails page.")
 
 I'm currently using Resend to notify me of people using the contact form on this website but I'm planning to use it and React Email on some other projects. You can view [my contact form function on Github](https://github.com/timveletta/timveletta-com/blob/main/api/contact.js).

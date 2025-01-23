@@ -5,14 +5,12 @@ draft: false
 description: CSS Grid is one of my favourite tools for building your web
   layouts. I examine where we have come from in terms of web layouts and what
   you need to know to start building your own.
-heroImage: /assets/css-grid.jpg
+heroImage: "./assets/css-grid.jpg"
 imageCreditName: Hal Gatewood
 imageCreditLink: https://unsplash.com/@halacious?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
   - css
 ---
-
-> This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2020/04/28/css-grid.html)
 
 CSS Grid is used to specify the layout, size, position of HTML elements on a webpage by dividing it into major regions; it allows you to specify your layouts in terms of both _rows_ and _columns_ on the page.
 
@@ -22,7 +20,7 @@ A key feature of the 12-column grid is being able to specify elements which woul
 
 The example below uses the [Complex Grid](https://material-ui.com/components/grid/#complex-grid) example from Material UI on the left and the same example recreated using CSS Grid on the right.
 
-![<div> hell!](/assets/div-hell.jpg)
+![<div> hell!](./assets/div-hell.jpg)
 
 As you can see in the example, one of the real benefits of using CSS Grid is that it allows you produce much cleaner and more succinct HTML by removing some of the presentational elements from the HTML. Also by eliminating the 12-column grid we no longer force our content to conform to those columns making things such as a 5-column grid possible. One of the quotes that encapsulates CSS Grid in a great way is:
 
@@ -48,7 +46,7 @@ grid-template-rows: 1fr auto 1fr;
 
 This will create a 3x3 grid; the 3 columns will be distributed such that the first takes up 1/7th of the available space, the next takes up 5/7ths and the last taking up another 1/7th. The first and third row will take up the same amount of space with the second row taking up as much space as it needs to fit the content.
 
-![Setting Up Layout](/assets/setting-up-layout.png)
+![Setting Up Layout](./assets/setting-up-layout.png)
 
 It is also possible to mix units when defining your grid. For instance if we were to use the following columns:
 
@@ -58,7 +56,7 @@ grid-template-columns: 300px 3fr 1fr 20%;
 
 The first column would always be 300px, the second column will be 3 times larger than the third and the final column will always be 20% of the overall grid width.
 
-![Mixed Units](/assets/mixed-units.png)
+![Mixed Units](./assets/mixed-units.png)
 
 ## `repeat`
 
@@ -78,7 +76,7 @@ grid-row: <start-row> / <end-row>;
 grid-area: <start-row> / <start-column> / <end-row> / <end-column>;
 ```
 
-![Positioning Elements](/assets/positioning-elements.png)
+![Positioning Elements](./assets/positioning-elements.png)
 
 Consider the following examples:
 
@@ -105,14 +103,14 @@ display: grid;
 grid-template-columns: 1fr 5fr 1fr;
 grid-template-rows: 1fr auto 1fr;
 grid-template-areas:
-	'header header header'
-	'nav content ad'
-	'footer footer footer';
+  "header header header"
+  "nav content ad"
+  "footer footer footer";
 ```
 
 I can then define an element with the property `grid-area: header;` and it will be placed at column 1, row 1 and will span 3 columns. Similarly, I can define an element with the property `grid-area: footer;` and know that it will be placed at column 1, row 3 and also span 3 columns.
 
-![Named Areas](/assets/named-areas.png)
+![Named Areas](./assets/named-areas.png)
 
 # Aligning, Justifying and Placing
 
@@ -142,7 +140,7 @@ Given the column definition of `grid-template-columns: repeat(auto-fit, minmax(2
 
 Browser support for CSS Grid is great if you don't need to support IE 11 and even then it is supported using the `-ms-` prefix.
 
-![Browser Support](/assets/browser-support.png)
+![Browser Support](./assets/browser-support.png)
 
 The browser devtools support is also fantastic, if you hover over the element which defines your CSS Grid in either Chrome or Firefox devtools, it will show you the grid you have defined.
 
