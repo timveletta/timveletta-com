@@ -38,21 +38,6 @@ const { title, description, image = "/social.jpg", noIndex } = Astro.props;
 
 {noIndex && <meta name="robots" content="noindex" />}
 
-<!-- Google tag (gtag.js) -->
-<script
-  type="text/partytown"
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-LLQXVV574Z"></script>
-<script type="text/partytown">
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-
-  gtag("config", "G-LLQXVV574Z");
-</script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
