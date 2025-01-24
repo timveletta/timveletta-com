@@ -7,10 +7,9 @@ heroImage: "./assets/tracking-2023-goals.jpg"
 imageCreditName: David Pisnoy
 imageCreditLink: https://unsplash.com/@davidpisnoy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - personal
-  - board games
-  - fitness
-  - books
+  - Board Games
+  - Fitness
+  - Books
 ---
 
 Each year I tend to set myself some goals; usually not very specific ones such as listen to more music, play more games or get fitter. Each year, the vague definition of the goal leads it to becoming something that fades in and out of my consciousness during the year and it becomes something that is measured by gut feel. If I've learnt anything from the company I work for, [Mechanical Rock](https://www.youtube.com/watch?v=tTpCfwyQt5c), its that you should measure what matters which means setting specific, measurable goals.

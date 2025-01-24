@@ -7,8 +7,8 @@ heroImage: "./assets/s3-github-actions.jpg"
 imageCreditName: Obi - @pixel7propix
 imageCreditLink: https://unsplash.com/@obionyeador?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - aws
-  - github
+  - AWS
+  - Github
 ---
 
 Amazon Web Services (AWS) Simple Storage Service (S3) is a highly scalable object storage service designed to store and retrieve any amount of data from anywhere on the web. Github Actions is a powerful tool used to automate workflows, including building, testing, and deploying code. In this blog post, we will explore how to push content to an S3 bucket from Github Actions.

@@ -7,10 +7,10 @@ heroImage: "./assets/clerk-planetscale.jpg"
 imageCreditName: Deva Darshan
 imageCreditLink: https://unsplash.com/@darshan394?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - vercel
-  - planetscale
-  - clerk
-  - next
+  - Vercel
+  - Planetscale
+  - Clerk
+  - Next
 ---
 
 I'm a big believer in using SaaS products to make your life easier, especially when working on side projects where momentum is a crucial factor in determining whether something gets produced or just becomes another empty domain. Two products that I'm a huge fan of are **Clerk**, which simplifies authentication for your application, and **PlanetScale**, which handles all database-related tasks.

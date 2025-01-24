@@ -11,10 +11,10 @@ heroImage: "./assets/direct-lambda-resolvers.jpg"
 imageCreditName: Bench Accounting
 imageCreditLink: https://unsplash.com/@benchaccounting?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - aws
-  - amplify
-  - lambda
-  - appsync
+  - AWS
+  - Amplify
+  - Lambda
+  - Appsync
 ---
 
 [AWS Amplify](https://docs.amplify.aws/) is fantastic; it has never been easier to build and provision a cloud-based, full-stack, web application. One of the best features of Amplify is the ability to quickly generate and build a GraphQL API using AWS AppSync and have it seamlessly work with your front-end using generated queries and mutations based off your schema.

@@ -7,12 +7,12 @@ heroImage: "./assets/saas-cloud-providers.jpg"
 imageCreditName: Cash Macanaya
 imageCreditLink: https://unsplash.com/@cashmacanaya?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - aws
-  - vercel
-  - planetscale
-  - clerk
-  - github
-  - t3
+  - AWS
+  - Vercel
+  - Planetscale
+  - Clerk
+  - Github
+  - T3
 ---
 
 For the past couple of years, I’ve been all in on AWS, I work with it every day and choose to use it for a number of my own projects on the side but lately, I have started to change. One of the main reasons for this is the time investment involved in keeping up to date with AWS services and learning new ones that help me achieve what I want. Also the documentation for each of these services can be a bit hit-or-miss and in a large number of cases there is a SaaS product out there that does a better job, in a better way.

@@ -10,10 +10,10 @@ heroImage: "./assets/refresh-blog.jpg"
 imageCreditName: Samson
 imageCreditLink: https://unsplash.com/@samsonyyc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - netlify
-  - gatsby
-  - react
-  - tailwind
+  - Netlify
+  - Gatsby
+  - React
+  - Tailwind
 ---
 
 I has come time for my annual website redesign and refresh. You're probably thinking, why bother redesigning your website every single year and to be honest, it's not really intentional; it just takes me about a year to get sick of the design enough to want to redo it.

@@ -9,10 +9,10 @@ heroImage: "./assets/cdk-spa.jpg"
 imageCreditName: Zane Lee
 imageCreditLink: https://unsplash.com/@zane404?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - aws
-  - cdk
-  - react
-  - devops
+  - AWS
+  - CDK
+  - React
+  - DevOps
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2020/08/24/scaffolding-single-page-applications-with-cdk.html)

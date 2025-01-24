@@ -7,7 +7,7 @@ heroImage: "./assets/collections.jpg"
 imageCreditName: Karen Vardazaryan
 imageCreditLink: https://unsplash.com/@bright?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - javascript
+  - Javascript
 ---
 
 JavaScript provides a variety of data structures for storing data. However, developers often tend to use `Array`s and `Object`s to solve most problems without considering whether they are the appropriate data structure. The use of `Set`s instead of `Array`s and `Map`s instead of `Object`s can provide numerous benefits. This document provides a guide on how to use `Set` and `Map`, as well as the reasons why they should be considered over `Array`s and `Object`s.

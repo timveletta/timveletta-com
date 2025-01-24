@@ -8,8 +8,8 @@ heroImage: "./assets/header.jpg"
 imageCreditName: Sigmund
 imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - react
-  - next
+  - React
+  - Next
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://blog.mechanicalrock.io/2022/10/27/next-js-layouts-by-example.html)

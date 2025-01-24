@@ -7,7 +7,7 @@ heroImage: "./assets/edge-config.jpg"
 imageCreditName: Fiona Smallwood
 imageCreditLink: https://unsplash.com/@thepeoplesdigital?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - vercel
+  - Vercel
 ---
 
 I recently had to chance to use [Vercel Edge Config](https://vercel.com/blog/edge-config-ultra-low-latency-data-at-the-edge) for a project where I needed to manage a small amount of key-value data and didn't want to go down the path of setting up database infrastructure to manage it. If you're like me and haven't heard about Edge Config, its _"a key-value data store (...) [that] enables you to read data at the edge without querying an external database"_.

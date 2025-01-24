@@ -8,8 +8,8 @@ heroImage: "./assets/typescript-npm-modules-header.jpg"
 imageCreditName: Xavi Cabrera
 imageCreditLink: https://unsplash.com/@xavi_cabrera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - npm
-  - react
+  - NPM
+  - React
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2022/01/24/publishing-typescript-npm-modules.html)

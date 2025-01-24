@@ -9,9 +9,9 @@ heroImage: "./assets/blog-header.jpg"
 imageCreditName: Sigmund
 imageCreditLink: https://unsplash.com/@sigmund?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - cypress
-  - authentication
-  - react
+  - Cypress
+  - Authentication
+  - React
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://blog.mechanicalrock.io/2022/08/08/azure-ad-authentication-cypress.html)

@@ -7,8 +7,8 @@ heroImage: "./assets/developers-designers.jpg"
 imageCreditName: Mia Baker
 imageCreditLink: https://unsplash.com/@miabaker?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - design
-  - tailwind
+  - Design
+  - Tailwind
 ---
 
 If I had a dollar for every time I heard the phrase _"I'm no good at design, so that's why I became a developer"_, I would be rich. In my experience, this phrase is often used as an excuse by developers to view design as a separate, siloed function that is someone else's job, much in the same way we used to treat operations prior to DevOps.

@@ -9,7 +9,7 @@ heroImage: "./assets/css-grid.jpg"
 imageCreditName: Hal Gatewood
 imageCreditLink: https://unsplash.com/@halacious?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - css
+  - CSS
 ---
 
 CSS Grid is used to specify the layout, size, position of HTML elements on a webpage by dividing it into major regions; it allows you to specify your layouts in terms of both _rows_ and _columns_ on the page.

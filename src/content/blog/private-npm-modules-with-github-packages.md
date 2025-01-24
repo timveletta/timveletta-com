@@ -8,8 +8,8 @@ heroImage: "./assets/blog-format.jpg"
 imageCreditName: Petrebels
 imageCreditLink: https://unsplash.com/@petrebels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - github
-  - npm
+  - Github
+  - NPM
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2022/04/04/private-npm-modules.html)

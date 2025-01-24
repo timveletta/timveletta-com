@@ -7,7 +7,7 @@ heroImage: "./assets/resend.jpg"
 imageCreditName: Alexander Grey
 imageCreditLink: https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - resend
+  - Resend
 ---
 
 If you're looking for an easy way to send emails from your Node.js or Next.js applications, [Resend](https://resend.com) might be the answer. Resend is focused on the developer experience, making it easy for you to send emails. They are also the creators of [React Email](https://react.email/), an open-source library that simplifies creating formatted emails for sending.

@@ -9,9 +9,9 @@ heroImage: "./assets/cypress.jpg"
 imageCreditName: Bharat Patil
 imageCreditLink: https://unsplash.com/@bharat_patil_photos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - cypress
-  - authentication
-  - react
+  - Cypress
+  - Authentication
+  - React
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2020/05/05/azure-ad-authentication-cypress.html)

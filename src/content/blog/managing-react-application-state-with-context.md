@@ -9,7 +9,7 @@ heroImage: "./assets/react-application-state.jpg"
 imageCreditName: Marvin Meyer
 imageCreditLink: https://unsplash.com/@marvelous?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 tags:
-  - react
+  - React
 ---
 
 > This post was originally published on the [Mechanical Rock Blog](https://mechanicalrock.github.io/2021/05/27/managing-react-application-state-with-context.html)
