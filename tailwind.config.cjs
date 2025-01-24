@@ -23,7 +23,8 @@ module.exports = {
         "1/2": "50vw",
       },
       colors: {
-        primary: "#01bfa6",
+        primary: "#00A693",
+        primaryAA: "#008476",
         secondary: "#0f3d56",
         grey: "#F4F4F4",
       },
