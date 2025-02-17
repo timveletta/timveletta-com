@@ -1,7 +1,7 @@
 ---
 title: Baddest Batch $2k Tournament Report
 pubDate: 2025-02-17T16:00:00.000Z
-draft: true
+draft: false
 description: "This past weekend I travelled to Sydney to participate in the Baddest Batch $2k tournament for Star Wars: Unlimited"
 heroImage: "./assets/cards.webp"
 imageCreditName: 2HMedia
@@ -24,7 +24,7 @@ My list for the $2k and PQ was as follows:
 
 ![Set 3 Sabine Yellow](./assets/set3-sabine-yellow.png)
 
-It was the same list that Rebel Resource got 2nd with at the Minnesotta PQ which he detailed in a [video on his channel](https://www.youtube.com/watch?v=o-2RxIM8a3A).
+It was the same list that Rebel Resource got 2nd with at the Minnesota PQ which he detailed in a [video on his channel](https://www.youtube.com/watch?v=o-2RxIM8a3A).
 
 ## Round 1 vs Sabine ECL
 
@@ -36,11 +36,11 @@ As a side note, in talking to my opponent after the game, he mentioned that he h
 
 ## Round 2 vs Anakin Blue
 
-A matchup that I haven't played much of in a while but I was confident into it since they generally play one unit a turn and I'm going super wide so I can generally push through for the win before Anakin is much of a factor. Both games I played a Sabine unit on turn 1 since it effectively neutralises Village Protectors on turn 2 and then its just a case of playing around the remaining Sentinels and removal that the deck runs. I managed to take game 1 convincingly and in game 2, I played an A-Wing on turn 2 and my opponent responded with a Concord Dawn Interceptors which allowed me to pivot to ground and go wide. I played Plo Koon on 5 resources knowing that if he played Obi Wan on 6, I'd be able to take care of it immediately but it was Plo Surprise Striking for 9 that took the game. 
+A matchup that I haven't played much of in a while but I was confident into it since they generally play one unit a turn and I'm going super wide so I can generally push through for the win before Anakin is much of a factor. Both games I played a Sabine unit on turn 1 since it effectively neutralises Village Protectors on turn 2 and then its just a case of playing around the remaining Sentinels and removal that the deck runs. I managed to take game 1 convincingly and in game 2, I played an A-Wing on turn 2 and my opponent responded with a Concord Dawn Interceptors which allowed me to pivot to ground and go wide. I played Plo Koon on 5 resources knowing that if he played Obi Wan on 6, I'd be able to take care of it immediately but it was Plo Surprise Striking for 9 that took the game.
 
 ## Round 3 vs Sabine ECL
 
-After the loss in round 1 to the same matchup, my confidence in it was starting to wane but some timely messages of encouragement from the Perth SWU community along with it now being a time that my body is used to being awake at gave me that extra energy. 
+After the loss in round 1 to the same matchup, my confidence in it was starting to wane but some timely messages of encouragement from the Perth SWU community along with it now being a time that my body is used to being awake at gave me that extra energy.
 
 Game 1 did not go as planned as my opponent played 2 Rebel Assaults which is usually too much for me to deal with and it was at this point, that my tournament life was probably on the line. In game 2, I was able to land an A-Wing turn 1, into a Wing Leader followed by a Red Three and Cartel Turncoat and win through space before a pesky Poe could ECL to ruin my day. Game 3 was progressing evenly with my opponent playing Rebel Assault with his first action on the 4 resource turn; I had a decent board presence and was pushing damage and I had a feeling he was setting up to Fleet Lieutenant his Sabine leader with the remaining 3 resources so I Bamboozled it discarding a Millenium Falcon only for him to confirm my suspicions with his next action. Preventing that 5 damage on my base was enough to give me the game and series win.
 
@@ -49,18 +49,11 @@ Game 1 did not go as planned as my opponent played 2 Rebel Assaults which is usu
 Yet another Sabine! Of the 7 Sabines at the event, I managed to face 4 of them (spoilers for later). There were 5 Sabine ECL and 2 Sabine Yellow including myself.
 
 In game 1, I effectively used the same game plan as last round by lane dodging although my opponent, had some tricks up his sleeve in a cheeky Echo Base Defender to put a dampener on my Sabine flip turn, or so he thought! I had a Red Three to drop so Sabine could clear the Sentinel and again the armada of space ships took down the base for the game 1 win. Game 3 was much of the same, my opponent going to ground, me in space and once he used ECL to play a Sundari Peacekeepers on the 5 resource turn, I knew I was home.
- 
+
 ## Round 5 vs Han Yellow
 
 Before this game, both myself and fellow Perth legend Blake sitting at 3-1 and I just knew, that if we were matched up in the next game, it would be the stream game and it turned out to be true.
 
 [https://www.twitch.tv/videos/2381340038?t=4h57m35s]
-<iframe
-    src="https://player.twitch.tv/?video=2381340038&t=4h57m35s&parent=timveletta.com"
-    height="100%"
-    width="100%"
-    allowfullscreen>
-</iframe>
 
-
-
+<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;"><iframe src="https://player.twitch.tv/?video=2381340038&parent=www.timveletta.com&autoplay=false&muted=false&time=h57m35s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>
