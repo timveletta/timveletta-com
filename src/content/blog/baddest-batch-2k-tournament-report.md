@@ -56,4 +56,4 @@ Before this game, both myself and fellow Perth legend Blake sitting at 3-1 and I
 
 [https://www.twitch.tv/videos/2381340038?t=4h57m35s]
 
-<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;"><iframe src="https://player.twitch.tv/?video=2381340038&parent=www.timveletta.com&autoplay=false&muted=false&time=h57m35s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>
+<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;"><iframe src="https://player.twitch.tv/?video=2381340038&parent=www.timveletta.com&autoplay=false&muted=false&time=4h57m35s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>
