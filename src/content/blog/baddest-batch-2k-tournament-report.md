@@ -1,7 +1,7 @@
 ---
 title: Baddest Batch $2k Tournament Report
 pubDate: 2025-02-17T16:00:00.000Z
-draft: false
+draft: true
 description: "This past weekend I travelled to Sydney to participate in the Baddest Batch $2k tournament for Star Wars: Unlimited"
 heroImage: "./assets/cards.webp"
 imageCreditName: 2HMedia
