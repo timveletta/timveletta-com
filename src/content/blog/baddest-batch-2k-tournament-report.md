@@ -54,6 +54,52 @@ In game 1, I effectively used the same game plan as last round by lane dodging a
 
 Before this game, both myself and fellow Perth legend Blake sitting at 3-1 and I just knew, that if we were matched up in the next game, it would be the stream game and it turned out to be true.
 
-[https://www.twitch.tv/videos/2381340038?t=4h57m35s]
+You can watch the VOD here and I'll update the link once its uploaded to YouTube.
 
 <div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;"><iframe src="https://player.twitch.tv/?video=2381340038&parent=www.timveletta.com&autoplay=false&muted=false&time=4h57m35s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>
+
+For those that don't watch the video above; I managed to win game 1 convincingly but it seemed like he had a few rough draws while I just drew gas. Games 2 and 3 were much closer with Blake taking them down. After the round completed, I went to report the result in Melee while in conversation with Blake about how the games went however I mistakenly reported the score as a 2-1 win to me instead of the actual result which was a 2-1 win for Blake. Unfortunately this mistake wasn't caught until mid-way through the following round, my opponent and I had already completed one game and were halfway through a second, which meant that it was difficult for the organisers to redo the pairings for that round.
+
+I've apologised to the organisers and Blake for this mistake, there was never any ill intention behind it but it did still feel bad to cause the tournament organisers some stress in deciding how to resolve the situation. 
+
+## Round 6 vs Quinlan TT
+
+Stream chat was calling out for some Quinlan Tarkintown to be played and given I was paired into it, I was on stream yet again.
+
+<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;"><iframe src="https://player.twitch.tv/?video=2381340038&parent=www.timveletta.com&autoplay=false&muted=false&time=6h00m35s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>
+
+Part way through game 2, the organised realised the aforementioned mistake which meant the VOD was divided into 2 since there was some time before a resolution was reached. The second part is below.
+
+<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;"><iframe src="https://player.twitch.tv/?video=2381608749&parent=www.timveletta.com&autoplay=false&muted=false&time=0h06m52s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>
+
+## Top 8 vs Sabine ECL
+
+With a theoretical 5-1 record, which should have been 4-2, I made it into top 8 and I was thankful that Blake did also so he wasn't affected by my mistake too much. In this round, I was faced with my 4th Sabine ECL opponent for the day and given how I had played into that deck, my confidence had grown massively.
+
+In game 1, I was too quick for my opponent and pushed damage to base constantly to seal the win. In game 2, my opponent did something I hadn't seen all day in using ECL on turn 2 to remove my turn 1 A-Wing which I believe is usually the correct play for them to get board advantage and rush me down. Two Rebel Assaults later and it was off to game 3.
+
+I started out being able to land an A-Wing on turn 1 into a Wing Leader on turn 2. I started out the 4 resource turn cautious of a Bright Hope coming down and putting a stop to my space force for a turn so I put a Heroic Resolve on my A-Wing in order to buff it to 6 attack with the possibility of dealing Overwhelm damage to base. My opponent flipped Sabine with 4 resources available so I suspected he had a Darksaber in hand because he would have instead played the Bright Hope if he had it. I played Surprise Strike on my A-Wing for deal 9 damage to base to take him to 19 and I hadn't even deployed my Sabine leader at this point.
+
+I had put my opponent in zugzwang, a term used in chess to mean that any move opponent makes puts them at a disadvantage. In this situation, if my opponent performs an action, I get to claim the initative and use the ability on Heroic Resolve to win the game next turn. If my opponent instead claims the initative, I swing in with Sabine leader to take him to 22 and even if they drop Bright Hope next turn, I can hit with Sabine leader again or use the Heroic Resolve for the win.
+
+I was into the top 4.
+
+## Top 4 vs Quinlan TT
+
+My top 4 matchup was also streamed against the same Quinlan Tarkintown player from round 6. Given theres no match report for the final, its safe to assume I lost this time around but all 3 games were intense and extremely fun to play from my side.
+
+<iframe width="1008" height="567" src="https://www.youtube.com/embed/N8mSB77Pjxw?si=SyCnP9jleN3TpsL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Overall I was extremely happy with my performance throughout the day, despite the first round loss I felt like I played at quite a good level and looking back through the streamed games I'd like to think I did the deck justice. 
+
+My **hots** for the weekend were:
+
+- The Baddest Batch crew for being all round amazing people and for putting on the $2k tournament which was enough to convince me to travel to Sydney since I probably wouldn't have gone if it was just for the PQ. I highly recommend checking out their podcast and YouTube channel for some great Star Wars: Unlimited content.
+- Blake and Shawn, my fellow Perth people for also making the trip over. Blake smashed it was a 2nd place on Saturday and 1st on Sunday at the PQ along with putting up with me inputting the result wrong. Shawn did well with a top 8 performance on Sunday with his Yoda Green deck that is surely getting banned next set /s
+- Everyone who messaged with support and advice between the Perth SWU community and Rebel Resource Discord. It definitely helped me get through what was quite an exhausting weekend.
+
+The **nots** were:
+
+- Sydney trains because of the strikes which made it much more difficult to get to and from the airport.
+- White sleeves that look pretty bad after a single weekend of play, won't make that mistake again.
+- Myself for misreporting the result in Melee despite me usually being on other people for reporting.
