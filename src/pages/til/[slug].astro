@@ -4,19 +4,21 @@ import "./_til.css";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { fade } from "astro:transitions";
+
+export const prerender = true;
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("til");
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <html lang="en" transition:animate={fade({ duration: "0.4s" })}>

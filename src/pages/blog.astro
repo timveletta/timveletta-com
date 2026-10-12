@@ -4,13 +4,20 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import BlogPostExcerpt from "../components/BlogPostExcerpt.astro";
-import { getCollection } from "astro:content";
 import { fade } from "astro:transitions";
+import { loadPosts } from "../lib/blog";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) =>
-    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
-);
+let posts = [];
+let tagsByEntry = new Map();
+try {
+  const result = await loadPosts();
+  posts = result.entries;
+  tagsByEntry = result.tagsByEntry;
+  if (Astro.cache?.enabled) Astro.cache.set(result.cacheHint);
+} catch (error) {
+  console.error("Failed to load posts:", error);
+  return new Response("Unable to load posts", { status: 500 });
+}
 ---
 
 <!doctype html>
@@ -22,7 +29,11 @@ const posts = (await getCollection("blog")).sort(
     <Header />
     <main>
       <div class="container mx-auto my-20 grid grid-cols-1 p-2">
-        {posts.map((post) => <BlogPostExcerpt {...post} />)}
+        {
+          posts.map((post) => (
+            <BlogPostExcerpt post={post} tags={tagsByEntry.get(post.data.id) ?? []} />
+          ))
+        }
       </div>
     </main>
     <Footer />
