@@ -1,32 +1,38 @@
 ---
-import { Image } from "astro:assets";
 import "./_blog-post.css";
+import { decodeSlug } from "emdash";
+import { Image, PortableText } from "emdash/ui";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { getCollection } from "astro:content";
 import { fade } from "astro:transitions";
+import { loadPost, mediaSrc, publishedOn } from "../../lib/blog";
 
-export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+const slug = decodeSlug(Astro.params.slug);
+if (!slug) return Astro.rewrite("/404");
+
+let post;
+try {
+  const result = await loadPost(slug);
+  post = result.entry;
+  if (Astro.cache?.enabled) Astro.cache.set(result.cacheHint);
+} catch (error) {
+  console.error("Failed to load post:", error);
+  return new Response("Unable to load post", { status: 500 });
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+if (!post) return Astro.rewrite("/404");
+
+const date = publishedOn(post.data.published_on);
+const tags = post.data.terms?.tag ?? [];
 ---
 
 <html lang="en" transition:animate={fade({ duration: "0.4s" })}>
   <head>
     <BaseHead
-      title={entry.data.title}
-      description={entry.data.description}
-      noIndex={Boolean(entry.data.externalLink)}
-      image={entry.data.heroImage}
-      externalLink={entry.data.externalLink}
+      title={post.data.title}
+      description={post.data.description}
+      image={mediaSrc(post.data.featured_image)}
     />
   </head>
   <body class="border-t-8 border-primary dark:bg-gray-900">
@@ -36,60 +42,62 @@ const { Content } = await entry.render();
         <div class="container mx-auto max-w-screen-lg my-20 p-2">
           <h1
             class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug text-center"
+            {...post.edit.title}
           >
-            {entry.data.title}
+            {post.data.title}
           </h1>
-          <time
-            datetime={entry.data.pubDate}
-            class="block text-base leading-6 font-medium text-gray-500 text-center my-4"
-          >
-            {
-              new Date(entry.data.pubDate).toLocaleDateString("en-us", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            }
-          </time>
-          <div class="relative">
-            <Image
-              format="webp"
-              class="object-cover mb-12 rounded-lg"
-              width={1008}
-              height={567}
-              src={entry.data.heroImage}
-              alt={`Hero image for post ${entry.data.title}`}
-            />
-
-            <p
-              class="absolute bottom-4 right-4 bg-gray-200 text-sm px-2 py-1 rounded-md text-gray-800"
-            >
-              Photo by{" "}
-              <a class="underline" href={entry.data.imageCreditLink}>
-                {entry.data.imageCreditName}
-              </a>{" "}
-              on
-              <a
-                class="underline"
-                href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          {
+            date && (
+              <time
+                datetime={date.toISOString()}
+                class="block text-base leading-6 font-medium text-gray-500 text-center my-4"
               >
-                Unsplash
-              </a>
-            </p>
-          </div>
-          <div class="text-gray-900 leading-loose font-serif text-lg markdown">
-            <Content />
+                {date.toLocaleDateString("en-us", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+            )
+          }
+          {
+            post.data.featured_image && (
+              <div class="relative" {...post.edit.featured_image}>
+                <Image
+                  image={post.data.featured_image}
+                  alt={`Hero image for post ${post.data.title}`}
+                  class="object-cover mb-12 rounded-lg w-full"
+                />
+
+                <p class="absolute bottom-4 right-4 bg-gray-200 text-sm px-2 py-1 rounded-md text-gray-800">
+                  Photo by{" "}
+                  <a class="underline" href={post.data.image_credit_url}>
+                    {post.data.image_credit_name}
+                  </a>{" "}
+                  on
+                  <a
+                    class="underline"
+                    href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  >
+                    Unsplash
+                  </a>
+                </p>
+              </div>
+            )
+          }
+          <div class="text-gray-900 leading-loose font-serif text-lg markdown" {...post.edit.content}>
+            <PortableText value={post.data.content} />
           </div>
           {
-            entry.data.tags && entry.data.tags.length ? (
+            tags.length ? (
               <div class="my-10">
                 <div class="flex items-center flex-wrap">
-                  {entry.data.tags.map((tag) => (
+                  {tags.map((tag) => (
                     <a
-                      href={`/tags/${tag}`}
+                      href={`/tags/${encodeURIComponent(tag.slug)}`}
                       class="flex items-center px-3 py-0.5 mr-1 mb-1 rounded-full font-medium bg-secondary hover:bg-primary text-white"
                     >
-                      {tag}
+                      {tag.label}
                     </a>
                   ))}
                 </div>

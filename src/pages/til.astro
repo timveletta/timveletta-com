@@ -6,6 +6,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { fade } from "astro:transitions";
 import { getCollection } from "astro:content";
 
+export const prerender = true;
+
 const tils = (await getCollection("til")).filter(
   (post) => post.data.draft !== true
 );
@@ -62,7 +64,7 @@ const categories = new Set(tils.map((post) => post.data.category).sort());
                     <ul class="text-lg font-serif mb-8 list-disc list-outside space-y-2 leading-loose ml-4">
                       <li>
                         <a
-                          href={`/til/${post.slug}`}
+                          href={`/til/${post.id}`}
                           class="font-medium text-primary hover:underline"
                         >
                           {post.data.title}

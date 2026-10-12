@@ -1,51 +1,60 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import { Image } from "emdash/ui";
+import { mediaSrc, publishedOn } from "../lib/blog";
 
-const { data, slug }: CollectionEntry<"blog"> = Astro.props;
+const { post, tags = [] } = Astro.props;
+const { data } = post;
+const href = `/blog/${post.id}`;
+const date = publishedOn(data.published_on);
 ---
 
 <article class="relative isolate flex flex-col gap-4 md:flex-row py-4 mx-auto">
-  <a href={`/blog/${slug}`} class="md:basis-1/3 w-full aspect-video my-auto">
-    <Image
-      format="webp"
-      class="w-full object-cover rounded-lg"
-      width={342}
-      height={192}
-      src={data.heroImage}
-      alt={`Hero image for post ${data.title}`}
-    />
+  <a href={href} class="md:basis-1/3 w-full aspect-video my-auto">
+    {
+      data.featured_image && (
+        <span class="block h-full overflow-hidden rounded-lg" {...post.edit?.featured_image}>
+          <Image
+            image={data.featured_image}
+            alt={`Hero image for post ${data.title}`}
+            class="h-full w-full object-cover"
+          />
+        </span>
+      )
+    }
   </a>
   <div class="flex flex-1 justify-between dark:bg-slate-800 md:p-6 pb-6">
     <div class="flex-1">
       <p class="text-primaryAA font-bold text-sm my-2">
-        <time datetime={data.pubDate}>
-          {
-            new Date(data.pubDate).toLocaleDateString("en-us", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          }
-        </time>
+        {
+          date && (
+            <time datetime={date.toISOString()}>
+              {date.toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          )
+        }
       </p>
       <a
-        href={`/blog/${slug}`}
+        href={href}
         class="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-primary line-clamp-2"
+        {...post.edit?.title}
       >
         {data.title}
       </a>
-      <p class="mt-4 text-base text-gray-500 dark:text-gray-200 line-clamp-3">
+      <p class="mt-4 text-base text-gray-500 dark:text-gray-200 line-clamp-3" {...post.edit?.description}>
         {data.description}
       </p>
       <div class="mt-6 flex items-center flex-wrap">
         {
-          data.tags.map((tag: string) => (
+          tags.map((tag) => (
             <a
-              href={`/tags/${tag}`}
+              href={`/tags/${encodeURIComponent(tag.slug)}`}
               class="flex items-center px-3 py-0.5 mr-1 mb-1 rounded-full text-sm font-medium bg-secondary dark:bg-primary hover:bg-primary text-white"
             >
-              {tag}
+              {tag.label}
             </a>
           ))
         }

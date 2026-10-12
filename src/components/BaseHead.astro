@@ -1,5 +1,6 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -53,4 +54,4 @@ const { title, description, image = "/social.jpg", noIndex } = Astro.props;
     type="text/css"
   />
 </noscript>
-<ViewTransitions fallback="swap" />
+<ClientRouter fallback="swap" />

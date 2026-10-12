@@ -4,32 +4,26 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 import BlogPostExcerpt from "../../components/BlogPostExcerpt.astro";
-import { getCollection } from "astro:content";
 import { fade } from "astro:transitions";
+import { decodeSlug, getEmDashCollection, getTerm } from "emdash";
 
-export async function getStaticPaths() {
-  const allPosts = await getCollection("blog");
-  return [
-    ...new Set(
-      [].concat.apply(
-        [],
-        allPosts.map((post) => post.data.tags)
-      )
-    ),
-  ].map((tag) => ({
-    params: {
-      tag,
-    },
-  }));
+const tag = decodeSlug(Astro.params.tag);
+const term = tag ? await getTerm("tag", tag, { includeCounts: false }) : null;
+if (!term) return Astro.rewrite("/404");
+
+let posts = [];
+try {
+  const result = await getEmDashCollection("posts", {
+    where: { tag: term.slug },
+    orderBy: { published_on: "desc" },
+  });
+  if (result.error) throw result.error;
+  posts = result.entries;
+  if (Astro.cache?.enabled) Astro.cache.set(result.cacheHint);
+} catch (error) {
+  console.error("Failed to load tagged posts:", error);
+  return new Response("Unable to load posts", { status: 500 });
 }
-
-const { tag } = Astro.params;
-const posts = (await getCollection("blog"))
-  .filter((post) => post.data.tags.includes(tag))
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
-  );
 ---
 
 <!doctype html>
@@ -44,10 +38,14 @@ const posts = (await getCollection("blog"))
         <h1
           class="text-3xl text-center dark:text-white font-bold text-gray-800 tracking-wide mb-10 p-2"
         >
-          Blog posts tagged "{tag}"
+          Blog posts tagged "{term.label}"
         </h1>
         <div class="grid grid-cols-1 gap-8 p-2">
-          {posts.map((post) => <BlogPostExcerpt {...post} />)}
+          {
+            posts.map((post) => (
+              <BlogPostExcerpt post={post} tags={[{ slug: term.slug, label: term.label }]} />
+            ))
+          }
         </div>
       </div>
     </main>
