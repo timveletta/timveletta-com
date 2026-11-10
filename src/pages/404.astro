@@ -1,54 +1,203 @@
 ---
-import { getCollection } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import BlogPostExcerpt from "../components/BlogPostExcerpt.astro";
-import { fade } from "astro:transitions";
-
-const posts = (await getCollection("blog")).sort(
-  (a, b) =>
-    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
-);
-const recentPosts = posts.slice(0, 3);
+import Base from "../layouts/Base.astro";
 ---
 
-<!doctype html>
-<html lang="en" transition:animate={fade({ duration: "0.4s" })}>
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="dark:bg-gray-900 border-t-8 border-primary">
-    <Header />
-    <main>
-      <div class="container px-4 mx-auto content-center items-center sm:mt-0">
-        <div class="mt-32 mb-16">
-          <h1
-            class="font-sans text-6xl font-bold tracking-wide leading-24 text-slate-800"
-          >
-            Sorry, I couldn't find that page.
-          </h1>
-          <hr class="h-4 w-20 mt-4 mb-3 bg-primary" />
-          <h2
-            class="font-sans text-4xl font-light tracking-wide leading-relaxed text-slate-800"
-          >
-            Perhaps one of my recent blog posts could get you back on track.
-          </h2>
-        </div>
-        <div class="grid grid-cols-1">
-          {recentPosts.map((post) => <BlogPostExcerpt {...post} />)}
-        </div>
-        <div class="my-12 flex justify-center">
-          <a
-            href="/blog"
-            class="bg-primary text-white font-bold px-4 py-2 rounded hover:bg-opacity-75"
-          >
-            See All Posts
-          </a>
-        </div>
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Base title="Page not found">
+	<section class="band not-found">
+		<div class="not-found__backdrop" aria-hidden="true"></div>
+		<div class="frame not-found__inner">
+			<p class="eyebrow not-found__code">Error 404</p>
+			<h1 class="intro__title">Page not found</h1>
+			<p class="intro__lead">
+				The page you’re looking for doesn’t exist or may have moved.
+			</p>
+			<div class="not-found__actions">
+				<a href="/" class="btn">Go home</a>
+				<a href="/posts" class="btn btn--ghost">Browse posts</a>
+			</div>
+			<form
+				method="get"
+				action="/search"
+				role="search"
+				aria-label="Posts"
+				class="not-found__search"
+			>
+				<label for="not-found-query" class="sr-only">Search posts</label>
+				<svg
+					class="not-found__search-icon"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.75"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"
+					></path></svg
+				>
+				<input
+					id="not-found-query"
+					class="not-found__search-input"
+					type="search"
+					name="q"
+					placeholder="Or search posts"
+				/>
+				<button
+					type="submit"
+					class="btn not-found__search-submit"
+					aria-label="Search"
+				>
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.75"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
+						<path d="M5 12h14"></path>
+						<path d="m12 5 7 7-7 7"></path>
+					</svg>
+				</button>
+			</form>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.not-found {
+		padding-block: clamp(4rem, 2.5rem + 6vw, 8rem);
+	}
+
+	.not-found__backdrop {
+		position: absolute;
+		inset: 0;
+		background-image: radial-gradient(
+			circle,
+			var(--color-border-strong) 1px,
+			transparent 1.5px
+		);
+		background-position: center;
+		background-size: 16px 16px;
+		mask-image: radial-gradient(
+			ellipse 46% 58% at 50% 50%,
+			#000 15%,
+			transparent 75%
+		);
+		pointer-events: none;
+	}
+
+	.not-found__inner {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.not-found__code {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--spacing-2);
+		min-height: 28px;
+		padding: 2px 12px;
+		border-radius: var(--radius-full);
+		background: var(--color-surface);
+		box-shadow:
+			inset 0 0 0 1px var(--color-border),
+			var(--shadow-sm);
+		color: var(--color-text-secondary);
+	}
+
+	.not-found__code::before {
+		content: "";
+		width: 6px;
+		height: 6px;
+		border-radius: var(--radius-full);
+		background: var(--color-muted);
+	}
+
+	.not-found__inner .intro__lead {
+		max-width: 40ch;
+		text-wrap: balance;
+	}
+
+	.not-found__actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--spacing-3);
+		margin-top: var(--spacing-8);
+	}
+
+	.not-found__search {
+		position: relative;
+		width: min(100%, 340px);
+		margin-top: var(--spacing-6);
+	}
+
+	.not-found__search-icon {
+		position: absolute;
+		inset-inline-start: 16px;
+		top: 50%;
+		width: 16px;
+		height: 16px;
+		translate: 0 -50%;
+		color: var(--color-muted);
+		pointer-events: none;
+	}
+
+	.not-found__search-input {
+		display: block;
+		width: 100%;
+		height: 44px;
+		padding-block: 0;
+		padding-inline: 42px 48px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-full);
+		background: var(--color-surface);
+		color: var(--color-text);
+		font: inherit;
+		font-size: var(--font-size-base);
+		-webkit-appearance: none;
+		appearance: none;
+		transition:
+			border-color var(--transition-fast),
+			box-shadow var(--transition-fast);
+	}
+
+	.not-found__search-input::placeholder {
+		color: var(--color-muted);
+	}
+
+	.not-found__search-input::-webkit-search-cancel-button {
+		filter: grayscale(1);
+		cursor: pointer;
+	}
+
+	.not-found__search-input:hover {
+		border-color: var(--color-border-strong);
+	}
+
+	/* Transparent rather than none so forced-colors mode still draws a ring */
+	.not-found__search-input:focus {
+		outline: 2px solid transparent;
+		border-color: var(--color-muted);
+		box-shadow: 0 0 0 3px var(--color-brand-ring);
+	}
+
+	.not-found__search-submit {
+		position: absolute;
+		top: 6px;
+		inset-inline-end: 6px;
+		width: 32px;
+		height: 32px;
+		min-height: 0;
+		padding: 0;
+	}
+
+	.not-found__search-submit svg:dir(rtl) {
+		scale: -1 1;
+	}
+</style>
