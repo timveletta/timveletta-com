@@ -11,8 +11,10 @@ import LiveSearch from "emdash/ui/search";
 import { Font } from "astro:assets";
 import { getSiteLocale } from "../utils/locale";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
+import { fade, ClientRouter } from "astro:transitions";
 import "../styles/tokens.css";
 import "../styles/theme.css";
+import "../styles/global.css";
 
 interface Props {
 	title: string;
@@ -108,7 +110,7 @@ const year = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} transition:animate={fade({duration: "0.4s"})}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -122,6 +124,7 @@ const year = new Date().getFullYear();
 			title={`${siteTitle} RSS Feed`}
 			href="/rss.xml"
 		/>
+		<ClientRouter/>
 		<script is:inline>
 			// Apply an explicit theme choice immediately to prevent flash.
 			// With no cookie, color-scheme: light dark follows the OS.
@@ -136,7 +139,7 @@ const year = new Date().getFullYear();
 			})();
 		</script>
 	</head>
-	<body>
+	<body class="dark:bg-gray-900 border-t-8 border-primary">
 		<EmDashBodyStart page={pageCtx} />
 		<a href="#main" class="skip-link">Skip to content</a>
 		<header class="site-header">
