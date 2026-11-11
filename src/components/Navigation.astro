@@ -1,0 +1,78 @@
+---
+const {siteLogo, siteTitle, menuItems} = Astro.props;
+
+// Check if user is logged in (for showing admin link)
+const isLoggedIn = !!Astro.locals.user;
+
+const TRAILING_SLASH = /\/$/;
+const currentPath = Astro.url.pathname.replace(TRAILING_SLASH, "") || "/";
+
+/** "page" for the current page, "true" for its parent section (e.g. Posts on a post). */
+function navCurrent(url: string): "page" | "true" | undefined {
+	let target: URL;
+	try {
+		target = new URL(url, Astro.url);
+	} catch {
+		return undefined;
+	}
+	if (target.origin !== Astro.url.origin || target.hash) return undefined;
+	if (target.search && target.search !== Astro.url.search) return undefined;
+	const path = target.pathname.replace(TRAILING_SLASH, "") || "/";
+	if (path === currentPath) return "page";
+	if (path !== "/" && currentPath.startsWith(`${path}/`)) return "true";
+	return undefined;
+}
+---
+
+<header class="container mx-auto flex sm:flex-row flex-col items-center justify-between flex-wrap mt-8 px-4 md:px-0">
+    <a href="/" class="flex items-center shrink-0 mr-6 z-10" aria-label="Home">
+        <svg
+              width="88px"
+              height="100%"
+              viewBox="0 0 3334 1459"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xml:space="preserve"
+              style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+              ><g
+                ><path
+                  d="M1987.09,0l-1987.09,0l207.223,316.436l1987.1,0l-207.224,-316.436Z"
+                  class="fill-secondary dark:fill-gray-200"></path><path
+                  d="M949.472,0l-386.469,0l957.654,1458.33l386.469,0l-957.654,-1458.33Z"
+                  class="fill-secondary dark:fill-gray-200"></path><path
+                  d="M1989.21,0l-386.469,0l957.654,1458.33l386.469,0l-957.654,-1458.33Z"
+                  class="fill-secondary dark:fill-gray-200"></path><path
+                  d="M2946.86,0l386.469,0l-389.572,1458.33l-386.469,0l389.572,-1458.33Z"
+                  class="fill-primary"></path></g
+            ></svg>
+	</a>
+	<nav role="navigation" aria-label="main-navigation" class="w-auto z-10 sm:mt-0 mt-8 font-semibold flex items-baseline">
+		<ul class="flex items-center">
+			{menuItems.map((item) => (
+				<li>
+					<a
+						href={item.url}
+						target={item.target}
+						rel={
+							item.target === "_blank"
+								? "noopener noreferrer"
+								: undefined
+						}
+						aria-current={navCurrent(item.url)}
+						class="text-slate-600 dark:text-gray-100 block lg:inline-block md:mt-0 mr-6 p-2 border-b-4 hover:border-primary hover:text-slate-900 hover:dark:text-slate-200 md:w-auto border-transparent active:border-primary active:font-bold active:text-slate-900 no-underline"
+					>
+						{item.label}
+					</a>
+				</li>
+			))}
+		</ul>
+		{
+			isLoggedIn && (
+				<a href="/_emdash/admin" class="rounded-full bg-primaryAA text-gray-100 hover:bg-primary no-underline px-2 py-1 border-slate-800 border">
+					Admin
+				</a>
+			)
+		}
+	</nav>
+</header>
