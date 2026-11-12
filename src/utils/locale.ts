@@ -6,21 +6,21 @@ import { getI18nConfig } from "emdash";
  * undefined.
  */
 export function getSiteLocale(): string | undefined {
-	const locale = getI18nConfig()?.defaultLocale;
-	if (!locale) return undefined;
-	try {
-		return Intl.DateTimeFormat.supportedLocalesOf(locale)[0];
-	} catch {
-		// Malformed tags such as "pt_BR" throw instead of matching nothing.
-		return undefined;
-	}
+  const locale = getI18nConfig()?.defaultLocale;
+  if (!locale) return undefined;
+  try {
+    return Intl.DateTimeFormat.supportedLocalesOf(locale)[0];
+  } catch {
+    // Malformed tags such as "pt_BR" throw instead of matching nothing.
+    return undefined;
+  }
 }
 
 /** Formats a date in the site's locale, or in US English without one. */
 export function formatDate(date: Date, month: "long" | "short"): string {
-	return date.toLocaleDateString(getSiteLocale() ?? "en-US", {
-		year: "numeric",
-		month,
-		day: "numeric",
-	});
+  return date.toLocaleDateString(getSiteLocale() ?? "en-US", {
+    year: "numeric",
+    month,
+    day: "numeric",
+  });
 }
