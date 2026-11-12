@@ -1,0 +1,44 @@
+---
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+---
+
+<button
+  id="theme-toggle"
+  aria-label="Toggle Theme"
+  class="p-2 hover:bg-amber-100 dark:hover:bg-indigo-100 rounded-full cursor-pointer"
+>
+  <SunIcon className="size-6 fill-amber-600 dark:hidden" />
+  <MoonIcon className="size-6 fill-indigo-400 not-dark:hidden" />
+</button>
+
+<script is:inline>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem("theme") ?? "";
+    if (["dark", "light"].includes(localStorageTheme)) {
+      return localStorageTheme;
+    }
+    return window.matchMedia("(prefers-color-scheme: dark").matches
+      ? "dark"
+      : "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+
+  window.localStorage.setItem("theme", theme);
+
+  const handleToggle = () => {
+    const documentClasses = document.documentElement.classList;
+    documentClasses.toggle("dark");
+
+    const isDark = documentClasses.contains("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  };
+
+  document
+    .getElementById("theme-toggle")
+    ?.addEventListener("click", handleToggle);
+</script>
