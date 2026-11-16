@@ -137,12 +137,7 @@ const gridPostsWithTags = gridPosts.map((post) => ({
             </div>
             <div class="post-grid">
               {gridPostsWithTags.map(({ post, tags }) => (
-                <PostCard
-                  post={post}
-                  tags={tags}
-                  variant="card"
-                  headingLevel={3}
-                />
+                <PostCard post={post} tags={tags} />
               ))}
             </div>
           </div>

@@ -12,23 +12,21 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 </button>
 
 <script is:inline>
-  const theme = (() => {
+  const setTheme = () => {
     const localStorageTheme = localStorage?.getItem("theme") ?? "";
-    if (["dark", "light"].includes(localStorageTheme)) {
-      return localStorageTheme;
+    const theme = ["dark", "light"].includes(localStorageTheme)
+      ? localStorageTheme
+      : window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
     }
-    return window.matchMedia("(prefers-color-scheme: dark").matches
-      ? "dark"
-      : "light";
-  })();
 
-  if (theme === "light") {
-    document.documentElement.classList.remove("dark");
-  } else {
-    document.documentElement.classList.add("dark");
-  }
-
-  window.localStorage.setItem("theme", theme);
+    window.localStorage.setItem("theme", theme);
+  };
 
   const handleToggle = () => {
     const documentClasses = document.documentElement.classList;
@@ -38,7 +36,14 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
     localStorage.setItem("theme", isDark ? "dark" : "light");
   };
 
-  document
-    .getElementById("theme-toggle")
-    ?.addEventListener("click", handleToggle);
+  const bindButtonEventListener = () => {
+    document
+      .getElementById("theme-toggle")
+      ?.addEventListener("click", handleToggle);
+  };
+
+  setTheme();
+
+  document.addEventListener("astro:after-swap", setTheme);
+  document.addEventListener("astro:page-load", bindButtonEventListener);
 </script>
