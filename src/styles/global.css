@@ -3,3 +3,56 @@
 @config "../../tailwind.config.js";
 
 @custom-variant aria-current (&[aria-current="true"]);
+
+/*
+* The frame rails: two hairlines that run the full height of
+* the page at the edges of the content frame. Fixed and behind
+* everything, so any surface with a background covers them.
+*/
+body::before {
+  content: "";
+  position: fixed;
+  inset-block: 0;
+  inset-inline: 0;
+  z-index: -1;
+  width: var(--frame-width);
+  margin-inline: auto;
+  border-inline: 1px solid var(--color-border);
+  pointer-events: none;
+}
+
+main > section,
+footer {
+  position: relative;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Crosshairs where the band's rule meets the rails */
+main > section::before,
+main > section::after,
+footer::before,
+footer::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 9px;
+  height: 9px;
+  background:
+    linear-gradient(var(--color-border-strong), var(--color-border-strong))
+      center / 1px 100% no-repeat,
+    linear-gradient(var(--color-border-strong), var(--color-border-strong))
+      center / 100% 1px no-repeat;
+  pointer-events: none;
+}
+
+main > section::before,
+footer::before,
+footer::after {
+  inset-inline-start: calc((100% - var(--frame-width)) / 2 - 4px);
+}
+
+main > section::after,
+footer::before,
+footer::after {
+  inset-inline-end: calc((100% - var(--frame-width)) / 2 - 4px);
+}

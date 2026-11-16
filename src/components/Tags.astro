@@ -1,0 +1,20 @@
+---
+interface Props {
+  tags?: Array<{ slug: string; label: string }>;
+}
+
+const { tags = [] } = Astro.props;
+---
+
+<ul class="flex gap-2 list-none" aria-label="Tags">
+  {tags.map((tag) => (
+    <li>
+      <a
+        href={`/tag/${tag.slug}`}
+        class="inline-block max-w-full overflow-hidden px-2 py-1 rounded-full bg-white dark:bg-slate-700 shadow-sm ring ring-gray-200 dark:ring-gray-600 text-sm font-medium text-gray-600 dark:text-gray-300 text-ellipsis hover:underline hover:shadow-md"
+      >
+        {tag.label}
+      </a>
+    </li>
+  ))}
+</ul>
