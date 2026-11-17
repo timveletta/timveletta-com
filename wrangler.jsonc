@@ -1,25 +1,31 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-emdash-site",
-	"main": "./src/worker.ts",
-	"compatibility_date": "2026-02-24",
-	"compatibility_flags": ["nodejs_compat"],
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "my-emdash-site",
-		},
-	],
-	"r2_buckets": [
-		{
-			"binding": "MEDIA",
-			"bucket_name": "my-emdash-media",
-		},
-	],
-	// Sandboxed plugins require Worker Loader, available on Workers paid plans.
-	"worker_loaders": [{ "binding": "LOADER" }],
-	// General maintenance cron trigger
-	"triggers": {
-		"crons": ["* * * * *"],
-	},
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "timveletta-com-emdash-site",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-02-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [{ "pattern": "www.timveletta.com", "custom_domain": true }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "timveletta-com-emdash-site",
+      "database_id": "d955363c-8758-4af3-94ff-38a790f2db8d",
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "timveletta-com-emdash-media",
+    },
+  ],
+  // Sandboxed plugins require Worker Loader, available on Workers paid plans.
+  "worker_loaders": [
+    {
+      "binding": "LOADER",
+    },
+  ],
+  // General maintenance cron trigger
+  "triggers": {
+    "crons": ["* * * * *"],
+  },
 }
