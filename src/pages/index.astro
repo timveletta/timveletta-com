@@ -6,11 +6,12 @@ import {
 } from "emdash";
 import Base from "../layouts/Base.astro";
 import PostCard from "../components/PostCard.astro";
+import Hero from "../components/Hero.astro";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
 
 // Limit to what we render (1 featured + 6 grid). The DB does the slicing
 // instead of fetching every post and discarding the tail in JS.
-const POSTS_PER_PAGE = 7;
+const POSTS_PER_PAGE = 6;
 
 const [{ entries: posts, cacheHint }, settings] = await Promise.all([
   getEmDashCollection("posts", {
@@ -62,10 +63,11 @@ const gridPostsWithTags = gridPosts.map((post) => ({
 ---
 
 <Base title={siteTitle} description={siteTagline}>
+  <Hero />
+
   <header class="band intro">
     <div class="frame home-intro">
       <div>
-        <p class="eyebrow">Blog</p>
         <h1 class="intro__title">{siteTitle}</h1>
         {siteTagline && <p class="intro__subtitle">{siteTagline}</p>}
       </div>

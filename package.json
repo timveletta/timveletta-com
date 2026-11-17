@@ -31,6 +31,6 @@
     "@cloudflare/workers-types": "^5.20260820.1",
     "prettier": "^3.10.0",
     "prettier-plugin-astro": "^1.1.2",
-    "wrangler": "^4.125.0"
+    "wrangler": "^4.163.0"
   }
 }

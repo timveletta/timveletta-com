@@ -11,34 +11,34 @@ export default defineConfig({
   adapter: cloudflare(),
 
   image: {
-      layout: "constrained",
-      responsiveStyles: true,
-	},
+    layout: "constrained",
+    responsiveStyles: true,
+  },
 
   integrations: [
-      react(),
-      emdash({
-          database: d1({ binding: "DB", session: "auto", coalesce: true }),
-          storage: r2({ binding: "MEDIA" }),
-      }),
-	],
+    react(),
+    emdash({
+      database: d1({ binding: "DB", session: "auto", coalesce: true }),
+      storage: r2({ binding: "MEDIA" }),
+    }),
+  ],
 
   fonts: [
-      {
-          provider: fontProviders.google(),
-          name: "Inter",
-          cssVariable: "--font-body",
-          weights: [400, 500, 600, 700],
-          fallbacks: ["sans-serif"],
-      },
-      {
-          provider: fontProviders.google(),
-          name: "JetBrains Mono",
-          cssVariable: "--font-mono",
-          weights: [400, 500],
-          fallbacks: ["monospace"],
-      },
-	],
+    {
+      provider: fontProviders.google(),
+      name: "Mulish",
+      cssVariable: "--font-body",
+      weights: [400, 500, 600, 700, 800, 900],
+      fallbacks: ["sans-serif"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "JetBrains Mono",
+      cssVariable: "--font-mono",
+      weights: [400, 500],
+      fallbacks: ["monospace"],
+    },
+  ],
 
   devToolbar: { enabled: false },
 

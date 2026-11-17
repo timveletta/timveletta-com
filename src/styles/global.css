@@ -4,6 +4,10 @@
 
 @custom-variant aria-current (&[aria-current="true"]);
 
+@theme inline {
+  --font-sans: var(--font-body);
+}
+
 /*
 * The frame rails: two hairlines that run the full height of
 * the page at the edges of the content frame. Fixed and behind

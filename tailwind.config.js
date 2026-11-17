@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     container: {
       screens: {
-        xl: "1024px",
+        xl: "1200px",
       },
     },
     extend: {
