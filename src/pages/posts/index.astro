@@ -65,7 +65,7 @@ const postsWithTags = posts.map((post) => ({
         </div>
       ) : (
         <>
-          <ol class="archive__list">
+          <ol class="grid grid-cols-3 sm:grid-cols-1 gap-6">
             {postsWithTags.map(({ post, tags }) => (
               <li>
                 <PostCard post={post} tags={tags} />

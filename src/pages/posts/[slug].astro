@@ -212,6 +212,25 @@ const hasHeadings = (post.data.content ?? []).some(
               <dt class="eyebrow">Reading time</dt>
               <dd>{readingTime} min</dd>
             </div>
+
+            <nav
+              class="toc"
+              aria-labelledby="toc-title"
+              hidden={!hasHeadings}
+              data-toc
+            >
+              <h2 id="toc-title" class="eyebrow">
+                On this page
+              </h2>
+              <ol class="toc__list" data-toc-list></ol>
+            </nav>
+
+            <aside class="post-widgets" aria-labelledby="widgets-title">
+              <h2 id="widgets-title" class="sr-only">
+                More from the blog
+              </h2>
+              <WidgetArea name="sidebar" />
+            </aside>
           </dl>
         </div>
 
@@ -227,27 +246,6 @@ const hasHeadings = (post.data.content ?? []).some(
             <Comments collection="posts" contentId={post.data.id} threaded />
             <CommentForm collection="posts" contentId={post.data.id} />
           </section>
-        </div>
-
-        <div class="post-rail">
-          <nav
-            class="toc"
-            aria-labelledby="toc-title"
-            hidden={!hasHeadings}
-            data-toc
-          >
-            <h2 id="toc-title" class="eyebrow">
-              On this page
-            </h2>
-            <ol class="toc__list" data-toc-list></ol>
-          </nav>
-
-          <aside class="post-widgets" aria-labelledby="widgets-title">
-            <h2 id="widgets-title" class="sr-only">
-              More from the blog
-            </h2>
-            <WidgetArea name="sidebar" />
-          </aside>
         </div>
       </div>
     </div>
@@ -278,12 +276,7 @@ const hasHeadings = (post.data.content ?? []).some(
         </div>
         <div class="post-grid">
           {otherPostsWithTags.map(({ post: p, tags: postTags }) => (
-            <PostCard
-              post={p}
-              tags={postTags}
-              variant="card"
-              headingLevel={3}
-            />
+            <PostCard post={p} tags={postTags} />
           ))}
         </div>
       </div>
