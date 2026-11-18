@@ -1,7 +1,12 @@
 ---
+import type { MenuItem } from "emdash";
 import DarkModeToggle from "./DarkModeToggle.astro";
 
-const { siteLogo, siteTitle, menuItems } = Astro.props;
+interface Props {
+  menuItems: Array<MenuItem>;
+}
+
+const { menuItems } = Astro.props;
 
 // Check if user is logged in (for showing admin link)
 const isLoggedIn = !!Astro.locals.user;
@@ -25,7 +30,7 @@ function navCurrent(url: string): "true" | undefined {
 }
 ---
 
-<header class="container mx-auto flex sm:flex-row flex-col items-center justify-between flex-wrap mt-8 px-4 md:px-0">
+<header class="container mx-auto flex sm:flex-row flex-col items-center justify-between flex-wrap mt-8 px-4">
   <a href="/" class="flex items-center shrink-0 mr-6 z-10" aria-label="Home">
     <svg
       width="88px"

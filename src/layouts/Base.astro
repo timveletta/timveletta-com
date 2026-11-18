@@ -1,17 +1,13 @@
 ---
 import { getMenuWithCacheHint, getSiteSettingsWithCacheHint } from "emdash";
-import {
-  WidgetArea,
-  EmDashHead,
-  EmDashBodyStart,
-  EmDashBodyEnd,
-} from "emdash/ui";
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
 import { Font } from "astro:assets";
 import { getSiteLocale } from "../utils/locale";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
 import { fade, ClientRouter } from "astro:transitions";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/tokens.css";
 import "../styles/global.css";
 
@@ -52,9 +48,7 @@ if (Astro.cache?.enabled) {
   Astro.cache.set(menuResult.cacheHint);
 }
 
-const { siteTitle, siteTagline, siteLogo } = resolveBlogSiteIdentity(
-  settingsResult.data,
-);
+const { siteTitle, siteTagline } = resolveBlogSiteIdentity(settingsResult.data);
 const titleIncludesSiteName =
   title === siteTitle ||
   title.endsWith(` | ${siteTitle}`) ||
@@ -82,7 +76,6 @@ const pageCtx = createPublicPageContext({
 });
 
 const lang = getSiteLocale() ?? "en";
-const year = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -104,152 +97,17 @@ const year = new Date().getFullYear();
   </head>
   <body class="dark:bg-gray-900 border-t-8 border-primary">
     <EmDashBodyStart page={pageCtx} />
-    <Navigation
-      siteLogo={siteLogo}
-      siteTitle={siteTitle}
-      menuItems={menuItems}
-    />
+    <Navigation menuItems={menuItems} />
 
     <main id="main" tabindex="-1">
       <slot />
     </main>
 
-    <footer class="site-footer band">
-      <div class="frame site-footer__grid">
-        <div class="site-footer__brand">
-          <a href="/" class="brand">
-            {siteLogo ? (
-              <img
-                src={siteLogo.url}
-                alt={siteLogo.alt || siteTitle}
-                class="brand__logo"
-              />
-            ) : (
-              <>
-                <span class="brand__name">{siteTitle}</span>
-              </>
-            )}
-          </a>
-          {siteTagline && <p class="site-footer__tagline">{siteTagline}</p>}
-        </div>
-        {menuItems.length > 0 && (
-          <nav class="site-footer__col" aria-labelledby="footer-navigate">
-            <h2 id="footer-navigate" class="eyebrow">
-              Navigate
-            </h2>
-            <ul class="site-footer__links">
-              {menuItems.map((item) => (
-                <li>
-                  <a
-                    href={item.url}
-                    target={item.target}
-                    rel={
-                      item.target === "_blank"
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
-        <div class="site-footer__col">
-          <h2 class="eyebrow">Connect</h2>
-          <ul class="site-footer__links">
-            <li>
-              <a href="/rss.xml">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.75"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 11a9 9 0 0 1 9 9"></path>
-                  <path d="M4 4a16 16 0 0 1 16 16"></path>
-                  <circle cx="5" cy="19" r="1"></circle>
-                </svg>
-                RSS feed
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="site-footer__col site-footer__widgets">
-          <WidgetArea name="footer" />
-        </div>
-      </div>
-      <div class="band site-footer__bottom">
-        <div class="frame site-footer__bottom-inner">
-          <p class="site-footer__meta">
-            {`© ${year} ${siteTitle}.`} Powered by{" "}
-            <a href="https://emdashcms.com">EmDash</a>
-          </p>
-          <div class="theme-switcher" role="group" aria-label="Color theme">
-            <button
-              type="button"
-              class="theme-btn"
-              data-theme="light"
-              aria-label="Light"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="theme-btn"
-              data-theme="dark"
-              aria-label="Dark"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path>
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="theme-btn"
-              data-theme="system"
-              aria-label="System"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
-                <path d="M8 21h8M12 17v4"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer
+      siteTitle={siteTitle}
+      siteTagline={siteTagline}
+      menuItems={menuItems}
+    />
 
     <style is:global>
       /*
