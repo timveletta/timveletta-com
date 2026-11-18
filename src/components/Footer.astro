@@ -1,0 +1,64 @@
+---
+import { RssIcon } from "@heroicons/react/20/solid";
+import type { MenuItem } from "emdash";
+import { WidgetArea } from "emdash/ui";
+
+interface Props {
+  siteTitle: string;
+  siteTagline: string;
+  menuItems: Array<MenuItem>;
+}
+
+const { siteTitle, siteTagline, menuItems } = Astro.props;
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-secondary text-gray-100">
+  <div class="container mx-auto grid grid-cols-3 gap-10 px-4 py-12">
+    <div>
+      <a class="font-bold text-primary uppercase" href="/">
+        {siteTitle}
+      </a>
+      {siteTagline && <p class="text-sm">{siteTagline}</p>}
+    </div>
+    {menuItems.length > 0 && (
+      <nav aria-labelledby="footer-navigate">
+        <h2
+          id="footer-navigate"
+          class="text-md font-bold text-primary uppercase"
+        >
+          Navigate
+        </h2>
+        <ul>
+          {menuItems.map((item) => (
+            <li>
+              <a
+                href={item.url}
+                target={item.target}
+                rel={
+                  item.target === "_blank" ? "noopener noreferrer" : undefined
+                }
+                class="text-sm hover:text-primary hover:underline"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+    <div>
+      <a href="/rss.xml" class="flex items-baseline">
+        <RssIcon className="size-4 mr-2" />
+        RSS feed
+      </a>
+    </div>
+  </div>
+  <div class="container text-center mx-auto pb-8">
+    <p class="text-sm text-primary">
+      {`© ${year} ${siteTitle}.`} Powered by{" "}
+      <a href="https://emdashcms.com">EmDash</a>
+    </p>
+  </div>
+</footer>
