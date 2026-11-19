@@ -10,6 +10,10 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare(),
 
+  redirects: {
+    "/posts": "/posts/page/1",
+  },
+
   image: {
     layout: "constrained",
     responsiveStyles: true,

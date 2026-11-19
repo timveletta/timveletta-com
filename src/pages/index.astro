@@ -7,6 +7,7 @@ import {
 import Base from "../layouts/Base.astro";
 import PostCard from "../components/PostCard.astro";
 import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
 
@@ -47,31 +48,29 @@ const gridPostsWithTags = visiblePosts.map((post) => ({
 <Base title={siteTitle} description={siteTagline}>
   <Hero />
 
-  {gridPostsWithTags.length > 0 && (
-    <section aria-labelledby="latest-posts">
-      <div class="container px-4 mx-auto py-24">
-        <h2
-          id="latest-posts"
-          class="font-sans text-slate-800 dark:text-white text-3xl font-bold tracking-wide text-center"
-        >
-          Recent Articles
-        </h2>
-        <hr class="h-4 w-20 mt-3 mb-12 bg-primary mx-auto border-none" />
-        <div class="grid grid-cols-3 sm:grid-cols-1 gap-6">
-          {gridPostsWithTags.map(({ post, tags }) => (
-            <PostCard post={post} tags={tags} />
-          ))}
-        </div>
-        {hasMorePosts && (
-          <a
-            href="/posts"
-            class="flex items-center justify-center mx-auto mt-8 hover:text-primaryAA"
-          >
-            View all<span class="sr-only"> posts</span>
-            <ChevronRightIcon className="size-5" />
-          </a>
-        )}
+  <section aria-labelledby="recent-posts">
+    <div class="container px-4 mx-auto py-24">
+      <SectionHeader id="recent-posts" label="Recent Articles" />
+      <div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+        {gridPostsWithTags.map(({ post, tags }) => (
+          <PostCard post={post} tags={tags} />
+        ))}
       </div>
-    </section>
-  )}
+      {hasMorePosts && (
+        <a
+          href="/posts"
+          class="flex items-center justify-center mx-auto mt-8 hover:text-primaryAA"
+        >
+          View all<span class="sr-only"> posts</span>
+          <ChevronRightIcon className="size-5" />
+        </a>
+      )}
+    </div>
+  </section>
+
+  <section aria-labelledby="recent-projects">
+    <div class="container px-4 mx-auto py-24">
+      <SectionHeader id="recent-projects" label="Things I've Built" />
+    </div>
+  </section>
 </Base>

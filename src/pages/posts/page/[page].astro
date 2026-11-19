@@ -1,0 +1,62 @@
+---
+import { getEmDashCollection, getTermsForEntries } from "emdash";
+import Base from "../../../layouts/Base.astro";
+import PostCard from "../../../components/PostCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+import SectionHeader from "../../../components/SectionHeader.astro";
+
+const POSTS_PER_PAGE = 6;
+
+const currentPage = Number(Astro.params.page ?? "1");
+if (!Number.isInteger(currentPage) || currentPage < 1) {
+  Astro.rewrite("/404");
+}
+
+const {
+  entries: posts,
+  cacheHint,
+  hasMore,
+  error,
+} = await getEmDashCollection("posts", {
+  orderBy: { published_at: "desc" },
+  limit: POSTS_PER_PAGE,
+  offset: (currentPage - 1) * POSTS_PER_PAGE,
+});
+
+if (error) return new Response("Unable to load posts", { status: 500 });
+
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+// Single batched query for tags across all posts, instead of one
+// getEntryTerms() call per post (which would be N round-trips).
+// Bylines are already hydrated on entry.data.bylines.
+const tagsByEntry = await getTermsForEntries(
+  "posts",
+  posts.map((p) => p.data.id),
+  "tag",
+);
+
+const postsWithTags = posts.map((post) => ({
+  post,
+  tags: tagsByEntry.get(post.data.id) ?? [],
+}));
+---
+
+<Base title="All Posts" description="Browse all blog posts">
+  <header aria-labelledby="all-blog-posts" class="mt-12">
+    <SectionHeader id="all-blog-posts" label="All Blog Posts" />
+  </header>
+
+  <section class="container mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-6 mb-6">
+      {postsWithTags.map(({ post, tags }) => (
+        <PostCard post={post} tags={tags} />
+      ))}
+    </div>
+    <Pagination
+      basePath="/posts/page"
+      currentPage={currentPage}
+      hasMore={hasMore}
+    />
+  </section>
+</Base>
