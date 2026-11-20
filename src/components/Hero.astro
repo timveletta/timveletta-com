@@ -1,10 +1,12 @@
 ---
 import SocialLink from "./SocialLink.astro";
+import GithubIcon from "../images/github.svg";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 ---
 
 <header class="container px-4 mx-auto my-24">
   <div class="max-w-2xl">
-    <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl leading-snug">
+    <h1 class="text-3xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight sm:text-4xl md:text-5xl leading-snug">
       Tim Veletta
     </h1>
     <hr class="h-3 w-20 my-6 bg-primary border-none" />
@@ -13,9 +15,13 @@ import SocialLink from "./SocialLink.astro";
       about creating simple, enjoyable and easy to use products and strive to
       find the right balance between aesthetic and function.
     </h2>
-    <div class="flex mt-6">
-      <SocialLink href="https://github.com/timveletta">Github</SocialLink>
-      <SocialLink href="mailto:timothy.veletta@gmail.com">Email</SocialLink>
+    <div class="flex items-center mt-6">
+      <SocialLink href="https://github.com/timveletta">
+        <GithubIcon class="size-10 fill-primary hover:opacity-80" />
+      </SocialLink>
+      <SocialLink href="mailto:timothy.veletta@gmail.com">
+        <EnvelopeIcon className="size-12 fill-primary hover:opacity-80" />
+      </SocialLink>
     </div>
   </div>
 </header>
