@@ -12,6 +12,7 @@ export default defineConfig({
 
   redirects: {
     "/posts": "/posts/page/1",
+    "/tag/[slug]": "/tag/[slug]/page/1",
   },
 
   image: {
