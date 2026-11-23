@@ -28,4 +28,10 @@
   "triggers": {
     "crons": ["* * * * *"],
   },
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+    },
+  },
 }
