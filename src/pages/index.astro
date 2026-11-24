@@ -6,6 +6,7 @@ import {
 } from "emdash";
 import Base from "../layouts/Base.astro";
 import PostCard from "../components/PostCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
@@ -40,9 +41,6 @@ if (Astro.cache?.enabled) {
 const visiblePosts = posts.slice(0, POSTS_PER_PAGE);
 const hasMorePosts = posts.length > POSTS_PER_PAGE;
 
-// Single batched query for tags across the featured post + grid posts.
-// Avoids the N+1 pattern of calling getEntryTerms() per entry.
-// Bylines are already hydrated on entry.data.bylines by getEmDashCollection.
 const tagEntryIds = visiblePosts.map((p) => p.data.id);
 const tagsByEntry = await getTermsForEntries("posts", tagEntryIds, "tag");
 
@@ -78,9 +76,16 @@ const gridPostsWithTags = visiblePosts.map((post) => ({
     </div>
   </section>
 
-  <!-- <section aria-labelledby="recent-projects">
-    <div class="container px-4 mx-auto py-24">
-      <SectionHeader id="recent-projects" label="Things I've Built" />
-    </div>
-  </section> -->
+  {projects.length > 0 && (
+    <section aria-labelledby="recent-projects">
+      <div class="container px-4 mx-auto py-24">
+        <SectionHeader id="recent-projects" label="Things I've Built" />
+        <div class="">
+          {projects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </Base>
