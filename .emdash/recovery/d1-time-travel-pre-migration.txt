@@ -1,0 +1,10 @@
+
+ ⛅️ wrangler 4.166.0 (update available 4.167.0)
+───────────────────────────────────────────────
+Resource location: remote 
+
+🚧 Time Traveling...
+⚠️ The current bookmark is '00000024-00000004-0000512d-dab4d68cdba5e59e6d93b9acd8fb21b6'
+⚡️ To restore to this specific bookmark, run:
+ `wrangler d1 time-travel restore timveletta-com-emdash-site --bookmark=00000024-00000004-0000512d-dab4d68cdba5e59e6d93b9acd8fb21b6`
+      
