@@ -1,0 +1,223 @@
+{
+  "collections": [
+    {
+      "slug": "pages",
+      "label": "Pages",
+      "labelSingular": "Page",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search",
+        "seo"
+      ],
+      "hidden": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "unique": false
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": false,
+          "unique": false
+        }
+      ]
+    },
+    {
+      "slug": "posts",
+      "label": "Posts",
+      "labelSingular": "Post",
+      "description": "Blog post content.",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "scheduling",
+        "search"
+      ],
+      "hidden": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "unique": false
+        },
+        {
+          "slug": "featured_image",
+          "label": "Featured Image",
+          "type": "image",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "excerpt",
+          "label": "Excerpt",
+          "type": "text",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "image_credit_name",
+          "label": "Image Credit Name",
+          "type": "string",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "image_credit_link",
+          "label": "Image Credit Link",
+          "type": "url",
+          "required": false,
+          "unique": false
+        }
+      ]
+    },
+    {
+      "slug": "projects",
+      "label": "Projects",
+      "labelSingular": "Project",
+      "description": "Showcasing what I've built.",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "hidden": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "unique": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Featured Image",
+          "type": "image",
+          "required": true,
+          "unique": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/png",
+              "image/jpeg",
+              "image/gif",
+              "image/webp",
+              "image/avif",
+              "image/jxl"
+            ]
+          },
+          "options": {}
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "excerpt",
+          "label": "Excerpt",
+          "type": "text",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "website_link",
+          "label": "Website Link",
+          "type": "url",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "github_link",
+          "label": "GitHub Link",
+          "type": "url",
+          "required": false,
+          "unique": false
+        },
+        {
+          "slug": "featured",
+          "label": "Featured",
+          "type": "boolean",
+          "required": false,
+          "unique": false
+        }
+      ]
+    },
+    {
+      "slug": "til",
+      "label": "Today I Learned",
+      "labelSingular": "TIL",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search",
+        "seo"
+      ],
+      "hidden": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "unique": false
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": false,
+          "unique": false
+        }
+      ]
+    },
+    {
+      "slug": "tils",
+      "label": "TILs",
+      "labelSingular": "TIL",
+      "description": "Brief learnings on various topics.",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "hidden": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "unique": false
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": true,
+          "unique": false
+        }
+      ]
+    }
+  ],
+  "version": "56f97b4b9e9c2ed8"
+}
