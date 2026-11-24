@@ -159,7 +159,11 @@ const goBack = () => {
           class="aspect-video overflow-hidden relative border border-gray-400 rounded-xl"
           {...post.edit.featured_image}
         >
-          <Image image={post.data.featured_image} priority />
+          <Image
+            image={post.data.featured_image}
+            class="absolute inset-0 w-full h-full object-cover max-w-none"
+            priority
+          />
         </div>
       </div>
     )}
