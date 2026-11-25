@@ -15,7 +15,6 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import { formatDate } from "../../utils/locale";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
-import "../../styles/prose.css";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 const slug = decodeSlug(Astro.params.slug);
@@ -186,7 +185,7 @@ const hasHeadings = (post.data.content ?? []).some(
         </div>
       </dl>
 
-      <div class="prose dark:text-white" data-post-content>
+      <div class="prose prose-lg dark:prose-invert" data-post-content>
         <PortableText value={post.data.content} />
       </div>
     </div>

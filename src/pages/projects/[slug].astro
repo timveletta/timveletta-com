@@ -9,7 +9,6 @@ import { Image, PortableText } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
 import Tags from "../../components/Tags.astro";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
-import "../../styles/prose.css";
 
 import {
   ArrowLeftIcon,
@@ -141,7 +140,7 @@ const tags = project.data.terms?.project_tags ?? [];
         )}
       </dl>
 
-      <div class="prose dark:text-white" data-post-content>
+      <div class="prose prose-lg dark:prose-invert" data-post-content>
         <PortableText value={project.data.content} />
       </div>
     </div>
