@@ -109,10 +109,6 @@ const hasHeadings = (post.data.content ?? []).some(
     "style" in block &&
     (block.style === "h2" || block.style === "h3"),
 );
-
-const goBack = () => {
-  history.back();
-};
 ---
 
 <Base

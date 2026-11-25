@@ -1,0 +1,149 @@
+---
+import {
+  getEmDashEntry,
+  getSeoMeta,
+  decodeSlug,
+  getSiteSettings,
+} from "emdash";
+import { Image, PortableText } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+import Tags from "../../components/Tags.astro";
+import { resolveBlogSiteIdentity } from "../../utils/site-identity";
+import "../../styles/prose.css";
+
+import {
+  ArrowLeftIcon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/solid";
+import GithubIcon from "../../images/github.svg";
+
+const slug = decodeSlug(Astro.params.slug);
+
+if (!slug) {
+  return Astro.rewrite("/404");
+}
+
+const { entry: project, cacheHint } = await getEmDashEntry("projects", slug);
+
+if (!project) {
+  return Astro.rewrite("/404");
+}
+
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+// Get featured image URL for OG fallback
+// The image may have src (external) or meta.storageKey (local)
+function getImageUrl(img: unknown): string | undefined {
+  if (!img || typeof img !== "object") return undefined;
+  const image = img as Record<string, unknown>;
+  // Check for direct src
+  if (typeof image.src === "string" && image.src) {
+    return image.src.startsWith("http")
+      ? image.src
+      : `${Astro.url.origin}${image.src}`;
+  }
+  // Build from storageKey for local images
+  const meta = image.meta as Record<string, unknown> | undefined;
+  const storageKey =
+    (typeof meta?.storageKey === "string" ? meta.storageKey : undefined) ||
+    (typeof image.id === "string" ? image.id : undefined);
+  if (storageKey) {
+    return `${Astro.url.origin}/_emdash/api/media/file/${storageKey}`;
+  }
+  return undefined;
+}
+
+const featuredImageUrl = getImageUrl(project.data.featured_image);
+const { siteTitle } = resolveBlogSiteIdentity(await getSiteSettings());
+
+// Generate SEO meta from content
+const seo = getSeoMeta(project, {
+  siteTitle,
+  siteUrl: Astro.url.origin,
+  path: Astro.url.pathname.replace(/\/$/, ""),
+  defaultOgImage: featuredImageUrl,
+});
+
+const tags = project.data.terms?.project_tags ?? [];
+---
+
+<Base
+  title={seo.title}
+  pageTitle={seo.ogTitle}
+  description={seo.description}
+  image={seo.ogImage}
+  canonical={seo.canonical}
+  robots={seo.robots}
+  type="article"
+  content={{ collection: "projects", id: project.data.id, slug }}
+>
+  <article class="container mx-auto px-4 py-24">
+    <header class="flex flex-col gap-6 my-6">
+      <a
+        href="javascript:history.back()"
+        class="text-sm text-gray-900 dark:text-gray-300 flex self-end"
+      >
+        <ArrowLeftIcon className="size-4 mr-2" />
+        Back
+      </a>
+      <h1
+        class="text-6xl font-semibold tracking-tight text-gray-900 dark:text-gray-50"
+        {...project.edit.title}
+      >
+        {project.data.title}
+      </h1>
+      {project.data.excerpt && (
+        <p
+          class="text-xl text-gray-700 dark:text-gray-200 max-w-prose"
+          {...project.edit.excerpt}
+        >
+          {project.data.excerpt}
+        </p>
+      )}
+      <Tags tags={tags} />
+    </header>
+
+    {project.data.featured_image && (
+      <div class="py-4 md:px-12 px-1">
+        <div
+          class="aspect-video overflow-hidden relative border border-gray-400 rounded-xl"
+          {...project.edit.featured_image}
+        >
+          <Image
+            image={project.data.featured_image}
+            class="absolute inset-0 w-full h-full object-cover max-w-none"
+            priority
+          />
+        </div>
+      </div>
+    )}
+
+    <div class="container justify-center mx-auto py-8 px-4 grid grid-cols-1 gap-4 md:grid-cols-[1fr_minmax(0,680px)] lg:grid-cols-[1fr_minmax(0,680px)_1fr]">
+      <dl class="md:flex flex-col gap-6 hidden">
+        {project.data.website_link && (
+          <a
+            href={project.data.website_link}
+            target="_blank"
+            class="text-primaryAA hover:text-primary text-sm font-bold mr-2 flex items-center"
+          >
+            <ArrowTopRightOnSquareIcon className="size-6 mr-2 fill-primaryAA" />
+            View Site
+          </a>
+        )}
+        {project.data.github_link && (
+          <a
+            href={project.data.github_link}
+            class="text-primaryAA hover:text-primary text-sm font-bold mr-2 flex items-center"
+          >
+            <GithubIcon class="size-5 mr-2 fill-primaryAA" />
+            View on Github
+          </a>
+        )}
+      </dl>
+
+      <div class="prose dark:text-white" data-post-content>
+        <PortableText value={project.data.content} />
+      </div>
+    </div>
+  </article>
+</Base>
